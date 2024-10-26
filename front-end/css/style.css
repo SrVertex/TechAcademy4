@@ -1,0 +1,15 @@
+:root {
+        /* color de fundo */
+    --BG_principal: #000000;
+    --BG_segundario: #ffffff;
+
+        /* color text */
+    --text_white: #ffffff;
+    --text_black: #000000;
+    
+  }
+
+body{
+    background-color: var(--BG_segundario) !important;
+}
+  
