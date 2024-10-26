@@ -7,6 +7,7 @@
     <title>TECNOLO</title>
 
     <link rel="stylesheet" href="css/style.css">
+    <base href="http://localhost/techAcademy4/front-end/index.php">
 
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
