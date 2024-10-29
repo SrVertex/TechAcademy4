@@ -1,15 +1,118 @@
 :root {
-        /* color de fundo */
+    /* color de fundo */
     --BG_principal: #000000;
     --BG_segundario: #ffffff;
 
-        /* color text */
+    /* color text */
     --text_white: #ffffff;
     --text_black: #000000;
-    
-  }
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+#barra_menu {
+    background-color: var(--text_white) ;
 
-body{
-    background-color: var(--BG_segundario) !important;
+    height: 2px;
+}
 
+body {
+    background-color: var(--BG_principal) !important;
+    color: var(--BG_segundario) !important;
+    font-family: montserrat !important;
+}
+
+header {
+    .nav_mobile {
+        .navbar {
+
+                /* ajuste do navbar */
+            background-color: transparent !important;
+            backdrop-filter: blur(10px);
+            border-bottom: solid 2px white;
+            padding: 10px 0 15px 0 !important;
+
+
+            .container-fluid {
+                padding: 0 10px 15px 10px !important;
+                .logo {
+                    align-content: center !important;
+
+                    a {
+                        img {
+                            width: 50px !important;
+                        }
+                    }
+
+                    .nome_logo {
+                        padding: 5px 0 0 10px !important;
+                        margin: 0 !important;
+                        color: var(--text_white) !important;
+                        font-weight: bold !important;
+                        font-size: 18px !important;
+                    }
+                }
+
+                .area_botao {
+                    display: flex;
+                    align-content: center !important;
+                    gap: 3vw;
+                    a {
+                        color: var(--text_white) !important;
+                        font-size: 34px !important;
+                    }
+
+                    .navbar-toggler {
+                        width: 60px !important;
+                        height: 43px !important;
+                        border: solid 2px var(--text_white) !important;
+                        margin-top: 2px;
+                        .navbar-toggler-icon {
+                            filter: invert(100%) !important;
+                        }
+                    }
+                }
+            }
+
+            .collapse {
+                margin-top: 10px;
+                .navbar-nav {
+                  .nav-item {
+                    .nav-link {
+                        text-align: center !important;
+                        color: white !important;
+                        font-family: Montserrat 18px !important;
+
+
+                        padding: 12px 0 !important;
+                    
+                    }
+                  }  
+                }
+            }
+
+
+            form {
+                margin: auto;
+                gap: 15px;
+
+                input {
+                    border-radius: 50px;
+                    border: none !important;
+                    height: 40px !important;
+                    width: 260px !important;
+                    background-color: #d9d9d9 !important;
+                    padding: 0 15px !important;
+                }
+
+                a {
+                    color: #d9d9d9 !important;
+                    svg {
+                        width: 40px;
+                    }
+                }
+            }
+        }
+    }
 }
