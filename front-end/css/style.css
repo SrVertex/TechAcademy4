@@ -12,8 +12,7 @@
     padding: 0;
 }
 #barra_menu {
-    background-color: var(--text_white) ;
-
+    background-color: var(--text_white);
     height: 2px;
 }
 
@@ -24,15 +23,17 @@ body {
 }
 
 header {
+    padding-bottom: 120px;
+
     .nav_mobile {
+        
         .navbar {
-
-                /* ajuste do navbar */
+            /* ajuste do navbar */
+            width: 100% !important; 
             background-color: transparent !important;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(5px);
             border-bottom: solid 2px white;
-            padding: 10px 0 15px 0 !important;
-
+            padding: 10px 0 5px 0 !important;
 
             .container-fluid {
                 padding: 0 10px 15px 10px !important;
@@ -57,7 +58,7 @@ header {
                 .area_botao {
                     display: flex;
                     align-content: center !important;
-                    gap: 3vw;
+                    gap: 15px;
                     a {
                         color: var(--text_white) !important;
                         font-size: 34px !important;
@@ -78,20 +79,90 @@ header {
             .collapse {
                 margin-top: 10px;
                 .navbar-nav {
-                  .nav-item {
-                    .nav-link {
-                        text-align: center !important;
-                        color: white !important;
-                        font-family: Montserrat 18px !important;
+                    .nav-item {
 
+                        .dropdown-menu-1 {
+                            width: 60%;
+                            background-color: rgba(255, 255, 255, 0.205);
+                            border-radius: 15px;
+                            border: solid 2px white !important;
 
-                        padding: 12px 0 !important;
-                    
+                            margin-left: 10px;
+
+                            li {
+                                a {
+                                    i {
+                                        margin-right: 5px;
+                                        font-size: 22px;
+                                    }
+                                    color: white;
+                                    font-size: 18px;
+                                    font-weight: bold;
+                                    &:hover {
+                                        background-color: transparent !important;
+                                    }
+                                }
+                            }
+                        }
+
+                        .dropdown-menu-2 {
+                            width: 60%;
+                            background-color: rgba(255, 255, 255, 0.205);
+                            border-radius: 15px;
+                            border: solid 2px white !important;
+
+                            margin-left: 10px;
+
+                            li {
+                                a {
+                                    color: white;
+                                    font-size: 18px;
+                                    font-weight: bold;
+                                    &:hover {
+                                        background-color: transparent !important;
+                                    }
+                                }
+                            }
+                        }
+
+                        .nav-link {
+                            color: white !important;
+                            font-family: Montserrat 18px !important;
+
+                            padding: 8px 10px !important;
+                        }
+
+                     
                     }
-                  }  
+                }
+
+                .login {
+                    margin:0 10px;
+                    display: flex;
+                    
+                    .icon {
+                        a {
+                            color: var(--text_white) !important;
+                            font-size: 40px !important;
+                        }
+                    }
+
+                  .link {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 6px 0 0 5px;
+
+
+                    a {
+                        color: var(--text_white) !important;
+                        font-size: 16px;
+                        font-weight: bold;
+                        text-decoration: none;
+                        height: 20px;
+                    }
+                  }
                 }
             }
-
 
             form {
                 margin: auto;
@@ -115,4 +186,11 @@ header {
             }
         }
     }
+}
+
+
+
+
+@media (min-width: 480px) {
+
 }

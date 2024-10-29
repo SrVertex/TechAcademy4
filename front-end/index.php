@@ -22,20 +22,20 @@
 <header>
 
     <div class="nav_mobile">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary  z-3 position-absolute">
             <div class="container-fluid">
 
                 <div class="logo">
 
-                    <!-- <a href=""><img src="imagens//logo///logo.png" alt></a> -->
-                    <a class="navbar-brand nome_logo" href="#">TECNOLO</a>
+                    <a href=""><img src="imagens//logo///logo.png" alt></a>
+                    <!-- <a class="navbar-brand nome_logo" href="#">TECNOLO</a> -->
 
                 </div>
 
                 <div class="area_botao">
                     <a href=""><i class="bi bi-moon-stars-fill"></i></a>
                     <a href=""><i class="bi bi-universal-access-circle"></i></a>
-                    <a href=""><i class="bi bi-cart"></i></a>
+                    <a href="carrinho.php"><i class="bi bi-cart"></i></a>
 
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -53,28 +53,56 @@
 
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mx-auto mb-2 mb-lg-0"> <!-- mx-auto centraliza horizontalmente -->
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
 
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Menu
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-1 ">
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-cart"></i>Carrinho</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-bag-fill"></i>Meus Pedidos</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-whatsapp"></i>WhatzApp</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-house-door-fill"></i>Meu Endereço</a></li>
+                        </ul>
+                    </li>
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Categorias
                         </a>
-                        <ul class="dropdown-menu">
+
+                        <ul class="dropdown-menu dropdown-menu-2 ">
                             <li><a class="dropdown-item" href="#">Notebook</a></li>
                             <li><a class="dropdown-item" href="#">Smartphone</a></li>
                             <li><a class="dropdown-item" href="#">Hardware</a></li>
                         </ul>
                     </li>
 
+
+
                 </ul>
+                <div class="login">
+                    <div class="icon">
+                        <a href=""><i class="bi bi-person-circle"></i></a>
+                    </div>
+
+                    <div class="link">
+                    <a href="">Entrar ou</a>
+                        
+                        <a href="">Cadastrar-se</a>
+                    </div>
+
+                </div>
             </div>
 
 
-        </nav>
+    </div>
+
+
+
+    </nav>
     </div>
 
     <div class="nav_desk">
