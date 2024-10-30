@@ -226,10 +226,15 @@ header {
                 display: none !important;
             }
             .flickity-button {
-                background-color: transparent !important;
+                 background-color: transparent !important; 
+                
+                 
+                transform: translateY(-200%);
+                
                 svg {
                     color: white !important;
                     opacity: 100% !important;
+                    
                 }
             }
 
@@ -263,7 +268,7 @@ header {
                               text-overflow: ellipsis; 
                               -webkit-line-clamp: 2;
                             margin-bottom: 5px;
-                            font-size: 16px;
+                            font-size: 14px;
                             font-family: montserrat !important;
                             font-weight: bold;
                             color: white;
@@ -272,7 +277,7 @@ header {
                         .preco {
                             color: rgb(255, 208, 0);
 
-                            font-size: 26px;
+                            font-size: 24px;
                             font-weight: bold;
                             font-family: "montserrat";
 
@@ -281,8 +286,8 @@ header {
                         .sub_preco {
                             font-family: Arial, Helvetica, sans-serif;
                             color: white;
-                            width: 160px;
-                            font-size: 14px;
+                            width: 170px;
+                            font-size: 15px;
                             margin: 0;
                             span {
                                 font-weight: bold;
