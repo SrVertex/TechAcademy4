@@ -17,6 +17,7 @@
             <button>Voltar</button>
             <button>Confirmar</button>
         </div>
+        <a href="" class="login_exist">Entrar em uma conta Existente</a>
     </form>
 
 </div>
