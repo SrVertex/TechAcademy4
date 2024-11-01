@@ -100,7 +100,7 @@
                     </ul>
                     <div class="login">
                         <div class="icon">
-                            <a href=""><i class="bi bi-person-circle"></i></a>
+                            <a href="login"><i class="bi bi-person-circle"></i></a>
                         </div>
 
                         <div class="link">

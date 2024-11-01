@@ -3,24 +3,24 @@
 
         <h2>ENTRAR COM UMA CONTAR TECNOLO</h2>
 
-        <form action="" class="form">
+        <form action="home" method="post" class="form">
 
-            <input type="email" placeholder="E-mail">
-            <input type="password" placeholder="Senha" style="margin: 20px 0 10px 0;">
+            <input type="email" placeholder="E-mail" required>
+            <input type="password" placeholder="Senha" style="margin: 20px 0 10px 0;" required>
 
-            <a href="" class="senha">Esqueceu minha senha</a>
+            <a href="esqueciMinhaSenha" class="senha">Esqueceu minha senha</a>
 
             <div class="btn_login">
-                <a href="">Voltar</a>
-                <a href="">Confirmar</a>
+                <a id="link" href="index.php">Voltar</a>
+                <button id="link">Confirmar</button>
             </div>
         </form>
 
-        <a href="">Cadastrar-se</a>
+        <a href="cadastro">Cadastrar-se</a>
     </div>
 
     <div class="login_2">
-        <a href=""><i class="bi bi-google"></i>Google</a>
-        <a href=""><i class="bi bi-facebook"></i>Facebook</a>
+        <a href="login"><i class="bi bi-google"></i>Google</a>
+        <a href="login"><i class="bi bi-facebook"></i>Facebook</a>
     </div>
 </section>
