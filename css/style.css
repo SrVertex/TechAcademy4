@@ -210,96 +210,127 @@ header {
     }
 }
 
-#main_area_login {
-    .conteiner_cadastro {
-        width: 90%;
+#area_login {
+    width: 100%;
+    
+    margin: 20px 0;
 
-        margin: auto;
-        padding: 26px 10px;
-        margin-top: 40px;
+    .conteiner_login {
+        width: 95%;
 
-        background-image: linear-gradient(160deg,
-                rgba(255, 255, 255, 0.1) 0%,
-                rgba(0, 0, 0, 0.1) 100%);
-        border-radius: 20px;
+        background-image: linear-gradient(160deg, rgba(255, 255, 255, 0.100) 0%,  rgb(0, 0, 0,0.1) 100%);
         border: solid 2px white;
+        border-radius: 20px;
         text-align: center;
 
+        padding: 26px 20px;
+        margin: auto ;
+        margin-bottom: 20px ;
+
         h2 {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
+
+            text-align: center ;
             margin-bottom: 26px;
+
         }
 
-        form {
-            .conteiner_input {
-                input {
-                    width: 100%;
-                    height: 40px;
+        .form {
+            input {
+                width: 100%;
+                height: 40px;
 
-                    background-color: rgba(255, 255, 255, 0.100);
-                    border: solid 1px white;
-                    border-radius: 50px;
+                background-color: rgb(217, 217, 217, 0.1);
+                border-radius: 20px;
+                border: solid 1px white;
+                color: white;
 
-                    color: white;
+                padding: 0 10px;
 
-                    padding: 0 15px;
-                    margin-bottom: 20px;
-                }
-
-                p {
-                    font-weight: 600;
-                    margin-bottom: 8px;
-                }
-
-                .data {
-                    width: 50% !important;
-                }
-
-                .data::placeholder {
-                    font-weight: bold;
-                }
             }
+                
+                        text-align: start;
+            .senha {
+                color: rgba(255, 255, 255, 0.700);
+                transition: all 300ms !important;
+                margin-left: 10px;
+                font-weight: 300;
+            
 
-            input::placeholder {
-                color: rgba(255, 255, 255, 0.500);
+
+                &:hover {
+                    color: white;
+                }
             }
 
             .btn_login {
-                display: flex;
-                justify-content: center;
+                display: flex; 
+                justify-content: center;    
 
                 gap: 20px;
-                margin: 20px 0;
-
+                margin: 30px 0 30px 0;
                 a {
+
                     display: flex;
                     justify-content: center;
                     align-items: center;
 
-                    background-color: var(--BG_segundario);
-                    border-radius: 50px;
-                    text-decoration: none;
-
                     width: 110px;
                     height: 40px;
 
-                    p {
-                        color: var(--text_black);
-                        font-weight: bold;
-                        font-size: 18px;
+                    color: rgb(0, 0, 0);
+                    text-decoration: none;
+                    font-weight: bold;
+                    font-size: 18px;
+                    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.425);
 
-                        margin-bottom: 0;
-                    }
+                    background-color: white;
+                    border-radius: 20px;
+
                 }
             }
 
-            .login_exist {
+        }
 
-                margin-top: 10px;
-                color: var(--text_white);
-                font-weight: bold;
-            }
+        a {
+            color: white;
+            font-weight: bold;
+        }
+
+    }
+
+    .login_2 {
+
+        display: flex;
+        justify-content: center;
+
+        gap: 30px;
+
+        a {
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            height: 50px;
+           
+            background-image: linear-gradient(160deg, rgba(255, 255, 255, 0.100) 0%,  rgb(0, 0, 0,0.1) 100%);
+            border: solid 2px white ;
+            border-radius: 50px;
+
+            padding: 0 15px;
+
+
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+
+                i {
+                    margin-right: 5px;
+                }
+
         }
     }
 }
@@ -350,7 +381,7 @@ header {
             .flickity-button {
                 background-color: transparent !important;
 
-                transform: translateY(-200%);
+                /* transform: translateY(-200%); */
 
                 svg {
                     color: white !important;

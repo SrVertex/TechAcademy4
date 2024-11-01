@@ -104,7 +104,7 @@
                         </div>
 
                         <div class="link">
-                            <a href="">Entrar ou</a>
+                            <a href="login">Entrar ou</a>
 
                             <a href="cadastro">Cadastrar-se</a>
                         </div>
@@ -131,27 +131,27 @@
         <main>
             <?php
 
-if (isset($_GET["param"])) {
-  $param = $_GET["param"];
-  $p = explode("/", $param);
-}
+            if (isset($_GET["param"])) {
+                $param = $_GET["param"];
+                $p = explode("/", $param);
+            }
 
-$page = $p[0] ?? "home";
-$jogo = $p[1] ?? NULL;
+            $page = $p[0] ?? "home";
+            $jogo = $p[1] ?? NULL;
 
-if ($page == "jogo") {
-  $pagina = "jogo/{$jogo}.php";
-} else {
-  $pagina = "paginas/{$page}.php";
-}
+            if ($page == "jogo") {
+                $pagina = "jogo/{$jogo}.php";
+            } else {
+                $pagina = "paginas/{$page}.php";
+            }
 
-if (file_exists($pagina)) {
-  include $pagina;
-} else {
-  include "paginas/erro.php";
-}
+            if (file_exists($pagina)) {
+                include $pagina;
+            } else {
+                include "paginas/erro.php";
+            }
 
-?>
+            ?>
 
         </main>
 

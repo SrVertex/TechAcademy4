@@ -1,31 +1,29 @@
-<section id="main_area_login">
-    <div class="conteiner_cadastro">
+<section id="area_login">
+    <div class="conteiner_login">
 
-        <h2 class="text-center">
-            CRIE SUA CONTA TECNOLO
-        </h2>
+        <h2>CRIE SUA CONTAR TECNOLO</h2>
 
-        <form action="">
+        <form action="" class="form">
 
-            <div class="conteiner_input">
-                <input type="email" placeholder="E-mail">
-                <input type="password" placeholder="Senha">
-                <input type="password" placeholder="Confimar Senha">
-                <input type="name" placeholder="Nome Completo">
+            <input type="email" placeholder="E-mail" style="margin-bottom: 20px;">
+            <input type="password" placeholder="Senha" style="margin-bottom: 20px;">
+            <input type="password" placeholder="Confirmar Senha" style="margin-bottom: 20px;">
+            <input type="nome" placeholder="Nome Completo" style="margin-bottom: 20px;">
 
-                    <p>DATA DE NASCIMENTO</p>
-                <input type="date" id="data" name="data" class="data" >
 
-          
-                
-            </div>
+           
 
             <div class="btn_login">
-                <a href=""><p>Voltar</p></a>
-                <a href=""><p>Confirmar</p></a>
+                <a href="">Voltar</a>
+                <a href="">Confirmar</a>
             </div>
-            <a href="" class="login_exist">Entrar em uma conta Existente</a>
         </form>
 
+        <a href="">Entrar em uma conta Existente</a>
+    </div>
+
+    <div class="login_2">
+        <a href=""><i class="bi bi-google"></i>Google</a>
+        <a href=""><i class="bi bi-facebook"></i>Facebook</a>
     </div>
 </section>
