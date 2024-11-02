@@ -3,7 +3,7 @@
 
         <h2>CRIE SUA CONTAR TECNOLO</h2>
 
-        <form action="" class="form">
+        <form action="login" method="post" class="form">
 
             <input type="email" placeholder="E-mail" style="margin-bottom: 20px;" required>
             <input type="password" placeholder="Senha" style="margin-bottom: 20px;" required>
@@ -21,7 +21,7 @@
 
             <div class="btn_login">
                 <a id="link" href="index.php">Voltar</a>
-                <button id="link">Confirmar</button>
+                <button type="submit" id="link">Confirmar</button>
             </div>
         </form>
 

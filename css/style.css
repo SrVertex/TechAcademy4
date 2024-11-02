@@ -232,8 +232,54 @@ footer {
         h2 {
             font-size: 16px;
             font-weight: bold;
-            text-align: center;
+            margin-bottom: 26px;
         }
+
+        form {
+            input {
+                width: 100%;
+                height: 40px;
+                border-radius: 20px;
+                border: solid 1px white;
+                background-color: rgba(217, 217, 217, 0.100);
+                color: white !important;
+
+
+                padding: 0 15px;
+                margin: 0 0 20px 0;
+            }
+
+            input::placeholder {
+                color: rgba(255, 255, 255, 0.836);
+            }
+
+            input:focus {
+                outline: none;
+                /* Remove o contorno padrão */
+            }
+
+            .btn {
+                display: flex;
+                justify-content: end;
+                align-items: center;
+                padding: 10px 0 0 0;
+
+                button {
+                    width: 110px;
+                    height: 40px;
+
+                    border-radius: 20px;
+                    background-color: var(--text_white);
+                    border: none;
+
+                    font-size: 18px;
+                    color: var(--text_black);
+                    font-weight: bold;
+
+                }
+            }
+        }
+
     }
 }
 
@@ -278,7 +324,15 @@ footer {
                 color: white;
 
                 padding: 0 10px;
+            }
 
+            input::placeholder {
+                color: rgba(255, 255, 255, 0.836);
+            }
+
+            input:focus {
+                outline: none;
+                /* Remove o contorno padrão */
             }
 
             p {
