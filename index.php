@@ -23,7 +23,6 @@
         <!-- Inclua o JavaScript do Flickity -->
         <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
-
     </head>
 
     <header>
@@ -91,6 +90,9 @@
                             <ul class="dropdown-menu dropdown-menu-2 ">
                                 <li><a class="dropdown-item" href="#">Notebook</a></li>
                                 <li><a class="dropdown-item" href="#">Smartphone</a></li>
+                                <li><a class="dropdown-item" href="#">Acessórios</a></li>
+                                <li><a class="dropdown-item" href="#">Monitor</a></li>
+                                <li><a class="dropdown-item" href="#">Games</a></li>
                                 <li><a class="dropdown-item" href="#">Hardware</a></li>
                             </ul>
                         </li>
