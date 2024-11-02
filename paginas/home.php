@@ -290,7 +290,7 @@
 
     <div class="conteiner_carrosel">
         <div class="categoria">
-            <h2>MAIS VENDIDOS</h2>
+            <h2>EM PROMOÇÃO</h2>
 
             <a href>
                 <p>Ver Todos</p>
@@ -416,7 +416,7 @@
 
     <div class="conteiner_carrosel">
         <div class="categoria">
-            <h2>LANÇAMENTOS</h2>
+            <h2>FRETE GRÁTIS</h2>
 
             <a href>
                 <p>Ver Todos</p>
