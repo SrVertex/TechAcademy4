@@ -1,0 +1,41 @@
+
+/*atividade 2*/
+
+SELECT NM_FUNCIONARIO, (SELECT NM_DEPARTAMENTO FROM departamento d WHERE ID_DEPARTAMENTO = f.ID_DEPARTAMENTO) AS NM_DEPARTAMENTO FROM funcionario f
+WHERE f.ID_DEPARTAMENTO IN ( SELECT ID_DEPARTAMENTO FROM departamento  WHERE NM_DEPARTAMENTO = 'TI' OR NM_DEPARTAMENTO = 'RH');
+
+
+/*ativadade 1*/
+
+select d.NM_DEPARTAMENTO, COUNT(f.ID_FUNCIONARIO) as TOTAL_FUNCIONARIOS from departamento d
+join funcionario f on d.ID_DEPARTAMENTO = f.ID_DEPARTAMENTO
+group by d.NM_DEPARTAMENTO;
+
+select d.NM_DEPARTAMENTO, COUNT(f.ID_FUNCIONARIO) as TOTAL_FUNCIONARIOS from departamento d join funcionario f on d.ID_DEPARTAMENTO = f.ID_DEPARTAMENTO
+group by d.NM_DEPARTAMENTO;
+
+select d.NM_DEPARTAMENTO, MAX(f.SALARIO_BASE) as MAIOR_SALARIO from departamento d
+join funcionario f on d.ID_DEPARTAMENTO = f.ID_DEPARTAMENTO
+group by d.NM_DEPARTAMENTO;
+
+select d.NM_DEPARTAMENTO, SUM(f.SALARIO_BASE) as TOTAL_SALARIAL from departamento d
+join funcionario f on d.ID_DEPARTAMENTO = f.ID_DEPARTAMENTO
+group by d.NM_DEPARTAMENTO;
+
+select d.NM_DEPARTAMENTO, AVG(f.SALARIO_BASE) as MEDIA_SALARIAL from departamento d
+join funcionario f on d.ID_DEPARTAMENTO = f.ID_DEPARTAMENTO
+group by d.NM_DEPARTAMENTO
+having AVG(f.SALARIO_BASE) > 5000;
+
+select d.NM_DEPARTAMENTO, COUNT(f.ID_FUNCIONARIO) as TOTAL_FUNCIONARIOS from departamento d
+join funcionario f o d.ID_DEPARTAMENTO = f.ID_DEPARTAMENTO
+group by d.NM_DEPARTAMENTO
+having COUNT(f.ID_FUNCIONARIO) > 3;
+
+select f.NM_FUNCIONARIO, f.SALARIO_BASE, d.NM_DEPARTAMENTO from funcionario f
+join departamento d on f.ID_DEPARTAMENTO = d.ID_DEPARTAMENTO where f.SALARIO_BASE < 
+( select AVG(f2.SALARIO_BASE) from funcionario f2 where f2.ID_DEPARTAMENTO = f.ID_DEPARTAMENTO );
+
+select coalesce(id_departamento, 'sem departamento'), avg(salario_base) as media_salarial from funcionario f 
+group by f.ID_DEPARTAMENTO 
+having media_salarial > (select avg(SALARIO_BASE) from funcionario f2 );

@@ -1,4 +1,4 @@
-<section id="area_login">
+ <section id="area_login">
     <div class="conteiner_login">
 
         <h2>ENTRAR COM UMA CONTAR TECNOLO</h2>
@@ -23,4 +23,41 @@
         <a href="login"><i class="bi bi-google"></i>Google</a>
         <a href="login"><i class="bi bi-facebook"></i>Facebook</a>
     </div>
-</section>
+</section> 
+
+
+
+
+<!-- <div class="conteiner">
+
+        <img src="imagens/banner-login.png" data-aos="fade-right" data-aos-duration="400">
+
+        <div class="login" data-aos="fade" data-aos-easing="ease-in-out">
+            <h2 data-aos="fade-up" data-aos-duration="400">Login</h2>
+
+
+            <form id="form" action="index.php">
+                <div class="form1">
+                    <label for="text" data-aos="fade-up" data-aos-duration="500">Email:</label>
+                    <input type="email" nome="email" class="required" oninput="emailValidate()" required size="25" data-aos="fade-up" data-aos-duration="500" placeholder="Endereço de Email:">
+                    <span class="span-required" style="display: none; color: red;">Digite um email valido</span>
+                </div>
+                </br>
+                <div class="form1">
+                    <label for="text" data-aos="fade-up" data-aos-duration="500">Senha:</label>
+                    <input type="password" nome="senha" class="required" oninput="mainPasswordValidate()" required size="25" data-aos="fade-up" data-aos-duration="500" placeholder="Digite sua senha:">
+                    <span class="span-required" style="display: none; color: red;">Senha incorreta</span>
+                </div>
+                </br>
+                <div class="botao-flex" data-aos="fade-up">
+                    <a href="senha">Esqueceu sua senha?</a>
+                    <button type="submit" class="botao">Login</button>
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+
+    <script src="js/login.js"></script> -->
+

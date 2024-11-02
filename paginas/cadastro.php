@@ -10,8 +10,14 @@
             <input type="password" placeholder="Confirmar Senha" style="margin-bottom: 20px;" required>
             <input type="nome" placeholder="Nome Completo" style="margin-bottom: 20px;" required>
 
+                    <p>Data de Nascimento</p>
 
-           
+            
+            <div class="conteiner_data">
+
+                <input type="date" id="nascimento" style="width: 60%;" required>
+                
+            </div>
 
             <div class="btn_login">
                 <a id="link" href="index.php">Voltar</a>

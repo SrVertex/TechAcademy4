@@ -77,7 +77,7 @@
                                 <li><a class="dropdown-item" href="#"><i class="bi bi-bag-fill"></i>Meus Pedidos</a>
                                 </li>
                                 <li><a class="dropdown-item" href="#"><i class="bi bi-whatsapp"></i>WhatzApp</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="bi bi-house-door-fill"></i>Meu
+                                <li><a class="dropdown-item" href="endereco"><i class="bi bi-house-door-fill"></i>Meu
                                         Endereço</a></li>
                             </ul>
                         </li>
@@ -163,5 +163,9 @@
 
 
     <script src="js/bootstrap.bundle.min.js"></script>
+
+    <!-- hello world em JS/TS  -->
+
+    <script src="JS/hello.js"></script>
 
     </html>
