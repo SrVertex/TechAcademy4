@@ -3,7 +3,7 @@
     <div class="conteiner_endereco">
 
     <h2>ADICIONER UM ENDERECO</h2>
-        <form action="">
+        <form action="home" method="post">
 
             <input type="text" name="nome" placeholder="Nome Completo">
             <input type="text" name="cep" placeholder="Insira seu CEP">
