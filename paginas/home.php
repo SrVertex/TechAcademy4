@@ -46,7 +46,7 @@
 
             <div class="carousel-cell">
 
-                <a href>
+                <a href="detalheProduto">
                     <div class="img"><img src="imagens/0_AEMYWY3BEAPTA_PRD_1500_1 2.png" alt></div>
 
                     <div class="descricao">

@@ -582,37 +582,39 @@ footer {
     width: 100%;
     margin: 20px 0;
 
-.titulo  {
+    .titulo {
 
-    width: 95%;
-    margin: auto;
-    h4 {
-        
-        font-size: 14px;
-        font-weight: bold;
-        margin-bottom: 5px;
-    }
-    p {
-        
-        font-weight: bold;
-      
-        margin-bottom: 0;
-    }
-
-
-    hr {
-
-    
-        height: 3px;
-        background-color: white;
+        width: 95%;
         margin: auto;
-        margin-top: 3px;
-        margin-bottom: 15px;
-        opacity: 100%;
-        border-radius: 20px;
+
+        h4 {
+
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        p {
+
+            font-weight: bold;
+
+            margin-bottom: 0;
+        }
+
+
+        hr {
+
+
+            height: 3px;
+            background-color: white;
+            margin: auto;
+            margin-top: 3px;
+            margin-bottom: 15px;
+            opacity: 100%;
+            border-radius: 20px;
+        }
+
     }
-    
-}
 
 
 
@@ -631,6 +633,7 @@ footer {
             box-shadow: 0 0 10px #fffff379;
 
             margin: auto;
+
             padding: 20px;
             text-align: center;
 
@@ -638,5 +641,115 @@ footer {
                 width: 100%;
             }
         }
+
+        .conteiner_descricao {
+            width: 95%;
+            margin: 40px auto;
+
+            .titulo2 {
+                display: none;
+                width: 100%;
+                margin: auto;
+
+                h4 {
+
+                    font-size: 14px;
+                    font-weight: bold;
+                    margin-bottom: 40px;
+                }
+
+                p {
+
+                    font-weight: bold;
+
+                    margin-bottom: 0;
+                }
+
+
+                hr {
+
+                    height: 3px;
+                    background-color: white;
+                    margin: auto;
+                    margin-top: 5px;
+                    margin-bottom: 40px;
+                    opacity: 100%;
+                    border-radius: 20px;
+
+                }
+
+            }
+
+            .compra {
+                .conteiner_preco {
+                    margin-bottom: 40px;
+
+                    .preco {
+                        font-size: clamp(32px, 10vw, 36px);
+                        font-weight: bold;
+                        margin-bottom: 0px;
+                    }
+
+                    .subPreco {
+                        width: 170px;
+                        font-size: 12px;
+                        font-family: arial;
+                        font-weight: normal;
+
+                        span {
+                            font-weight: bold;
+                        }
+                    }
+                }
+
+                .compra_botao {
+
+                    .comprar_cart {
+
+                        height: 50px;
+                        font-size: 24px;
+                        font-weight: bold;
+                        color: white;
+
+                        background-color: transparent;
+                        background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.100) 0%, rgb(0, 0, 0, 0.1) 100%);
+                        border: solid 1px #ffffff;
+                        border-radius: 50px;
+
+                        margin-right: 20px;
+                        padding: 0  15px;
+
+                    }
+
+                    .carrinho {
+                        width: 86px;
+                        height: 50px;
+                        font-size: 24px;
+                        font-weight: bold;
+                        color: white;
+
+                        background-color: transparent;
+                        background-image: linear-gradient(160deg, rgba(255, 255, 255, 0.100) 0%, rgb(0, 0, 0, 0.1) 100%);
+                        border: solid 1px #ffffff;
+                        border-radius: 50px;
+                        padding: 0 15px;
+                    }
+                }
+
+            }
+            
+            hr {
+
+                height: 3px;
+                background-color: white;
+                margin: auto;
+               margin: 40px 0;
+                opacity: 100%;
+                border-radius: 20px;
+
+            }
+
+        }
+
     }
 }

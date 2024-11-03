@@ -23,6 +23,9 @@
         <!-- Inclua o JavaScript do Flickity -->
         <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
+        <!-- Inclua o CSS do AOS MASTER -->
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     </head>
 
     <header>
@@ -169,5 +172,13 @@
     <!-- hello world em JS/TS  -->
 
     <script src="JS/hello.js"></script>
+
+    <!-- Inclui o JavaScript do AOS MARTER-->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Configura o AOS MARTER para animar elementos quando rolarem -->
+    <script>
+        AOS.init();
+    </script>
 
     </html>
