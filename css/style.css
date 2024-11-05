@@ -203,6 +203,34 @@ header {
             }
         }
     }
+
+    .nav_desk {
+        padding-bottom: 122px;
+
+        .navbar {
+            width: 100%;
+            background-color: transparent !important;
+            padding: 10px 120px 5px 120px;
+
+            .navbar_top {
+                .logo {
+
+                    img {
+                        width: 90px;
+                    }
+
+                    a {
+                        color: var(--text_white) !important;
+                        font-size: 26px !important;
+                        font-weight: bold;
+                        padding: 5px 0 0 10px;
+                        margin: 0;
+                    }
+
+                }
+            }
+        }
+    }
 }
 
 footer {

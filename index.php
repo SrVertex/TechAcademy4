@@ -117,16 +117,22 @@
                     </div>
                 </div>
 
+            </nav>
 
-        </div>
-
-
-
-        </nav>
         </div>
 
         <div class="nav_desk">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary  z-3 position-absolute">
+                <div class="navbar_top">
+                    <div class="logo">
 
+                        <a href="index.php"><img src="imagens//logo///logo.png"></a>
+                        <a class="navbar-brand nome_logo" href="#">TECNOLO</a>
+                    </div>
+                </div>
+
+
+            </nav>
         </div>
 
     </header>
