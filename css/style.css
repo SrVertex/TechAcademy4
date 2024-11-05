@@ -616,8 +616,6 @@ footer {
 
     }
 
-
-
     .conteiner_produto_flex {
         display: flex;
         justify-content: center;
@@ -717,16 +715,17 @@ footer {
                         border-radius: 50px;
 
                         margin-right: 20px;
-                        padding: 0  15px;
+                        padding: 0 15px;
 
                     }
 
                     .carrinho {
-                        width: 86px;
+                        width: 84px;
                         height: 50px;
                         font-size: 24px;
                         font-weight: bold;
                         color: white;
+                        text-align: center;
 
                         background-color: transparent;
                         background-image: linear-gradient(160deg, rgba(255, 255, 255, 0.100) 0%, rgb(0, 0, 0, 0.1) 100%);
@@ -737,19 +736,140 @@ footer {
                 }
 
             }
-            
+
             hr {
 
                 height: 3px;
                 background-color: white;
                 margin: auto;
-               margin: 40px 0;
+                margin: 40px 0;
                 opacity: 100%;
                 border-radius: 20px;
 
             }
 
+            .cep {
+                margin-bottom: 40px;
+
+                .busca {
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: center !important;
+
+                    margin-bottom: 15px;
+
+                    input {
+                        width: 192px;
+                        height: 50px;
+                        padding: 0 15px;
+                        border-radius: 20px;
+                        border: solid 1px white;
+                        border-radius: 50px;
+                        background-color: transparent !important;
+                        background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.100) 0%, rgb(0, 0, 0, 0.1) 100%);
+                        margin-bottom: 0px;
+                        margin-right: 20px;
+                    }
+
+                    input::placeholder {
+                        color: white;
+                        opacity: 80%;
+                        font-size: 16px;
+                    }
+
+                    button {
+                        height: 50px;
+                        padding: 0 24px;
+                        border-radius: 20px;
+                        border: solid 1px white;
+                        border-radius: 50px;
+                        background-color: transparent !important;
+                        background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.100) 0%, rgb(0, 0, 0, 0.1) 100%);
+
+                        color: white;
+                        font-weight: bold;
+                        font-size: 22px;
+                        text-align: center;
+                    }
+                }
+
+                a {
+                    text-decoration: underline;
+                }
+
+                .modal {
+                    padding-top: 30px;
+                    backdrop-filter: blur(2px);
+
+                    .modal-content {
+                        background-color: rgba(0, 0, 0, 0.205);
+                        border-radius: 20px !important;
+                        border: solid 1px white;
+
+                        .modal-header {
+                            padding: 10px 15px;
+
+                            h2 {
+                                font-size: 26px;
+                            }
+
+                            .btn-close {
+                                background-color: red !important;
+                                margin-right: 5px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .descricao_completa {
+                p {
+                    font-size: 14px;
+                    font-weight: bold;
+                }
+            }
+
         }
 
     }
+
+    .conteiner_ficha {
+        width: 95%;
+        margin: auto;
+
+        h2 {
+            font-size: 30px;
+            font-weight: bold;
+
+            margin-bottom: 0;
+        }
+
+        hr {
+
+            height: 3px;
+            background-color: white;
+            margin: auto;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            opacity: 100%;
+            border-radius: 20px;
+
+        }
+
+        .tributo {
+            display: flex;
+            align-items: center !important;
+
+            p {
+                font-size: 18px;
+                font-weight: 700;
+                margin-bottom: 5px !important;
+                margin-right: 20px;
+
+            }
+        }
+
+    }
+
+
 }
