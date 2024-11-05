@@ -95,7 +95,131 @@
         </div>
     </div>
 
+    <div id="conteiner_carrosel">
+        <div class="categoria">
+            <h2>MAIS VENDIDOS</h2>
 
+            <a href>
+                <p>Ver Todos</p>
+            </a>
+
+        </div>
+
+        <div class="carousel" data-flickity='{ "wrapAround": true }'>
+
+            <div class="carousel-cell">
+
+                <a href="detalheProduto">
+                    <div class="img"><img src="imagens/0_AEMYWY3BEAPTA_PRD_1500_1 2.png" alt></div>
+
+                    <div class="descricao">
+                        <p class="desc">iPhone 16 Pro Max Apple 512GB, Câmera
+                            Tripla de 48MP, Tela 6,9 , Titânio Natural
+                        </p>
+
+                        <p class="preco">R$ 78.000,00</p>
+                        <p class="sub_preco">Aviste no Pix ou até <span>10x de
+                                R$7.800,00</span></p>
+
+                    </div>
+                </a>
+
+            </div>
+            <div class="carousel-cell">
+
+                <a href>
+                    <div class="img"><img src="imagens/0_AEMYWY3BEAPTA_PRD_1500_1 2.png" alt></div>
+
+                    <div class="descricao">
+                        <p class="desc">iPhone 16 Pro Max Apple 512GB, Câmera
+                            Tripla de 48MP, Tela 6,9", Titânio Natural
+                        </p>
+
+                        <p class="preco">R$ 78.000,00</p>
+                        <p class="sub_preco">Aviste no Pix ou até <span>10x de
+                                R$7.800,00</span></p>
+
+                    </div>
+                </a>
+
+            </div>
+            <div class="carousel-cell">
+
+                <a href>
+                    <div class="img"><img src="imagens/0_AEMYWY3BEAPTA_PRD_1500_1 2.png" alt></div>
+
+                    <div class="descricao">
+                        <p class="desc">iPhone 16 Pro Max Apple 512GB, Câmera
+                            Tripla de 48MP, Tela 6,9", Titânio Natural
+                        </p>
+
+                        <p class="preco">R$ 78.000,00</p>
+                        <p class="sub_preco">Aviste no Pix ou até <span>10x de
+                                R$7.800,00</span></p>
+
+                    </div>
+                </a>
+
+            </div>
+            <div class="carousel-cell">
+
+                <a href>
+                    <div class="img"><img src="imagens/0_AEMYWY3BEAPTA_PRD_1500_1 2.png" alt></div>
+
+                    <div class="descricao">
+                        <p class="desc">iPhone 16 Pro Max Apple 512GB, Câmera
+                            Tripla de 48MP, Tela 6,9", Titânio Natural
+                        </p>
+
+                        <p class="preco">R$ 78.000,00</p>
+                        <p class="sub_preco">Aviste no Pix ou até <span>10x de
+                                R$7.800,00</span></p>
+
+                    </div>
+                </a>
+
+            </div>
+            <div class="carousel-cell">
+
+                <a href>
+                    <div class="img"><img src="imagens/0_AEMYWY3BEAPTA_PRD_1500_1 2.png" alt></div>
+
+                    <div class="descricao">
+                        <p class="desc">iPhone 16 Pro Max Apple 512GB, Câmera
+                            Tripla de 48MP, Tela 6,9", Titânio Natural
+                        </p>
+
+                        <p class="preco">R$ 78.000,00</p>
+                        <p class="sub_preco">Aviste no Pix ou até <span>10x de
+                                R$7.800,00</span></p>
+
+                    </div>
+                </a>
+
+            </div>
+            <div class="carousel-cell">
+
+                <a href>
+                    <div class="img"><img src="imagens/0_AEMYWY3BEAPTA_PRD_1500_1 2.png" alt></div>
+
+                    <div class="descricao">
+                        <p class="desc">iPhone 16 Pro Max Apple
+                            512GB, Câmera Tripla de 48MP, Tela 6,9", Titânio
+                            Natural
+                        </p>
+
+                        <p class="preco">R$ 78.000,00</p>
+                        <p class="sub_preco">Aviste no Pix ou até <span>10x de
+                                R$7.800,00</span></p>
+
+                    </div>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
 
 
 </section>
