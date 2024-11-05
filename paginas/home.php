@@ -9,13 +9,13 @@
     </div>
     <div class="carousel-inner">
         <div class="carousel-item active" data-bs-interval="2000">
-            <img src="imagens/banner.jpg" class="d-block w-100" alt="...">
+            <img src="imagens/banner2.jpg" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item" data-bs-interval="2000">
-            <img src="imagens/banner.jpg" class="d-block w-100" alt="...">
+            <img src="imagens/banner2.jpg" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item" data-bs-interval="2000">
-            <img src="imagens/banner.jpg" class="d-block w-100" alt="...">
+            <img src="imagens/banner2.jpg" class="d-block w-100" alt="...">
         </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -31,7 +31,7 @@
 </div>
 
 <section id="main_home">
-    
+
     <div class="conteiner_carrosel">
         <div class="categoria">
             <h2>MAIS VENDIDOS</h2>
@@ -140,9 +140,8 @@
                     <div class="img"><img src="imagens/0_AEMYWY3BEAPTA_PRD_1500_1 2.png" alt></div>
 
                     <div class="descricao">
-                        <p class="desc">iPhone 16 Pro Max Apple
-                            512GB, Câmera Tripla de 48MP, Tela 6,9", Titânio
-                            Natural
+                        <p class="desc">iPhone 16 Pro Max Apple 512GB, Câmera
+                            Tripla de 48MP, Tela 6,9", Titânio Natural
                         </p>
 
                         <p class="preco">R$ 78.000,00</p>
@@ -153,6 +152,7 @@
                 </a>
 
             </div>
+
 
         </div>
 
