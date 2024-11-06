@@ -71,11 +71,15 @@
         </div>
 
     </div>
+    <div class="descricao_completa2">
+        <H2>Descricão </H2>
+        <p>iPhone 16 Pro Max. Com estrutura em titânio, Controle da Câmera, 4K Dolby Vision a 120 qps e o chip A18 Pro. Avisos legais *As telas têm bordas arredondadas. Quando medida como um retângulo, a tela tem 6,12 polegadas (iPhone 16), 6,69 polegadas (iPhone 16 Plus), 6,27 polegadas (iPhone 16 Pro) ou 6,86 polegadas (iPhone 16 Pro Max) na diagonal. A área real de visualização é menor.</p>
+    </div>
 
     <div class="conteiner_ficha">
 
         <h2>Ficha Técnica</h2>
-        
+
         <hr>
 
         <div class="tributo">
@@ -91,7 +95,7 @@
             <p>Ram: 8 Gb</p>
         </div>
         <div class="tributo">
-            <p>Tamanho:  9 polegadas</p>
+            <p>Tamanho: 9 polegadas</p>
         </div>
     </div>
 
