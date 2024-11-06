@@ -205,28 +205,155 @@ header {
     }
 
     .nav_desk {
-        padding-bottom: 122px;
+        display: none;
+        padding-bottom: 88px;
 
         .navbar {
             width: 100%;
+
             background-color: transparent !important;
+            border-bottom: solid 1px white;
+
             padding: 10px 120px 5px 120px;
 
             .navbar_top {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
                 .logo {
 
                     img {
-                        width: 90px;
+                        width: 80px;
                     }
 
                     a {
                         color: var(--text_white) !important;
                         font-size: 26px !important;
                         font-weight: bold;
-                        padding: 5px 0 0 10px;
+                        padding: 5px 0 0 15px;
                         margin: 0;
+
                     }
 
+                }
+
+                .barra_pesquisa {
+                    form {
+                        align-items: center;
+
+                        input {
+                            height: 50px;
+                            width: 500px;
+
+                            background-color: #d9d9d9 !important;
+                            border-radius: 50px;
+                            border: none !important;
+
+                            padding: 0 20px;
+                            margin-right: 15px;
+                        }
+
+                        input::placeholder {
+                            color: rgba(0, 0, 0, 0.700) !important;
+                            font-size: 14px;
+                            font-weight: 500;
+                        }
+
+                        a {
+
+                            width: 40px;
+                            height: 40px;
+
+                            background-color: #d9d9d9 !important;
+                            border-radius: 10px;
+
+                            svg {
+                                width: 40px;
+                                height: 40px;
+                                color: rgba(0, 0, 0, 0.800);
+                            }
+                        }
+                    }
+                }
+
+                .login {
+                    margin: 0 10px;
+                    display: flex;
+                    align-items: center !important;
+
+                    .icon {
+                        a {
+                            color: var(--text_white) !important;
+                            font-size: 40px !important;
+                        }
+                    }
+
+                    .link {
+                        display: flex;
+                        flex-direction: column;
+                        padding: 0 0 0 5px;
+
+                        a {
+                            height: 20px;
+
+                            color: var(--text_white) !important;
+                            font-size: 14px;
+                            font-weight: bold;
+                            text-decoration: none;
+
+                        }
+                    }
+                }
+
+                .menu_drop {
+                    .dropdown {
+
+                        .btn-grad {
+                            background-image: linear-gradient(to right, #021525 0%, #094F8B 51%, #021525 100%)
+                        }
+
+                        .btn-grad {
+                            margin: 10px;
+                            height: 40px;
+                            width: 105px;
+                            text-align: center;
+                            transition: 0.5s;
+                            background-size: 200% auto;
+                            color: white;
+                            border: none !important;
+                            font-size: 22px;
+                            font-weight: bold;
+                            border-radius: 50px;
+                            display: flex;
+                            align-items: center;
+                        }
+
+                        .btn-grad:hover {
+                            background-position: right center;
+                            /* change the direction of the change here */
+                            color: #fff;
+                            text-decoration: none;
+                        }
+
+                        .dropdown-menu {
+                            margin-top: 20px !important;
+                            
+                            background-color: transparent !important;
+                            border: solid 1px white !important;
+                            background-image: linear-gradient(160deg, rgb(255, 255, 255, 0.200) 0%, rgb(0, 0, 0, 0.200) 100%);
+                            backdrop-filter: blur(6px);
+                            border-radius: 20px;
+
+                            .dropdown-item {
+                                color: white;
+                                font-weight: bold;
+                                font-size: 22px;
+                            }
+                        }
+
+                    }
                 }
             }
         }
@@ -1208,6 +1335,10 @@ footer {
     header {
         .nav_mobile {
             display: none;
+        }
+
+        .nav_desk {
+            display: block;
         }
     }
 

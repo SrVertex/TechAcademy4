@@ -124,11 +124,51 @@
         <div class="nav_desk">
             <nav class="navbar navbar-expand-lg bg-body-tertiary  z-3 position-absolute">
                 <div class="navbar_top">
+
                     <div class="logo">
 
                         <a href="index.php"><img src="imagens//logo///logo.png"></a>
                         <a class="navbar-brand nome_logo" href="#">TECNOLO</a>
                     </div>
+
+                    <div class="barra_pesquisa">
+                        <form class="d-flex" role="search">
+                            <input class="2" type="search" placeholder="Digite o que você procura..." aria-label="Search">
+                            <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8" />
+                                </svg></a>
+                        </form>
+                    </div>
+
+                    <div class="login">
+                        <div class="icon">
+                            <a href="login"><i class="bi bi-person-circle"></i></a>
+                        </div>
+
+                        <div class="link">
+                            <a href="login">ENTRAR ou</a>
+
+                            <a href="cadastro">CADASTRAR-SE</a>
+                        </div>
+
+                    </div>
+
+                    <div class="menu_drop">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle btn-grad" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Menu
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="navbar_baixo">
                 </div>
 
 
