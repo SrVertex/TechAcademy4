@@ -1497,9 +1497,34 @@ footer {
 
                 .compra {
                     flex-direction: row !important;
-
                     justify-content: space-between;
                     align-items: start;
+
+                    .conteiner_preco {
+                        margin-bottom: 0;
+
+                        .preco {
+                            font: 36px;
+                        }
+                        .subPreco {
+                            margin-bottom: 0 !important;
+                        }
+                    }
+
+                    .compra_botao {
+
+                        gap: 20px;
+
+                        .comprar_cart {
+                            width: 200px;
+                            font-size: 24px;
+                        }
+
+                        .carrinho {
+                            width: 86px;
+                            font-size: 24px;
+                        }
+                    }
 
                 }
             }
