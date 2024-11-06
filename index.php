@@ -159,16 +159,30 @@
                                 Menu
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-cart"></i>Carrinho</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-bag-fill"></i>Meus Pedidos</a>
+                                </li>
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-whatsapp"></i>WhatzApp</a></li>
+                                <li><a class="dropdown-item" href="endereco"><i class="bi bi-house-door-fill"></i>Meu Endereço</a></li>
                             </ul>
                         </div>
+                    </div>
+
+                    <div class="icons_link">
+                        <a href=""><i class="bi bi-moon-stars-fill"></i></a>
+                        <a href=""><i class="bi bi-universal-access-circle"></i></a>
+                        <a href="carrinho.php"><i class="bi bi-cart"></i></a>
                     </div>
 
                 </div>
 
                 <div class="navbar_baixo">
+                    <a href="">Notebook</a>
+                    <a href="">SmartPhone</a>
+                    <a href="">Acessórios</a>
+                    <a href="">Monitor</a>
+                    <a href="">Games</a>
+                    <a href="">Hardware</a>
                 </div>
 
 

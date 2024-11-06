@@ -205,14 +205,18 @@ header {
     }
 
     .nav_desk {
+        width: 100%;
         display: none;
-        padding-bottom: 88px;
+        padding-bottom: 120px;
+        border-bottom: solid 1px white;
 
         .navbar {
             width: 100%;
 
             background-color: transparent !important;
-            border-bottom: solid 1px white;
+            display: flex;
+            flex-direction: column;
+
 
             padding: 10px 120px 5px 120px;
 
@@ -221,6 +225,7 @@ header {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                margin-bottom: 10px;
 
                 .logo {
 
@@ -339,7 +344,7 @@ header {
 
                         .dropdown-menu {
                             margin-top: 20px !important;
-                            
+
                             background-color: transparent !important;
                             border: solid 1px white !important;
                             background-image: linear-gradient(160deg, rgb(255, 255, 255, 0.200) 0%, rgb(0, 0, 0, 0.200) 100%);
@@ -355,9 +360,41 @@ header {
 
                     }
                 }
+
+                .icons_link {
+                    display: flex;
+                    align-items: center;
+                    gap: 30px;
+
+                    a {
+
+
+                        color: var(--text_white) !important;
+                        font-size: 40px;
+                        font-weight: bold;
+                        text-decoration: none;
+
+                    }
+                }
+
+            }
+
+            .navbar_baixo {
+                display: flex;
+                gap: 20px;
+                align-items: center;
+
+                a {
+                    color: var(--text_white) !important;
+                    font-size: 16px;
+                    font-weight: bold;
+                    text-decoration: none;
+                }
             }
         }
     }
+
+
 }
 
 footer {
@@ -735,7 +772,6 @@ footer {
     .conteiner_carrosel {
         .categoria {
             margin: 25px 15px 0 15px;
-            border-bottom: solid 3px white;
 
             display: flex;
             justify-content: space-between;
@@ -761,6 +797,17 @@ footer {
                     padding: 5px 10px;
                 }
             }
+
+        }
+
+        hr {
+            height: 3px;
+            background-color: white;
+            margin: 0 15px;
+            padding: 0 !important;
+            opacity: 100%;
+            border-radius: 20px;
+
         }
 
         .carousel {
@@ -1338,7 +1385,8 @@ footer {
         }
 
         .nav_desk {
-            display: block;
+            display: flex;
+            justify-content: center;
         }
     }
 
@@ -1353,5 +1401,17 @@ footer {
         width: 1200px;
         margin: auto;
 
+    }
+}
+
+@media (min-width: 1700px) {
+    header {
+        .nav_desk {
+            .navbar {
+                width: 1550px;
+                padding: 10px 0 5px 0;
+                margin: auto;
+            }
+        }
     }
 }

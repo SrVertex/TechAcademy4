@@ -42,6 +42,8 @@
 
         </div>
 
+        <hr>
+
         <div class="carousel" data-flickity='{ "wrapAround": true }'>
 
             <div class="carousel-cell">
@@ -167,6 +169,8 @@
             </a>
 
         </div>
+
+        <hr>
 
         <div class="carousel" data-flickity='{ "wrapAround": true }'>
 
@@ -298,6 +302,8 @@
 
         </div>
 
+        <hr>
+
         <div class="carousel" data-flickity='{ "wrapAround": true }'>
 
             <div class="carousel-cell">
@@ -423,6 +429,8 @@
             </a>
 
         </div>
+
+        <hr>
 
         <div class="carousel" data-flickity='{ "wrapAround": true }'>
 
