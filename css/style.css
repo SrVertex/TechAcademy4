@@ -224,33 +224,38 @@ header {
                 width: 100%;
                 display: flex;
                 justify-content: space-between;
-                align-items: center;
+                align-items: center !important;
                 margin-bottom: 10px;
 
                 .logo {
+                    display: flex;
+                    align-items: center;
 
                     img {
                         width: 80px;
                     }
 
-                    a {
+                    .nome_logo {
                         color: var(--text_white) !important;
                         font-size: 26px !important;
                         font-weight: bold;
                         padding: 5px 0 0 15px;
                         margin: 0;
+                        display: none;
 
                     }
 
                 }
 
                 .barra_pesquisa {
+                    width: 38%;
+
                     form {
                         align-items: center;
 
                         input {
                             height: 50px;
-                            width: 500px;
+                            width: 100%;
 
                             background-color: #d9d9d9 !important;
                             border-radius: 50px;
@@ -351,10 +356,21 @@ header {
                             backdrop-filter: blur(6px);
                             border-radius: 20px;
 
-                            .dropdown-item {
-                                color: white;
-                                font-weight: bold;
-                                font-size: 22px;
+                            li {
+                                
+                                a {
+                                    color: white;
+                                    font-size: 20px;
+                                    font-weight: bold;
+
+                                    &:hover {
+                                        background-color: transparent !important;
+                                    }
+
+                                    i {
+                                        margin-right: 10px;
+                                    }
+                                }
                             }
                         }
 
@@ -364,7 +380,7 @@ header {
                 .icons_link {
                     display: flex;
                     align-items: center;
-                    gap: 30px;
+                    gap: 20px;
 
                     a {
 
@@ -1054,7 +1070,7 @@ footer {
                     margin-bottom: 40px;
 
                     .preco {
-                        font-size: clamp(32px, 10vw, 36px);
+                        font-size: 32px;
                         font-weight: bold;
                         margin-bottom: 0px;
                     }
@@ -1451,8 +1467,15 @@ footer {
         }
 
         .nav_desk {
+            width: 100% !important;
             display: flex;
             justify-content: center;
+
+
+
+            .navbar {
+                padding: 10px 10px 5px 10px;
+            }
         }
     }
 
@@ -1470,21 +1493,23 @@ footer {
         }
 
         .conteiner_produto_flex {
-            width: 100%;
-            margin: 0;
+            width: 98%;
+            margin: 0 auto;
             margin-bottom: 40px;
             padding: 0;
 
             .conteiner_produto {
-                width: 550px;
-                height: 550px;
+                width: 44%;
+                height: 44%;
 
                 img {
-                    width: 399px;
+                    width: 100%;
                 }
             }
 
             .conteiner_descricao {
+                width: 54%;
+
                 .titulo2 {
                     display: block;
                 }
@@ -1498,8 +1523,9 @@ footer {
                         margin-bottom: 0;
 
                         .preco {
-                            font: 36px;
+                            font: 36px !important;
                         }
+
                         .subPreco {
                             margin-bottom: 0 !important;
                         }
@@ -1510,12 +1536,12 @@ footer {
                         gap: 20px;
 
                         .comprar_cart {
-                            width: 200px;
-                            font-size: 24px;
+                            width: 180px;
+                            font-size: 22px;
                         }
 
                         .carrinho {
-                            width: 86px;
+                            width: 80px;
                             font-size: 24px;
                         }
                     }
@@ -1532,11 +1558,13 @@ footer {
 
                             justify-content: start;
                             gap: 20px;
+
                             input {
                                 width: 200px !important;
                             }
                         }
                     }
+
                     a {
                         font-weight: bold;
                         margin-bottom: 12px;
@@ -1557,6 +1585,39 @@ footer {
 }
 
 @media (min-width: 1200px) {
+
+    header {
+        .nav_desk {
+            width: 1480px;
+
+            .navbar {
+                padding: 10px 0 5px 0;
+
+                .navbar_top {
+                    .logo {
+                        .nome_logo {
+                            display: flex;
+                        }
+                    }
+
+                    .barra_pesquisa {
+                        form {
+                            input {
+                                width: 500px;
+                            }
+                        }
+                    }
+
+                    .icons_link {
+                        gap: 20px;
+                    }
+                }
+
+
+            }
+        }
+    }
+
     #main_home {
         width: 1200px;
         margin: auto;
@@ -1564,7 +1625,41 @@ footer {
 
     #main_detalhe {
         width: 1200px;
-        margin: 30px auto;   
+        margin: 30px auto;
+
+        .conteiner_produto_flex {
+            width: 100%;
+
+            .conteiner_produto {
+                width: 550px;
+
+                img {
+                    width: 400px;
+                }
+            }
+
+            .conteiner_descricao {
+                width: 608px;
+
+                .compra {
+
+                    .conteiner_preco {
+                        .preco {
+                            font-size: 36px !important;
+                        }
+                    }
+
+                    .comprar_cart {
+                        width: 200px;
+                        font-size: 26px;
+                    }
+
+                    .carrinho {
+                        width: 86px;
+                    }
+                }
+            }
+        }
     }
 }
 
