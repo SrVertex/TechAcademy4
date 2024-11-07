@@ -1,14 +1,14 @@
  <section id="area_login">
     <div class="conteiner_login" style="overflow: hidden !important;" >
 
-        <h2 data-aos="zoom-" data-aos-duration="500" data-aos-easing="ease-out" >ENTRAR COM UMA CONTAR TECNOLO</h2>
+        <h2 >ENTRAR COM UMA CONTAR TECNOLO</h2>
 
         <form action="home" method="post" class="form">
 
-            <input type="email" placeholder="E-mail" required data-aos="fade-up" data-aos-duration="500">
-            <input type="password" placeholder="Senha" style="margin: 20px 0 10px 0;" required  data-aos="fade-up" data-aos-duration="500" data-aos-delay="50">
+            <input type="email" placeholder="E-mail" required>
+            <input type="password" placeholder="Senha" style="margin: 20px 0 10px 0;" required >
 
-            <a href="esqueciMinhaSenha" class="senha" data-aos="fade-up" data-aos-duration="500" >Esqueceu minha senha</a>
+            <a href="esqueciMinhaSenha" class="senha"  >Esqueceu minha senha</a>
 
             <div class="btn_login">
                 <a id="link" href="index.php">Voltar</a>

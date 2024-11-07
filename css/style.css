@@ -39,7 +39,8 @@ header {
                 padding: 0 10px 15px 10px !important;
 
                 .logo {
-                    align-content: center !important;
+                    display: flex;
+                    align-items: center;
 
                     a {
                         img {
@@ -48,13 +49,21 @@ header {
                     }
 
                     .nome_logo {
-
+                        display: none !important;
                         color: var(--text_white) !important;
                         font-weight: bold !important;
                         font-size: 18px !important;
 
                         padding: 5px 0 0 10px !important;
                         margin: 0 !important;
+                    }
+                }
+
+                .barra_pesquisa {
+                    form {
+                        display: none;
+
+
                     }
                 }
 
@@ -178,13 +187,14 @@ header {
             }
 
             form {
-
-                margin: auto;
+                width: 100%;
+                display: flex;
+                justify-content: center;
                 gap: 15px;
 
                 input {
                     height: 40px !important;
-                    width: 260px !important;
+                    width: 70% !important;
 
                     background-color: #d9d9d9 !important;
                     border-radius: 50px;
@@ -357,7 +367,7 @@ header {
                             border-radius: 20px;
 
                             li {
-                                
+
                                 a {
                                     color: white;
                                     font-size: 20px;
@@ -811,6 +821,11 @@ footer {
             h2 {
                 font-size: 20px;
                 font-weight: bold;
+                transition: 400ms;
+
+                &:hover {
+                    text-shadow: 0 0 10px #ffffff94;
+                }
             }
 
             a {
@@ -826,8 +841,15 @@ footer {
                     border: solid 1px var(--text_white);
                     border-radius: 20px;
                     padding: 5px 10px;
+                    transition: 400ms;
+
+                    &:hover {
+                        box-shadow: 0 0 10px rgba(255, 255, 255, 0.466);
+                    }
                 }
+
             }
+
 
         }
 
@@ -1276,8 +1298,7 @@ footer {
             align-items: center !important;
 
             p {
-                font-size: 18px;
-                font-weight: 700;
+                font-size: 16px;
                 margin-bottom: 5px !important;
                 margin-right: 20px;
 
@@ -1325,11 +1346,27 @@ footer {
 
     header {
         .nav_mobile {
+            padding-bottom: 90px;
+
             .navbar {
-                form {
-                    input {
-                        width: 400px !important;
+                .container-fluid {
+                    .barra_pesquisa {
+                        width: 50% !important;
+
+                        form {
+
+                            display: flex !important;
+
+                            input {
+                                width: 75% !important;
+                            }
+
+                        }
                     }
+                }
+
+                form {
+                    display: none !important;
                 }
             }
         }
@@ -1399,6 +1436,41 @@ footer {
             display: block;
         }
     }
+
+    
+    #area_endereco {
+        .conteiner_endereco {
+            margin-top: 50px;
+            width: 600px !important;
+            form {
+            width: 100%;
+                margin: auto;
+
+                input {
+                    width: 340px;
+                }
+                .input_cep {
+                    width: 270px;
+                }
+                .cidade  {
+                    display: flex;
+                    justify-content: space-between;
+                    input {
+                        width: 270px;
+                    }
+                }
+
+                .rua  {
+                    display: flex;
+                    justify-content: space-between;
+                    input {
+                        width: 270px;
+                    }
+                }
+            }
+        }
+    }
+
 }
 
 @media (min-width: 640px) {
@@ -1418,6 +1490,7 @@ footer {
         }
     }
 
+   
 
 }
 
@@ -1460,9 +1533,10 @@ footer {
     }
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 994px) {
     header {
         .nav_mobile {
+
             display: none;
         }
 
@@ -1588,10 +1662,10 @@ footer {
 
     header {
         .nav_desk {
-            width: 1480px;
+
 
             .navbar {
-                padding: 10px 0 5px 0;
+                padding: 10px 15px 5px 15PX;
 
                 .navbar_top {
                     .logo {
@@ -1612,8 +1686,6 @@ footer {
                         gap: 20px;
                     }
                 }
-
-
             }
         }
     }
@@ -1658,6 +1730,18 @@ footer {
                         width: 86px;
                     }
                 }
+            }
+        }
+    }
+}
+
+@media (min-width: 1480px) {
+    header {
+        .nav_desk {
+            .navbar {
+                width: 1480px !important;
+                padding: 10px 0 5px 0;
+                margin: auto;
             }
         }
     }

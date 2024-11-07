@@ -97,6 +97,38 @@
         <div class="tributo">
             <p>Tamanho: 9 polegadas</p>
         </div>
+        
+        <div class="tributo">
+            <p>Marca: Apple</p>
+        </div>
+        <div class="tributo">
+            <p>Modelo: iPhone 16 pro max</p>
+        </div>
+        <div class="tributo">
+            <p>Armazenamento: 512 Gb</p>
+        </div>
+        <div class="tributo">
+            <p>Ram: 8 Gb</p>
+        </div>
+        <div class="tributo">
+            <p>Tamanho: 9 polegadas</p>
+        </div>
+        
+        <div class="tributo">
+            <p>Marca: Apple</p>
+        </div>
+        <div class="tributo">
+            <p>Modelo: iPhone 16 pro max</p>
+        </div>
+        <div class="tributo">
+            <p>Armazenamento: 512 Gb</p>
+        </div>
+        <div class="tributo">
+            <p>Ram: 8 Gb</p>
+        </div>
+        <div class="tributo">
+            <p>Tamanho: 9 polegadas</p>
+        </div>
     </div>
 
     <div id="conteiner_carrosel">

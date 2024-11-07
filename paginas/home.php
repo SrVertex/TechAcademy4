@@ -9,10 +9,10 @@
     </div>
     <div class="carousel-inner">
         <div class="carousel-item active" data-bs-interval="2000">
-            <img src="imagens/banner2.jpg" class="d-block w-100" alt="...">
+            <img src="imagens/bannerBuds.jpg" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item" data-bs-interval="2000">
-            <img src="imagens/banner2.jpg" class="d-block w-100" alt="...">
+            <img src="imagens/banners24.jpg" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item" data-bs-interval="2000">
             <img src="imagens/banner2.jpg" class="d-block w-100" alt="...">
@@ -44,7 +44,7 @@
 
         <hr data-aos="fade" data-aos-duration="500">
 
-        <div class="carousel" data-flickity='{ "wrapAround": true }'>
+        <div class="carousel"  data-flickity='{ "wrapAround": true }'>
 
             <div class="carousel-cell">
 

@@ -6,7 +6,7 @@
         <form action="home" method="post">
 
             <input type="text" name="nome" placeholder="Nome Completo">
-            <input type="text" name="cep" placeholder="Insira seu CEP">
+            <input class="input_cep" type="text" name="cep" placeholder="Insira seu CEP">
 
             <div class="cidade">
 
@@ -15,7 +15,7 @@
 
             </div>
 
-                    <input type="text" name="bairro" placeholder="Bairro">
+                    <input class="input_cep" type="text" name="bairro" placeholder="Bairro">
 
             <div class="rua">
 

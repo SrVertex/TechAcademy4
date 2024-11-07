@@ -37,9 +37,22 @@
                     <div class="logo">
 
                         <a href="index.php"><img src="imagens//logo///logo.png" alt></a>
-                        <!-- <a class="navbar-brand nome_logo" href="#">TECNOLO</a> -->
+                        <a class="navbar-brand nome_logo" href="#">TECNOLO</a> 
 
                     </div>
+
+                    <div class="barra_pesquisa">
+                        <form  role="search">
+                            <input class="2" type="search" placeholder="Digite o que você procura..." aria-label="Search">
+                            <a href="" type="submit"> <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                    class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1" />
+                                </svg></a>
+                        </form>
+                    </div>
+
+
 
                     <div class="area_botao">
                         <a href=""><i class="bi bi-moon-stars-fill"></i></a>
