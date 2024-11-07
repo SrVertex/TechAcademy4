@@ -93,6 +93,7 @@ header {
             }
 
             .collapse {
+                background-color: rgba(0, 0, 0, 0.250) !important;
                 overflow: hidden !important;
                 margin-top: 10px;
 
@@ -362,7 +363,8 @@ header {
 
                             background-color: transparent !important;
                             border: solid 1px white !important;
-                            background-image: linear-gradient(160deg, rgb(255, 255, 255, 0.200) 0%, rgb(0, 0, 0, 0.200) 100%);
+                            /* background-image: linear-gradient(160deg, rgb(255, 255, 255, 0.200) 0%, rgb(0, 0, 0, 0.200) 100%); */
+                            background-color: rgba(0, 0, 0, 0.250) !important;
                             backdrop-filter: blur(6px);
                             border-radius: 20px;
 
@@ -440,6 +442,26 @@ main {
 
 footer {
     margin-top: 40px;
+
+    width: 100%;
+    height: 500px;
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.200) 0%, rgb(0, 0, 0, 0.2) 100%);
+    backdrop-filter: blur(8px);
+    border: solid 1px white;
+    border-radius: 20px 20px 0 0;
+
+    hr {
+        width: 1200px;
+        margin: 20px auto;
+        height: 3px;
+        opacity: 100%;
+        background-color: white;
+        border-radius: 20px
+    }
+
+    ;
+
+
 }
 
 #conteiner_carrosel {
@@ -1310,6 +1332,45 @@ footer {
 
 }
 
+#main_admin {
+    width: 100%;
+    margin: 30px auto;
+
+    .conteiner_admin {
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        padding: 10px;
+    
+
+        .conteiner_link {
+            width: 48%;
+            margin-bottom: 20px;
+            background-color: rgba(197, 197, 197, 0.1);
+            padding: 20px;
+
+            border: solid 1px white;
+            border-radius: 20px;
+
+            text-align: center;
+            text-decoration: none;
+
+            p {
+                color: white;
+                font-size: 20px;
+                font-weight: bold;
+            }
+            i {
+                font-size: 48px;
+                color: white;
+            }
+            
+        }
+
+    }
+}
+
 @media (min-width: 600px) {
     #conteiner_carrosel {
         .carousel {
@@ -1437,32 +1498,37 @@ footer {
         }
     }
 
-    
+
     #area_endereco {
         .conteiner_endereco {
             margin-top: 50px;
             width: 600px !important;
+
             form {
-            width: 100%;
+                width: 100%;
                 margin: auto;
 
                 input {
                     width: 340px;
                 }
+
                 .input_cep {
                     width: 270px;
                 }
-                .cidade  {
+
+                .cidade {
                     display: flex;
                     justify-content: space-between;
+
                     input {
                         width: 270px;
                     }
                 }
 
-                .rua  {
+                .rua {
                     display: flex;
                     justify-content: space-between;
+
                     input {
                         width: 270px;
                     }
@@ -1490,7 +1556,7 @@ footer {
         }
     }
 
-   
+
 
 }
 
@@ -1651,6 +1717,12 @@ footer {
             }
         }
 
+        .conteiner_ficha {
+            width: 98%;
+
+
+        }
+
         .descricao_completa2 {
             display: none;
         }
@@ -1731,6 +1803,10 @@ footer {
                     }
                 }
             }
+        }
+
+        .conteiner_ficha {
+            width: 100%;
         }
     }
 }

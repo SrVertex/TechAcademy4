@@ -26,6 +26,8 @@
         <!-- Inclua o CSS do AOS MASTER -->
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+
+
     </head>
 
     <header>
@@ -37,12 +39,12 @@
                     <div class="logo">
 
                         <a href="index.php"><img src="imagens//logo///logo.png" alt></a>
-                        <a class="navbar-brand nome_logo" href="#">TECNOLO</a> 
+                        <a class="navbar-brand nome_logo" href="#">TECNOLO</a>
 
                     </div>
 
                     <div class="barra_pesquisa">
-                        <form  role="search">
+                        <form role="search">
                             <input class="2" type="search" placeholder="Digite o que você procura..." aria-label="Search">
                             <a href="" type="submit"> <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                     class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
@@ -93,25 +95,29 @@
                                 </li>
                                 <li><a class="dropdown-item" href="#"><i class="bi bi-whatsapp"></i>WhatzApp</a></li>
                                 <li><a class="dropdown-item" href="endereco"><i class="bi bi-house-door-fill"></i>Meu
-                                        Endereço</a></li>
-                            </ul>
+                                <li><a class="dropdown-item" href="admin"><i class="bi bi-xbox"></i>Adimistrador</a></li>
+                                <li><a class="dropdown-item" href="http://lucasmotion.free.nf/?i=1"><i class="bi bi-code-slash"></i>Lucas Motion</a></li>
+                                <li><a class="dropdown-item" href="https://srvertex.github.io/Site_SrVertex_BETA/"><i class="bi bi-code-slash"></i>SrVertex</a></li>
+                                Endereço</a>
                         </li>
+                    </ul>
+                    </li>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Categorias
-                            </a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Categorias
+                        </a>
 
-                            <ul class="dropdown-menu dropdown-menu-2 ">
-                                <li><a class="dropdown-item" href="#">Notebook</a></li>
-                                <li><a class="dropdown-item" href="#">Smartphone</a></li>
-                                <li><a class="dropdown-item" href="#">Acessórios</a></li>
-                                <li><a class="dropdown-item" href="#">Monitor</a></li>
-                                <li><a class="dropdown-item" href="#">Games</a></li>
-                                <li><a class="dropdown-item" href="#">Hardware</a></li>
-                            </ul>
-                        </li>
+                        <ul class="dropdown-menu dropdown-menu-2 ">
+                            <li><a class="dropdown-item" href="#">Notebook</a></li>
+                            <li><a class="dropdown-item" href="#">Smartphone</a></li>
+                            <li><a class="dropdown-item" href="#">Acessórios</a></li>
+                            <li><a class="dropdown-item" href="#">Monitor</a></li>
+                            <li><a class="dropdown-item" href="#">Games</a></li>
+                            <li><a class="dropdown-item" href="#">Hardware</a></li>
+                        </ul>
+                    </li>
 
 
 
@@ -177,7 +183,9 @@
                                 </li>
                                 <li><a class="dropdown-item" href="#"><i class="bi bi-whatsapp"></i>WhatzApp</a></li>
                                 <li><a class="dropdown-item" href="endereco"><i class="bi bi-house-door-fill"></i>Meu Endereço</a></li>
-                            </ul>
+                                <li><a class="dropdown-item" href="admin"><i class="bi bi-xbox"></i>Adimistrador</a></li>
+                                <li><a class="dropdown-item" href="http://lucasmotion.free.nf/?i=1"><i class="bi bi-code-slash"></i>Lucas Motion</a></li>
+                                <li><a class="dropdown-item" href="https://srvertex.github.io/Site_SrVertex_BETA/"><i class="bi bi-code-slash"></i>SrVertex</a></li>
                         </div>
                     </div>
 
@@ -234,8 +242,10 @@
         </main>
 
         <footer>
-
+            <hr>
         </footer>
+
+
 
     </body>
 

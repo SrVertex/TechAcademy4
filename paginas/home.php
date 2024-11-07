@@ -15,7 +15,7 @@
             <img src="imagens/banners24.jpg" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item" data-bs-interval="2000">
-            <img src="imagens/banner2.jpg" class="d-block w-100" alt="...">
+            <img src="imagens/banner3.png" class="d-block w-100" alt="...">
         </div>
     </div>
     <button id="botao_carrosel" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -32,7 +32,7 @@
 
 <section id="main_home">
 
-    <div class="conteiner_carrosel">
+    <div class="conteiner_carrosel" >
         <div class="categoria">
             <h2 >MAIS VENDIDOS</h2>
 
@@ -42,7 +42,7 @@
 
         </div>
 
-        <hr data-aos="fade" data-aos-duration="500">
+        <hr>
 
         <div class="carousel"  data-flickity='{ "wrapAround": true }'>
 
@@ -289,7 +289,7 @@
     </div>
 
     <div class="banner">
-        <img src="imagens/01718222981 1.png" alt="" width="100%" style="margin: 30px 0;">
+        <img src="imagens/banner6.jpg" alt="" width="100%" style="margin: 30px 0;">
     </div>
 
     <div class="conteiner_carrosel">
