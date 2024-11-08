@@ -914,7 +914,6 @@ footer {
                 border-radius: 20px;
                 counter-increment: carousel-cell;
                 box-shadow: 0 2px 10px rgba(255, 255, 255, 0.404);
-
                 a {
                     text-decoration: none !important;
 
@@ -1438,8 +1437,6 @@ footer {
     }
 
 }
-
-
 @media (min-width: 600px) {
     #conteiner_carrosel {
         .carousel {
