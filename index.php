@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
     <html lang="pt-br">
 
     <head>
@@ -217,30 +217,30 @@
     <body>
 
         <main>
-            <?php
 
-            if (isset($_GET["param"])) {
-                $param = $_GET["param"];
-                $p = explode("/", $param);
-            }
+        <?php
 
-            $page = $p[0] ?? "home";
-            $jogo = $p[1] ?? NULL;
+if (isset($_GET["param"])) {
+    $param = $_GET["param"];
+    $p = explode("/", $param);
+}
 
-            if ($page == "jogo") {
-                $pagina = "jogo/{$jogo}.phtml";
-            } else {
-                $pagina = "paginas/{$page}.phtml";
-            }
+$page = $p[0] ?? "home";
+$jogo = $p[1] ?? NULL;
 
-            if (file_exists($pagina)) {
-                include $pagina;
-            } else {
-                include "paginas/erro.phtml";
-            }
+if ($page == "jogo") {
+    $pagina = "jogo/{$jogo}.phtml";
+} else {
+    $pagina = "paginas/{$page}.phtml";
+}
 
-            ?>
+if (file_exists($pagina)) {
+    include $pagina;
+} else {
+    include "paginas/erro.phtml";
+}
 
+?>
         </main>
 
         <footer>
@@ -257,7 +257,7 @@
     <!-- hello world em JS/TS  -->
 
     <script src="JS/hello.js"></script>
-
+    
     <!-- Inclui o JavaScript do AOS MARTER-->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
