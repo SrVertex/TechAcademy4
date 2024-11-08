@@ -17,11 +17,13 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <link rel="stylesheet" href="css/bootstrap.min.css">
 
+        <link rel="stylesheet" href="icons//font///bootstrap-icons.min.css">
+
 
         <!-- Inclua o CSS do Flickity -->
-        <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+        <link rel="stylesheet" href="css/flickity.min.css">
         <!-- Inclua o JavaScript do Flickity -->
-        <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+        <script src="JS/flickity-docs.min.js"></script>
 
         <!-- Inclua o CSS do AOS MASTER -->
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -226,15 +228,15 @@
             $jogo = $p[1] ?? NULL;
 
             if ($page == "jogo") {
-                $pagina = "jogo/{$jogo}.php";
+                $pagina = "jogo/{$jogo}.phtml";
             } else {
-                $pagina = "paginas/{$page}.php";
+                $pagina = "paginas/{$page}.phtml";
             }
 
             if (file_exists($pagina)) {
                 include $pagina;
             } else {
-                include "paginas/erro.php";
+                include "paginas/erro.phtml";
             }
 
             ?>
@@ -242,7 +244,7 @@
         </main>
 
         <footer>
-            <hr>
+            <!-- <hr>    -->
         </footer>
 
 

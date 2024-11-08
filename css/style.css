@@ -1342,7 +1342,7 @@ footer {
         flex-wrap: wrap;
 
         padding: 10px;
-    
+
 
         .conteiner_link {
             width: 48%;
@@ -1361,11 +1361,12 @@ footer {
                 font-size: 20px;
                 font-weight: bold;
             }
+
             i {
                 font-size: 48px;
                 color: white;
             }
-            
+
         }
 
     }
@@ -1536,6 +1537,8 @@ footer {
             }
         }
     }
+
+
 
 }
 
