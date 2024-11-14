@@ -374,9 +374,12 @@ header {
                                     color: white;
                                     font-size: 20px;
                                     font-weight: bold;
+                                    transition: 200ms;
 
                                     &:hover {
                                         background-color: transparent !important;
+                                        transform: scale(1.03, 1.03) !important;
+                                        text-shadow: 0 0 6  px white !important;
                                     }
 
                                     i {
@@ -1591,42 +1594,49 @@ footer {
                     p {
                         font-size: 14px;
                         font-weight: bold;
-                        margin-bottom: 10px;
+                        margin-bottom: 5px;
                     }
 
-                    a {
-                        font-size: 16px;
-                        font-weight: bold;
-                    }
-
-                    .dropdown-menu {
-                        display: flex;
-                        flex-direction: column;
-                        gap: 15px;
-                        background-color: rgba(0, 0, 0, 0.4) !important;
-                        border: solid 1px white !important;
-                        border-radius: 20px;
-                        backdrop-filter: blur(5px) !important;
-                        padding: 10px 10px;
-
-                        li {
-                            display: flex;
-                            justify-content: space-between;
-                            align-items: center;
-
-                            label {
-                                color: white;
-                                margin-right: 10px;
-                            }
-
-                            input {
-                                width: 20px;
-                                height: 20px;
-                                transform: scale(1.1);
-                            }
+                    .dropdown {
+                        margin: 0 !important;
+                        padding: 0 !important;
+                        a {
+                            text-decoration: none;
+                            color: white;
+                            font-weight: bold;
+                            font-size: 16px;
+                            margin: 0 !important;
+                            padding: 0 !important;
                         }
 
+                        .dropdown-menu {
+                            width: 190px;
+                            background-color: rgba(0, 0, 0, 0.4);
+                            border: white solid 1px;
+                            border-radius: 20px;
+                            backdrop-filter: blur(8px);
+                            padding: 10px;
+                            
+                            li {
+                                display: flex;
+                                justify-content: space-between;
+                                margin-bottom: 8px;
+                                transition: 200ms;
+
+                                &:hover {
+                                    transform: scale(1.03, 1.03);
+                                    text-shadow: 0 0 10px white;
+                                }
+
+                                label {
+                                    color: white;
+                                    font-size: 16px;
+                                    font-weight: bold;
+                                }
+                            }
+                        }
                     }
+
                 }
             }
 
@@ -1635,9 +1645,20 @@ footer {
                 align-items: center;
 
                 input {
-                    width: 20px;
-                    height: 20px;
-                    transform: scale(1.5);
+                    width: 25px;
+                    height: 25px;
+                    border-radius: 50%;
+                    background-color: transparent;
+                    border: 1px solid white;
+                    cursor: pointer;
+
+                }
+
+                &:checked {
+                    background-color: white;
+                    /* Fundo branco quando selecionado */
+                    border: 1px solid white;
+                    /* Mantém a borda branca */
                 }
             }
         }
@@ -1810,7 +1831,6 @@ footer {
         }
     }
 
-
     #area_endereco {
         .conteiner_endereco {
             margin-top: 50px;
@@ -1885,15 +1905,6 @@ footer {
         .conteiner_pagamento {
             width: 600px;
             margin: 30px auto;
-
-            padding: 26px 20px;
-
-            form {
-                .credito {
-                    margin-bottom: 30px;
-                    height: 120px !important;
-                }
-            }
         }
     }
 }
@@ -1973,7 +1984,6 @@ footer {
             }
         }
     }
-
 
     #main_admin {
         margin: 80px auto;

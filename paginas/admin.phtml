@@ -1,40 +1,67 @@
 <section id="main_admin">
-        <h2>ÁREA DO ADMISTRADOR</h2>
+    <h2>ÁREA DO ADMISTRADOR</h2>
     <div class="conteiner_admin d-flex">
-        <a class="conteiner_link">
 
-
+        <a class="conteiner_link" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalProduto">
             <p>Produtos</p>
-
             <div class="logo">
-                <i class="bi bi-person-circle"></i>
+            <i class="bi bi-archive-fill"></i>
             </div>
-
         </a>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalProduto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title" id="exampleModalLabel">Busque seu CEP</h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <form action="">
+                            <input type="text" placeholder="Estado">
+                            <input type="text" placeholder="Cidade">
+
+                            <span>
+                                <n>Seu CEP:</n> 87355-000
+                            </span>
+
+                            <div class="btn">
+                                <button>Buscar</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <a class="conteiner_link">
             <p>Clientes </p>
             <div class="logo">
-                <i class="bi bi-person-circle"></i>
+            <i class="bi bi-people-fill"></i>
             </div>
         </a>
+
         <a class="conteiner_link">
             <p>Adicionar Produtos</p>
             <div class="logo">
-                <i class="bi bi-person-circle"></i>
+            <i class="bi bi-cart-plus-fill"></i>
             </div>
         </a>
 
         <a class="conteiner_link">
             <p>Remover Produtos</p>
             <div class="logo">
-                <i class="bi bi-person-circle"></i>
+            <i class="bi bi-trash"></i>
             </div>
         </a>
 
         <a class="conteiner_link">
             <p>Peditos</p>
             <div class="logo">
-                <i class="bi bi-person-circle"></i>
+            <i class="bi bi-cart-fill"></i>
             </div>
         </a>
 
