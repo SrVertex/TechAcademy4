@@ -33,13 +33,13 @@
                     <button class="carrinho"><i class="bi bi-cart-plus"></i></button>
                 </form>
             </div>
-            
+
             <hr>
 
             <div class="cep">
                 <div class="busca">
                     <form action="">
-                        <input type="text" placeholder="Insira o CEP">
+                        <input type="text" placeholder="Insira o CEP" maxlength="8" inputmode="numeric">
                         <button>OK</button>
                     </form>
                 </div>
@@ -96,53 +96,25 @@
 
         <hr>
 
-        <div class="tributo">
-            <p id="paragrafo">Marca: Apple</p>
-        </div>
-        <div class="tributo">
-            <p>Modelo: iPhone 16 pro max</p>
-        </div>
-        <div class="tributo">
-            <p>Armazenamento: 512 Gb</p>
-        </div>
-        <div class="tributo">
-            <p>Ram: 8 Gb</p>
-        </div>
-        <div class="tributo">
-            <p>Tamanho: 9 polegadas</p>
-        </div>
 
-        <div class="tributo">
-            <p>Marca: Apple</p>
-        </div>
-        <div class="tributo">
-            <p>Modelo: iPhone 16 pro max</p>
-        </div>
-        <div class="tributo">
-            <p>Armazenamento: 512 Gb</p>
-        </div>
-        <div class="tributo">
-            <p>Ram: 8 Gb</p>
-        </div>
-        <div class="tributo">
-            <p>Tamanho: 9 polegadas</p>
-        </div>
+        <ul>
+            <li>
+                <p id="paragrafo">Marca: Apple</p>
+            </li>
+            <li>
+                <p id="paragrafo">Modelo: iPhone 16 Pro Max</p>
+            </li>
+            <li>
+                <p id="paragrafo">Cor: Títanio</p>
+            </li>
+            <li>
+                <p id="paragrafo">Memorias: 512GB/8GB de Ram</p>
+            </li>
+            <li>
+                <p id="paragrafo">Tela: Super Retina XDR OLED de 6.7 polegadas FHD+ (2560x1600)</p>
+            </li>
+        </ul>
 
-        <div class="tributo">
-            <p>Marca: Apple</p>
-        </div>
-        <div class="tributo">
-            <p>Modelo: iPhone 16 pro max</p>
-        </div>
-        <div class="tributo">
-            <p>Armazenamento: 512 Gb</p>
-        </div>
-        <div class="tributo">
-            <p>Ram: 8 Gb</p>
-        </div>
-        <div class="tributo">
-            <p>Tamanho: 9 polegadas</p>
-        </div>
     </div>
 
     <div id="conteiner_carrosel">
@@ -199,23 +171,18 @@
                     <div class="img"><img src="imagens/0_AEMYWY3BEAPTA_PRD_1500_1 2.png" alt></div>
 
                     <div class="descricao">
-                        <p class="desc">iPhone 16 Pro Max Apple 512GB, Câmera
-                            Tripla de 48MP, Tela 6,9", Titânio Natural
-                        </p>
 
+                        <p class="desc">iPhone 16 Pro Max Apple 512GB, Câmera Tripla de 48MP, Tela 6,9", Titânio Natural</p>
                         <p class="preco">R$ 78.000,00</p>
-                        <p class="sub_preco">Aviste no Pix ou até <span>10x de
-                                R$7.800,00</span></p>
+                        <p class="sub_preco">Aviste no Pix ou até <span>10x de R$7.800,00</span></p>
 
                     </div>
                 </a>
-
             </div>
-            <div class="carousel-cell">
 
+            <div class="carousel-cell">
                 <a href>
                     <div class="img"><img src="imagens/0_AEMYWY3BEAPTA_PRD_1500_1 2.png" alt></div>
-
                     <div class="descricao">
                         <p class="desc">iPhone 16 Pro Max Apple 512GB, Câmera
                             Tripla de 48MP, Tela 6,9", Titânio Natural
@@ -272,3 +239,17 @@
     </div>
 
 </section>
+
+
+
+<!-- Negrito as primeiras palavras -->
+<script>
+    const paragraphs = document.querySelectorAll('#paragrafo');
+
+    paragraphs.forEach(paragraph => {
+        let text = paragraph.innerHTML;
+        let words = text.split(' ');
+        words[0] = '<strong>' + words[0] + '</strong>';
+        paragraph.innerHTML = words.join(' ');
+    });
+</script>

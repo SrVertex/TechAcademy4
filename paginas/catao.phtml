@@ -5,13 +5,13 @@
 
         <form action="home" method="post" class="form">
 
-            <input type="email" placeholder="Número do Cartão" required>
-            <input type="password" placeholder="Nome Completo" required>
+            <input type="text" name="número cartao" placeholder="Número do Cartão" required maxlength="16" inputmode="numeric">
+            <input type="text" name="nome" placeholder="Nome Completo" required>
             <div class="validacao">
-                <input type="Number" id="termos" required placeholder="Data de Validade">
-                <input type="month" placeholder="Código de Segurança">
+                <input type="month" name="validade" id="termos" required placeholder="Data de Validade">
+                <input type="text" name="segurança" placeholder="Código de Segurança" maxlength="3" inputmode="numeric">
             </div>
-            <input type="password" placeholder="CPF" required>
+            <input type="text" name="cpf" placeholder="CPF" required maxlength="11" inputmode="numeric">
             <div class="btn_login">
                 <a id="link" href="index.php">Voltar</a>
                 <button id="link">Confirmar</button>
