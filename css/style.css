@@ -223,11 +223,9 @@ header {
 
         .navbar {
             width: 100%;
-
             background-color: transparent !important;
             display: flex;
             flex-direction: column;
-
 
             padding: 10px 120px 5px 120px;
 
@@ -360,8 +358,6 @@ header {
 
                         .dropdown-menu {
                             margin-top: 20px !important;
-
-                            background-color: transparent !important;
                             border: solid 1px white !important;
                             /* background-image: linear-gradient(160deg, rgb(255, 255, 255, 0.200) 0%, rgb(0, 0, 0, 0.200) 100%); */
                             background-color: rgba(0, 0, 0, 0.250) !important;
@@ -370,20 +366,20 @@ header {
 
                             li {
 
+                                &:hover {
+                                    transform: scale(1.05, 1.05);
+                                    transition: 100ms;
+                                }
+
                                 a {
                                     color: white;
                                     font-size: 20px;
                                     font-weight: bold;
-                                    transition: 250ms ease-in-out all;
+                                    transition: 100ms;
 
                                     &:hover {
                                         background-color: transparent !important;
-                                        transform: scale(1.05, 1.05) !important;
-                                        text-shadow: 0 0 6px white !important;
-                                    }
-
-                                    &::after {
-                                        background-color: transparent !important;
+                                        text-shadow: 0 0 10px white;
                                     }
 
                                     i {
@@ -392,7 +388,6 @@ header {
                                 }
                             }
                         }
-
                     }
                 }
 
@@ -465,12 +460,60 @@ footer {
     border-radius: 20px 20px 0 0;
 
     hr {
-        width: 1200px;
+        width: 90%;
         margin: 20px auto;
         height: 3px;
         opacity: 100%;
         background-color: white;
         border-radius: 20px
+    }
+
+    .conteiner_footer {
+        width: 90%;
+        margin: 10px auto;
+        
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+
+        .contato {
+            h4  {
+                font-size: 26px;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+            ul {
+                margin: 0;
+                padding: 0;
+                li {
+                    display: flex;
+                    align-items: center;
+                    list-style: none;
+
+                    font-size: 16px;
+                    font-weight: normal;
+                    color: white !important;
+
+                    i {
+                        font-size: 25px;
+                        margin-right: 5px;
+                    }
+
+                    a {
+                        display: flex;
+                        align-items: center;
+                        color: white;
+                        text-decoration: none;
+                        font-size: 16px;
+                        i {
+                            font-size: 25px;
+                            margin-right: 5px;
+                        }
+                    }
+                }
+            }
+        }
+
     }
 }
 
@@ -1472,9 +1515,6 @@ footer {
             border-radius: 20px;
 
         }
-
-
-
 
         ul {
             list-style: none !important;

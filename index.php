@@ -29,17 +29,16 @@
     <!-- Inclua o CSS do AOS MASTER -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-<style>
-.alert {
-    background-color: #f8d7da !important;
-    color: #721c24;
-    padding: 10px;
-    margin-top: 10px;
-    border: 1px solid #f5c6cb;
-    border-radius: 5px;
-}
-
-</style>
+    <style>
+        .alert {
+            background-color: #f8d7da !important;
+            color: #721c24;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+        }
+    </style>
 
 </head>
 
@@ -250,11 +249,22 @@
 
         ?>
 
-
     </main>
 
     <footer>
-        <!-- <hr>    -->
+        <hr>
+        <div class="conteiner_footer">
+            <div class="contato">
+                <h4>Contato</h4>
+                <ul>
+                    <li><i class="bi bi-whatsapp"></i> (44)999927372</li>
+                    <li><i class="bi bi-envelope"></i> Tecnolo@hotmail.com.br</li>
+                    <li><i class="bi bi-house-door-fill"></i> Campo Mourão PR</li>
+                    <li><a href=""><i class="bi bi-code-slash"></i>LucasMotion</a></li>
+                    <li><a href=""><i class="bi bi-code-slash"></i>SrVertex</a></li>
+                </ul>
+            </div>
+        </div>
     </footer>
 
 
