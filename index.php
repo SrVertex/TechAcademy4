@@ -42,7 +42,7 @@
                 <div class="logo">
 
                     <a href="index.php"><img src="imagens//logo///logo.png" alt></a>
-                    <a class="navbar-brand nome_logo" href="#">TECNOLO</a>
+                    <a class="navbar-brand nome_logo" href="index.php">TECNOLO</a>
 
                 </div>
 
@@ -150,7 +150,7 @@
                 <div class="logo">
 
                     <a href="index.php"><img src="imagens//logo///logo.png"></a>
-                    <a class="navbar-brand nome_logo" href="#">TECNOLO</a>
+                    <a class="navbar-brand nome_logo" href="index.php">TECNOLO</a>
                 </div>
 
                 <div class="barra_pesquisa">

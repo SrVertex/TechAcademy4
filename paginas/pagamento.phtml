@@ -1,8 +1,11 @@
-<section id="main_pagamento">
+<!-- <section id="main_pagamento">
 
     <div class="conteiner_pagamento">
+
         <p class="text-center">Escolha sua forma de pagamento</p>
+
         <form action="catao">
+
             <div class="modelo">
                 <div class="parcela" for="creditocard">
 
@@ -36,6 +39,7 @@
                     <input type="checkbox" id="creditocard" name="pagamento" value="creditocard" require>
                 </div>
             </div>
+
             <div class="modelo">
                 <div class="parcela" for="creditocard">
 
@@ -62,14 +66,104 @@
                 </div>
             </div>
 
+            <div class="btn">
+                <a href="detalheProduto">Voltar</a>
+                <button type="submit">Concluir</button>
+            </div>
+        </form>
+    </div>
+</section> -->
+<section id="main_pagamento">
+    <div class="conteiner_pagamento">
+        <p class="text-center">Escolha sua forma de pagamento</p>
 
+        <form action="catao" id="formPagamento">
+            <div class="modelo">
+                <div class="parcela" for="creditocard1">
+                    <label for="creditocard1"><i class="bi bi-credit-card-2-back-fill"></i>Cartão de Crédito</label>
+                    <p>Pagamento Imediato</p>
+
+                    <div class="dropdown">
+                        <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Pacelas<i class="bi bi-arrow-down-short"></i>
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li><label for="pacela1">1X R$ 78.000,00</label><input type="checkbox" id="pacela1" name="parcelas"></li>
+                            <li><label for="pacela2">2X R$ 78.000,00</label><input type="checkbox" id="pacela2" name="parcelas"></li>
+                            <li><label for="pacela3">3X R$ 78.000,00</label><input type="checkbox" id="pacela3" name="parcelas"></li>
+                            <li><label for="pacela4">4X R$ 78.000,00</label><input type="checkbox" id="pacela4" name="parcelas"></li>
+                            <li><label for="pacela5">5X R$ 78.000,00</label><input type="checkbox" id="pacela5" name="parcelas"></li>
+                            <li><label for="pacela6">6X R$ 78.000,00</label><input type="checkbox" id="pacela6" name="parcelas"></li>
+                            <li><label for="pacela7">7X R$ 78.000,00</label><input type="checkbox" id="pacela7" name="parcelas"></li>
+                            <li><label for="pacela8">8X R$ 78.000,00</label><input type="checkbox" id="pacela8" name="parcelas"></li>
+                            <li><label for="pacela9">9X R$ 78.000,00</label><input type="checkbox" id="pacela9" name="parcelas"></li>
+                            <li><label for="pacela10">10X R$ 78.000,00</label><input type="checkbox" id="pacela10" name="parcelas"></li>
+                            <li><label for="pacela11">11X R$ 78.000,00</label><input type="checkbox" id="pacela11" name="parcelas"></li>
+                            <li><label for="pacela12">12X R$ 78.000,00</label><input type="checkbox" id="pacela12" name="parcelas"></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="ipt">
+                    <input type="checkbox" id="creditocard1" name="pagamento" value="creditocard">
+                </div>
+            </div>
+
+            <div class="modelo">
+                <div class="parcela" for="creditocard2">
+                    <label for="creditocard2"><i class="bi bi-credit-card-2-back-fill"></i>PIX</label>
+                    <p>Pagamento Imediato</p>
+                </div>
+                <div class="ipt">
+                    <input type="checkbox" id="creditocard2" name="pagamento" value="creditocard">
+                </div>
+            </div>
+
+            <div class="modelo">
+                <div class="parcela" for="boleto">
+                    <label for="boleto"><i class="bi bi-credit-card-2-back-fill"></i>Boleto</label>
+                    <p>O Pagamento Pode levar de 1 a 2 dias</p>
+                </div>
+                <div class="ipt">
+                    <input type="checkbox" id="boleto" name="pagamento" value="boleto">
+                </div>
+            </div>
 
             <div class="btn">
                 <a href="detalheProduto">Voltar</a>
                 <button type="submit">Concluir</button>
             </div>
-
         </form>
     </div>
-
 </section>
+
+<script>
+    document.getElementById('formPagamento').addEventListener('submit', function(event) {
+        const pagamentos = document.querySelectorAll('input[name="pagamento"]');
+        const parcelas = document.querySelectorAll('input[name="parcelas"]');
+        let pagamentoSelecionado = false;
+        let parcelaSelecionada = false;
+
+        pagamentos.forEach(pagamento => {
+            if (pagamento.checked) {
+                pagamentoSelecionado = true;
+                if (pagamento.value === 'creditocard') {
+                    parcelas.forEach(parcela => {
+                        if (parcela.checked) {
+                            parcelaSelecionada = true;
+                        }
+                    });
+                    if (!parcelaSelecionada) {
+                        alert('Por favor, selecione uma parcela para o pagamento com cartão de crédito.');
+                        event.preventDefault();
+                    }
+                }
+            }
+        });
+
+        if (!pagamentoSelecionado) {
+            alert('Por favor, selecione uma forma de pagamento.');
+            event.preventDefault();
+        }
+    });
+</script>
