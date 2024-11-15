@@ -252,6 +252,7 @@
     </main>
 
     <footer>
+        <h2 class="text-center">TECNOLO</h2>
         <hr>
         <div class="conteiner_footer">
             <div class="contato">

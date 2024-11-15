@@ -458,10 +458,19 @@ footer {
     backdrop-filter: blur(8px);
     border: solid 1px white;
     border-radius: 20px 20px 0 0;
+    padding: 10px 0;
+
+    h2 {
+        font-size: 30px;
+        font-weight: bold;
+        margin-bottom: 0px;
+
+    }
 
     hr {
         width: 90%;
         margin: 20px auto;
+        margin-top: 5px;
         height: 3px;
         opacity: 100%;
         background-color: white;
@@ -2195,6 +2204,16 @@ footer {
                     }
                 }
             }
+        }
+    }
+
+    footer {
+        hr {
+            width: 1200px;
+        }
+        .conteiner_footer {
+            width: 1200px;
+            padding: 0 10px;
         }
     }
 
