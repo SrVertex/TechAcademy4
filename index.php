@@ -29,7 +29,17 @@
     <!-- Inclua o CSS do AOS MASTER -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+<style>
+.alert {
+    background-color: #f8d7da !important;
+    color: #721c24;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+}
 
+</style>
 
 </head>
 
@@ -265,5 +275,9 @@
 <script>
     AOS.init();
 </script>
+
+
+<script src="JS/pagamento.js"></script>
+<script src="JS/login.js"></script>
 
 </html>
