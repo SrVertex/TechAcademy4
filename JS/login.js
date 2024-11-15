@@ -9,7 +9,7 @@ function setError(field, error) {
   error.style.display = "block";
 }
 function removeError(field, error) {
-  field.style.border = "2px solid #fff";
+  field.style.border = "2px solid #fff";  
   error.style.display = "none";
 }
 function emailValidate() {
