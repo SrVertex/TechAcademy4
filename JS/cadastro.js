@@ -1,63 +1,55 @@
-var FormValidator = /** @class */ (function () {
-    function FormValidator() {
-        this.form = document.getElementById('form');
-        this.campos = document.querySelectorAll('.required');
-        this.spans = document.querySelectorAll('.span-required');
-        this.emailRegex = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
-        this.form.addEventListener('submit', this.handleSubmit.bind(this));
+const form = document.getElementById("form");
+const campos = document.querySelectorAll(".required");
+const spans = document.querySelectorAll(".span-required");
+const emailRegex = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+// aidção da mensagem de erro
+function setError(index) {
+    campos[index].style.border = "2px solid #e63636";
+    spans[index].style.display = "block";
+}
+//remoção da menssagem de erro
+function removeError(index) {
+    campos[index].style.border = "2px solid #fff";
+    spans[index].style.display = "none";
+}
+
+// falidação do email
+function emailValidate() {
+    if (!emailRegex.test(campos[0].value)) {
+    setError(0);
+    } else {
+    removeError(0);
     }
-    FormValidator.prototype.setError = function (index) {
-        this.campos[index].style.border = '2px solid #e63636';
-        this.spans[index].style.display = 'block';
-    };
-    FormValidator.prototype.removeError = function (index) {
-        this.campos[index].style.border = '2px solid #fff';
-        this.spans[index].style.display = 'none';
-    };
-    FormValidator.prototype.emailValidate = function () {
-        if (!this.emailRegex.test(this.campos[0].value)) {
-            this.setError(0);
-        }
-        else {
-            this.removeError(0);
-        }
-    };
-    FormValidator.prototype.nomeValidate = function () {
-        if (this.campos[1].value.length < 3) {
-            this.setError(1);
-        }
-        else {
-            this.removeError(1);
-        }
-    };
-    FormValidator.prototype.mainPasswordValidate = function () {
-        if (this.campos[2].value.length < 8) {
-            this.setError(2);
-        }
-        else {
-            this.removeError(2);
-        }
-    };
-    FormValidator.prototype.mainPasswordValidate2 = function () {
-        if (this.campos[3].value.length < 8) {
-            this.setError(3);
-        }
-        else {
-            this.removeError(3);
-        }
-    };
-    FormValidator.prototype.handleSubmit = function (event) {
-        this.emailValidate();
-        this.nomeValidate();
-        this.mainPasswordValidate();
-        this.mainPasswordValidate2();
-        if (!this.emailRegex.test(this.campos[0].value) ||
-            this.campos[1].value.length < 3 ||
-            this.campos[2].value.length < 8 ||
-            this.campos[3].value.length < 8) {
-            event.preventDefault();
-        }
-    };
-    return FormValidator;
-}());
-var validator = new FormValidator();
+}
+// validação do nome
+function nomeValidate() {
+    if (campos[1].value.length < 3) {
+    setError(1);
+    } else {
+    removeError(1);
+    }
+}
+// validação da senha
+function mainPasswordValidate() {
+    if (campos[2].value.length < 8) {
+    setError(2);
+    } else {
+    removeError(2);
+    }
+}
+//  valodação da confimação da senha
+function mainPasswordValidate2() {
+    if (campos[3].value.length < 8) {
+    setError(3);
+    } else {
+    removeError(3);
+    } 
+}
+
+// erro tester
+
+// function comparePassword() {
+//   if (campos[2].value == campos[3].value && campos[3].value.length >= 8 ) {
+//     removeError(3);
+//   }
+// }

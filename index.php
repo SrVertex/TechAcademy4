@@ -279,5 +279,6 @@
 
 <script src="JS/pagamento.js"></script>
 <script src="JS/login.js"></script>
+<script src="JS/cadastro.js"></script>
 
 </html>
