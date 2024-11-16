@@ -480,20 +480,22 @@ footer {
     .conteiner_footer {
         width: 90%;
         margin: 10px auto;
-        
+
         display: flex;
         justify-content: space-between;
         flex-wrap: nowrap;
 
         .contato {
-            h4  {
+            h4 {
                 font-size: 26px;
                 font-weight: bold;
                 margin-bottom: 10px;
             }
+
             ul {
                 margin: 0;
                 padding: 0;
+
                 li {
                     display: flex;
                     align-items: center;
@@ -514,6 +516,7 @@ footer {
                         color: white;
                         text-decoration: none;
                         font-size: 16px;
+
                         i {
                             font-size: 25px;
                             margin-right: 5px;
@@ -2211,6 +2214,7 @@ footer {
         hr {
             width: 1200px;
         }
+
         .conteiner_footer {
             width: 1200px;
             padding: 0 10px;
@@ -2288,4 +2292,4 @@ footer {
             }
         }
     }
-}
+} 
