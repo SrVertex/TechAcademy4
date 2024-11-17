@@ -526,6 +526,37 @@ footer {
             }
         }
 
+        .login {
+            h4 {
+                font-size: 26px;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            ul {
+                padding: 0 !important;
+                margin: 0 !important;
+            
+                li {
+                    list-style: none;
+                    padding: 0 !important;
+                    margin: 0 !important;
+                    a {
+                        display: flex;
+                        align-items: center;
+                        color: white;
+                        text-decoration: none;
+                        font-size: 16px;
+
+                        i {
+                            font-size: 25px;
+                            margin-right: 5px;
+                        }
+                    }
+                }
+            }
+        }
+
     }
 }
 
@@ -2292,4 +2323,4 @@ footer {
             }
         }
     }
-} 
+}

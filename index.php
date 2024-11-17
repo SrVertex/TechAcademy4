@@ -265,6 +265,15 @@
                     <li><a href=""><i class="bi bi-code-slash"></i>SrVertex</a></li>
                 </ul>
             </div>
+
+            <div class="login">
+                <h4>Usuario</h4>
+                <ul>
+                    <li><a href="">Adminstrador</a></li>
+                    <li><a href="">Login</a></li>
+                    <li><a href="">Cadastro</a></li>
+                </ul>
+            </div>
         </div>
     </footer>
 
@@ -289,7 +298,7 @@
 
 
 <script src="JS/pagamento.js"></script>
-<script src="JS/login.js"></script>
-<script src="JS/cadastro.js"></script>
+
+<script src="JS//cadastro.js"></script>
 
 </html>
