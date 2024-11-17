@@ -261,8 +261,8 @@
                     <li><i class="bi bi-whatsapp"></i> (44)999927372</li>
                     <li><i class="bi bi-envelope"></i> Tecnolo@hotmail.com.br</li>
                     <li><i class="bi bi-house-door-fill"></i> Campo Mourão PR</li>
-                    <li><a href=""><i class="bi bi-code-slash"></i>LucasMotion</a></li>
-                    <li><a href=""><i class="bi bi-code-slash"></i>SrVertex</a></li>
+                    <li><a href="http://lucasmotion.free.nf/?i=1"><i class="bi bi-code-slash"></i>LucasMotion</a></li>
+                    <li><a href="https://srvertex.github.io/Site_SrVertex_BETA/"><i class="bi bi-code-slash"></i>SrVertex</a></li>
                 </ul>
             </div>
 

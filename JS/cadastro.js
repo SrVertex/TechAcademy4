@@ -22,6 +22,13 @@
     }
     }
     // validação do nome
+    function nomeValidate() {
+        if (campos[3].value.length < 5) {
+            setError(3);
+        } else {
+            removeError(3);
+        }
+        }
 
     // validação da senha
     function mainPasswordValidate() {
@@ -39,17 +46,9 @@
         removeError(2);
     }
     }
-    function nomeValidate() {
-    if (campos[3].value.length < 5) {
-        setError(3);
-    } else {
-        removeError(3);
-    }
-    }
 
     function comparePassword() {
     if (campos[1].value == campos[2].value && campos[1].value.length >= 8) {
         removeError(1);
-        removeError(2);
     }
 }
