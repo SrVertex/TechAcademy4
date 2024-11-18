@@ -189,6 +189,7 @@
                         <button class="btn btn-secondary dropdown-toggle btn-grad" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Menu
                         </button>
+
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#"><i class="bi bi-cart"></i>Carrinho</a></li>
                             <li><a class="dropdown-item" href="#"><i class="bi bi-bag-fill"></i>Meus Pedidos</a>
@@ -208,6 +209,7 @@
                 </div>
 
             </div>
+
 
             <div class="navbar_baixo">
                 <a href="">Notebook</a>
@@ -258,9 +260,9 @@
             <div class="contato">
                 <h4>Contato</h4>
                 <ul>
-                    <li><i class="bi bi-whatsapp"></i> (44)999927372</li>
-                    <li><i class="bi bi-envelope"></i> Tecnolo@hotmail.com.br</li>
-                    <li><i class="bi bi-house-door-fill"></i> Campo Mourão PR</li>
+                    <li><span><i class="bi bi-whatsapp"></i> (44)999927372</span></li>
+                    <li><span><i class="bi bi-envelope"></i> Tecnolo@hotmail.com.br</span></li>
+                    <li><span><i class="bi bi-house-door-fill"></i> Campo Mourão PR</span></li>
                     <li><a href="http://lucasmotion.free.nf/?i=1"><i class="bi bi-code-slash"></i>LucasMotion</a></li>
                     <li><a href="https://srvertex.github.io/Site_SrVertex_BETA/"><i class="bi bi-code-slash"></i>SrVertex</a></li>
                 </ul>
@@ -276,8 +278,6 @@
             </div>
         </div>
     </footer>
-
-
 
 </body>
 

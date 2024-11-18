@@ -39,3 +39,31 @@ join departamento d on f.ID_DEPARTAMENTO = d.ID_DEPARTAMENTO where f.SALARIO_BAS
 select coalesce(id_departamento, 'sem departamento'), avg(salario_base) as media_salarial from funcionario f 
 group by f.ID_DEPARTAMENTO 
 having media_salarial > (select avg(SALARIO_BASE) from funcionario f2 );
+
+
+
+  <footer>  
+        <h2 class="text-center">TECNOLO</h2>
+        <hr>
+        <div class="conteiner_footer">
+            <div class="contato">
+                <h4>Contato</h4>
+                <ul>
+                    <li><i class="bi bi-whatsapp"></i> (44)999927372</li>
+                    <li><i class="bi bi-envelope"></i> Tecnolo@hotmail.com.br</li>
+                    <li><i class="bi bi-house-door-fill"></i> Campo Mourão PR</li>
+                    <li><a href="http://lucasmotion.free.nf/?i=1"><i class="bi bi-code-slash"></i>LucasMotion</a></li>
+                    <li><a href="https://srvertex.github.io/Site_SrVertex_BETA/"><i class="bi bi-code-slash"></i>SrVertex</a></li>
+                </ul>
+            </div>
+
+            <div class="login">
+                <h4>Usuario</h4>
+                <ul>
+                    <li><a href="">Adminstrador</a></li>
+                    <li><a href="">Login</a></li>
+                    <li><a href="">Cadastro</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>

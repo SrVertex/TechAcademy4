@@ -14,7 +14,6 @@
     box-sizing: border-box;
 }
 
-
 body {
     background-color: var(--BG_principal) !important;
     color: var(--BG_segundario) !important;
@@ -365,21 +364,26 @@ header {
                             border-radius: 20px;
 
                             li {
+                                transition: 400ms all ease !important;
 
                                 &:hover {
                                     transform: scale(1.05, 1.05);
-                                    transition: 100ms;
+                                    background-color: rgba(255, 255, 255, 0.63);
+                                    border-radius: 50px !important;
+                                    margin: 5px 5px;
+                                    box-shadow: 0 0 10px white;
+
                                 }
 
                                 a {
                                     color: white;
                                     font-size: 20px;
                                     font-weight: bold;
-                                    transition: 100ms;
+                                    border-radius: 50px !important;
+                                    transition: 400ms all ease !important;
 
                                     &:hover {
-                                        background-color: transparent !important;
-                                        text-shadow: 0 0 10px white;
+                                        color: black;
                                     }
 
                                     i {
@@ -419,18 +423,23 @@ header {
                     font-size: 16px;
                     font-weight: bold;
                     text-decoration: none;
-                    transition: 250ms ease-in-out all !important;
+                    color: white;
+                        transition: 400ms all ease !important;
 
                     &:hover {
-                        text-shadow: 0 0 10px white !important;
-                        transform: scale(1.05, 1.05) !important;
+                        transform: scale(1.05,1.05);
+                        background-color: white;
+                        box-shadow: 0 0 10px white;
+                        border-radius: 40px;
+                        color: black !important;
+                        padding: 0 5px
+
                     }
                 }
 
             }
         }
     }
-
 
 }
 
@@ -501,13 +510,26 @@ footer {
                     align-items: center;
                     list-style: none;
 
-                    font-size: 16px;
-                    font-weight: normal;
-                    color: white !important;
+                    span {
+                        font-size: 16px;
+                        font-weight: normal;
+                        color: white !important;
+                        transition: 400ms all ease;
 
-                    i {
-                        font-size: 25px;
-                        margin-right: 5px;
+                        &:hover {
+                            transform: scale(1.05, 1.05);
+                            background-color: white;
+                            border-radius: 30px;
+                            color: black !important;
+                            padding: 0 10px;
+                            margin: 5px 0;
+                            box-shadow:0 0 10px white;
+                        }
+
+                        i {
+                            font-size: 25px;
+                            margin-right: 5px;
+                        }
                     }
 
                     a {
@@ -516,6 +538,17 @@ footer {
                         color: white;
                         text-decoration: none;
                         font-size: 16px;
+                        transition: 400ms ease all !important;
+
+                        &:hover {
+                            transform: scale(1.05, 1.05);
+                            background-color: white;
+                            border-radius: 30px;
+                            color: black !important;
+                            padding: 0 10px;
+                            margin: 5px 0;
+                            box-shadow: 0 0 10px white;
+                        }
 
                         i {
                             font-size: 25px;
@@ -539,8 +572,8 @@ footer {
 
                 li {
                     list-style: none;
-                    padding: 0 !important;
-                    margin: 0 !important;
+                    margin-bottom: 10px;
+
 
                     a {
                         display: flex;
@@ -548,17 +581,27 @@ footer {
                         color: white;
                         text-decoration: none;
                         font-size: 16px;
+                        transition: 400ms ease all !important;
 
-                        i {
-                            font-size: 25px;
-                            margin-right: 5px;
+                        &:hover {
+                            transform: scale(1.05, 1.05);
+                            background-color: white;
+                            border-radius: 30px;
+                            color: black !important;
+                            padding: 4px 10px;
+                            box-shadow: 0 0 10px white;
                         }
+                    }
+
+                    i {
+                        font-size: 25px;
+                        margin-right: 5px;
                     }
                 }
             }
         }
-
     }
+
 }
 
 #conteiner_carrosel {
@@ -1802,6 +1845,7 @@ footer {
         font-weight: bold;
         text-align: start;
         margin-bottom: 5px;
+        margin-left: 10px;
     }
 
     hr {
@@ -1810,6 +1854,7 @@ footer {
         opacity: 100%;
         background-color: white;
         border-radius: 50%;
+        margin: auto;
         margin-top: 0;
         margin-bottom: 20px;
 
@@ -1833,16 +1878,21 @@ footer {
 
             justify-content: space-between;
 
-            background-color: rgba(255, 255, 255, 0.205) !important;
+            background-color: #ffffff1f;
             border: solid 1px white;
             border-radius: 20px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.425);
 
             .imagem {
                 width: 30%;
+
+                img {
+                    width: 100%;
+                }
             }
 
             .descricao {
-                width: 67%;
+                width: 68%;
 
                 .desc {
                     width: 100%;
@@ -1961,7 +2011,6 @@ footer {
 
                         .descricao {
                             .desc {
-
                                 font-size: 10px;
                                 font-weight: bold;
 
@@ -2090,6 +2139,47 @@ footer {
             margin: 30px auto;
         }
     }
+
+    #main_produtos {
+        .produto_flex {
+            flex-direction: row;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+
+            .conteiner_produto {
+                flex-direction: column;
+                width: 48%;
+                padding: 20px 5px;
+
+                .imagem {
+                    width: 100%;
+                    text-align: center;
+                    margin-bottom: 20px;
+
+                    img {
+                        width: 66.66%;
+                    }
+                }
+
+                .descricao {
+                    width: 100%;
+
+                    .desc {
+                        font-size: 10px;
+                    }
+
+                    .preco {
+                        font-size: 18px;
+                    }
+
+                    .sub_preco {
+                        font-size: 10px;
+                    }
+                }
+
+            }
+        }
+    }
 }
 
 @media (min-width: 640px) {
@@ -2126,6 +2216,17 @@ footer {
         .check {
             margin-top: 40px;
             width: 640px;
+        }
+    }
+}
+
+@media (min-width: 740px) {
+    #main_produtos {
+        .produto_flex {
+            gap: 10px;
+            .conteiner_produto {
+                width: 31%;
+            }
         }
     }
 }
@@ -2171,6 +2272,7 @@ footer {
     #main_admin {
         margin: 80px auto;
     }
+
 }
 
 @media (min-width: 994px) {
@@ -2302,6 +2404,13 @@ footer {
         }
 
     }
+    #main_produtos {
+        .produto_flex {
+            .conteiner_produto {
+                width: 224px;
+            }
+        }
+    }
 }
 
 @media (min-width: 1200px) {
@@ -2392,6 +2501,15 @@ footer {
 
         .conteiner_ficha {
             width: 100%;
+        }
+    }
+
+    #main_produtos {
+        width: 1200px;
+        padding: 0;
+        .produto_flex {
+            justify-content: start !important;
+            gap: 20px;
         }
     }
 }
