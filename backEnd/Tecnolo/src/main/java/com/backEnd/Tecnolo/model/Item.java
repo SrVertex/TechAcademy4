@@ -53,9 +53,10 @@ public class Item {
     @JsonIgnoreProperties("categoria_id")
     private Categoria categoria;
 
-    @OneToMany(mappedBy = "item", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "id_item", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Item> items;
+
 
     //Getters e Setters
 

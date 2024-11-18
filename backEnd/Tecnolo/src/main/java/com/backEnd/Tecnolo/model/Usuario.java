@@ -1,6 +1,8 @@
 package com.backEnd.Tecnolo.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -29,8 +31,10 @@ public class Usuario {
     @Column
     private Boolean admin;
 
-    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "id_usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties({"usuarios"})
     private List<Usuario> usuarios;
+
 
     // Getters e Setters
 

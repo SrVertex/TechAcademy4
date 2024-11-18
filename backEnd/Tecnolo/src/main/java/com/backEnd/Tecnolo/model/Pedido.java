@@ -1,5 +1,6 @@
 package com.backEnd.Tecnolo.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
@@ -23,13 +24,13 @@ public class Pedido {
     private String status;
 
     @ManyToOne
-    @JoinColumn(name = "usuario_id", referencedColumnName = "id_usuario")
-    @JsonIgnoreProperties("usuario_id")
+    @JoinColumn(name = "usuario_id")
+    @JsonIgnoreProperties({"usuario"})
     private Usuario usuario;
 
-    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List<Pedido> pedidos;
+    @OneToMany(mappedBy = "id_pedido", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties({"pedidos"})
+
 
     // Getters e Setters
 
@@ -74,11 +75,5 @@ public class Pedido {
         this.usuario = usuario;
     }
 
-    public List<Pedido> getPedidos() {
-        return pedidos;
-    }
 
-    public void setPedidos(List<Pedido> pedidos) {
-        this.pedidos = pedidos;
-    }
 }

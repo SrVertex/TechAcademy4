@@ -94,17 +94,10 @@ public class PedidoController {
                 return ResponseEntity.badRequest().body("Status do pedido é obrigatório.");
             }
 
-            // Validação de usuário
-            Optional<Usuario> usuarioOpt = usuarioRepository.findById(dto.getUsuario_id());
-            if (usuarioOpt.isEmpty()) {
-                return ResponseEntity.badRequest().body("Usuário não encontrado com o ID fornecido.");
-            }
-
             // Atualizar o pedido
             Pedido pedido = pedidoOpt.get();
             pedido.setValor(dto.getValor());
             pedido.setStatus(dto.getStatus());
-            pedido.setUsuario(usuarioOpt.get());
 
             // Atualização e definição da data do pedido
             if (dto.getData_pedido() == null) {

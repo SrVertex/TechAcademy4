@@ -2,11 +2,10 @@ package com.backEnd.Tecnolo.model;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import jakarta.persistence.EmbeddedId;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.MapsId;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "item_pedido")
 public class ItemPedido {
     @EmbeddedId
     private ItemPedidoPK id;
@@ -14,12 +13,13 @@ public class ItemPedido {
     @ManyToOne
     @MapsId("pedidoId")
     @JoinColumn(name = "pedido_id", referencedColumnName = "id_pedido")
-    @JsonIgnoreProperties("pedido")
+    @JsonIgnoreProperties("itens")
     private Pedido pedido;
 
     @ManyToOne
     @MapsId("itemId")
-    @JoinColumn(name = "item_Id", referencedColumnName = "id_item")
+    @JoinColumn(name = "item_id", referencedColumnName = "id_item")
+    @JsonIgnoreProperties("itensPedido")
     private Item item;
 
     // Getters e Setterss

@@ -1,9 +1,11 @@
 package com.backEnd.Tecnolo.model;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
 
 import java.util.Objects;
 
+@Embeddable
 public class ItemPedidoPK {
     @Column(name = "pedido_id")
     private Integer pedidoId;
