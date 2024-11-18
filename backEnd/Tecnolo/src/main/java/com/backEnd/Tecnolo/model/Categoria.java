@@ -21,7 +21,7 @@ public class Categoria {
 
     @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
     @JsonIgnoreProperties("categoria")
-    private List<Item> items;
+
 
 
     // Getters e Setters
@@ -51,24 +51,18 @@ public class Categoria {
         this.descricao = descricao;
     }
 
-    public List<Item> getItems() {
-        return items;
-    }
-
-    public void setItems(List<Item> items) {
-        this.items = items;
-    }
 
     @Override
     public boolean equals(Object o) {
+
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Categoria categoria = (Categoria) o;
-        return Objects.equals(id_categoria, categoria.id_categoria) && Objects.equals(nome, categoria.nome) && Objects.equals(descricao, categoria.descricao) && Objects.equals(items, categoria.items);
+        return Objects.equals(id_categoria, categoria.id_categoria) && Objects.equals(nome, categoria.nome) && Objects.equals(descricao, categoria.descricao);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id_categoria, nome, descricao, items);
+        return Objects.hash(id_categoria, nome, descricao);
     }
 }

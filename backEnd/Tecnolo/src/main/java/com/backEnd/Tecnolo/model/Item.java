@@ -53,9 +53,8 @@ public class Item {
     @JsonIgnoreProperties("categoria_id")
     private Categoria categoria;
 
-    @OneToMany(mappedBy = "id_item", cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List<Item> items;
+    @OneToMany(mappedBy = "id_item", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties("items")
 
 
     //Getters e Setters
@@ -165,11 +164,4 @@ public class Item {
         this.categoria = categoria;
     }
 
-    public List<Item> getItems() {
-        return items;
-    }
-
-    public void setItems(List<Item> items) {
-        this.items = items;
-    }
 }

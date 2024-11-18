@@ -25,11 +25,12 @@ public class Pedido {
 
     @ManyToOne
     @JoinColumn(name = "usuario_id")
-    @JsonIgnoreProperties({"usuario"})
+    @JsonIgnoreProperties({"usuarios"})
     private Usuario usuario;
 
     @OneToMany(mappedBy = "id_pedido", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnoreProperties({"pedidos"})
+
 
 
     // Getters e Setters
