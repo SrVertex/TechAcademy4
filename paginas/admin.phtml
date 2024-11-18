@@ -10,27 +10,78 @@
         </a>
 
         <!-- Modal -->
-        <div class="modal fade" id="exampleModalProduto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
+        <div class="modal fade  " id="exampleModalProduto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h2 class="modal-title" id="exampleModalLabel">Busque seu CEP</h2>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="header">
+                        <h2 class="modal-title" id="exampleModalLabel">Produtos</h2>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
                     </div>
                     <div class="modal-body">
 
-                        <form action="">
-                            <input type="text" placeholder="Estado">
-                            <input type="text" placeholder="Cidade">
+                        <div class="conteiner_produto">
 
-                            <span>
-                                <n>Seu CEP:</n> 87355-000
-                            </span>
-
-                            <div class="btn">
-                                <button>Buscar</button>
+                            <div class="imagem">
+                                <img src="imagens/produtos/galaxyBuds.png" alt="">
                             </div>
-                        </form>
+                            <div class="descricao">
+                                <p class="desc">Galaxy buds 3 pro, um fone muito top da famosa samsung um fone o galaxy AI
+                                </p>
+
+                                <p class="preco">R$ 1.600,00</p>
+
+                                <a href="">Ver anuncio</a>
+
+                            </div>
+
+                        </div>
+                        <div  class="conteiner_produto">
+
+                            <div class="imagem">
+                                <img src="imagens/produtos/galaxyzfold6.png" alt="">
+                            </div>
+                            <div class="descricao">
+                                <p class="desc">Samsung Galaxy Z Fold5 5G Dual SIM 1 TB preto 12 GB RAM
+                                </p>
+
+                                <p class="preco">R$ 12.250,00</p>
+
+                                <a href="">Ver anuncio</a>
+                            </div>
+
+                        </div>
+                            <div class="conteiner_produto">
+
+                                <div class="imagem">
+                                    <img src="imagens/produtos/galaxyBuds.png" alt="">
+                                </div>
+                                <div class="descricao">
+                                    <p class="desc">Galaxy buds 3 pro, um fone muito top da famosa samsung um fone o galaxy AI
+                                    </p>
+
+                                    <p class="preco">R$ 1.600,00</p>
+
+                                    <a href="">Ver anuncio</a>
+
+                                </div>
+
+                            </div>
+                            <div  class="conteiner_produto">
+
+                                <div class="imagem">
+                                    <img src="imagens/produtos/galaxyzfold6.png" alt="">
+                                </div>
+                                <div class="descricao">
+                                    <p class="desc">Samsung Galaxy Z Fold5 5G Dual SIM 1 TB preto 12 GB RAM
+                                    </p>
+
+                                    <p class="preco">R$ 12.250,00</p>
+
+                                    <a href="">Ver anuncio</a>
+                                </div>
+
+                            </div>
+
 
                     </div>
                 </div>
@@ -44,12 +95,32 @@
             </div>
         </a>
 
-        <a class="conteiner_link">
+        <a class="conteiner_link" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalAdcionar">
             <p>Adicionar Produtos</p>
             <div class="logo">
                 <i class="bi bi-cart-plus-fill"></i>
             </div>
         </a>
+
+        <!-- Modal -->
+        <div class="modal fade " id="exampleModalAdcionar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="header">
+                        <h2 class="modal-title" id="exampleModalLabel">Produtos</h2>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="">
+                            <input type="">
+                            <div class="p_btn">
+                                <button>Adcionar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <a class="conteiner_link">
             <p>Remover Produtos</p>

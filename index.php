@@ -99,14 +99,13 @@
 
                         <ul class="dropdown-menu dropdown-menu-1 ">
                             <li><a class="dropdown-item" href="#"><i class="bi bi-cart"></i>Carrinho</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="bi bi-bag-fill"></i>Meus Pedidos</a>
-                            </li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-bag-fill"></i>Meus Pedidos</a></li>
                             <li><a class="dropdown-item" href="#"><i class="bi bi-whatsapp"></i>WhatzApp</a></li>
-                            <li><a class="dropdown-item" href="endereco"><i class="bi bi-house-door-fill"></i>Meu
                             <li><a class="dropdown-item" href="admin"><i class="bi bi-xbox"></i>Adimistrador</a></li>
+                            <li><a class="dropdown-item" href="endereco"><i class="bi bi-house-door-fill"></i>Meu Endereço</a></li>
                             <li><a class="dropdown-item" href="http://lucasmotion.free.nf/?i=1"><i class="bi bi-code-slash"></i>Lucas Motion</a></li>
                             <li><a class="dropdown-item" href="https://srvertex.github.io/Site_SrVertex_BETA/"><i class="bi bi-code-slash"></i>SrVertex</a></li>
-                            Endereço</a>
+                            
                     </li>
                 </ul>
                 </li>
@@ -119,7 +118,7 @@
 
                     <ul class="dropdown-menu dropdown-menu-2 ">
                         <li><a class="dropdown-item" href="#">Notebook</a></li>
-                        <li><a class="dropdown-item" href="#">Smartphone</a></li>
+                        <li><a class="dropdown-item" href="telefone">Smartphone</a></li>
                         <li><a class="dropdown-item" href="#">Acessórios</a></li>
                         <li><a class="dropdown-item" href="#">Monitor</a></li>
                         <li><a class="dropdown-item" href="#">Games</a></li>
@@ -209,7 +208,7 @@
 
             <div class="navbar_baixo">
                 <a href="">Notebook</a>
-                <a href="">SmartPhone</a>
+                <a href="telefone">SmartPhone</a>
                 <a href="">Acessórios</a>
                 <a href="">Monitor</a>
                 <a href="">Games</a>
@@ -296,5 +295,7 @@
 <script src="JS/pagamento.js"></script>
 
 <script src="JS//cadastro.js"></script>
+
+<script src="JS//endereco.js"></script>
 
 </html>
