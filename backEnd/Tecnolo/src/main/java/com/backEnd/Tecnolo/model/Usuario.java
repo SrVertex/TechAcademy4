@@ -1,8 +1,10 @@
 package com.backEnd.Tecnolo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -27,7 +29,11 @@ public class Usuario {
     @Column
     private Boolean admin;
 
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Usuario> usuarios;
+
     // Getters e Setters
+
 
     public Integer getId_usuario() {
         return id_usuario;
@@ -77,16 +83,24 @@ public class Usuario {
         this.admin = admin;
     }
 
+    public List<Usuario> getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(List<Usuario> usuarios) {
+        this.usuarios = usuarios;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Usuario usuario = (Usuario) o;
-        return Objects.equals(id_usuario, usuario.id_usuario) && Objects.equals(nome, usuario.nome) && Objects.equals(email, usuario.email) && Objects.equals(senha, usuario.senha) && Objects.equals(data, usuario.data) && Objects.equals(admin, usuario.admin);
+        return Objects.equals(id_usuario, usuario.id_usuario) && Objects.equals(nome, usuario.nome) && Objects.equals(email, usuario.email) && Objects.equals(senha, usuario.senha) && Objects.equals(data, usuario.data) && Objects.equals(admin, usuario.admin) && Objects.equals(usuarios, usuario.usuarios);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id_usuario, nome, email, senha, data, admin);
+        return Objects.hash(id_usuario, nome, email, senha, data, admin, usuarios);
     }
 }

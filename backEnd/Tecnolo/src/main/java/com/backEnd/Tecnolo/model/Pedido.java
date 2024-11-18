@@ -1,8 +1,11 @@
 package com.backEnd.Tecnolo.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -18,16 +21,22 @@ public class Pedido {
     private Double valor;
 
     @Column
-    private Date data_pedido;
+    private Timestamp data_pedido;
 
     @Column
     private String status;
 
-    @OneToMany(mappedBy = "usuario_id")
+    @ManyToOne
+    @JoinColumn(name = "usuario_id", nullable = false)
     @JsonIgnoreProperties("usuario_id")
-    private List<Usuario> usuario;
+    private Usuario usuario;
+
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Pedido> pedidos;
 
     // Getters e Setters
+
 
     public Integer getId_pedido() {
         return id_pedido;
@@ -45,11 +54,11 @@ public class Pedido {
         this.valor = valor;
     }
 
-    public Date getData_pedido() {
+    public Timestamp getData_pedido() {
         return data_pedido;
     }
 
-    public void setData_pedido(Date data_pedido) {
+    public void setData_pedido(Timestamp data_pedido) {
         this.data_pedido = data_pedido;
     }
 
@@ -61,24 +70,19 @@ public class Pedido {
         this.status = status;
     }
 
-    public List<Usuario> getUsuario() {
+    public Usuario getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(List<Usuario> usuario) {
+    public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Pedido pedido = (Pedido) o;
-        return Objects.equals(id_pedido, pedido.id_pedido) && Objects.equals(valor, pedido.valor) && Objects.equals(data_pedido, pedido.data_pedido) && Objects.equals(status, pedido.status) && Objects.equals(usuario, pedido.usuario);
+    public List<Pedido> getPedidos() {
+        return pedidos;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id_pedido, valor, data_pedido, status, usuario);
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
     }
 }

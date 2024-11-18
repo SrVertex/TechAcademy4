@@ -25,27 +25,29 @@ public class Item {
     private String foto;
 
     @Column
-    private String atributo1;
+    private String atributo_1;
 
     @Column
-    private String atributo2;
+    private String atributo_2;
 
     @Column
-    private String atributo3;
+    private String atributo_3;
 
     @Column
-    private String atributo4;
+    private String atributo_4;
 
     @Column
-    private String atributo5;
+    private String atributo_5;
 
     @Column
-    private String atributo6;
+    private String atributo_6;
 
     @Column
     private Integer estoque;
 
     //Getters e Setters
+
+
     public Integer getId_item() {
         return id_item;
     }
@@ -86,52 +88,52 @@ public class Item {
         this.foto = foto;
     }
 
-    public String getAtributo1() {
-        return atributo1;
+    public String getAtributo_1() {
+        return atributo_1;
     }
 
-    public void setAtributo1(String atributo1) {
-        this.atributo1 = atributo1;
+    public void setAtributo_1(String atributo_1) {
+        this.atributo_1 = atributo_1;
     }
 
-    public String getAtributo2() {
-        return atributo2;
+    public String getAtributo_2() {
+        return atributo_2;
     }
 
-    public void setAtributo2(String atributo2) {
-        this.atributo2 = atributo2;
+    public void setAtributo_2(String atributo_2) {
+        this.atributo_2 = atributo_2;
     }
 
-    public String getAtributo3() {
-        return atributo3;
+    public String getAtributo_3() {
+        return atributo_3;
     }
 
-    public void setAtributo3(String atributo3) {
-        this.atributo3 = atributo3;
+    public void setAtributo_3(String atributo_3) {
+        this.atributo_3 = atributo_3;
     }
 
-    public String getAtributo4() {
-        return atributo4;
+    public String getAtributo_4() {
+        return atributo_4;
     }
 
-    public void setAtributo4(String atributo4) {
-        this.atributo4 = atributo4;
+    public void setAtributo_4(String atributo_4) {
+        this.atributo_4 = atributo_4;
     }
 
-    public String getAtributo5() {
-        return atributo5;
+    public String getAtributo_5() {
+        return atributo_5;
     }
 
-    public void setAtributo5(String atributo5) {
-        this.atributo5 = atributo5;
+    public void setAtributo_5(String atributo_5) {
+        this.atributo_5 = atributo_5;
     }
 
-    public String getAtributo6() {
-        return atributo6;
+    public String getAtributo_6() {
+        return atributo_6;
     }
 
-    public void setAtributo6(String atributo6) {
-        this.atributo6 = atributo6;
+    public void setAtributo_6(String atributo_6) {
+        this.atributo_6 = atributo_6;
     }
 
     public Integer getEstoque() {
@@ -140,19 +142,5 @@ public class Item {
 
     public void setEstoque(Integer estoque) {
         this.estoque = estoque;
-    }
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Item item = (Item) o;
-        return Objects.equals(id_item, item.id_item) && Objects.equals(nome, item.nome) && Objects.equals(descricao, item.descricao) && Objects.equals(preco, item.preco) && Objects.equals(foto, item.foto) && Objects.equals(atributo1, item.atributo1) && Objects.equals(atributo2, item.atributo2) && Objects.equals(atributo3, item.atributo3) && Objects.equals(atributo4, item.atributo4) && Objects.equals(atributo5, item.atributo5) && Objects.equals(atributo6, item.atributo6) && Objects.equals(estoque, item.estoque);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id_item, nome, descricao, preco, foto, atributo1, atributo2, atributo3, atributo4, atributo5, atributo6, estoque);
     }
 }
