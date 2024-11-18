@@ -13,13 +13,13 @@ public class ItemPedido {
 
     @ManyToOne
     @MapsId("pedidoId")
-    @JoinColumn(name = "pedido_id", referencedColumnName = "id")
+    @JoinColumn(name = "pedido_id", referencedColumnName = "id_pedido")
     @JsonIgnoreProperties("pedido")
     private Pedido pedido;
 
     @ManyToOne
     @MapsId("itemId")
-    @JoinColumn(name = "item_Id", referencedColumnName = "id")
+    @JoinColumn(name = "item_Id", referencedColumnName = "id_item")
     private Item item;
 
     // Getters e Setterss

@@ -1,14 +1,10 @@
 package com.backEnd.Tecnolo.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-
 import java.sql.Timestamp;
-import java.util.Date;
 import java.util.List;
-import java.util.Objects;
 
 @Entity
 @Table
@@ -27,7 +23,7 @@ public class Pedido {
     private String status;
 
     @ManyToOne
-    @JoinColumn(name = "usuario_id", nullable = false)
+    @JoinColumn(name = "usuario_id", referencedColumnName = "id_usuario")
     @JsonIgnoreProperties("usuario_id")
     private Usuario usuario;
 

@@ -42,76 +42,6 @@ public class PedidoController {
 
     @PostMapping
     public ResponseEntity<?> save(@RequestBody Pedido_ResquestDTO dto) {
-
-//                // Validação de valor e quantidade
-//                if (dto.getValor() == null || dto.getQuantidade() <= 0) {
-//                    return ResponseEntity.badRequest().body("Quantidade do pedido é obrigatória e deve ser maior que zero.");
-//                }
-//
-//                // Validação de status
-//                if (dto.getStatus() == null || dto.getStatus().isEmpty()) {
-//                    return ResponseEntity.badRequest().body("Status do pedido é obrigatório.");
-//                }
-//
-//                // Validação de usuário
-//                Optional<Usuario> usuarioOpt = usuarioRepository.findById(dto.getUsuarioId());
-//                if (usuarioOpt.isEmpty()) {
-//                    return ResponseEntity.badRequest().body("Usuário não encontrado com o ID fornecido.");
-//                }
-//
-//                Pedido pedido = new Pedido();
-//                pedido.setValor(dto.getValor());
-//                pedido.setStatus(dto.getStatus());
-//                pedido.setUsuario(usuarioOpt.get());
-//
-//                // Definir a data do pedido
-//                if (dto.getDataPedido() == null) {
-//                    pedido.setDataPedido(Timestamp.valueOf(LocalDateTime.now()));
-//                } else {
-//                    pedido.setDataPedido(dto.getDataPedido());
-//                }
-//
-//                // Salvar o pedido
-//                Pedido savedPedido = repository.save(pedido);
-//                return ResponseEntity.ok(savedPedido);
-//
-
-
-//                // Validação de valor
-//                if (dto.getValor() == null) {
-//                    return ResponseEntity.badRequest().body("O valor do pedido é obrigatório.");
-//                }
-//
-//                // Validação de status
-//                if (dto.getStatus() == null || dto.getStatus().isEmpty()) {
-//                    return ResponseEntity.badRequest().body("Status do pedido é obrigatório.");
-//                }
-//
-//                // Validação de usuário
-//                Optional<Usuario> usuarioOpt = Usuario_Repository.findById(dto.getUsuario_id());
-//                if (usuarioOpt.isEmpty()) {
-//                    return ResponseEntity.badRequest().body("Usuário não encontrado com o ID fornecido.");
-//                }
-//
-//                Pedido pedido = new Pedido();
-//                pedido.setValor(dto.getValor());
-//                pedido.setStatus(dto.getStatus());
-//                pedido.setUsuario(usuarioOpt.id_usuario);
-//
-//
-//                // Validação e definição da data do pedido
-//
-//                if (dto.getDataPedido() == null) {
-//                    pedido.setDataPedido(Timestamp.valueOf(LocalDateTime.now()));
-//                } else {
-//                    pedido.setDataPedido(dto.getDataPedido());
-//                }
-//
-//                // Salvar o pedido
-//                Pedido savedPedido = repository.save(pedido);
-//                return ResponseEntity.ok(savedPedido);
-
-
                 // Validação de valor
                 if (dto.getValor() == null) {
                     return ResponseEntity.badRequest().body("O valor do pedido é obrigatório.");
@@ -146,31 +76,63 @@ public class PedidoController {
                 return ResponseEntity.ok(savedPedido);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Integer id) {
-        Item item = this.repository.findById(id)
-                .orElseThrow(() ->
-                        new IllegalArgumentException("Item não foi encontrado"));
+        @PutMapping("/{id}")
+        public ResponseEntity<?> update(@PathVariable Integer id, @RequestBody Pedido_ResquestDTO dto) {
+            // Verificar se o pedido existe
+            Optional<Pedido> pedidoOpt = repository.findById(id);
+            if (pedidoOpt.isEmpty()) {
+                return ResponseEntity.badRequest().body("Pedido não encontrado com o ID fornecido.");
+            }
 
-        this.repository.delete(item);
-        return ResponseEntity.noContent().build();
-    }
+            // Validação de valor
+            if (dto.getValor() == null) {
+                return ResponseEntity.badRequest().body("O valor do pedido é obrigatório.");
+            }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Item> update(@PathVariable Integer id, @RequestBody Item_RequestDTO dto) {
-        if (dto.nome().isEmpty()) {
-            return ResponseEntity.status(428).build();
+            // Validação de status
+            if (dto.getStatus() == null || dto.getStatus().isEmpty()) {
+                return ResponseEntity.badRequest().body("Status do pedido é obrigatório.");
+            }
+
+            // Validação de usuário
+            Optional<Usuario> usuarioOpt = usuarioRepository.findById(dto.getUsuario_id());
+            if (usuarioOpt.isEmpty()) {
+                return ResponseEntity.badRequest().body("Usuário não encontrado com o ID fornecido.");
+            }
+
+            // Atualizar o pedido
+            Pedido pedido = pedidoOpt.get();
+            pedido.setValor(dto.getValor());
+            pedido.setStatus(dto.getStatus());
+            pedido.setUsuario(usuarioOpt.get());
+
+            // Atualização e definição da data do pedido
+            if (dto.getData_pedido() == null) {
+                pedido.setData_pedido(Timestamp.valueOf(LocalDateTime.now()));
+            } else {
+                pedido.setData_pedido(dto.getData_pedido());
+            }
+
+            // Salvar o pedido atualizado
+            Pedido updatedPedido = repository.save(pedido);
+            return ResponseEntity.ok(updatedPedido);
         }
 
-        Item item = this.repository.findById(id)
-                .orElseThrow(() ->
-                        new IllegalArgumentException("Item não foi encontrado"));
+        @DeleteMapping("/{id}")
+        public ResponseEntity<?> delete(@PathVariable Integer id) {
+            // Verificar se o pedido existe
+            Optional<Pedido> pedidoOpt = repository.findById(id);
+            if (pedidoOpt.isEmpty()) {
+                return ResponseEntity.badRequest().body("Pedido não encontrado com o ID fornecido.");
+            }
 
-        item.setNome(dto.nome());
-
-        this.repository.save(item);
-        return ResponseEntity.ok(item);
+            // Deletar o pedido
+            repository.deleteById(id);
+            return ResponseEntity.ok().body("Pedido deletado com sucesso.");
+        }
     }
 
 
-}
+
+
+

@@ -1,8 +1,11 @@
 package com.backEnd.Tecnolo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.persistence.criteria.CriteriaBuilder;
 
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -44,6 +47,15 @@ public class Item {
 
     @Column
     private Integer estoque;
+
+    @ManyToOne
+    @JoinColumn(name = "categoria_id", referencedColumnName = "id_categoria")
+    @JsonIgnoreProperties("categoria_id")
+    private Categoria categoria;
+
+    @OneToMany(mappedBy = "item", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Item> items;
 
     //Getters e Setters
 
@@ -142,5 +154,21 @@ public class Item {
 
     public void setEstoque(Integer estoque) {
         this.estoque = estoque;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
+    public List<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Item> items) {
+        this.items = items;
     }
 }
