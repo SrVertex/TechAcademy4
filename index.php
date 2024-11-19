@@ -56,9 +56,9 @@
                 </div>
 
                 <div class="barra_pesquisa">
-                <form  role="search" action="pesquisa" method="post" >
+                    <form role="search" action="pesquisa" method="post">
                         <input class="2" type="search" placeholder="Digite o que você procura..." aria-label="Search">
-                        <button  ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                        <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8" />
                             </svg></button>
                     </form>
@@ -80,12 +80,12 @@
 
             </div>
 
-            <form class="d-flex" role="search" action="pesquisa" method="post" >
-                        <input class="2" type="search" placeholder="Digite o que você procura..." aria-label="Search">
-                        <button  ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8" />
-                            </svg></button>
-                    </form>
+            <form class="d-flex" role="search" action="pesquisa" method="post">
+                <input class="2" type="search" placeholder="Digite o que você procura..." aria-label="Search">
+                <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8" />
+                    </svg></button>
+            </form>
 
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -105,7 +105,7 @@
                             <li><a class="dropdown-item" href="endereco"><i class="bi bi-house-door-fill"></i>Meu Endereço</a></li>
                             <li><a class="dropdown-item" href="http://lucasmotion.free.nf/?i=1"><i class="bi bi-code-slash"></i>Lucas Motion</a></li>
                             <li><a class="dropdown-item" href="https://srvertex.github.io/Site_SrVertex_BETA/"><i class="bi bi-code-slash"></i>SrVertex</a></li>
-                            
+
                     </li>
                 </ul>
                 </li>
@@ -158,9 +158,9 @@
                 </div>
 
                 <div class="barra_pesquisa">
-                    <form class="d-flex" role="search" action="pesquisa" method="post" >
+                    <form class="d-flex" role="search" action="pesquisa" method="post">
                         <input class="2" type="search" placeholder="Digite o que você procura..." aria-label="Search">
-                        <button  ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                        <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8" />
                             </svg></button>
                     </form>
@@ -298,5 +298,21 @@
 <script src="JS//cadastro.js"></script>
 
 <script src="JS//endereco.js"></script>
+
+<script>
+    document.getElementById('aviso').addEventListener('click', function() {
+        const confirmar = confirm("Você tem certeza que deseja prosseguir?");
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = '';
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'confirmar';
+        input.value = confirmar ? 'true' : 'false';
+        form.appendChild(input);
+        document.body.appendChild(form);
+        form.submit();
+    });
+</script>
 
 </html>

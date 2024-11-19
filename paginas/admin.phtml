@@ -153,17 +153,10 @@
             </div>
         </div>
 
-        <a class="conteiner_link">
-            <p>Clientes </p>
+        <a class="conteiner_link"  type="button" data-bs-toggle="modal" data-bs-target="#exampleModalAdcionar">
+            <p>Adicionar Produto</p>
             <div class="logo">
                 <i class="bi bi-people-fill"></i>
-            </div>
-        </a>
-
-        <a class="conteiner_link" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalAdcionar">
-            <p>Adicionar Produtos</p>
-            <div class="logo">
-                <i class="bi bi-cart-plus-fill"></i>
             </div>
         </a>
 
@@ -179,6 +172,7 @@
                         <form action="">
                             <input type="" placeholder="Caminho da Imagem">
                             <input type="number" placeholder="Valor Produto">
+                            <input type="text" placeholder="Categoria">
                             <textarea name="" id="" placeholder="Descricao do produto"></textarea>
 
                             <div class="p_btn">
@@ -202,7 +196,7 @@
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="header">
-                        <h2 class="modal-title" id="exampleModalLabel">Produtos</h2>
+                        <h2 class="modal-title" id="exampleModalLabel">Remover</h2>
                         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
                     </div>
                     <div class="modal-body">
@@ -241,17 +235,10 @@
     </div>
 </section>
 
-<script>
-    const botao = document.getElementById("aviso");
-    botao.addEventListener("click", function() {
-
-        const confirmar = confirm("Você tem certeza que deseja prosseguir?");
-
-        if (confirmar) {
-            alert("Que Pena espero que Volte a Vender com Agente!");
-
-        } else {
-            alert("Muito obrigado por continuar com agente!");
-        }
-    });
-</script>
+<?php if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_POST['confirmar'])) {
+        echo "<script>alert('Que Pena espero que Volte a Vender com Agente!');</script>";
+    } else {
+        echo "<script>alert('Muito obrigado por continuar com agente!');</script>";
+    }
+} ?>

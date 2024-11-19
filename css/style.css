@@ -660,17 +660,22 @@ footer {
 
         a {
             text-decoration: none;
-            color: var(--text_white) !important;
-            font-size: 16px;
-            font-weight: bold;
-
             p {
-                background-image: linear-gradient(90deg,
-                        #ffffff33 0%,
-                        #00000033 100%);
-                border: solid 1px var(--text_white);
+                background-image: linear-gradient(90deg, #ffffff33 0%,#00000033 100%);
+                border: solid 1px white;
                 border-radius: 20px;
+                color: white ;
+                font-weight: bold;
                 padding: 5px 10px;
+                transition: 400ms all ease;
+                    &:hover {
+                        transform: scale(1.04,1.04);
+                        background-color: white !important;
+                        background-image: none;
+                        box-shadow: 0 0 10px white;
+                        color: black;
+                        text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+                    }
             }
         }
     }
@@ -1123,30 +1128,26 @@ footer {
                     text-shadow: 0 0 10px #ffffff94;
                 }
             }
-
             a {
                 text-decoration: none;
-                color: var(--text_white) !important;
-                font-size: 16px;
-                font-weight: bold;
-
                 p {
-                    background-image: linear-gradient(90deg,
-                            #ffffff33 0%,
-                            #00000033 100%);
-                    border: solid 1px var(--text_white);
+                    background-image: linear-gradient(90deg, #ffffff33 0%,#00000033 100%);
+                    border: solid 1px white;
                     border-radius: 20px;
+                    color: white ;
+                    font-weight: bold;
                     padding: 5px 10px;
-                    transition: 400ms;
-
-                    &:hover {
-                        box-shadow: 0 0 10px rgba(255, 255, 255, 0.466);
-                    }
+                    transition: 400ms all ease;
+                        &:hover {
+                            transform: scale(1.04,1.04);
+                            background-color: white !important;
+                            background-image: none;
+                            box-shadow: 0 0 10px white;
+                            color: black;
+                            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+                        }
                 }
-
             }
-
-
         }
 
         hr {
@@ -1422,7 +1423,14 @@ footer {
                         background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.100) 0%, rgb(0, 0, 0, 0.1) 100%);
                         border: solid 1px #ffffff;
                         border-radius: 50px;
-
+                        transition: 400ms all ease;
+                            &:hover {
+                                transform: scale(1.04,1.04);
+                                background-color: white;
+                                background-image: none;
+                                color: black;
+                                box-shadow: 0 0 10px white;
+                        }
                     }
 
                     .carrinho {
@@ -1437,7 +1445,14 @@ footer {
                         background-image: linear-gradient(160deg, rgba(255, 255, 255, 0.100) 0%, rgb(0, 0, 0, 0.1) 100%);
                         border: solid 1px #ffffff;
                         border-radius: 50px;
-
+                        transition: 400ms all ease;
+                            &:hover {
+                                transform: scale(1.04,1.04);
+                                background-color: white;
+                                background-image: none;
+                                color: black;
+                                box-shadow: 0 0 10px white;
+                            }
                     }
                 }
 
@@ -1505,12 +1520,25 @@ footer {
                             font-weight: bold;
                             font-size: 22px;
                             text-align: center;
+                                transition: 400ms all ease;
+                                &:hover {
+                                    transform: scale(1.04,1.04);
+                                    background-color: white !important;
+                                    background-image: none;
+                                    box-shadow: 0 0 10px white;
+                                    color: black;
+                                }
                         }
                     }
                 }
 
                 a {
                     text-decoration: underline;
+                    transition: 400ms all ease;
+                    &:hover {
+                        transform: scale(1.02,1.02);
+                        text-shadow: 0 0 10px white;
+                    }
                 }
 
                 .modal {
@@ -1828,9 +1856,11 @@ footer {
                                     }
 
                                     &:hover {
+                                        transform: scale(1.02,1.02) !important;
                                         background-color: white;
                                         box-shadow: 0 0 10px white;
                                         color: black;
+                                        text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
                                     }
                                 }
 
@@ -1858,19 +1888,24 @@ footer {
                                                 width: 100%;
                                                 height: 150px;
                                                 border-radius: 10px;
-                                                border: solid 1px black;
+                                                background-color: rgba(255, 255, 255, 0.205) !important;
+                                                border: solid 1px rgb(255, 255, 255); 
+                                                color: white;
                                                 padding: 5px;
                                                 margin-bottom: 10px;
-                                            }
+                                            } textarea::placeholder {color: white !important;} 
 
                                             input {
                                                 width: 100%;
                                                 height: 40px;
-                                                border: solid 1px black;
+                                                border-radius: 10px;
+                                                background-color: rgba(255, 255, 255, 0.205) !important;
+                                                border: solid 1px rgb(255, 255, 255);
                                                 border-radius: 50px;
+                                                color: white;
                                                 padding: 5px;
                                                 margin-bottom: 20px;
-                                            }
+                                            } input::placeholder {color: white !important;}
 
                                             .pbtn {
                                                 display: flex;
@@ -1888,10 +1923,12 @@ footer {
                                                     transition: 400ms all ease;
 
                                                     &:hover {
+                                                        transform: scale(1.02,1.02);
                                                         background-color: white;
                                                         border: solid 1px white;
                                                         box-shadow: 0 0 8px white;
                                                         color: black;
+                                                        text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
                                                     }
 
                                                 }
@@ -1956,39 +1993,48 @@ footer {
                             width: 100%;
                             height: 40px;
 
+                            background-color: rgba(255, 255, 255, 0.205) !important;
+                            border: solid 1px rgb(255, 255, 255);
                             border-radius: 50px;
-                            border: solid 1px black;
+                            color: white;
 
                             padding: 5px 10px;
                             margin-bottom: 10px;
 
-                        }
+                        } input::placeholder{color: white !important;}
 
                         textarea {
                             width: 100%;
-                            height: 120px;
+                            height: 150px;
+
                             border-radius: 20px;
+                            background-color: rgba(255, 255, 255, 0.205) !important;
+                            border: solid 1px rgb(255, 255, 255);
+                            color: white ;
+
                             padding: 8px;
                             margin-bottom: 20px;
-                        }
+                        } textarea::placeholder {color: white !important;}
 
                         .p_btn {
                             display: flex;
                             justify-content: end;
 
                             button {
-                                background-color: rgba(255, 255, 255, 0.4);
+                                background-color: rgba(255, 255, 255, 0.2);
                                 border-radius: 50px;
                                 border: solid 1px white;
                                 color: white;
                                 font-size: 18px;
                                 font-weight: bold;
-                                padding: 5px;
+                                padding: 5px 8px;
                                 transition: 400ms all ease;
 
                                 &:hover {
+                                    transform: scale(1.02,1.02);
                                     background-color: white;
                                     color: black;
+                                    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
                                     box-shadow: 0 0 10px white;
                                 }
                             }
@@ -2265,7 +2311,10 @@ footer {
                 font-weight: bold;
                 color: black;
                 padding: 0 15px;
-
+                    transition: 400ms all ease;
+                        &:hover {
+                            box-shadow: 0 0 10px white;
+                        }
             }
 
             button {
@@ -2280,6 +2329,10 @@ footer {
                 color: black;
 
                 padding: 0 15px;
+                transition: 400ms all ease;
+                        &:hover {
+                            box-shadow: 0 0 10px white;
+                        }
             }
         }
     }
