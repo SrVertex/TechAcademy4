@@ -172,12 +172,15 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="header">
-                        <h2 class="modal-title" id="exampleModalLabel">Produtos</h2>
+                        <h2 class="modal-title" id="exampleModalLabel">Adicionar </h2>
                         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
                     </div>
                     <div class="modal-body">
                         <form action="">
-                            <input type="">
+                            <input type="" placeholder="Caminho da Imagem">
+                            <input type="number" placeholder="Valor Produto">
+                            <textarea name="" id="" placeholder="Descricao do produto"></textarea>
+
                             <div class="p_btn">
                                 <button>Adicionar</button>
                             </div>
@@ -187,12 +190,44 @@
             </div>
         </div>
 
-        <a class="conteiner_link">
+        <a class="conteiner_link" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalRemover">
             <p>Remover Produtos</p>
             <div class="logo">
                 <i class="bi bi-trash"></i>
             </div>
         </a>
+
+        <!-- Modal -->
+        <div class="modal fade  " id="exampleModalRemover" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="statiBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="header">
+                        <h2 class="modal-title" id="exampleModalLabel">Produtos</h2>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="conteiner_produto">
+
+                            <div class="imagem">
+                                <img src="imagens/produtos/galaxyBuds.png" alt="">
+                            </div>
+                            <div class="descricao">
+                                <p class="desc">Galaxy buds 3 pro, um fone muito top da famosa samsung um fone o galaxy AI
+                                </p>
+
+                                <p class="preco">R$ 1.600,00</p>
+
+                                <div class="remover">
+                                    <button id="aviso">Remover Produto</button>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <a class="conteiner_link">
             <p>Peditos</p>
@@ -205,3 +240,18 @@
 
     </div>
 </section>
+
+<script>
+    const botao = document.getElementById("aviso");
+    botao.addEventListener("click", function() {
+
+        const confirmar = confirm("Você tem certeza que deseja prosseguir?");
+
+        if (confirmar) {
+            alert("Que Pena espero que Volte a Vender com Agente!");
+
+        } else {
+            alert("Muito obrigado por continuar com agente!");
+        }
+    });
+</script>

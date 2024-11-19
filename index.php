@@ -266,9 +266,10 @@
             <div class="login">
                 <h4>Usuario</h4>
                 <ul>
-                    <li><a href="">Adminstrador</a></li>
-                    <li><a href="">Login</a></li>
-                    <li><a href="">Cadastro</a></li>
+                    <li><a href="admin">Adminstrador</a></li>
+                    <li><a href="login">Login</a></li>
+                    <li><a href="cadastro">Cadastro</a></li>
+                    <li><a href="esqueciMinhaSenha">Esqueci minha senha</a></li>
                 </ul>
             </div>
         </div>
