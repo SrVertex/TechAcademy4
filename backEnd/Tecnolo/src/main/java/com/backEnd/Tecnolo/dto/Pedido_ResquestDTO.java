@@ -1,6 +1,7 @@
 package com.backEnd.Tecnolo.dto;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 public class Pedido_ResquestDTO {
     private Integer usuario_id;

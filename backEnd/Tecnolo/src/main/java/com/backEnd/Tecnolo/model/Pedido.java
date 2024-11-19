@@ -31,8 +31,6 @@ public class Pedido {
     @OneToMany(mappedBy = "id_pedido", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnoreProperties({"pedidos"})
 
-
-
     // Getters e Setters
 
 
