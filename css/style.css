@@ -1773,7 +1773,7 @@ footer {
                             background-color: #ffffff1f;
                             border: solid 1px white;
                             border-radius: 20px;
-                            
+
 
                             .imagem {
                                 width: 25%;
@@ -1811,21 +1811,30 @@ footer {
                                     margin-bottom: 10px;
                                 }
 
-                                a {
-                                    text-decoration: none;
-                                    background-color: rgba(255, 255, 255, 0.2);
-                                    border-radius: 20px;
-                                    border: solid 1px white;
-                                    color: white;
-                                    font-weight: bold;
+                                .auter {
+                                    display: flex;
+                                    justify-content: space-between;
 
-                                    padding: 5px;
-                                    transition: 400ms all ease;
+                                    a {
+                                        text-decoration: none;
+                                        background-color: rgba(255, 255, 255, 0.2);
+                                        border-radius: 20px;
+                                        border: solid 1px white;
+                                        color: white;
+                                        font-weight: bold;
 
-                                    &:hover {
-                                        background-color: white;
-                                        box-shadow: 0 0 10px white;
-                                        color: black;
+                                        padding: 5px;
+                                        transition: 400ms all ease;
+
+                                        i {
+                                            padding: 0 4px;
+                                        }
+
+                                        &:hover {
+                                            background-color: white;
+                                            box-shadow: 0 0 10px white;
+                                            color: black;
+                                        }
                                     }
                                 }
                             }
@@ -1835,7 +1844,7 @@ footer {
             }
         }
 
-        #exampleModalAdcionar{
+        #exampleModalAdcionar {
             backdrop-filter: blur(5px);
 
             .modal-dialog {
@@ -1877,9 +1886,31 @@ footer {
 
                     .modal-body {
                         padding: 8px;
+                        form {
+                            .p_btn {
+                                display: flex;
+                                justify-content: end;
+                                button {
+                                    background-color: rgba(255, 255, 255, 0.4);
+                                    border-radius: 50px;
+                                    border: solid 1px white;
+                                    color: white;
+                                    font-size: 18px;
+                                    font-weight: bold;
+                                    padding: 5px;
+                                    transition: 400ms all ease;
 
-                       
-                       
+                                    &:hover {
+                                        background-color: white;
+                                        color: black;
+                                        box-shadow: 0 0 10px white;
+                                    }
+                                }
+                            }
+                        }
+
+
+
                     }
                 }
             }
@@ -2761,6 +2792,7 @@ footer {
             }
         }
     }
+
     #main_admin {
         margin: 60px auto;
 
@@ -2774,6 +2806,7 @@ footer {
                     flex-wrap: wrap;
 
                     gap: 10px 20px;
+
                     .conteiner_produto {
                         width: 380px !important;
                     }
