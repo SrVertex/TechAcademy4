@@ -1721,7 +1721,6 @@ footer {
 
                 .modal-content {
 
-
                     background-color: rgb(15, 15, 15);
                     border: solid 1px white;
                     border-radius: 20px;
@@ -1761,7 +1760,6 @@ footer {
                             text-decoration: none !important;
                             color: white !important;
 
-
                             width: 100%;
                             padding: 10px;
                             margin-bottom: 20px;
@@ -1773,7 +1771,6 @@ footer {
                             background-color: #ffffff1f;
                             border: solid 1px white;
                             border-radius: 20px;
-
 
                             .imagem {
                                 width: 25%;
@@ -1813,6 +1810,7 @@ footer {
 
                                 .auter {
                                     display: flex;
+                                    align-items: center;
                                     justify-content: space-between;
 
                                     a {
@@ -1834,6 +1832,73 @@ footer {
                                             background-color: white;
                                             box-shadow: 0 0 10px white;
                                             color: black;
+                                        }
+                                    }
+
+                                    .dropdown {
+                                        .dropdown-menu {
+                                            width: 100% !important;
+                                            min-width: 320px;
+                                            padding: 8px;
+
+                                            background-color: rgba(0, 0, 0, 0.3);
+                                            backdrop-filter: blur(10px);
+                                            border-radius: 20px;
+                                            border: solid 1px rgb(255, 255, 255);
+
+                                            h3 {
+                                                font-size: 20px;
+                                                font-weight: bold;
+                                                color: rgb(255, 255, 255);
+                                                margin-bottom: 10px;
+                                            }
+
+                                            form {
+                                                width: 100%;
+
+                                                textarea {
+                                                    width: 100%;
+                                                    height: 150px;
+                                                    border-radius: 10px;
+                                                    border: solid 1px black;
+                                                    padding: 5px;
+                                                    margin-bottom: 10px;
+                                                }
+
+                                                input {
+                                                    width: 100%;
+                                                    height: 40px;
+                                                    border: solid 1px black;
+                                                    border-radius: 50px;
+                                                    padding: 5px;
+                                                    margin-bottom: 20px;
+                                                }
+
+                                                .pbtn {
+                                                    display: flex;
+                                                    justify-content: end;
+
+                                                    button {
+
+                                                        background-color: rgba(255, 255, 255, 0.100);
+                                                        border-radius: 30px;
+                                                        border: solid 1px rgb(255, 255, 255);
+                                                        padding: 5px 8px;
+                                                        color: white;
+                                                        font-size: 16px;
+                                                        font-weight: bold;
+                                                        transition: 400ms all ease;
+
+                                                        &:hover {
+                                                            background-color: white;
+                                                            border: solid 1px white;
+                                                            box-shadow: 0 0 8px white;
+                                                            color: black;
+                                                        }
+
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                                 }
@@ -1886,10 +1951,12 @@ footer {
 
                     .modal-body {
                         padding: 8px;
+
                         form {
                             .p_btn {
                                 display: flex;
                                 justify-content: end;
+
                                 button {
                                     background-color: rgba(255, 255, 255, 0.4);
                                     border-radius: 50px;
@@ -1917,7 +1984,6 @@ footer {
         }
 
     }
-
 
 }
 
@@ -2304,7 +2370,6 @@ footer {
     }
 
 }
-
 
 @media (min-width: 410px) {
     #main_produtos {
