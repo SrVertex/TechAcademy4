@@ -313,6 +313,6 @@
         document.body.appendChild(form);
         form.submit();
     });
-</script>
+</script> 
 
-</html>
+</html> 
