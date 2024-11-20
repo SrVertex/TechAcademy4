@@ -531,10 +531,11 @@ footer {
         margin: 10px auto;
 
         display: flex;
-        justify-content: space-between;
-        flex-wrap: nowrap;
+        flex-direction: column;
 
         .contato {
+            margin-bottom: 10px;
+
             h4 {
                 font-size: 26px;
                 font-weight: bold;
@@ -839,7 +840,7 @@ footer {
                     transition: 400ms all ease !important;
 
                     &:hover {
-                        transform: scale(1.04,1.04);
+                        transform: scale(1.04, 1.04);
                         box-shadow: 0 0 10px white;
                         color: black;
                         text-shadow: 0 2px 6px rgb(0, 0, 0, 0.6);
@@ -1050,14 +1051,15 @@ footer {
 
                     background-color: white;
                     border-radius: 20px;
-                    border: none; 
+                    border: none;
 
                     /* background-color: rgba(255, 255, 255, 0.1);
                     border: solid 1px white;
                     border-radius: 50px; */
-                    transition:400ms all ease ;
+                    transition: 400ms all ease;
+
                     &:hover {
-                        transform: scale(1.02,1.02);
+                        transform: scale(1.02, 1.02);
                         /* background-color: white; */
                         box-shadow: 0 0 10px white;
                         /* color: black; */
@@ -1074,8 +1076,9 @@ footer {
             color: white;
             font-weight: bold;
             transition: 400ms all ease;
+
             &:hover {
-                transform: scale(1.02,1.02);
+                transform: scale(1.02, 1.02);
                 text-shadow: 0 0 6px white;
             }
         }
@@ -1108,17 +1111,17 @@ footer {
             color: white;
             font-weight: bold;
             font-size: 20px;
-                transition: 400ms all ease;
+            transition: 400ms all ease;
 
             &:hover {
-                transform: scale(1.04,1.04);
+                transform: scale(1.04, 1.04);
                 background-color: white;
                 background-image: none;
                 box-shadow: 0 0 10px white;
                 color: black;
                 text-shadow: 0 2px 6px rgb(0, 0, 0, 0.6);
             }
-            
+
             i {
                 margin-right: 5px;
                 font-size: 27px;
@@ -2438,7 +2441,7 @@ footer {
             transition: 400ms all ease !important;
 
             &:hover {
-                transform: scale(1.04,1.04);
+                transform: scale(1.04, 1.04);
                 background-color: white !important;
                 background-image: none !important;
                 box-shadow: 0 0 10px white;
@@ -2456,6 +2459,7 @@ footer {
 
             margin-left: 10px;
             margin-top: 10px;
+
             i {
                 font-size: 40px;
             }
@@ -2657,90 +2661,103 @@ footer {
             }
         }
 
-        .pedidos {
-            background-color: rgb(217, 217, 217, 0.2);
-            border: solid 1px white;
-            border-radius: 20px;
-            padding: 10px;
+        .pedidos_flex {
 
-            .name {
-                display: flex;
-                align-items: center;
-                gap: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px 10px;
 
-                i {
-                    font-size: 30px;
-                }
+            .pedidos {
+                width: 100%;
+                background-color: rgb(217, 217, 217, 0.2);
+                border: solid 1px white;
+                border-radius: 20px;
+                padding: 10px;
+        
 
-                p {
-                    font-weight: bold;
-                    margin-bottom: 0;
-                }
-            }
-
-            .info_pedidos {
-                ul {
-                    margin: 0;
-                    padding: 0;
+                .name {
                     display: flex;
-                    flex-direction: column;
-                    gap: 5px;
+                    align-items: center;
+                    gap: 10px;
 
-                    li {
-                        list-style: none;
+                    i {
+                        font-size: 30px;
                     }
-                }
-            }
 
-            .dropdown {
-
-                a {
-                    background-color: rgb(0, 0, 0, 0.1);
-                    border: solid 1px white;
-                    border-radius: 50px;
-
-                    color: white;
-                    font-weight: bold;
-
-                    padding: 5px 8px;
-                    margin-top: 15px;
-                    transition: 400ms all ease;
-
-                    &:hover {
-                        transform: scale(1.02, 1.02);
-                        background-color: white;
-                        color: black;
-                        text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
-                        box-shadow: 0 0 10px white;
+                    p {
+                        font-weight: bold;
+                        margin-bottom: 0;
+                        font-size: 14px;
                     }
                 }
 
-                .dropdown-menu {
-                    background-color: rgba(0, 0, 0, 0.2);
-                    backdrop-filter: blur(5px);
-                    border: solid 1px white;
-                    border-radius: 20px;
-                    margin-top: 10px !important;
-                    padding: 10px;
+                .info_pedidos {
+                    ul {
+                        margin: 0;
+                        padding: 0;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px;
 
-                    form {
-                        ul {
-                            margin: 0;
-                            padding: 0;
+                        li {
+                            list-style: none;
+                            font-size: 12px;
+                        }
+                    }
+                }
 
-                            li {
-                                display: flex;
-                                justify-content: space-between;
-                                label {
-                                    color: white;
-                                    font-weight: bold;
+                .dropdown {
+
+                    a {
+                        background-color: rgb(0, 0, 0, 0.1);
+                        border: solid 1px white;
+                        border-radius: 50px;
+
+                        color: white;
+                        font-weight: bold;
+                        font-size: 14px;
+
+                        padding: 5px 8px;
+                        margin-top: 15px;
+                        transition: 400ms all ease;
+
+                        &:hover {
+                            transform: scale(1.02, 1.02);
+                            background-color: white;
+                            color: black;
+                            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+                            box-shadow: 0 0 10px white;
+                        }
+                    }
+
+                    .dropdown-menu {
+                        background-color: rgba(0, 0, 0, 0.2);
+                        backdrop-filter: blur(5px);
+                        border: solid 1px white;
+                        border-radius: 20px;
+                        margin-top: 10px !important;
+                        padding: 10px;
+
+                        form {
+                            ul {
+                                margin: 0;
+                                padding: 0;
+
+                                li {
+                                    display: flex;
+                                    justify-content: space-between;
+
+                                    label {
+                                        color: white;
+                                        font-weight: bold;
+                                    }
                                 }
                             }
                         }
                     }
                 }
-            }
 
+            }
         }
     }
 }
@@ -2786,6 +2803,13 @@ footer {
 
 
             }
+        }
+    }
+
+    footer {
+        .conteiner_footer {
+            flex-direction: row;
+            justify-content: space-between;
         }
     }
 
@@ -2998,6 +3022,19 @@ footer {
             }
         }
     }
+
+    #main_pedidos {
+        .conteiner_pedidos {
+            .pedidos_flex {
+                flex-wrap: wrap;
+                gap: 10px;
+
+                .pedidos {
+                    width: 49%;
+                }
+            }
+        }
+    }
 }
 
 @media (min-width: 640px) {
@@ -3050,6 +3087,21 @@ footer {
     }
 }
 
+@media (min-width:800px) {
+    #main_pedidos {
+        .conteiner_pedidos {
+            .pedidos_flex {
+                flex-wrap: wrap;
+                gap: 10px;
+
+                .pedidos {
+                    width: 32.44%;
+                }
+            }
+        }
+    }
+}
+
 @media (min-width: 830px) {
 
     #main_home {
@@ -3091,7 +3143,6 @@ footer {
     #main_admin {
         margin: 80px auto;
     }
-
 }
 
 @media (min-width: 994px) {
@@ -3271,6 +3322,21 @@ footer {
     }
 }
 
+@media (min-width:1100px) {
+    #main_pedidos {
+        .conteiner_pedidos {
+            .pedidos_flex {
+                flex-wrap: wrap;
+                gap: 10px;
+
+                .pedidos {
+                    width: 24.29%;
+                }
+            }
+        }
+    }
+}
+
 @media (min-width: 1200px) {
 
     header {
@@ -3370,6 +3436,10 @@ footer {
             justify-content: start !important;
             gap: 20px;
         }
+    }
+
+    #main_pedidos {
+        width: 1200px;
     }
 }
 
