@@ -4,14 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TECNOLO</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"rel="stylesheet">
 
-    <link rel="stylesheet" href="css/style.css">
+    <title>TECNOLO</title>
+    
     <base href="http://localhost/techAcademy4/">
+    <link rel="stylesheet" href="css/style.css">
+
     <link rel="shortcut icon" href="imagens/logo/logo.png" type="image/x-icon">
 
     <!-- bootstrap -->
@@ -29,7 +31,7 @@
     <!-- Inclua o CSS do AOS MASTER -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <style>
+    <!-- <style>
         .alert {
             background-color: #f8d7da !important;
             color: #721c24;
@@ -38,7 +40,8 @@
             border: 1px solid #f5c6cb;
             border-radius: 5px;
         }
-    </style>
+
+    </style> -->
 
 </head>
 
@@ -56,15 +59,13 @@
                 </div>
 
                 <div class="barra_pesquisa">
-                    <form role="search" action="pesquisa" method="post">
+                    <form role="search" action="paginasProdutos/pesquisa" method="post">
                         <input class="2" type="search" placeholder="Digite o que você procura..." aria-label="Search">
                         <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8" />
                             </svg></button>
                     </form>
                 </div>
-
-
 
                 <div class="area_botao">
                     <a href=""><i class="bi bi-moon-stars-fill"></i></a>
@@ -80,13 +81,12 @@
 
             </div>
 
-            <form class="d-flex" role="search" action="pesquisa" method="post">
+            <form class="d-flex" role="search" action="paginasProdutos/pesquisa" method="post">
                 <input class="2" type="search" placeholder="Digite o que você procura..." aria-label="Search">
                 <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8" />
                     </svg></button>
             </form>
-
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
@@ -158,7 +158,7 @@
                 </div>
 
                 <div class="barra_pesquisa">
-                    <form class="d-flex" role="search" action="pesquisa" method="post">
+                    <form class="d-flex" role="search" action="paginasProdutos/pesquisa" method="post">
                         <input class="2" type="search" placeholder="Digite o que você procura..." aria-label="Search">
                         <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8" />
@@ -205,7 +205,6 @@
 
             </div>
 
-
             <div class="navbar_baixo">
                 <a href="">Notebook</a>
                 <a href="telefone">SmartPhone</a>
@@ -214,7 +213,6 @@
                 <a href="">Games</a>
                 <a href="">Hardware</a>
             </div>
-
 
         </nav>
     </div>
@@ -226,18 +224,20 @@
     <main>
         <?php
 
-        // Verifica se o parâmetro 'param' foi passado na URL
         if (isset($_GET["param"])) {
             $param = $_GET["param"];
             $p = explode("/", $param);
         }
 
         $page = $p[0] ?? "home";
+        $produtos = $p[1] ?? NULL;
 
-        // Define o caminho da página com base no parâmetro
-        $pagina = "paginas/{$page}.phtml";
+        if ($page == "paginasProdutos") {
+            $pagina = "paginasProdutos/{$produtos}.phtml";
+        } else {
+            $pagina = "paginas/{$page}.phtml";
+        }
 
-        // Inclui o arquivo da página se ele existir, caso contrário, inclui a página de erro
         if (file_exists($pagina)) {
             include $pagina;
         } else {
@@ -313,6 +313,6 @@
         document.body.appendChild(form);
         form.submit();
     });
-</script> 
+</script>
 
-</html> 
+</html>
