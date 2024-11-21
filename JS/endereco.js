@@ -15,10 +15,10 @@ function removeError(index) {
 
 // validação do nome
 function nomeEnderecoValidate() {
-  if (campos[3].value.length < 5) {
-    setError(3);
+  if (campos[1].value.length < 5) {
+    setError(1);
   } else {
-    removeError(3);
+    removeError(1);
   }
 }
 

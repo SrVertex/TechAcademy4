@@ -3,9 +3,11 @@
     <div class="conteiner_endereco">
 
         <h2>ADICIONER UM ENDERECO</h2>
-        <form action="home" method="post">
+        <form action="home" method="post" id="">
 
-            <input type="text" name="nome" placeholder="Nome Completo">
+            <input type="nome" name="nome" placeholder="Nome Completo" class="required" id="nome" oninput="nomeEnderecoValidate">
+            <span class="span-required" style="margin:5px 0 0 10px; color:red; display: none;">O nome deve ter pelo menos 3 digitos</span>
+
             <input class="input_cep" type="text" name="cep" placeholder="Insira seu CEP">
 
             <div class="cidade">

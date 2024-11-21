@@ -231,9 +231,12 @@
 
         $page = $p[0] ?? "home";
         $produtos = $p[1] ?? NULL;
+        $login = $p[1] ?? NULL;
 
         if ($page == "paginasProdutos") {
             $pagina = "paginasProdutos/{$produtos}.phtml";
+        } else if ($page == "paginaLogin") {
+            $pagina = "paginaLogin/{$login}";
         } else {
             $pagina = "paginas/{$page}.phtml";
         }
@@ -286,6 +289,7 @@
 <script src="JS/pagamento.js"></script>
 <script src="JS//cadastro.js"></script>
 <script src="JS//endereco.js"></script>
+<script src="JS//admin.jsx"></script>
 <script>
     document.getElementById('aviso').addEventListener('click', function() {
         const confirmar = confirm("Você tem certeza que deseja prosseguir?");
