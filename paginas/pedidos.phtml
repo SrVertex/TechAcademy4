@@ -27,11 +27,12 @@
                                 <li><label for="estagio2">Concluido</label><input type="checkbox" id="estagio2" name="estagio"></li>
                                 <li><label for="estagio3">em Espera</label><input type="checkbox" id="estagio3" name="estagio"></li>
                             </ul>
+                            <button type="submit">Avançar</button>
                         </form>
                     </div>
                 </div>
             </div>
-
+            
             <div class="pedidos">
 
                 <div class="name"><i class="bi bi-person-circle"></i>
@@ -54,11 +55,12 @@
                                 <li><label for="estagio2">Concluido</label><input type="checkbox" id="estagio2" name="estagio"></li>
                                 <li><label for="estagio3">em Espera</label><input type="checkbox" id="estagio3" name="estagio"></li>
                             </ul>
+                            <button type="submit">Avançar</button>
                         </form>
                     </div>
                 </div>
             </div>
-
+            
             <div class="pedidos">
 
                 <div class="name"><i class="bi bi-person-circle"></i>
@@ -81,11 +83,12 @@
                                 <li><label for="estagio2">Concluido</label><input type="checkbox" id="estagio2" name="estagio"></li>
                                 <li><label for="estagio3">em Espera</label><input type="checkbox" id="estagio3" name="estagio"></li>
                             </ul>
+                            <button type="submit">Avançar</button>
                         </form>
                     </div>
                 </div>
             </div>
-
+            
             <div class="pedidos">
 
                 <div class="name"><i class="bi bi-person-circle"></i>
@@ -108,6 +111,7 @@
                                 <li><label for="estagio2">Concluido</label><input type="checkbox" id="estagio2" name="estagio"></li>
                                 <li><label for="estagio3">em Espera</label><input type="checkbox" id="estagio3" name="estagio"></li>
                             </ul>
+                            <button type="submit">Avançar</button>
                         </form>
                     </div>
                 </div>
@@ -116,3 +120,17 @@
         </div>
     </div>
 </section>
+
+<!-- validação do checkbox -->
+
+<script>
+    const checkboxes = document.querySelectorAll('input[name="estagio"]');
+checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener("change", () => {
+    checkboxes.forEach((box) => {
+        if (box !== checkbox) box.checked = false;
+        });
+    });
+});
+
+</script>

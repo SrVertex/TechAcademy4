@@ -105,9 +105,6 @@
                                 <li><a class="dropdown-item" href="#"><i class="bi bi-whatsapp"></i>WhatzApp</a></li>
                                 <li><a class="dropdown-item" href="admin"><i class="bi bi-xbox"></i>Adimistrador</a></li>
                                 <li><a class="dropdown-item" href="endereco"><i class="bi bi-house-door-fill"></i>Meu Endereço</a></li>
-                                <li><a class="dropdown-item" href="http://lucasmotion.free.nf/?i=1"><i class="bi bi-code-slash"></i>Lucas Motion</a></li>
-                                <li><a class="dropdown-item" href="https://srvertex.github.io/Site_SrVertex_BETA/"><i class="bi bi-code-slash"></i>SrVertex</a></li>
-
                         </li>
                     </ul>
                     </li>
@@ -119,12 +116,12 @@
                         </a>
 
                         <ul class="dropdown-menu dropdown-menu-2 ">
-                            <li><a class="dropdown-item" href="#">Notebook</a></li>
+                            <li><a class="dropdown-item" href="paginasProdutos/notebook">Notebook</a></li>
                             <li><a class="dropdown-item" href="paginasProdutos/telefone">Smartphone</a></li>
-                            <li><a class="dropdown-item" href="#">Acessórios</a></li>
-                            <li><a class="dropdown-item" href="#">Monitor</a></li>
-                            <li><a class="dropdown-item" href="#">Games</a></li>
-                            <li><a class="dropdown-item" href="#">Hardware</a></li>
+                            <li><a class="dropdown-item" href="paginasProdutos/acessorios">Acessórios</a></li>
+                            <li><a class="dropdown-item" href="paginasProdutos/monutor">Monitor</a></li>
+                            <li><a class="dropdown-item" href="paginasProdutos/games">Games</a></li>
+                            <li><a class="dropdown-item" href="paginasProdutos/hardwere">Hardware</a></li>
                         </ul>
                     </li>
 
@@ -194,8 +191,6 @@
                                 <li><a class="dropdown-item" href="#"><i class="bi bi-whatsapp"></i>WhatzApp</a></li>
                                 <li><a class="dropdown-item" href="endereco"><i class="bi bi-house-door-fill"></i>Meu Endereço</a></li>
                                 <li><a class="dropdown-item" href="admin"><i class="bi bi-xbox"></i>Adimistrador</a></li>
-                                <li><a class="dropdown-item" href="http://lucasmotion.free.nf/?i=1"><i class="bi bi-code-slash"></i>Lucas Motion</a></li>
-                                <li><a class="dropdown-item" href="https://srvertex.github.io/Site_SrVertex_BETA/"><i class="bi bi-code-slash"></i>SrVertex</a></li>
                         </div>
                     </div>
 
@@ -208,12 +203,12 @@
                 </div>
 
                 <div class="navbar_baixo">
-                    <a href="">Notebook</a>
+                    <a href="paginasProdutos/notebook">Notebook</a>
                     <a href="paginasProdutos/telefone">SmartPhone</a>
-                    <a href="">Acessórios</a>
-                    <a href="">Monitor</a>
-                    <a href="">Games</a>
-                    <a href="">Hardware</a>
+                    <a href="paginasProdutos/acessorios">Acessórios</a>
+                    <a href="paginasProdutos/monutor">Monitor</a>
+                    <a href="paginasProdutos/games">Games</a>
+                    <a href="paginasProdutos/hardwere">Hardware</a>
                 </div>
 
             </nav>
@@ -290,6 +285,7 @@
 <script src="JS//cadastro.js"></script>
 <script src="JS//endereco.js"></script>
 <script src="JS//admin.jsx"></script>
+<script src="JS//redefinirSenha.js"></script>
 <script>
     document.getElementById('aviso').addEventListener('click', function() {
         const confirmar = confirm("Você tem certeza que deseja prosseguir?");

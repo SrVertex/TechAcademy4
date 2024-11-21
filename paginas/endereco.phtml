@@ -5,28 +5,28 @@
         <h2>ADICIONER UM ENDERECO</h2>
         <form action="home" method="post" id="">
 
-            <input type="nome" name="nome" placeholder="Nome Completo" class="required" id="nome" oninput="nomeEnderecoValidate">
+            <input type="nome" name="nome" placeholder="Nome Completo" class="required" id="nome" required oninput="nomeEnderecoValidate">
             <span class="span-required" style="margin:5px 0 0 10px; color:red; display: none;">O nome deve ter pelo menos 3 digitos</span>
 
-            <input class="input_cep" type="text" name="cep" placeholder="Insira seu CEP">
+            <input class="input_cep" type="text" name="cep" placeholder="Insira seu CEP" required>
 
             <div class="cidade">
 
-                <input type="text" name="estado" placeholder="Estado">
-                <input type="text" name="cidade" placeholder="Cidade">
+                <input type="text" name="estado" placeholder="Estado" required>
+                <input type="text" name="cidade" placeholder="Cidade" required>
 
             </div>
 
-            <input class="input_cep" type="text" name="bairro" placeholder="Bairro">
+            <input class="input_cep" type="text" name="bairro" placeholder="Bairro" required>
 
             <div class="rua">
 
-                <input type="text" name="Rua/Avenida" placeholder="Rua/Avenida">
-                <input type="text" name="numero" placeholder="Número">
+                <input type="text" name="Rua/Avenida" placeholder="Rua/Avenida" required>
+                <input type="text" name="numero" placeholder="Número" required>
 
             </div>
 
-            <input type="tel" name="telefone" placeholder="Número de contato">
+            <input type="tel" name="telefone" placeholder="Número de contato" required>
 
 
             <div class="btn">

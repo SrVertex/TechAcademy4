@@ -2753,6 +2753,24 @@ footer {
                                     }
                                 }
                             }
+                            button {
+                                background-color: rgb(217, 217, 217, 0.1) !important;
+                                border-radius: 30px;
+                                border: solid 1px white;
+                                color: white;
+                                font-weight: bold;
+
+                                padding: 3px 8px;
+                                margin-top: 10px;
+                                transition: 400ms all ease;
+                                    &:hover{
+                                        transform: scale(1.02,1.02);
+                                        background-color: white !important;
+                                        color: black;
+                                        box-shadow: 0 0 10px white;
+                                        text-shadow: 0 2px 6px rgb(0, 0, 0, 0.6);
+                                    }
+                            }
                         }
                     }
                 }
