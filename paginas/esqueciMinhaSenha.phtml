@@ -3,9 +3,11 @@
 
         <h2>ESQUECEU SUA SENHA?</h2>
 
-        <form action="redefinirSenha" method="post" class="form">
+        <form action="redefinirSenha" method="post" class="form" id="form">
 
-            <input type="email" placeholder="E-mail" required>
+            <input type="email" class="required" name="email" id="email" oninput="emailValidate()" placeholder="E-mail" required>
+            <span class="span-required" style="margin:5px 0 0 10px; color:red; display: none;">E-mail inválido</span>
+
             <input type="Name" placeholder="Nome Completo" style="margin: 20px 0 0 0;" required>
 
             <div class="btn_login">
