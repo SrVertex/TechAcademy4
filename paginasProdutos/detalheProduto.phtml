@@ -1,7 +1,35 @@
+<?php
+$id = $p[1] ?? NULL;
+
+if (!$id) {
+    echo "Produto não encontrado.";
+    exit;
+}
+
+
+$api = file_get_contents("http://localhost:8080/api/item");
+$dadosApi = json_decode($api);
+
+$produtoInfo = null;
+foreach ($dadosApi as $produto) {
+    if ($produto->id_item == $id) {
+        $produtoInfo = $produto;
+        break;
+    }
+}
+
+// Verificar se o produto foi encontrado
+if (!$produtoInfo) {
+    echo "Produto não encontrado.";
+    exit;
+}
+?>
+
+
 <section id="main_detalhe">
 
     <div class="titulo">
-        <h4>iPhone 16 Pro Max Apple 512GB, Câmera Tripla de 48MP, Tela 6,9", Titânio Natural. </h4>
+        <h4><?= $produtoInfo->id_item ?></h4>
         <p>Produto Disponivel</p>
         <hr>
     </div>
