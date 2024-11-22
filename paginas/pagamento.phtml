@@ -1,12 +1,11 @@
-
 <section id="main_pagamento">
     <div class="conteiner_pagamento">
         <p class="text-center">Escolha sua forma de pagamento</p>
 
         <form action="catao" id="formPagamento">
             <div class="modelo">
-                <div class="parcela" for="creditocard1">
-                    <label for="creditocard1"><i class="bi bi-credit-card-2-back-fill"></i>Cartão de Crédito</label>
+                <div class="parcela" for="creditocard">
+                    <label for="creditocard"><i class="bi bi-credit-card-2-back-fill"></i>Cartão de Crédito</label>
                     <p>Pagamento Imediato</p>
 
                     <div class="dropdown">
@@ -31,17 +30,17 @@
                     </div>
                 </div>
                 <div class="ipt">
-                    <input type="checkbox" id="creditocard1" name="pagamento" value="creditocard">
+                    <input type="checkbox" id="creditocard" name="pagamento" value="creditocard">
                 </div>
             </div>
 
             <div class="modelo">
-                <div class="parcela" for="creditocard2">
-                    <label for="creditocard2"><i class="bi bi-credit-card-2-back-fill"></i>PIX</label>
+                <div class="parcela" for="pix">
+                    <label for="pix"><i class="bi bi-credit-card-2-back-fill"></i>PIX</label>
                     <p>Pagamento Imediato</p>
                 </div>
                 <div class="ipt">
-                    <input type="checkbox" id="creditocard2" name="pagamento" value="creditocard">
+                    <input type="checkbox" id="pix" name="pagamento" value="pix">
                 </div>
             </div>
 
@@ -63,5 +62,40 @@
     </div>
 </section>
 
-        
-    
+<script>
+    document.getElementById('formPagamento').addEventListener('submit', function(event) {
+        const pagamentos = document.querySelectorAll('input[name="pagamento"]');
+        const parcelas = document.querySelectorAll('input[name="parcelas"]');
+        let pagamentoSelecionado = false;
+        let parcelaSelecionada = false;
+        pagamentos.forEach(pagamento => {
+            if (pagamento.checked) {
+                pagamentoSelecionado = true;
+                if (pagamento.value === 'creditocard') {
+                    parcelas.forEach(parcela => {
+                        if (parcela.checked) {
+                            parcelaSelecionada = true;
+                        }
+                    });
+                    if (!parcelaSelecionada) {
+                        alert('Por favor, selecione uma parcela para o pagamento com cartão de crédito.');
+                        event.preventDefault();
+                    }
+                }
+            }
+        });
+        if (!pagamentoSelecionado) {
+            alert('Por favor, selecione uma forma de pagamento.');
+            event.preventDefault();
+        }
+    });
+    document.querySelectorAll('input[name="pagamento"]').forEach(pagamento => {
+        pagamento.addEventListener('change', function() {
+            document.querySelectorAll('input[name="pagamento"]').forEach(otherPagamento => {
+                if (otherPagamento !== pagamento) {
+                    otherPagamento.checked = false;
+                }
+            });
+        });
+    });
+</script>
