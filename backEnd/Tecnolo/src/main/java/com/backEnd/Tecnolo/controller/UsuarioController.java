@@ -80,7 +80,7 @@ public class UsuarioController {
         if (dto.getEmail() == null) {
             return ResponseEntity.badRequest().body("O email deve ser Obrigatorio");
         }
-
+            // para realizar a alteração da senha a senha deve ser preenchida
         if (dto.getSenha() == null) {
             return ResponseEntity.badRequest().body("A Senha deve Ser Obrigatorio");
         }
