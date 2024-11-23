@@ -5,15 +5,10 @@
 
 
 
-
-
-
-
-
 <section id="main_produtos">
 
     <div class="top">
-        <h2>Hardwere</h2>
+        <h2>Hardware</h2>
         <button class="btn-of" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><i class="bi bi-list"></i>Filtro</button>
 
         <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
@@ -46,76 +41,39 @@
 
 
 
+
     <?php
-    $apiOriginals = file_get_contents("http://localhost/VaporStore_web/api/games_originals.php");
-    $dadosApiOriginals = json_decode($apiOriginals);
+$api = file_get_contents("http://localhost:8080/api/item");
+$produtosInfo = json_decode($api);
 
-    foreach ($dadosApiOriginals as $jogoOriginals) {
-        if ($jogoOriginals->categoryLink == 'simulator') {
+foreach ($produtosInfo as $produto) {
 
-            <a href="paginasProdutos/detalheProduto" class="conteiner_produto">
 
-            <div class="imagem">
-                <img src="imagens/0_AEMYWY3BEAPTA_PRD_1500_1 2.png" alt="">
-            </div>
-            <div class="descricao">
-                <p class="desc">iPhone 16 Pro Max Apple 512GB, Câmera
-                    Tripla de 48MP, Tela 6,9 , Titânio Natural
-                </p>
+    $parcela = $produto->preco / 10; 
 
-                <p class="preco">R$ <?= number_format($produto->preco, 2, ',', '.') ?></p>
-                <p class="sub_preco">Aviste no Pix ou até <span>10x de
-                        R$7.800,00</span></p>
 
-            </div>
-
-        </a>
-
-        }
+    // Verifica se o produto tem categoria e se a categoria é "Acao"
+    if (isset($produto->categoria) && $produto->categoria->nome == 'Acao') {
+        // Exibe o conteúdo apenas se a categoria for "Acao"
+        echo '<a href="detalheProduto/' . $produto->id_item . '" class="conteiner_produto">';
+        echo '<div class="imagem">';
+        // Verifica se a foto está disponível ou usa uma imagem padrão
+        $foto = isset($produto->foto) && !empty($produto->foto) ? $produto->foto : 'imagens/default.png';
+        echo '<img src="' . $foto . '" alt="Imagem do produto">';
+        echo '</div>';
+        echo '<div class="descricao">';
+        // Exibe o nome do produto
+        echo '<p class="desc">' . htmlspecialchars($produto->nome) . '</p>';
+        // Verifica se o preço está disponível
+        $preco = isset($produto->preco) && $produto->preco !== null ? number_format($produto->preco, 2, ',', '.') : 'Preço indisponível';
+        echo '<p class="preco">R$ ' . $preco . '</p>';
+        // Exibe uma mensagem de preço parcelado (ajustado para um exemplo fixo ou um valor real do produto)
+        echo '<p class="sub_preco">À vista no Pix ou até <span>10x de R$' . number_format($parcela, 2, ',', '.') . 'sem juros</span></p>';
+        echo '</div>';
+        echo '</a>';
     }
-    ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <?php foreach ($top5ItensCaros as $produto): ?>
-                <?php 
-                    // Calcular o valor da parcela em 10x
-                    $parcela = $produto->preco / 10; 
-                ?>
-
-
-        <a href="paginasProdutos/detalheProduto" class="conteiner_produto">
-
-            <div class="imagem">
-                <img src="imagens/0_AEMYWY3BEAPTA_PRD_1500_1 2.png" alt="">
-            </div>
-            <div class="descricao">
-                <p class="desc">iPhone 16 Pro Max Apple 512GB, Câmera
-                    Tripla de 48MP, Tela 6,9 , Titânio Natural
-                </p>
-
-                <p class="preco">R$ <?= number_format($produto->preco, 2, ',', '.') ?></p>
-                <p class="sub_preco">Aviste no Pix ou até <span>10x de
-                        R$7.800,00</span></p>
-
-            </div>
-
-        </a>
-
-        <?php endforeach; ?>
-
-
+}
+?>
 
 
     </div>
