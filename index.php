@@ -116,12 +116,12 @@
                         </a>
 
                         <ul class="dropdown-menu dropdown-menu-2 ">
-                            <li><a class="dropdown-item" href="paginasProdutos/notebook">Notebook</a></li>
-                            <li><a class="dropdown-item" href="paginasProdutos/telefone">Smartphone</a></li>
-                            <li><a class="dropdown-item" href="paginasProdutos/acessorios">Acessórios</a></li>
-                            <li><a class="dropdown-item" href="paginasProdutos/monutor">Monitor</a></li>
-                            <li><a class="dropdown-item" href="paginasProdutos/games">Games</a></li>
-                            <li><a class="dropdown-item" href="paginasProdutos/hardwere">Hardware</a></li>
+                            <li><a class="dropdown-item" href="notebook">Notebook</a></li>
+                            <li><a class="dropdown-item" href="telefone">Smartphone</a></li>
+                            <li><a class="dropdown-item" href="acessorios">Acessórios</a></li>
+                            <li><a class="dropdown-item" href="monutor">Monitor</a></li>
+                            <li><a class="dropdown-item" href="games">Games</a></li>
+                            <li><a class="dropdown-item" href="hardware">Hardware</a></li>
                         </ul>
                     </li>
 
@@ -226,12 +226,9 @@
 
         $page = $p[0] ?? "home";
         $produtos = $p[1] ?? NULL;
-        $login = $p[1] ?? NULL;
 
-        if ($page == "paginasProdutos") {
-            $pagina = "paginasProdutos/{$produtos}.phtml";
-        } else if ($page == "paginaLogin") {
-            $pagina = "paginaLogin/{$login}";
+        if ($page == "paginas") {
+            $pagina = "paginas/{$produtos}.phtml";
         } else {
             $pagina = "paginas/{$page}.phtml";
         }
@@ -241,8 +238,11 @@
         } else {
             include "paginas/erro.phtml";
         }
+        
 
         ?>
+
+
 
     </main>
 

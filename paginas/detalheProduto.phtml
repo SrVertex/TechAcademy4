@@ -1,36 +1,81 @@
 <?php
-$id = $p[1] ?? NULL;
+// Obter o ID do produto da URL ou outro parâmetro
+$id = $p[1] ?? null;
+
+// Verificar se o ID está definido
+if (!$id) {
+    echo "Produto não encontrado.";
+    exit;
+}
+
+// Obter os dados da API
 $api = file_get_contents("http://localhost:8080/api/item");
 $dadosApi = json_decode($api);
-$jogo = $dadosApi->$id;
+
+// Procurar o produto correspondente ao ID
+$produtoInfo = null;
+foreach ($dadosApi as $produto) {
+    if ($produto->id_item == $id) { // Substitua "id_item" pelo campo correto retornado pela API
+        $produtoInfo = $produto;
+        break;
+    }
+}
+
+// Verificar se o produto foi encontrado
+if (!$produtoInfo) {
+    echo "Produto não encontrado.";
+    exit;
+}
+
+$produto_nome = htmlspecialchars($produtoInfo->nome);
+$produto_descricao = htmlspecialchars($produtoInfo->descricao);
+$produto_preco = htmlspecialchars($produtoInfo->preco);
+$produto_foto = htmlspecialchars($produtoInfo->foto);
+$produto_atributo1 = htmlspecialchars($produtoInfo->atributo_1);
+$produto_atributo2 = htmlspecialchars($produtoInfo->atributo_2);
+$produto_atributo3 = htmlspecialchars($produtoInfo->atributo_3);
+$produto_atributo4 = htmlspecialchars($produtoInfo->atributo_4);
+$produto_atributo5 = htmlspecialchars($produtoInfo->atributo_5);
+$produto_atributo6 = htmlspecialchars($produtoInfo->atributo_6);
+$produto_estoque = htmlspecialchars($produtoInfo->estoque);
+$produto_disponibilidade = "Disponibilidade";
+$produto_categoria = htmlspecialchars($produtoInfo->categoria->nome);
+$parcela = $produtoInfo->preco / 10; 
+
+if ($produto_estoque > 0) {
+    $produto_disponibilidade = "Produto Disponivel";
+} else {
+    $produto_disponibilidade = "Produto Indisponivel";
+}
+
+
 ?>
 
 <section id="main_detalhe">
-
     <div class="titulo">
-        <h4><?= $produtoInfo->id_item ?></h4>
-        <p>Produto Disponivel</p>
+        <h4><?= $produto_nome ?></h4>
+        <p><?= $produto_disponibilidade ?></p>
         <hr>
     </div>
 
     <div class="conteiner_produto_flex">
 
         <div class="conteiner_produto">
-            <img src="imagens/0_AEMYWY3BEAPTA_PRD_1500_1 2.png" alt>
+            <img src="<?= $produto_foto ?>" alt="<?= $produto_nome ?>">
         </div>
 
         <div class="conteiner_descricao">
 
             <div class="titulo2">
-                <h4>iPhone 16 Pro Max Apple 512GB, Câmera Tripla de 48MP, Tela 6,9", Titânio Natural. </h4>
-                <p>Produto Disponivel</p>
+                <h4><?= $produto_nome ?></h4>
+                <p><?= $produto_disponibilidade ?></p>
                 <hr>
             </div>
 
             <div class="compra">
                 <div class="conteiner_preco">
-                    <p class="preco">R$ 78.000,00</p>
-                    <p class="subPreco">Aviste no Pix ou até <span>10x de R$7.800,00</span> sem juros</p>
+                    <p class="preco">R$ <?= number_format($produto_preco, 2, ',', '.') ?></span></p>
+                    <p class="subPreco">Avista no Pix ou até <span>10x de <?= number_format($parcela, 2, ',', '.') ?></span> sem juros</p>
                 </div>
 
                 <form action="pagamento" class="compra_botao">
@@ -42,12 +87,14 @@ $jogo = $dadosApi->$id;
             <hr>
 
             <div class="cep">
-                <div class="busca">
-                    <form action="">
-                        <input type="text" placeholder="Insira o CEP" maxlength="8" inputmode="numeric">
-                        <button>OK</button>
+            <div class="busca">
+                    <form id="formCEP">
+                        <input type="text" id="cep" name="cep" placeholder="Insira o CEP" required inputmode="numeric">
+                        <button type="submit">OK</button>
                     </form>
                 </div>
+
+                <div id="resultado"></div>
 
                 <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Não lembro meu CEP
@@ -84,7 +131,7 @@ $jogo = $dadosApi->$id;
             </div>
 
             <div class="descricao_completa">
-                <p>iPhone 16 Pro Max. Com estrutura em titânio, Controle da Câmera, 4K Dolby Vision a 120 qps e o chip A18 Pro. Avisos legais *As telas têm bordas arredondadas. Quando medida como um retângulo, a tela tem 6,12 polegadas (iPhone 16), 6,69 polegadas (iPhone 16 Plus), 6,27 polegadas (iPhone 16 Pro) ou 6,86 polegadas (iPhone 16 Pro Max) na diagonal. A área real de visualização é menor.</p>
+                <p><?= $produto_descricao ?></p>
             </div>
         </div>
 
@@ -92,7 +139,7 @@ $jogo = $dadosApi->$id;
 
     <div class="descricao_completa2">
         <H2>Descricão </H2>
-        <p>iPhone 16 Pro Max. Com estrutura em titânio, Controle da Câmera, 4K Dolby Vision a 120 qps e o chip A18 Pro. Avisos legais *As telas têm bordas arredondadas. Quando medida como um retângulo, a tela tem 6,12 polegadas (iPhone 16), 6,69 polegadas (iPhone 16 Plus), 6,27 polegadas (iPhone 16 Pro) ou 6,86 polegadas (iPhone 16 Pro Max) na diagonal. A área real de visualização é menor.</p>
+        <p><?= $produto_descricao ?></p>
     </div>
 
     <div class="conteiner_ficha">
@@ -101,19 +148,19 @@ $jogo = $dadosApi->$id;
 
         <ul>
             <li>
-                <p id="paragrafo">Marca: Apple</p>
+                <p id="paragrafo"><?= $produto_atributo1 ?></p>
             </li>
             <li>
-                <p id="paragrafo">Modelo: iPhone 16 Pro Max</p>
+                <p id="paragrafo"><?= $produto_atributo2 ?></p>
             </li>
             <li>
-                <p id="paragrafo">Cor: Títanio</p>
+                <p id="paragrafo"><?= $produto_atributo3 ?></p>
             </li>
             <li>
-                <p id="paragrafo">Memorias: 512GB/8GB de Ram</p>
+                <p id="paragrafo"><?= $produto_atributo4 ?></p>
             </li>
             <li>
-                <p id="paragrafo">Tela: Super Retina XDR OLED de 6.7 polegadas FHD+ (2560x1600)</p>
+                <a href="<?= $produto_categoria ?>"><p id="paragrafo">Categoria: <?= $produto_categoria ?></p></a>
             </li>
         </ul>
 
@@ -258,3 +305,98 @@ $jogo = $dadosApi->$id;
         paragraph.innerHTML = words.join(' ');
     });
 </script>
+
+
+
+
+
+
+
+
+
+<script>
+document.getElementById('formCEP').addEventListener('submit', async function (e) {
+    e.preventDefault(); // Evita o envio tradicional do formulário
+
+    const cepInput = document.getElementById('cep');
+    const cep = cepInput.value.replace(/\D/g, ''); // Remove caracteres não numéricos
+    const resultadoDiv = document.getElementById('resultado');
+
+    // Valida o CEP (deve conter exatamente 8 dígitos)
+    if (cep.length !== 8) {
+        resultadoDiv.innerHTML = '<p style="color:red;">CEP inválido. Insira um CEP com 8 dígitos.</p>';
+        return;
+    }
+
+    // Exibe mensagem de carregamento
+    resultadoDiv.innerHTML = '<p>Buscando informações...</p>';
+
+    try {
+        // Envia a requisição para o servidor
+        const response = await fetch(window.location.href, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ cep: cep }), // Envia o CEP no corpo da requisição
+        });
+
+        const data = await response.json();
+
+        // Verifica se houve erro no backend
+        if (data.erro) {
+            resultadoDiv.innerHTML = `<p style="color:red;">${data.erro}</p>`;
+        } else {
+            // Exibe os dados do CEP
+            resultadoDiv.innerHTML = `
+                <h2>Informações do CEP</h2>
+                <p><strong>Logradouro:</strong> ${data.logradouro || 'Não disponível'}</p>
+                <p><strong>Bairro:</strong> ${data.bairro || 'Não disponível'}</p>
+                <p><strong>Cidade:</strong> ${data.localidade}</p>
+                <p><strong>Estado:</strong> ${data.uf}</p>
+            `;
+        }
+    } catch (error) {
+        resultadoDiv.innerHTML = '<p style="color:red;">Erro ao buscar o CEP. Tente novamente mais tarde.</p>';
+    }
+});
+
+</script>
+
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    header('Content-Type: application/json'); // Define o retorno como JSON
+
+    // Captura os dados enviados no corpo da requisição
+    $input = json_decode(file_get_contents('php://input'), true);
+    $cep = preg_replace('/[^0-9]/', '', $input['cep']); // Remove caracteres não numéricos
+
+    if (strlen($cep) !== 8) {
+        echo json_encode(['erro' => 'CEP inválido. Insira um CEP com 8 dígitos.']);
+        exit;
+    }
+
+    // Consulta a API ViaCEP
+    $url = "https://viacep.com.br/ws/$cep/json/";
+
+    // Faz a requisição com cURL
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    $response = curl_exec($ch);
+    curl_close($ch);
+
+    if ($response) {
+        $data = json_decode($response, true);
+
+        if (isset($data['erro'])) {
+            echo json_encode(['erro' => 'CEP não encontrado. Verifique e tente novamente.']);
+        } else {
+            echo json_encode($data); // Retorna os dados do CEP
+        }
+    } else {
+        echo json_encode(['erro' => 'Erro ao acessar a API ViaCEP. Tente novamente mais tarde.']);
+    }
+    exit; // Encerra o script
+}
+?>

@@ -3,11 +3,23 @@ $api = file_get_contents("http://localhost:8080/api/item");
 $dadosApi = json_decode($api);
 
 // Verificar se os dados foram carregados corretamente
-if (!$dadosApi) {
+if ($dadosApi && is_array($dadosApi)) {
+    // Ordenar os itens pela propriedade 'preco' em ordem decrescente
+    usort($dadosApi, function($a, $b) {
+        return $b->preco <=> $a->preco; // Comparar para ordem decrescente
+    });
+
+    // Pegar os 5 itens mais caros
+    $top5ItensCaros = array_slice($dadosApi, 0, 5);
+
+    // Exibir os 5 itens mais caros
+    foreach ($top5ItensCaros as $produto) {
+    }
+} else {
     echo "Erro ao carregar os dados da API.";
-    exit;
 }
 ?>
+
 
 
 <!-- Carrousel Inicio -->
@@ -58,13 +70,14 @@ if (!$dadosApi) {
         <hr>
 
         <div class="carousel" data-flickity='{ "wrapAround": true }'>
-        <?php foreach ($dadosApi as $produto): ?>
+            
+        <?php foreach ($top5ItensCaros as $produto): ?>
                 <?php 
                     // Calcular o valor da parcela em 10x
                     $parcela = $produto->preco / 10; 
                 ?>
                 <div class="carousel-cell">
-                    <a href="paginasProdutos/detalheProduto/<?= $produto->id ?>">
+                    <a href="detalheProduto/<?= $produto->id_item ?>">
                         <div class="img">
                             <img src="imagens/produtos/0_AEMYWY3BEAPTA_PRD_1500_1 2.png" alt="<?= htmlspecialchars($produto->nome) ?>">
                         </div>
