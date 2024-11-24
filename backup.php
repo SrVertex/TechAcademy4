@@ -78,3 +78,52 @@ foreach ($produtosInfo as $produto) {
 
     </div>
 </section
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="produtos-container" class="produto_flex">
+        <!-- Produtos serão carregados aqui via PHP -->
+        <?php
+        $api = file_get_contents("http://localhost:8080/api/item");
+        $produtosInfo = json_decode($api);
+
+        foreach ($produtosInfo as $produto) {
+            $parcela = $produto->preco / 10;
+            // Exibindo o produto
+            echo '<a href="detalheProduto/' . $produto->id_item . '" class="conteiner_produto" data-preco="' . $produto->preco . '">';
+            echo '<div class="imagem">';
+            $foto = isset($produto->foto) && !empty($produto->foto) ? $produto->foto : 'imagens/default.png';
+            echo '<img src="' . $foto . '" alt="Imagem do produto">';
+            echo '</div>';
+            echo '<div class="descricao">';
+            echo '<p class="desc">' . htmlspecialchars($produto->nome) . '</p>';
+            $preco = isset($produto->preco) && $produto->preco !== null ? number_format($produto->preco, 2, ',', '.') : 'Preço indisponível';
+            echo '<p class="preco">R$ ' . $preco . '</p>';
+            echo '<p class="sub_preco">À vista no Pix ou até <span>10x de R$' . number_format($parcela, 2, ',', '.') . 'sem juros</span></p>';
+            echo '</div>';
+            echo '</a>';
+        }
+        ?>
+    </div>

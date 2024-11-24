@@ -1,13 +1,14 @@
 <section id="main_produtos">
 
     <div class="top">
-        <h2>Hardware</h2>
-        <button class="btn-of" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><i class="bi bi-list"></i> Filtro</button>
+        <h2>Monitor</h2>
+        <button class="btn-of" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><i class="bi bi-list"></i>Filtro</button>
 
         <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
             <div class="header">
                 <h5 class="offcanvas-title" id="offcanvasScrollingLabel">FILTRO</h5>
                 <button type="button" class="close" data-bs-dismiss="offcanvas" aria-label="Close"><i class="bi bi-x"></i></button>
+
             </div>
             <hr>
             <div class="offcanvas-body">
@@ -30,6 +31,7 @@
 
     </div>
 
+
     <div id="produtos-container" class="produto_flex">
         <!-- Produtos serão carregados aqui via PHP -->
         <?php
@@ -38,7 +40,7 @@ $produtosInfo = json_decode($api);
 
 foreach ($produtosInfo as $produto) {
     // Verifica se o produto tem categoria e se a categoria é "Especifica"
-    if (isset($produto->categoria) && $produto->categoria->nome == 'Hardware') {
+    if (isset($produto->categoria) && $produto->categoria->nome == 'Monitor') {
         $parcela = $produto->preco / 10; 
 
         echo '<a href="detalheProduto/' . $produto->id_item . '" class="conteiner_produto" data-preco="' . $produto->preco . '">';

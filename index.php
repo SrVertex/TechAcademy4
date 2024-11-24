@@ -116,12 +116,12 @@
                         </a>
 
                         <ul class="dropdown-menu dropdown-menu-2 ">
-                            <li><a class="dropdown-item" href="notebook">Notebook</a></li>
-                            <li><a class="dropdown-item" href="telefone">Smartphone</a></li>
-                            <li><a class="dropdown-item" href="acessorios">Acessórios</a></li>
-                            <li><a class="dropdown-item" href="monutor">Monitor</a></li>
-                            <li><a class="dropdown-item" href="games">Games</a></li>
-                            <li><a class="dropdown-item" href="hardware">Hardware</a></li>
+                            <li><a class="dropdown-item" href="Notebook">Notebook</a></li>
+                            <li><a class="dropdown-item" href="Smartphones">Smartphone</a></li>
+                            <li><a class="dropdown-item" href="Acessorios">Acessórios</a></li>
+                            <li><a class="dropdown-item" href="Monitor">Monitor</a></li>
+                            <li><a class="dropdown-item" href="Games">Games</a></li>
+                            <li><a class="dropdown-item" href="Hardware">Hardware</a></li>
                         </ul>
                     </li>
 
@@ -203,12 +203,12 @@
                 </div>
 
                 <div class="navbar_baixo">
-                    <a href="paginasProdutos/notebook">Notebook</a>
-                    <a href="paginasProdutos/telefone">SmartPhone</a>
-                    <a href="paginasProdutos/acessorios">Acessórios</a>
-                    <a href="paginasProdutos/monutor">Monitor</a>
-                    <a href="paginasProdutos/games">Games</a>
-                    <a href="paginasProdutos/hardwere">Hardware</a>
+                    <a href="Notebook">Notebook</a>
+                    <a href="Smartphones">SmartPhone</a>
+                    <a href="Acessorios">Acessórios</a>
+                    <a href="Monitor">Monitor</a>
+                    <a href="Games">Games</a>
+                    <a href="Hardware">Hardware</a>
                 </div>
 
             </nav>
