@@ -1,3 +1,13 @@
+<?php
+$api = file_get_contents("http://localhost:8080/api/item");
+$dadosApi = json_decode($api);
+
+// Verificar se os dados foram carregados corretamente
+foreach ($dadosApi as $produto) {
+}
+?>
+
+
 <section id="main_admin">
     <h2>ÁREA DO ADMISTRADOR</h2>
     <div class="conteiner_admin d-flex">
@@ -19,134 +29,68 @@
                     </div>
                     <div class="modal-body">
 
+
+
+
+
+
+
+                    <?php foreach ($dadosApi as $produto): ?>
+                <?php 
+                    // Calcular o valor da parcela em 10x
+                    $parcela = $produto->preco / 10; 
+                    ?>
+
+
                         <div class="conteiner_produto">
 
                             <div class="imagem">
-                                <img src="imagens/produtos/galaxyBuds.png" alt="">
+                                <img src="<?= htmlspecialchars($produto->foto) ?>" alt="<?= htmlspecialchars($produto->nome) ?>">
                             </div>
                             <div class="descricao">
-                                <p class="desc">Galaxy buds 3 pro, um fone muito top da famosa samsung um fone o galaxy AI
-                                </p>
+                                <p class="desc"><?= htmlspecialchars($produto->nome) ?></p>
 
-                                <p class="preco">R$ 1.600,00</p>
+                                <p class="preco">R$ <?= number_format($produto->preco, 2, ',', '.') ?></p>
 
                                 <div class="auter">
-                                    <a href="">Ver anuncio</a>
+                                    <a href="detalheProduto/<?= htmlspecialchars($produto->id_item) ?>">Ver anuncio</a>
                                     <div class="dropdown">
                                         <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-pen-fill"></i></a>
                                         <div class="dropdown-menu">
-                                            <h3>Alter produto</h3>
-                                            <form action="">
-                                                <textarea rows="" cols="" placeholder="Novo titulo do produto"></textarea>
-                                                <input type="number" placeholder="Valor Produto">
+                                            <h3>Alterar produto</h3>
+                                            <form method="POST" action="paginas/item/post_item.php">
+                                                <span class="preco">Titulo</span>
+                                                <textarea rows="" cols="" name="nome" placeholder="Novo titulo do produto"><?= htmlspecialchars($produto->nome) ?></textarea>
+                                                <span class="preco">Descricao</span>
+                                                <textarea rows="" cols="" name="descricao" placeholder="Nova descricao do produto"><?= htmlspecialchars($produto->descricao) ?></textarea>
+                                                <span class="preco">Preço</span>
+                                                <textarea rows="" cols="" name="preco" placeholder="Novo preco do produto"><?= htmlspecialchars($produto->preco) ?></textarea>
+                                                <span class="preco">Estoque</span>
+                                                <textarea rows="" cols="" name="estoque" placeholder="Novo estoque do produto"><?= htmlspecialchars($produto->estoque) ?></textarea>
+                                                <span class="preco">Atributo 1</span>
+                                                <textarea rows="" cols="" name="atributo_1" placeholder="Novo atributo 1 do produto"><?= htmlspecialchars($produto->atributo_1) ?></textarea>
+                                                <span class="preco">Atributo 2</span>
+                                                <textarea rows="" cols="" name="atributo_2" placeholder="Novo atributo 2 do produto"><?= htmlspecialchars($produto->atributo_2) ?></textarea>
+                                                <span class="preco">Atributo 3</span>
+                                                <textarea rows="" cols="" name="atributo_3" placeholder="Novo atributo 3 do produto"><?= htmlspecialchars($produto->atributo_3) ?></textarea>
+                                                <span class="preco">Atributo 4</span>
+                                                <textarea rows="" cols="" name="atributo_4" placeholder="Novo atributo 4 do produto"><?= htmlspecialchars($produto->atributo_4) ?></textarea>
+                                                <span class="preco">Atributo 5</span>
+                                                <textarea rows="" cols="" name="atributo_5" placeholder="Novo atributo 5 do produto"><?= htmlspecialchars($produto->atributo_5) ?></textarea>
+                                                <span class="preco">Atributo 6</span>
+                                                <textarea rows="" cols="" name="atributo_6" placeholder="Novo atributo 6 do produto"><?= htmlspecialchars($produto->atributo_6) ?></textarea>
                                                 <div class="pbtn">
-                                                    <button>Alterar</button>
+                                                    <button type="submit">Alterar</button>
                                                 </div>
                                             </form>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
-
                         </div>
 
-                        <div class="conteiner_produto">
+                        <?php endforeach; ?>
 
-                            <div class="imagem">
-                                <img src="imagens/produtos/galaxyzfold6.png" alt="">
-                            </div>
-                            <div class="descricao">
-                                <p class="desc">Samsung Galaxy Z Fold5 5G Dual SIM 1 TB preto 12 GB RAM
-                                </p>
-
-                                <p class="preco">R$ 12.250,00</p>
-
-                                <div class="auter">
-                                    <a href="">Ver anuncio</a>
-                                    <div class="dropdown">
-                                        <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-pen-fill"></i></a>
-                                        <div class="dropdown-menu">
-                                            <h3>Alter produto</h3>
-                                            <form action="">
-                                                <textarea rows="" cols="" placeholder="Novo titulo do produto"></textarea>
-                                                <input type="number" placeholder="Valor Produto">
-                                                <div class="pbtn">
-                                                    <button>Alterar</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <div class="conteiner_produto">
-
-                            <div class="imagem">
-                                <img src="imagens/produtos/galaxyBuds.png" alt="">
-                            </div>
-                            <div class="descricao">
-                                <p class="desc">Galaxy buds 3 pro, um fone muito top da famosa samsung um fone o galaxy AI
-                                </p>
-
-                                <p class="preco">R$ 1.600,00</p>
-
-                                <div class="auter">
-                                    <a href="">Ver anuncio</a>
-                                    <div class="dropdown">
-                                        <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-pen-fill"></i></a>
-                                        <div class="dropdown-menu">
-                                            <h3>Alter produto</h3>
-                                            <form action="">
-                                                <textarea rows="" cols="" placeholder="Novo titulo do produto"></textarea>
-                                                <input type="number" placeholder="Valor Produto">
-                                                <div class="pbtn">
-                                                    <button>Alterar</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="conteiner_produto">
-
-                            <div class="imagem">
-                                <img src="imagens/produtos/galaxyzfold6.png" alt="">
-                            </div>
-                            <div class="descricao">
-                                <p class="desc">Samsung Galaxy Z Fold5 5G Dual SIM 1 TB preto 12 GB RAM
-                                </p>
-
-                                <p class="preco">R$ 12.250,00</p>
-
-                                <div class="auter">
-                                    <a href="">Ver anuncio</a>
-                                    <div class="dropdown">
-                                        <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-pen-fill"></i></a>
-                                        <div class="dropdown-menu">
-                                            <h3>Alter produto</h3>
-                                            <form action="">
-                                                <textarea rows="" cols="" placeholder="Novo titulo do produto"></textarea>
-                                                <input type="number" placeholder="Valor Produto">
-                                                <div class="pbtn">
-                                                    <button>Alterar</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
 
                     </div>
                 </div>

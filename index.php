@@ -108,7 +108,7 @@ $usuarioLogado = isset($_SESSION['usuario']); // Verifica se o usuário está lo
                                 <li><a class="dropdown-item" href="#"><i class="bi bi-cart"></i>Carrinho</a></li>
                                 <li><a class="dropdown-item" href="#"><i class="bi bi-bag-fill"></i>Meus Pedidos</a></li>
                                 <li><a class="dropdown-item" href="#"><i class="bi bi-whatsapp"></i>WhatzApp</a></li>
-                                <li><a class="dropdown-item" href="admin"><i class="bi bi-xbox"></i>Adimistrador</a></li>
+                                <li><a class="dropdown-item" href="admin"><i class="bi bi-xbox"></i>Admistrador</a></li>
                                 <li><a class="dropdown-item" href="endereco"><i class="bi bi-house-door-fill"></i>Meu Endereço</a></li>
                         </li>
                     </ul>
@@ -207,7 +207,7 @@ $usuarioLogado = isset($_SESSION['usuario']); // Verifica se o usuário está lo
                                 </li>
                                 <li><a class="dropdown-item" href="#"><i class="bi bi-whatsapp"></i>WhatzApp</a></li>
                                 <li><a class="dropdown-item" href="endereco"><i class="bi bi-house-door-fill"></i>Meu Endereço</a></li>
-                                <li><a class="dropdown-item" href="admin"><i class="bi bi-xbox"></i>Adimistrador</a></li>
+                                <li><a class="dropdown-item" href="admin"><i class="bi bi-xbox"></i>Admistrador</a></li>
                         </div>
                     </div>
 
