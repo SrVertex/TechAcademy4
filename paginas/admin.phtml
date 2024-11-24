@@ -1,4 +1,5 @@
 <?php
+
 $api = file_get_contents("http://localhost:8080/api/item");
 $dadosApi = json_decode($api);
 
@@ -58,7 +59,12 @@ foreach ($dadosApi as $produto) {
                                         <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-pen-fill"></i></a>
                                         <div class="dropdown-menu">
                                             <h3>Alterar produto</h3>
-                                            <form method="POST" action="paginas/item/post_item.php">
+                                            
+                                            <form method="POST" action="paginas/validacoes/item/put_item.php">
+                                                <input type="hidden" name="_method" value="PUT">
+                                                <span class="preco">Id</span>
+                                                <input type="number" name="id_item" value="<?= htmlspecialchars($produto->id_item) ?>" readonly required>
+
                                                 <span class="preco">Titulo</span>
                                                 <textarea rows="" cols="" name="nome" placeholder="Novo titulo do produto"><?= htmlspecialchars($produto->nome) ?></textarea>
                                                 <span class="preco">Descricao</span>
@@ -79,6 +85,11 @@ foreach ($dadosApi as $produto) {
                                                 <textarea rows="" cols="" name="atributo_5" placeholder="Novo atributo 5 do produto"><?= htmlspecialchars($produto->atributo_5) ?></textarea>
                                                 <span class="preco">Atributo 6</span>
                                                 <textarea rows="" cols="" name="atributo_6" placeholder="Novo atributo 6 do produto"><?= htmlspecialchars($produto->atributo_6) ?></textarea>
+                                                <span class="preco">Id Categoria</span>
+                                                <input type="number" name="id_categoria" value="<?= htmlspecialchars($produto->categoria->id_categoria) ?>" placeholder="Insira o id da categoria" required>
+                                                <span class="preco"><?= htmlspecialchars($produto->categoria->nome) ?></span>
+                                                
+                                                
                                                 <div class="pbtn">
                                                     <button type="submit">Alterar</button>
                                                 </div>
