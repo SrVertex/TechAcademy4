@@ -31,9 +31,9 @@ public class Usuario {
     @Column
     private Boolean admin;
 
-    @OneToMany(mappedBy = "id_usuario", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnoreProperties({"usuarios"})
-    private List<Usuario> usuarios;
+//    @OneToMany(mappedBy = "id_usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+//    @JsonIgnoreProperties({"usuarios"})
+//    private List<Usuario> usuarios;
 
 
     // Getters e Setters
@@ -87,24 +87,26 @@ public class Usuario {
         this.admin = admin;
     }
 
-    public List<Usuario> getUsuarios() {
-        return usuarios;
-    }
+//    public List<Usuario> getUsuarios() {
+//        return usuarios;
+//    }
 
-    public void setUsuarios(List<Usuario> usuarios) {
-        this.usuarios = usuarios;
-    }
+//    public void setUsuarios(List<Usuario> usuarios) {
+//        this.usuarios = usuarios;
+//    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Usuario usuario = (Usuario) o;
-        return Objects.equals(id_usuario, usuario.id_usuario) && Objects.equals(nome, usuario.nome) && Objects.equals(email, usuario.email) && Objects.equals(senha, usuario.senha) && Objects.equals(data, usuario.data) && Objects.equals(admin, usuario.admin) && Objects.equals(usuarios, usuario.usuarios);
+        return Objects.equals(id_usuario, usuario.id_usuario) && Objects.equals(nome, usuario.nome) && Objects.equals(email, usuario.email) && Objects.equals(senha, usuario.senha) && Objects.equals(data, usuario.data) && Objects.equals(admin, usuario.admin);
+//        && Objects.equals(usuarios, usuario.usuarios)
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id_usuario, nome, email, senha, data, admin, usuarios);
+        return Objects.hash(id_usuario, nome, email, senha, data, admin);
+//        , usuarios
     }
 }
