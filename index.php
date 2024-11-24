@@ -1,3 +1,11 @@
+<?php
+// Inicia a sessão para verificar se o usuário está logado
+session_start();
+
+// Verifica se o usuário está logado
+$usuarioLogado = isset($_SESSION['usuario']);
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -272,6 +280,20 @@
             </div>
         </div>
     </footer>
+
+
+
+    <ul>
+                <?php if ($usuarioLogado): ?>
+                    <li>Bem-vindo, <?php echo htmlspecialchars($_SESSION['usuario']['nome']); ?>!</li>
+                    <li><a href="logout.php">Sair</a></li>
+                <?php else: ?>
+                    <li><a href="login.php">Entrar</a></li>
+                    <li><a href="cadastro.php">Cadastrar</a></li>
+                <?php endif; ?>
+            </ul>
+
+
 
 </body>
 
