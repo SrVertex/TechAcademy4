@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.backEnd.Tecnolo.model.*;
-import com.backEnd.Tecnolo.repository.ItemPedido_Repository;
+import com.backEnd.Tecnolo.repository.Item_Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -24,13 +24,16 @@ import com.backEnd.Tecnolo.repository.Usuario_Repository;
 
 @RestController
 @RequestMapping("/api/pedido")
-public class PedidoController {
+public class PedidoController  {
 
     @Autowired
     private Pedido_Repository repository;
 
     @Autowired
     private Usuario_Repository usuarioRepository;
+
+    @Autowired
+    private Item_Repository itemRepository;
 
 
     @GetMapping
@@ -60,6 +63,8 @@ public class PedidoController {
 
                 // Validação de usuário
                 Optional<Usuario> usuarioOpt = usuarioRepository.findById(dto.getUsuario_id());
+                Optional<Item> itemOpt =  itemRepository.findById(dto.getItem_id());
+//                Optional<ItemPedido> itemPedidoOpt = itemPedidoRepository.findById(itemPedidoRepository);
                 if (usuarioOpt.isEmpty()) {
                     return ResponseEntity.badRequest().body("Usuário não encontrado com o ID fornecido.");
                 }
@@ -68,7 +73,7 @@ public class PedidoController {
                 pedido.setValor(dto.getValor());
                 pedido.setStatus(dto.getStatus());
                 pedido.setUsuario(usuarioOpt.get());
-
+                pedido.setItem(itemOpt.get());
 
                 // Validação e definição da data do pedido
                 if (dto.getData_pedido() == null) {
@@ -130,8 +135,3 @@ public class PedidoController {
         return ResponseEntity.ok().body("Pedido deletado com sucesso.");
     }
 }
-
-
-
-
-

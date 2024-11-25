@@ -5,9 +5,18 @@ import java.util.List;
 
 public class Pedido_ResquestDTO {
     private Integer usuario_id;
+    private Integer item_id;
     private Timestamp data_pedido;
     private String status;
     private Double valor;
+
+    public Integer getItem_id() {
+        return item_id;
+    }
+
+    public void setItem_id(Integer item_id) {
+        this.item_id = item_id;
+    }
 
     public Integer getUsuario_id() {
         return usuario_id;

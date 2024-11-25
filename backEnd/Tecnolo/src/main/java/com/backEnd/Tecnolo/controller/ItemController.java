@@ -4,6 +4,7 @@ import com.backEnd.Tecnolo.dto.Item_RequestDTO;
 import com.backEnd.Tecnolo.model.*;
 import com.backEnd.Tecnolo.repository.Categoria_Repository;
 import com.backEnd.Tecnolo.repository.Item_Repository;
+import com.backEnd.Tecnolo.repository.Pedido_Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

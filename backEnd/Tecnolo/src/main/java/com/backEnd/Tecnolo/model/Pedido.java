@@ -28,21 +28,19 @@ public class Pedido {
     @JsonIgnoreProperties({"usuarios"})
     private Usuario usuario;
 
-
-    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnoreProperties({"pedido"})
-    private List<ItemPedido> itemPedidos;
-
+    @ManyToOne
+    @JoinColumn(name = "item_id")
+    @JsonIgnoreProperties({"itens"})
+    private Item item;
 
     // Getters e Setters
 
-
-    public List<ItemPedido> getItemPedidos() {
-        return itemPedidos;
+    public Item getItem() {
+        return item;
     }
 
-    public void setItemPedidos(List<ItemPedido> itemPedidos) {
-        this.itemPedidos = itemPedidos;
+    public void setItem(Item item) {
+        this.item = item;
     }
 
     public Integer getId_pedido() {

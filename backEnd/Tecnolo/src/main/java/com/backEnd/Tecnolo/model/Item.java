@@ -53,21 +53,8 @@ public class Item {
     @JsonIgnoreProperties("categoria_id")
     private Categoria categoria;
 
-    @OneToMany(mappedBy = "item", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnoreProperties("item")
-    private List<ItemPedido> itemPedidos;
-
 
     //Getters e Setters
-
-
-    public List<ItemPedido> getItemPedidos() {
-        return itemPedidos;
-    }
-
-    public void setItemPedidos(List<ItemPedido> itemPedidos) {
-        this.itemPedidos = itemPedidos;
-    }
 
     public Integer getId_item() {
         return id_item;

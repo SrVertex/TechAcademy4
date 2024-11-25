@@ -10,6 +10,4 @@ public class TecnoloApplication {
 		SpringApplication.run(TecnoloApplication.class, args);
 	}
 
-
-
 }
