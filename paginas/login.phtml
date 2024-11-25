@@ -1,15 +1,16 @@
 
+
 <section id="area_login">
     <div class="conteiner_login" style="overflow: hidden !important;">
 
         <h2>ENTRAR COM UMA CONTAR TECNOLO</h2>
 
-        <form id="form" action="home" method="post" class="form">
+        <form method="POST" action="login.php" class="form">
 
-            <input type="email" class="required"  oninput="emailValidate()" placeholder="E-mail" required >
+            <input type="email" class="required" id="email" name="email" placeholder="E-mail" required >
             <span class="span-required" style="margin: 10px 0 0 10px; color:red; display: none;">E-mail inválido</span>
 
-            <input type="password" class="required" oninput="mainPasswordValidate()" placeholder="Senha" style="margin: 20px 0 10px 0;" required>
+            <input type="password" class="required" id="senha" name="senha" placeholder="Senha" style="margin: 20px 0 10px 0;" required>
             <span class="span-required" style="margin: 0 0 10px 10px; color:red; display: none;">Senha deve ter no mínimo 8 caracteres</span>
 
             <a href="esqueciMinhaSenha" class="senha">Esqueceu minha senha</a>
@@ -28,4 +29,3 @@
         <a href="login"><i class="bi bi-facebook"></i>Facebook</a>
     </div>
 </section>
-

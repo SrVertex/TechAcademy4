@@ -1,3 +1,8 @@
+<?php
+session_start(); // Inicia a sessão no início do arquivo
+$usuarioLogado = isset($_SESSION['usuario']); // Verifica se o usuário está logado
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -103,7 +108,7 @@
                                 <li><a class="dropdown-item" href="#"><i class="bi bi-cart"></i>Carrinho</a></li>
                                 <li><a class="dropdown-item" href="#"><i class="bi bi-bag-fill"></i>Meus Pedidos</a></li>
                                 <li><a class="dropdown-item" href="#"><i class="bi bi-whatsapp"></i>WhatzApp</a></li>
-                                <li><a class="dropdown-item" href="admin"><i class="bi bi-xbox"></i>Adimistrador</a></li>
+                                <li><a class="dropdown-item" href="admin"><i class="bi bi-xbox"></i>Admistrador</a></li>
                                 <li><a class="dropdown-item" href="endereco"><i class="bi bi-house-door-fill"></i>Meu Endereço</a></li>
                         </li>
                     </ul>
@@ -116,18 +121,30 @@
                         </a>
 
                         <ul class="dropdown-menu dropdown-menu-2 ">
-                            <li><a class="dropdown-item" href="paginasProdutos/notebook">Notebook</a></li>
-                            <li><a class="dropdown-item" href="paginasProdutos/telefone">Smartphone</a></li>
-                            <li><a class="dropdown-item" href="paginasProdutos/acessorios">Acessórios</a></li>
-                            <li><a class="dropdown-item" href="paginasProdutos/monutor">Monitor</a></li>
-                            <li><a class="dropdown-item" href="paginasProdutos/games">Games</a></li>
-                            <li><a class="dropdown-item" href="paginasProdutos/hardwere">Hardware</a></li>
+                            <li><a class="dropdown-item" href="Notebook">Notebook</a></li>
+                            <li><a class="dropdown-item" href="Smartphones">Smartphone</a></li>
+                            <li><a class="dropdown-item" href="Acessorios">Acessórios</a></li>
+                            <li><a class="dropdown-item" href="Monitor">Monitor</a></li>
+                            <li><a class="dropdown-item" href="Games">Games</a></li>
+                            <li><a class="dropdown-item" href="Hardware">Hardware</a></li>
                         </ul>
                     </li>
 
 
 
                     </ul>
+
+                    <ul>
+                <?php if ($usuarioLogado): ?>
+                    <li>Bem-vindo, <?php echo htmlspecialchars($_SESSION['usuario']['nome']); ?>!</li>
+                    <li><a href="logout.php">Sair</a></li>
+                <?php else: ?>
+                    <li><a href="login.php">Entrar</a></li>
+                    <li><a href="cadastro.php">Cadastrar</a></li>
+                <?php endif; ?>
+            </ul>
+
+
                     <div class="login">
                         <div class="icon">
                             <a href="login"><i class="bi bi-person-circle"></i></a>
@@ -190,7 +207,7 @@
                                 </li>
                                 <li><a class="dropdown-item" href="#"><i class="bi bi-whatsapp"></i>WhatzApp</a></li>
                                 <li><a class="dropdown-item" href="endereco"><i class="bi bi-house-door-fill"></i>Meu Endereço</a></li>
-                                <li><a class="dropdown-item" href="admin"><i class="bi bi-xbox"></i>Adimistrador</a></li>
+                                <li><a class="dropdown-item" href="admin"><i class="bi bi-xbox"></i>Admistrador</a></li>
                         </div>
                     </div>
 
@@ -203,12 +220,12 @@
                 </div>
 
                 <div class="navbar_baixo">
-                    <a href="paginasProdutos/notebook">Notebook</a>
-                    <a href="paginasProdutos/telefone">SmartPhone</a>
-                    <a href="paginasProdutos/acessorios">Acessórios</a>
-                    <a href="paginasProdutos/monutor">Monitor</a>
-                    <a href="paginasProdutos/games">Games</a>
-                    <a href="paginasProdutos/hardwere">Hardware</a>
+                    <a href="Notebook">Notebook</a>
+                    <a href="Smartphones">SmartPhone</a>
+                    <a href="Acessorios">Acessórios</a>
+                    <a href="Monitor">Monitor</a>
+                    <a href="Games">Games</a>
+                    <a href="Hardware">Hardware</a>
                 </div>
 
             </nav>
@@ -226,12 +243,9 @@
 
         $page = $p[0] ?? "home";
         $produtos = $p[1] ?? NULL;
-        $login = $p[1] ?? NULL;
 
-        if ($page == "paginasProdutos") {
-            $pagina = "paginasProdutos/{$produtos}.phtml";
-        } else if ($page == "paginaLogin") {
-            $pagina = "paginaLogin/{$login}";
+        if ($page == "paginas") {
+            $pagina = "paginas/{$produtos}.phtml";
         } else {
             $pagina = "paginas/{$page}.phtml";
         }
@@ -241,8 +255,11 @@
         } else {
             include "paginas/erro.phtml";
         }
+        
 
         ?>
+
+
 
     </main>
 
@@ -272,6 +289,20 @@
             </div>
         </div>
     </footer>
+
+
+
+    <ul>
+                <?php if ($usuarioLogado): ?>
+                    <li>Bem-vindo, <?php echo htmlspecialchars($_SESSION['usuario']['nome']); ?>!</li>
+                    <li><a href="logout.php">Sair</a></li>
+                <?php else: ?>
+                    <li><a href="login.php">Entrar</a></li>
+                    <li><a href="cadastro.php">Cadastrar</a></li>
+                <?php endif; ?>
+            </ul>
+
+
 
 </body>
 

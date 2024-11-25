@@ -1,3 +1,14 @@
+<?php
+
+$api = file_get_contents("http://localhost:8080/api/item");
+$dadosApi = json_decode($api);
+
+// Verificar se os dados foram carregados corretamente
+foreach ($dadosApi as $produto) {
+}
+?>
+
+
 <section id="main_admin">
     <h2>ÁREA DO ADMISTRADOR</h2>
     <div class="conteiner_admin d-flex">
@@ -19,134 +30,78 @@
                     </div>
                     <div class="modal-body">
 
+
+
+
+
+
+
+                    <?php foreach ($dadosApi as $produto): ?>
+                <?php 
+                    // Calcular o valor da parcela em 10x
+                    $parcela = $produto->preco / 10; 
+                    ?>
+
+
                         <div class="conteiner_produto">
 
                             <div class="imagem">
-                                <img src="imagens/produtos/galaxyBuds.png" alt="">
+                                <img src="<?= htmlspecialchars($produto->foto) ?>" alt="<?= htmlspecialchars($produto->nome) ?>">
                             </div>
                             <div class="descricao">
-                                <p class="desc">Galaxy buds 3 pro, um fone muito top da famosa samsung um fone o galaxy AI
-                                </p>
+                                <p class="desc"><?= htmlspecialchars($produto->nome) ?></p>
 
-                                <p class="preco">R$ 1.600,00</p>
+                                <p class="preco">R$ <?= number_format($produto->preco, 2, ',', '.') ?></p>
 
                                 <div class="auter">
-                                    <a href="">Ver anuncio</a>
+                                    <a href="detalheProduto/<?= htmlspecialchars($produto->id_item) ?>">Ver anuncio</a>
                                     <div class="dropdown">
                                         <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-pen-fill"></i></a>
                                         <div class="dropdown-menu">
-                                            <h3>Alter produto</h3>
-                                            <form action="">
-                                                <textarea rows="" cols="" placeholder="Novo titulo do produto"></textarea>
-                                                <input type="number" placeholder="Valor Produto">
+                                            <h3>Alterar produto</h3>
+
+                                            <form method="POST" action="paginas/validacoes/item/put_item.php">
+                                                <input type="hidden" name="_method" value="PUT">
+                                                <span class="preco">Id</span>
+                                                <input type="number" name="id_item" value="<?= htmlspecialchars($produto->id_item) ?>" readonly required>
+
+                                                <span class="preco">Titulo</span>
+                                                <textarea rows="" cols="" name="nome" placeholder="Novo titulo do produto"><?= htmlspecialchars($produto->nome) ?></textarea>
+                                                <span class="preco">Descricao</span>
+                                                <textarea rows="" cols="" name="descricao" placeholder="Nova descricao do produto"><?= htmlspecialchars($produto->descricao) ?></textarea>
+                                                <span class="preco">Preço</span>
+                                                <textarea rows="" cols="" name="preco" placeholder="Novo preco do produto"><?= htmlspecialchars($produto->preco) ?></textarea>
+                                                <span class="preco">Estoque</span>
+                                                <textarea rows="" cols="" name="estoque" placeholder="Novo estoque do produto"><?= htmlspecialchars($produto->estoque) ?></textarea>
+                                                <span class="preco">Atributo 1</span>
+                                                <textarea rows="" cols="" name="atributo_1" placeholder="Novo atributo 1 do produto"><?= htmlspecialchars($produto->atributo_1) ?></textarea>
+                                                <span class="preco">Atributo 2</span>
+                                                <textarea rows="" cols="" name="atributo_2" placeholder="Novo atributo 2 do produto"><?= htmlspecialchars($produto->atributo_2) ?></textarea>
+                                                <span class="preco">Atributo 3</span>
+                                                <textarea rows="" cols="" name="atributo_3" placeholder="Novo atributo 3 do produto"><?= htmlspecialchars($produto->atributo_3) ?></textarea>
+                                                <span class="preco">Atributo 4</span>
+                                                <textarea rows="" cols="" name="atributo_4" placeholder="Novo atributo 4 do produto"><?= htmlspecialchars($produto->atributo_4) ?></textarea>
+                                                <span class="preco">Atributo 5</span>
+                                                <textarea rows="" cols="" name="atributo_5" placeholder="Novo atributo 5 do produto"><?= htmlspecialchars($produto->atributo_5) ?></textarea>
+                                                <span class="preco">Atributo 6</span>
+                                                <textarea rows="" cols="" name="atributo_6" placeholder="Novo atributo 6 do produto"><?= htmlspecialchars($produto->atributo_6) ?></textarea>
+                                                <span class="preco">Id Categoria</span>
+                                                <input type="number" name="id_categoria" value="<?= htmlspecialchars($produto->categoria->id_categoria) ?>" placeholder="Insira o id da categoria" required>
+                                                <span class="preco"><?= htmlspecialchars($produto->categoria->nome) ?></span>
+                                                
+                                                
                                                 <div class="pbtn">
-                                                    <button>Alterar</button>
+                                                    <button type="submit">Alterar</button>
                                                 </div>
                                             </form>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
-
                         </div>
 
-                        <div class="conteiner_produto">
+                        <?php endforeach; ?>
 
-                            <div class="imagem">
-                                <img src="imagens/produtos/galaxyzfold6.png" alt="">
-                            </div>
-                            <div class="descricao">
-                                <p class="desc">Samsung Galaxy Z Fold5 5G Dual SIM 1 TB preto 12 GB RAM
-                                </p>
-
-                                <p class="preco">R$ 12.250,00</p>
-
-                                <div class="auter">
-                                    <a href="">Ver anuncio</a>
-                                    <div class="dropdown">
-                                        <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-pen-fill"></i></a>
-                                        <div class="dropdown-menu">
-                                            <h3>Alter produto</h3>
-                                            <form action="">
-                                                <textarea rows="" cols="" placeholder="Novo titulo do produto"></textarea>
-                                                <input type="number" placeholder="Valor Produto">
-                                                <div class="pbtn">
-                                                    <button>Alterar</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <div class="conteiner_produto">
-
-                            <div class="imagem">
-                                <img src="imagens/produtos/galaxyBuds.png" alt="">
-                            </div>
-                            <div class="descricao">
-                                <p class="desc">Galaxy buds 3 pro, um fone muito top da famosa samsung um fone o galaxy AI
-                                </p>
-
-                                <p class="preco">R$ 1.600,00</p>
-
-                                <div class="auter">
-                                    <a href="">Ver anuncio</a>
-                                    <div class="dropdown">
-                                        <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-pen-fill"></i></a>
-                                        <div class="dropdown-menu">
-                                            <h3>Alter produto</h3>
-                                            <form action="">
-                                                <textarea rows="" cols="" placeholder="Novo titulo do produto"></textarea>
-                                                <input type="number" placeholder="Valor Produto">
-                                                <div class="pbtn">
-                                                    <button>Alterar</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="conteiner_produto">
-
-                            <div class="imagem">
-                                <img src="imagens/produtos/galaxyzfold6.png" alt="">
-                            </div>
-                            <div class="descricao">
-                                <p class="desc">Samsung Galaxy Z Fold5 5G Dual SIM 1 TB preto 12 GB RAM
-                                </p>
-
-                                <p class="preco">R$ 12.250,00</p>
-
-                                <div class="auter">
-                                    <a href="">Ver anuncio</a>
-                                    <div class="dropdown">
-                                        <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-pen-fill"></i></a>
-                                        <div class="dropdown-menu">
-                                            <h3>Alter produto</h3>
-                                            <form action="">
-                                                <textarea rows="" cols="" placeholder="Novo titulo do produto"></textarea>
-                                                <input type="number" placeholder="Valor Produto">
-                                                <div class="pbtn">
-                                                    <button>Alterar</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
 
                     </div>
                 </div>
@@ -169,11 +124,19 @@
                         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
                     </div>
                     <div class="modal-body">
-                        <form action="">
-                            <input type="" placeholder="Caminho da Imagem" required>
-                            <input type="number" placeholder="Valor Produto" required>
-                            <input type="text" placeholder="Categoria" required>
-                            <textarea name="" id="" placeholder="Descricao do produto" required></textarea>
+                        <form method="POST" action="">
+                            <input type="text" name="nomePost" placeholder="Nome Produto" required>
+                            <input type="text" name="descricaoPost" placeholder="Descricao Produto" required>
+                            <input type="number" name="precoPost" placeholder="Valor Produto" required>
+                            <input type="number" name="estoquePost" placeholder="Estoque Produto" required>
+                            <input type="text" name="atributo_1Post" placeholder="Atributo 1 Produto" required>
+                            <input type="text" name="atributo_2Post" placeholder="Atributo 2 Produto" required>
+                            <input type="text" name="atributo_3Post" placeholder="Atributo 3 Produto" required>
+                            <input type="text" name="atributo_4Post" placeholder="Atributo 4 Produto" required>
+                            <input type="text" name="atributo_5Post" placeholder="Atributo 5 Produto" required>
+                            <input type="text" name="atributo_6Post" placeholder="Atributo 6 Produto" required>
+                            <input type="number" name="id_categoriaPost" placeholder="Id Categoria" required>
+                            <input type="text" name="fotoPost" placeholder="URL da Foto do Produto">
 
                             <div class="p_btn">
                                 <button>Adicionar</button>
@@ -235,10 +198,74 @@
     </div>
 </section>
 
-<?php if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (isset($_POST['confirmar'])) {
-        echo "<script>alert('Que Pena espero que Volte a Vender com Agente!');</script>";
+
+
+
+
+<?php
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $link = 'http://localhost:8080/api/item'; // Certifique-se de que a URL está correta
+
+    $nome = $_POST['nomePost'];
+    $descricao = $_POST['descricaoPost'];
+    $preco = $_POST['precoPost'];
+    $estoque = $_POST['estoquePost'];
+    $atributo_1 = $_POST['atributo_1Post'];
+    $atributo_2 = $_POST['atributo_2Post'];
+    $atributo_3 = $_POST['atributo_3Post'];
+    $atributo_4 = $_POST['atributo_4Post'];
+    $atributo_5 = $_POST['atributo_5Post'];
+    $atributo_6 = $_POST['atributo_6Post'];
+    $categoria_id = $_POST['id_categoriaPost'];
+    $foto = $_POST['fotoPost'];
+
+    $dadosProduto = [
+        'nome' => $nome,
+        'descricao' => $descricao,
+        'preco' => (float)$preco,
+        'estoque' => (int)$estoque,
+        'foto' => $foto,
+        'atributo_1' => $atributo_1,
+        'atributo_2' => $atributo_2,
+        'atributo_3' => $atributo_3,
+        'atributo_4' => $atributo_4,
+        'atributo_5' => $atributo_5,
+        'atributo_6' => $atributo_6,
+        'categoria' => [
+            'id_categoria' => (int)$categoria_id,
+            'nome' => $_POST['nome_categoriaPost'] ?? 'Notebook',
+            'descricao' => $_POST['descricao_categoriaPost'] ?? 'Descrição padrão da categoria'
+        ]
+    ];
+
+    $dadosJson = json_encode($dadosProduto);
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $link);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        'Content-Type: application/json',
+        'Content-Length: ' . strlen($dadosJson)
+    ]);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $dadosJson);
+
+    $response = curl_exec($ch);
+
+    if (curl_errno($ch)) {
+        echo 'Erro cURL: ' . curl_error($ch);
     } else {
-        echo "<script>alert('Muito obrigado por continuar com agente!');</script>";
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+        if ($httpCode >= 200 && $httpCode < 300) {
+            echo '<p>Produto criado com sucesso: ' . $response . '</p>';
+        } else {
+            echo '<p>Erro ao criar produto. Código HTTP: ' . $httpCode . '. Resposta: ' . $response . '</p>';
+        }
     }
-} ?>
+    curl_close($ch);
+}
+
+    ?>
