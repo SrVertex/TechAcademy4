@@ -5,6 +5,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
+import com.backEnd.Tecnolo.model.*;
+import com.backEnd.Tecnolo.repository.ItemPedido_Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -17,8 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.backEnd.Tecnolo.dto.Pedido_ResquestDTO;
-import com.backEnd.Tecnolo.model.Pedido;
-import com.backEnd.Tecnolo.model.Usuario;
 import com.backEnd.Tecnolo.repository.Pedido_Repository;
 import com.backEnd.Tecnolo.repository.Usuario_Repository;
 
@@ -82,54 +82,54 @@ public class PedidoController {
                 return ResponseEntity.ok(savedPedido);
     }
 
-        @PutMapping("/{id}")
-        public ResponseEntity<?> update(@PathVariable Integer id, @RequestBody Pedido_ResquestDTO dto) {
-            // Verificar se o pedido existe
-            Optional<Pedido> pedidoOpt = repository.findById(id);
-            if (pedidoOpt.isEmpty()) {
-                return ResponseEntity.badRequest().body("Pedido não encontrado com o ID fornecido.");
-            }
-
-            // Validação de valor
-            if (dto.getValor() == null) {
-                return ResponseEntity.badRequest().body("O valor do pedido é obrigatório.");
-            }
-
-            // Validação de status
-            if (dto.getStatus() == null || dto.getStatus().isEmpty()) {
-                return ResponseEntity.badRequest().body("Status do pedido é obrigatório.");
-            }
-
-            // Atualizar o pedido
-            Pedido pedido = pedidoOpt.get();
-            pedido.setValor(dto.getValor());
-            pedido.setStatus(dto.getStatus());
-
-            // Atualização e definição da data do pedido
-            if (dto.getData_pedido() == null) {
-                pedido.setData_pedido(Timestamp.valueOf(LocalDateTime.now()));
-            } else {
-                pedido.setData_pedido(dto.getData_pedido());
-            }
-
-            // Salvar o pedido atualizado
-            Pedido updatedPedido = repository.save(pedido);
-            return ResponseEntity.ok(updatedPedido);
+    @PutMapping("/{id}")
+    public ResponseEntity<?> update(@PathVariable Integer id, @RequestBody Pedido_ResquestDTO dto) {
+        // Verificar se o pedido existe
+        Optional<Pedido> pedidoOpt = repository.findById(id);
+        if (pedidoOpt.isEmpty()) {
+            return ResponseEntity.badRequest().body("Pedido não encontrado com o ID fornecido.");
         }
 
-        @DeleteMapping("/{id}")
-        public ResponseEntity<?> delete(@PathVariable Integer id) {
-            // Verificar se o pedido existe
-            Optional<Pedido> pedidoOpt = repository.findById(id);
-            if (pedidoOpt.isEmpty()) {
-                return ResponseEntity.badRequest().body("Pedido não encontrado com o ID fornecido.");
-            }
-
-            // Deletar o pedido
-            repository.deleteById(id);
-            return ResponseEntity.ok().body("Pedido deletado com sucesso.");
+        // Validação de valor
+        if (dto.getValor() == null) {
+            return ResponseEntity.badRequest().body("O valor do pedido é obrigatório.");
         }
+
+        // Validação de status
+        if (dto.getStatus() == null || dto.getStatus().isEmpty()) {
+            return ResponseEntity.badRequest().body("Status do pedido é obrigatório.");
+        }
+
+        // Atualizar o pedido
+        Pedido pedido = pedidoOpt.get();
+        pedido.setValor(dto.getValor());
+        pedido.setStatus(dto.getStatus());
+
+        // Atualização e definição da data do pedido
+        if (dto.getData_pedido() == null) {
+            pedido.setData_pedido(Timestamp.valueOf(LocalDateTime.now()));
+        } else {
+            pedido.setData_pedido(dto.getData_pedido());
+        }
+
+        // Salvar o pedido atualizado
+        Pedido updatedPedido = repository.save(pedido);
+        return ResponseEntity.ok(updatedPedido);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> delete(@PathVariable Integer id) {
+        // Verificar se o pedido existe
+        Optional<Pedido> pedidoOpt = repository.findById(id);
+        if (pedidoOpt.isEmpty()) {
+            return ResponseEntity.badRequest().body("Pedido não encontrado com o ID fornecido.");
+        }
+
+        // Deletar o pedido
+        repository.deleteById(id);
+        return ResponseEntity.ok().body("Pedido deletado com sucesso.");
+    }
+}
 
 
 

@@ -28,11 +28,22 @@ public class Pedido {
     @JsonIgnoreProperties({"usuarios"})
     private Usuario usuario;
 
-    @OneToMany(mappedBy = "id_pedido", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnoreProperties({"pedidos"})
+
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties({"pedido"})
+    private List<ItemPedido> itemPedidos;
+
 
     // Getters e Setters
 
+
+    public List<ItemPedido> getItemPedidos() {
+        return itemPedidos;
+    }
+
+    public void setItemPedidos(List<ItemPedido> itemPedidos) {
+        this.itemPedidos = itemPedidos;
+    }
 
     public Integer getId_pedido() {
         return id_pedido;
@@ -73,6 +84,5 @@ public class Pedido {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-
 
 }
