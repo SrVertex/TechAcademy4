@@ -11,6 +11,9 @@ public class PedidoForma {
     @EmbeddedId
     private PedidoFormaPK id;
 
+    @Column
+    private String status;
+
     @ManyToOne
     @MapsId("pedidoId")
     @JoinColumn(name = "pedido_id", referencedColumnName = "id_pedido")
@@ -23,6 +26,15 @@ public class PedidoForma {
     private FormaPGTO formaPGTO;
 
     // Getters e Setterss
+
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public PedidoFormaPK getId() {
         return id;

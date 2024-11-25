@@ -2,11 +2,11 @@ package com.backEnd.Tecnolo.controller;
 
 import java.util.List;
 
+import com.backEnd.Tecnolo.dto.PedidoForma_Record_RequestDTO;
+import com.backEnd.Tecnolo.dto.PedidoForma_RequestDTO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.backEnd.Tecnolo.model.PedidoForma;
 import com.backEnd.Tecnolo.repository.PedidoForma_Repository;
@@ -16,7 +16,12 @@ import com.backEnd.Tecnolo.repository.PedidoForma_Repository;
 @RequestMapping("/api/pedido_forma")
 public class Pedido_FormaController {
 
+    @Autowired
     private PedidoForma_Repository repository;
+
+    // interface do pedido
+    @Autowired
+    private PedidoForma_Repository pedidoFormaRepository;
 
     @GetMapping
     public ResponseEntity<List<PedidoForma>> findAll() {
@@ -31,5 +36,17 @@ public class Pedido_FormaController {
                 .orElseThrow(() ->
                         new IllegalArgumentException("Usuario não foi encontrado"));
     }
+
+    @PostMapping
+    public ResponseEntity<?> save(@RequestBody PedidoForma_RequestDTO dto) {
+
+        PedidoForma pedidoforma = new PedidoForma();
+        pedidoforma.setStatus(dto.getStatus());
+
+        PedidoForma pedidoForma = repository.save(pedidoforma);
+        return ResponseEntity.ok(pedidoForma);
+    }
+
+
 
 }
