@@ -41,35 +41,35 @@ public class EnderecoController {
     public ResponseEntity<?> save(@RequestBody Endereco_RequestDTO dto) {
 
         if (dto.getNome_destinatario() == null){
-            return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
+            return ResponseEntity.badRequest().body("O NOME Campo é o Obrigatorio");
         }
 
         if (dto.getCep() == null){
-            return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
+            return ResponseEntity.badRequest().body("O CEP Campo é o Obrigatorio");
         }
 
         if (dto.getCidade() == null){
-            return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
+            return ResponseEntity.badRequest().body("O CIDADE Campo é o Obrigatorio");
         }
 
         if (dto.getUF() == null){
-            return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
+            return ResponseEntity.badRequest().body("O UF Campo é o Obrigatorio");
         }
 
         if (dto.getBairro() == null){
-            return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
+            return ResponseEntity.badRequest().body("O BAIRRO Campo é o Obrigatorio");
         }
 
         if (dto.getRua() == null){
-            return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
+            return ResponseEntity.badRequest().body("O Campo RUA é o Obrigatorio");
         }
 
         if (dto.getNumero() == null){
-            return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
+            return ResponseEntity.badRequest().body("O NUMEMRO Campo é o Obrigatorio");
         }
 
         if (dto.getContato() == null){
-            return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
+            return ResponseEntity.badRequest().body("OCONSCampo é o Obrigatorio");
         }
         
         Endereco endereco = new Endereco();

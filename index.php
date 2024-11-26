@@ -290,20 +290,6 @@ $usuarioLogado = isset($_SESSION['usuario']); // Verifica se o usuário está lo
         </div>
     </footer>
 
-
-
-    <ul>
-                <?php if ($usuarioLogado): ?>
-                    <li>Bem-vindo, <?php echo htmlspecialchars($_SESSION['usuario']['nome']); ?>!</li>
-                    <li><a href="logout.php">Sair</a></li>
-                <?php else: ?>
-                    <li><a href="login.php">Entrar</a></li>
-                    <li><a href="cadastro.php">Cadastrar</a></li>
-                <?php endif; ?>
-            </ul>
-
-
-
 </body>
 
 <script src="js/bootstrap.bundle.min.js"></script>

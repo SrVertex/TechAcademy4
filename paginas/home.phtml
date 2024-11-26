@@ -79,7 +79,7 @@ if ($dadosApi && is_array($dadosApi)) {
                 <div class="carousel-cell">
                     <a href="detalheProduto/<?= $produto->id_item ?>">
                         <div class="img">
-                            <img src="imagens/produtos/0_AEMYWY3BEAPTA_PRD_1500_1 2.png" alt="<?= htmlspecialchars($produto->nome) ?>">
+                            <img src="<?=htmlspecialchars($produto->foto)?>" alt="<?= htmlspecialchars($produto->nome) ?>">
                         </div>
 
                         <div class="descricao">
