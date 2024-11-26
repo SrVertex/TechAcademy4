@@ -41,18 +41,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
         ]);
 
         // Executa a requisição
-        $response = curl_exec($ch);
+// Executa a requisição
+$response = curl_exec($ch);
 
-        // Verifica se houve algum erro na requisição
-        if(curl_errno($ch)) {
-            echo json_encode(['success' => false, 'message' => 'Erro na requisição: ' . curl_error($ch)]);
-        } else {
-            // Exibe a resposta da API
-            echo $response;
-        }
+// Verifica se houve algum erro na requisição
+if(curl_errno($ch)) {
+    echo json_encode(['success' => false, 'message' => 'Erro na requisição: ' . curl_error($ch)]);
+} else {
+    // Verifica o código de status HTTP
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    if ($httpCode >= 200 && $httpCode < 300) {
+        // Se o código de status for 2xx, é sucesso
+        echo json_encode(['success' => true, 'message' => 'Produto atualizado com sucesso!']);
+    } else {
+        // Se o código de status não for 2xx, é erro
+        echo json_encode(['success' => false, 'message' => "Erro: Código HTTP $httpCode"]);
+    }
+}
 
-        // Fecha o cURL
-        curl_close($ch);
+// Fecha o cURL
+curl_close($ch);
+
     } else {
         echo json_encode(['success' => false, 'message' => 'Dados inválidos']);
     }
