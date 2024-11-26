@@ -124,7 +124,7 @@ foreach ($dadosApi as $produto) {
                         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
                     </div>
                     <div class="modal-body">
-                        <form method="POST" action="paginas/validacoes/item/post_item.php">
+                        <form id="formProduto" method="POST" action="admin.phtml">
                             <input type="text" name="nomePost" placeholder="Nome Produto" required>
                             <input type="text" name="descricaoPost" placeholder="Descricao Produto" required>
                             <input type="number" name="precoPost" placeholder="Valor Produto" required>
@@ -203,3 +203,6 @@ foreach ($dadosApi as $produto) {
 
 
 
+
+<!-- Vinculação do script externo -->
+<script src="paginas/validacoes/item/post_item.js"></script>
