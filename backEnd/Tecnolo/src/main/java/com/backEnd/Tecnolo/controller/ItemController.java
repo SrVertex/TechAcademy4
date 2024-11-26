@@ -38,10 +38,10 @@ public class ItemController {
 
     @PostMapping
     public ResponseEntity<?> save(@RequestBody Item_RequestDTO dto) {
-        // Validação de categoria
+
         Optional<Categoria> categoriaOpt = categoriaRepository.findById(dto.getCategoria_id());
         if (categoriaOpt.isEmpty()) {
-            return ResponseEntity.badRequest().body("Categoria não encontrada com o ID fornecido.");
+            return ResponseEntity.badRequest().body("Usuário não encontrado com o ID fornecido.");
         }
 
         Item item = new Item();
@@ -58,9 +58,13 @@ public class ItemController {
         item.setEstoque(dto.getEstoque());
         item.setCategoria(categoriaOpt.get());
 
+//        Categoria categoria = categoriaRepository.findById(dto.getCategoria_id()).get();
+
         Item savedItem = repository.save(item);
         return ResponseEntity.ok(savedItem);
     }
+
+
 
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@PathVariable Integer id, @RequestBody Item_RequestDTO dto) {

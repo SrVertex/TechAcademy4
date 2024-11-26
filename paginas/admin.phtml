@@ -137,9 +137,8 @@ foreach ($dadosApi as $produto) {
                             <input type="text" name="atributo_6Post" placeholder="Atributo 6 Produto" required>
                             <input type="number" name="id_categoriaPost" placeholder="Id Categoria" required>
                             <input type="text" name="fotoPost" placeholder="URL da Foto do Produto">
-
                             <div class="p_btn">
-                                <button>Adicionar</button>
+                                <button type="submit">Adicionar</button>
                             </div>
                         </form>
                     </div>
@@ -202,6 +201,8 @@ foreach ($dadosApi as $produto) {
 
 
 
+
+
 <?php
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -232,11 +233,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'atributo_4' => $atributo_4,
         'atributo_5' => $atributo_5,
         'atributo_6' => $atributo_6,
-        'categoria' => [
-            'id_categoria' => (int)$categoria_id,
-            'nome' => $_POST['nome_categoriaPost'] ?? 'Notebook',
-            'descricao' => $_POST['descricao_categoriaPost'] ?? 'Descrição padrão da categoria'
-        ]
+        'categoria_id' => (int)$categoria_id
+        // 'categoria' => [
+        //     'id_categoria' => (int)$categoria_id,
+        //     // Removido os valores padrão para evitar problemas com a API.
+        // ]
     ];
 
     $dadosJson = json_encode($dadosProduto);
@@ -268,4 +269,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     curl_close($ch);
 }
 
-    ?>
+?>
+
+
+
