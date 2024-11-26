@@ -1731,6 +1731,16 @@ footer {
                     margin-bottom: 5px !important;
                     margin-right: 20px;
                 }
+
+                a {
+                    color: white;
+                    transition: 400ms all ease;
+                    &:hover  {
+                        transform: scale(1.05,1.05) !important; 
+                        text-shadow: 0 0 10px white;
+                    }
+
+                }
             }
         }
     }
