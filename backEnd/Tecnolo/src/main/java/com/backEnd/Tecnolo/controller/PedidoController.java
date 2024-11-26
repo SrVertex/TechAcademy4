@@ -44,9 +44,7 @@ public class PedidoController  {
 
     @GetMapping("/{id}")
     public Pedido findById(@PathVariable Integer id) {
-        return this.repository.findById(id)
-                .orElseThrow(() ->
-                        new IllegalArgumentException("Pedido não foi encontrado"));
+        return this.repository.findById(id).orElseThrow(() -> new IllegalArgumentException("Pedido não foi encontrado"));
     }
 
     @PostMapping
@@ -64,7 +62,7 @@ public class PedidoController  {
                 // Validação de usuário
                 Optional<Usuario> usuarioOpt = usuarioRepository.findById(dto.getUsuario_id());
                 Optional<Item> itemOpt =  itemRepository.findById(dto.getItem_id());
-//                Optional<ItemPedido> itemPedidoOpt = itemPedidoRepository.findById(itemPedidoRepository);
+
                 if (usuarioOpt.isEmpty()) {
                     return ResponseEntity.badRequest().body("Usuário não encontrado com o ID fornecido.");
                 }

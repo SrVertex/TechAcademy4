@@ -77,45 +77,4 @@ public class categoriaController {
 
 
 
-
-//    @PostMapping
-//    public ResponseEntity<Item> save(@RequestBody Item_RequestDTO dto) {
-//        if (dto.nome().isEmpty()) {
-//            return ResponseEntity.status(428).build();
-//        }
-//
-//        Item item = new Item();
-//        item.setNome(dto.nome());
-//
-//        this.repository.save(item);
-//        return ResponseEntity.ok(item);
-//    }
-//
-//    @DeleteMapping("/{id}")
-//    public ResponseEntity<Void> delete(@PathVariable Integer id) {
-//        Item item = this.repository.findById(id)
-//                .orElseThrow(() ->
-//                        new IllegalArgumentException("Item não foi encontrado"));
-//
-//        this.repository.delete(item);
-//        return ResponseEntity.noContent().build();
-//    }
-//
-//    @PutMapping("/{id}")
-//    public ResponseEntity<Item> update(@PathVariable Integer id, @RequestBody Item_RequestDTO dto) {
-//        if (dto.nome().isEmpty()) {
-//            return ResponseEntity.status(428).build();
-//        }
-//
-//        Item item = this.repository.findById(id)
-//                .orElseThrow(() ->
-//                        new IllegalArgumentException("Item não foi encontrado"));
-//
-//        item.setNome(dto.nome());
-//
-//        this.repository.save(item);
-//        return ResponseEntity.ok(item);
-//    }
-
-
 }

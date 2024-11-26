@@ -42,7 +42,7 @@ public class ItemController {
         Optional<Categoria> categoriaOpt = categoriaRepository.findById(dto.getCategoria_id());
         if (categoriaOpt.isEmpty()) {
             return ResponseEntity.badRequest().body("Usuário não encontrado com o ID fornecido.");
-        }
+        }  //        Categoria categoria = categoriaRepository.findById(dto.getCategoria_id()).get();
 
         Item item = new Item();
         item.setNome(dto.getNome());
@@ -58,8 +58,6 @@ public class ItemController {
         item.setEstoque(dto.getEstoque());
         item.setCategoria(categoriaOpt.get());
 
-//        Categoria categoria = categoriaRepository.findById(dto.getCategoria_id()).get();
-
         Item savedItem = repository.save(item);
         return ResponseEntity.ok(savedItem);
     }
@@ -68,6 +66,7 @@ public class ItemController {
 
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@PathVariable Integer id, @RequestBody Item_RequestDTO dto) {
+
         // Verificar se o item existe
         Optional<Item> itemOpt = repository.findById(id);
         if (itemOpt.isEmpty()) {
@@ -95,6 +94,7 @@ public class ItemController {
         item.setEstoque(dto.getEstoque());
         item.setCategoria(categoriaOpt.get());
 
+        //  realizar o updade do item
         Item savedItem = repository.save(item);
         return ResponseEntity.ok(savedItem);
     }
@@ -111,48 +111,4 @@ public class ItemController {
         repository.deleteById(id);
         return ResponseEntity.ok().body("Item deletado com sucesso.");
     }
-
-
-
-
-//    @PostMapping
-//    public ResponseEntity<Item> save(@RequestBody Item_RequestDTO dto) {
-//        if (dto.nome().isEmpty()) {
-//            return ResponseEntity.status(428).build();
-//        }
-//
-//        Item item = new Item();
-//        item.setNome(dto.nome());
-//
-//        this.repository.save(item);
-//        return ResponseEntity.ok(item);
-//    }
-//
-//    @DeleteMapping("/{id}")
-//    public ResponseEntity<Void> delete(@PathVariable Integer id) {
-//        Item item = this.repository.findById(id)
-//                .orElseThrow(() ->
-//                        new IllegalArgumentException("Item não foi encontrado"));
-//
-//        this.repository.delete(item);
-//        return ResponseEntity.noContent().build();
-//    }
-//
-//    @PutMapping("/{id}")
-//    public ResponseEntity<Item> update(@PathVariable Integer id, @RequestBody Item_RequestDTO dto) {
-//        if (dto.nome().isEmpty()) {
-//            return ResponseEntity.status(428).build();
-//        }
-//
-//        Item item = this.repository.findById(id)
-//                .orElseThrow(() ->
-//                        new IllegalArgumentException("Item não foi encontrado"));
-//
-//        item.setNome(dto.nome());
-//
-//        this.repository.save(item);
-//        return ResponseEntity.ok(item);
-//    }
-
-
 }

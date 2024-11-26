@@ -37,16 +37,4 @@ public class Pedido_FormaController {
                         new IllegalArgumentException("Usuario não foi encontrado"));
     }
 
-    @PostMapping
-    public ResponseEntity<?> save(@RequestBody PedidoForma_RequestDTO dto) {
-
-        PedidoForma pedidoforma = new PedidoForma();
-        pedidoforma.setStatus(dto.getStatus());
-
-        PedidoForma pedidoForma = repository.save(pedidoforma);
-        return ResponseEntity.ok(pedidoForma);
-    }
-
-
-
 }

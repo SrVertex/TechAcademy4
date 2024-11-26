@@ -109,7 +109,6 @@ public class UsuarioController {
 
     }
 
-    // delete do usuario com id
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable Integer id) {
         Optional<Usuario> usuarioOpt = repository.findById(id);

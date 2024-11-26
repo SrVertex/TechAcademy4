@@ -40,7 +40,7 @@ $produtosInfo = json_decode($api);
 
 foreach ($produtosInfo as $produto) {
     // Verifica se o produto tem categoria e se a categoria é "Especifica"
-    if (isset($produto->categoria) && $produto->categoria->nome == 'Smartphones') {
+    if (isset($produto->categoria) && $produto->categoria->nome == 'Sma0rtphones') {
         $parcela = $produto->preco / 10; 
 
         echo '<a href="detalheProduto/' . $produto->id_item . '" class="conteiner_produto" data-preco="' . $produto->preco . '">';
