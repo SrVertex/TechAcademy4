@@ -60,35 +60,36 @@ foreach ($dadosApi as $produto) {
                                         <div class="dropdown-menu">
                                             <h3>Alterar produto</h3>
 
-                                            <form method="POST" action="paginas/validacoes/item/put_item.php">
-                                                <input type="hidden" name="_method" value="PUT">
+                                            <form method="POST" id="formProdutoPut">
+                                                <input type="hidden" name="idProduto" value="ID_DO_PRODUTO" />
                                                 <span class="preco">Id</span>
-                                                <input type="number" name="id_item" value="<?= htmlspecialchars($produto->id_item) ?>" readonly required>
+                                                <input type="number" name="id_item_put" value="<?= htmlspecialchars($produto->id_item) ?>" readonly required>
 
                                                 <span class="preco">Titulo</span>
-                                                <textarea rows="" cols="" name="nome" placeholder="Novo titulo do produto"><?= htmlspecialchars($produto->nome) ?></textarea>
+                                                <textarea rows="" cols="" name="nome_put" placeholder="Novo titulo do produto"><?= htmlspecialchars($produto->nome) ?></textarea>
                                                 <span class="preco">Descricao</span>
-                                                <textarea rows="" cols="" name="descricao" placeholder="Nova descricao do produto"><?= htmlspecialchars($produto->descricao) ?></textarea>
+                                                <textarea rows="" cols="" name="descricao_put" placeholder="Nova descricao do produto"><?= htmlspecialchars($produto->descricao) ?></textarea>
                                                 <span class="preco">Preço</span>
-                                                <textarea rows="" cols="" name="preco" placeholder="Novo preco do produto"><?= htmlspecialchars($produto->preco) ?></textarea>
+                                                <textarea rows="" cols="" name="preco_put" placeholder="Novo preco do produto"><?= htmlspecialchars($produto->preco) ?></textarea>
                                                 <span class="preco">Estoque</span>
-                                                <textarea rows="" cols="" name="estoque" placeholder="Novo estoque do produto"><?= htmlspecialchars($produto->estoque) ?></textarea>
+                                                <textarea rows="" cols="" name="estoque_put" placeholder="Novo estoque do produto"><?= htmlspecialchars($produto->estoque) ?></textarea>
                                                 <span class="preco">Atributo 1</span>
-                                                <textarea rows="" cols="" name="atributo_1" placeholder="Novo atributo 1 do produto"><?= htmlspecialchars($produto->atributo_1) ?></textarea>
+                                                <textarea rows="" cols="" name="atributo_1_put" placeholder="Novo atributo 1 do produto"><?= htmlspecialchars($produto->atributo_1) ?></textarea>
                                                 <span class="preco">Atributo 2</span>
-                                                <textarea rows="" cols="" name="atributo_2" placeholder="Novo atributo 2 do produto"><?= htmlspecialchars($produto->atributo_2) ?></textarea>
+                                                <textarea rows="" cols="" name="atributo_2_put" placeholder="Novo atributo 2 do produto"><?= htmlspecialchars($produto->atributo_2) ?></textarea>
                                                 <span class="preco">Atributo 3</span>
-                                                <textarea rows="" cols="" name="atributo_3" placeholder="Novo atributo 3 do produto"><?= htmlspecialchars($produto->atributo_3) ?></textarea>
+                                                <textarea rows="" cols="" name="atributo_3_put" placeholder="Novo atributo 3 do produto"><?= htmlspecialchars($produto->atributo_3) ?></textarea>
                                                 <span class="preco">Atributo 4</span>
-                                                <textarea rows="" cols="" name="atributo_4" placeholder="Novo atributo 4 do produto"><?= htmlspecialchars($produto->atributo_4) ?></textarea>
+                                                <textarea rows="" cols="" name="atributo_4_put" placeholder="Novo atributo 4 do produto"><?= htmlspecialchars($produto->atributo_4) ?></textarea>
                                                 <span class="preco">Atributo 5</span>
-                                                <textarea rows="" cols="" name="atributo_5" placeholder="Novo atributo 5 do produto"><?= htmlspecialchars($produto->atributo_5) ?></textarea>
+                                                <textarea rows="" cols="" name="atributo_5_put" placeholder="Novo atributo 5 do produto"><?= htmlspecialchars($produto->atributo_5) ?></textarea>
                                                 <span class="preco">Atributo 6</span>
-                                                <textarea rows="" cols="" name="atributo_6" placeholder="Novo atributo 6 do produto"><?= htmlspecialchars($produto->atributo_6) ?></textarea>
+                                                <textarea rows="" cols="" name="atributo_6_put" placeholder="Novo atributo 6 do produto"><?= htmlspecialchars($produto->atributo_6) ?></textarea>
                                                 <span class="preco">Id Categoria</span>
-                                                <input type="number" name="id_categoria" value="<?= htmlspecialchars($produto->categoria->id_categoria) ?>" placeholder="Insira o id da categoria" required>
+                                                <input type="number" name="id_categoria_put" value="<?= htmlspecialchars($produto->categoria->id_categoria) ?>" placeholder="Insira o id da categoria" required>
                                                 <span class="preco"><?= htmlspecialchars($produto->categoria->nome) ?></span>
-                                                
+                                                <textarea rows="" cols="" name="foto_put" placeholder="Novo atributo 6 do produto"><?= htmlspecialchars($produto->atributo_6) ?></textarea>
+                                                <span class="preco">Id Categoria</span>
                                                 
                                                 <div class="pbtn">
                                                     <button type="submit">Alterar</button>
@@ -206,3 +207,4 @@ foreach ($dadosApi as $produto) {
 
 <!-- Vinculação do script externo -->
 <script src="paginas/validacoes/item/post_item.js"></script>
+<script src="paginas/validacoes/item/put_item.js"></script>

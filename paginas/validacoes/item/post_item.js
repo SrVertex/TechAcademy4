@@ -13,7 +13,8 @@ document.getElementById('formProduto').addEventListener('submit', async function
         const result = await response.json();
 
         if (result.success) {
-            alert(result.message); // Exibe mensagem de sucesso
+            alert(result.message);
+            location.reload(); // Exibe mensagem de sucesso
         } else {
             alert(`Erro: ${result.message}`);
         }

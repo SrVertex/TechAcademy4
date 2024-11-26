@@ -1,64 +1,32 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Pegando os dados do formulário
-    $id = $_POST['id_item'];
-    $nome = $_POST['nome'];
-    $descricao = $_POST['descricao'];
-    $preco = $_POST['preco'];
-    $estoque = $_POST['estoque'];
-    $atributo_1 = $_POST['atributo_1'];
-    $atributo_2 = $_POST['atributo_2'];
-    $atributo_3 = $_POST['atributo_3'];
-    $atributo_4 = $_POST['atributo_4'];
-    $atributo_5 = $_POST['atributo_5'];
-    $atributo_6 = $_POST['atributo_6'];
-    $id_categoria = $_POST['id_categoria'];
+if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
+    // Lê os dados JSON enviados pelo cliente
+    $json = file_get_contents('php://input');
+    $dadosProduto = json_decode($json, true);
 
-    // Preparando os dados para enviar
-    $data = [
-        'nome' => $nome,
-        'descricao' => $descricao,
-        'preco' => $preco,
-        'estoque' => $estoque,
-        'atributo_1' => $atributo_1,
-        'atributo_2' => $atributo_2,
-        'atributo_3' => $atributo_3,
-        'atributo_4' => $atributo_4,
-        'atributo_5' => $atributo_5,
-        'atributo_6' => $atributo_6,
-        'id_categoria' => $id_categoria
-    ];
+    if ($dadosProduto) {
+        // Processa os dados do produto (igual ao que você fez com POST)
+        $idProduto = $dadosProduto['id_item_put']; // ID do produto a ser atualizado
+        $nome = $dadosProduto['nome_put'];
+        $descricao = $dadosProduto['descricao_put'];
+        $preco = (float)$dadosProduto['preco_put'];
+        $estoque = (int)$dadosProduto['estoque_put'];
+        $atributo_1 = $dadosProduto['atributo_1_put'];
+        $atributo_2 = $dadosProduto['atributo_2_put'];
+        $atributo_3 = $dadosProduto['atributo_3_put'];
+        $atributo_4 = $dadosProduto['atributo_4_put'];
+        $atributo_5 = $dadosProduto['atributo_5_put'];
+        $atributo_6 = $dadosProduto['atributo_6_put'];
+        $categoria_id = (int)$dadosProduto['id_categoria_put'];
+        $foto = $dadosProduto['foto_put'];
 
-    // Convertendo os dados para JSON
-    $jsonData = json_encode($data);
+        // Aqui você poderia realizar o processo de atualização no banco de dados, por exemplo:
+        // Atualizar no banco de dados usando SQL ou ORM (Dependerá da lógica que você já possui)
 
-    // Definindo a URL da API com o ID
-    $url = "http://localhost:8080/api/item/$id"; // Certifique-se de que a URL está correta
-
-    // Inicializando o cURL
-    $ch = curl_init($url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT'); // Definindo o método PUT
-    curl_setopt($ch, CURLOPT_HTTPHEADER, [
-        'Content-Type: application/json',
-        'Content-Length: ' . strlen($jsonData),
-    ]);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData); // Enviando os dados no corpo da requisição
-
-    // Executando a requisição
-    $response = curl_exec($ch);
-    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-
-    // Fechando o cURL
-    curl_close($ch);
-
-    // Verificando a resposta
-    if ($httpCode === 200) {
-        echo "Produto atualizado com sucesso!";
+        echo json_encode(['success' => true, 'message' => 'Produto atualizado com sucesso.']);
     } else {
-        echo "Erro ao atualizar o produto. Código HTTP: $httpCode. Resposta: $response";
+        echo json_encode(['success' => false, 'message' => 'Erro ao processar os dados.']);
     }
 } else {
-    echo "Requisição inválida.";
+    echo json_encode(['success' => false, 'message' => 'Método HTTP inválido.']);
 }
-?>
