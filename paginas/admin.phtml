@@ -137,7 +137,9 @@ foreach ($dadosApi as $produto) {
                             <input type="text" name="atributo_5Post" placeholder="Atributo 5 Produto" required>
                             <input type="text" name="atributo_6Post" placeholder="Atributo 6 Produto" required>
                             <input type="number" name="id_categoriaPost" placeholder="Id Categoria" required>
-                            <input type="text" name="fotoPost" placeholder="URL da Foto do Produto">
+                            <input type="file" id="fotoProduto" name="fotoPost" accept="image/*" />
+
+
                             <div class="p_btn">
                                 <button type="submit">Adicionar</button>
                             </div>
