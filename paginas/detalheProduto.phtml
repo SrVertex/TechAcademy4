@@ -40,7 +40,7 @@ $produto_atributo6 = htmlspecialchars($produtoInfo->atributo_6);
 $produto_estoque = htmlspecialchars($produtoInfo->estoque);
 $produto_disponibilidade = "Disponibilidade";
 $produto_categoria = htmlspecialchars($produtoInfo->categoria->nome);
-$parcela = $produtoInfo->preco / 10; 
+$parcela = $produtoInfo->preco / 10;
 
 if ($produto_estoque > 0) {
     $produto_disponibilidade = "Produto Disponivel";
@@ -87,7 +87,7 @@ if ($produto_estoque > 0) {
             <hr>
 
             <div class="cep">
-            <div class="busca">
+                <div class="busca">
                     <form id="formCEP">
                         <input type="text" id="cep" name="cep" placeholder="Insira o CEP" required inputmode="numeric">
                         <button type="submit">OK</button>
@@ -160,11 +160,46 @@ if ($produto_estoque > 0) {
                 <p id="paragrafo"><?= $produto_atributo4 ?></p>
             </li>
             <li>
-                <a href="<?= $produto_categoria ?>"><p id="paragrafo">Categoria: <?= $produto_categoria ?></p></a>
+                <p id="paragrafo"><?= $produto_atributo5 ?></p>
+            </li>
+            <li>
+                <p id="paragrafo"><?= $produto_atributo6 ?></p>
+            </li>
+            <li>
+                <a href="<?= $produto_categoria ?>">
+                    <p id="paragrafo">Categoria: <?= $produto_categoria ?></p>
+                </a>
             </li>
         </ul>
 
     </div>
+
+
+    <?php
+    $api = file_get_contents("http://localhost:8080/api/item");
+    $dadosApi = json_decode($api);
+
+    // Verificar se os dados foram carregados corretamente
+    if ($dadosApi && is_array($dadosApi)) {
+        // Ordenar os itens pela propriedade 'preco' em ordem decrescente
+        usort($dadosApi, function ($a, $b) {
+            return $b->preco <=> $a->preco; // Comparar para ordem decrescente
+        });
+
+        // Pegar os 5 itens mais caros
+        $top5ItensCaros = array_slice($dadosApi, 0, 6);
+
+        $promo = array_slice($dadosApi, 0, 10);
+
+        // Exibir os 5 itens mais caros
+        foreach ($top5ItensCaros as $produto) {
+        }
+        foreach ($promo as $produto) {
+        }
+    } else {
+        echo "Erro ao carregar os dados da API.";
+    }
+    ?>
 
     <div id="conteiner_carrosel">
         <div class="categoria">
@@ -178,7 +213,34 @@ if ($produto_estoque > 0) {
 
         <div class="carousel" data-flickity='{ "wrapAround": true }'>
 
-            <div class="carousel-cell">
+            <?php foreach ($top5ItensCaros as $produto): ?>
+                <?php
+                // Calcular o valor da parcela em 10x
+                $parcela = $produto->preco / 10;
+                ?>
+                <div class="carousel-cell">
+                    <a href="detalheProduto/<?= $produto->id_item ?>">
+                        <div class="img">
+                            <img src="paginas/validacoes/item/<?= htmlspecialchars($produto->foto) ?>" alt="<?= htmlspecialchars($produto->nome) ?>">
+                        </div>
+
+                        <div class="descricao">
+                            <p class="desc"><?= htmlspecialchars($produto->nome) ?></p>
+
+                            <p class="preco">R$ <?= number_format($produto->preco, 2, ',', '.') ?></p>
+
+                            <p class="sub_preco">
+                                À vista no Pix ou até
+                                <span>
+                                    10x de R$ <?= number_format($parcela, 2, ',', '.') ?> sem juros
+                                </span>
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            <?php endforeach; ?>
+
+            <!-- <div class="carousel-cell">
 
                 <a href="detalheProduto">
                     <div class="img"><img src="imagens/produtos/0_AEMYWY3BEAPTA_PRD_1500_1 2.png" alt></div>
@@ -285,7 +347,7 @@ if ($produto_estoque > 0) {
                     </div>
                 </a>
 
-            </div>
+            </div> -->
 
 
         </div>
@@ -315,52 +377,53 @@ if ($produto_estoque > 0) {
 
 
 <script>
-document.getElementById('formCEP').addEventListener('submit', async function (e) {
-    e.preventDefault(); // Evita o envio tradicional do formulário
+    document.getElementById('formCEP').addEventListener('submit', async function(e) {
+        e.preventDefault(); // Evita o envio tradicional do formulário
 
-    const cepInput = document.getElementById('cep');
-    const cep = cepInput.value.replace(/\D/g, ''); // Remove caracteres não numéricos
-    const resultadoDiv = document.getElementById('resultado');
+        const cepInput = document.getElementById('cep');
+        const cep = cepInput.value.replace(/\D/g, ''); // Remove caracteres não numéricos
+        const resultadoDiv = document.getElementById('resultado');
 
-    // Valida o CEP (deve conter exatamente 8 dígitos)
-    if (cep.length !== 8) {
-        resultadoDiv.innerHTML = '<p style="color:red;">CEP inválido. Insira um CEP com 8 dígitos.</p>';
-        return;
-    }
+        // Valida o CEP (deve conter exatamente 8 dígitos)
+        if (cep.length !== 8) {
+            resultadoDiv.innerHTML = '<p style="color:red;">CEP inválido. Insira um CEP com 8 dígitos.</p>';
+            return;
+        }
 
-    // Exibe mensagem de carregamento
-    resultadoDiv.innerHTML = '<p>Buscando informações...</p>';
+        // Exibe mensagem de carregamento
+        resultadoDiv.innerHTML = '<p>Buscando informações...</p>';
 
-    try {
-        // Envia a requisição para o servidor
-        const response = await fetch(window.location.href, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ cep: cep }), // Envia o CEP no corpo da requisição
-        });
+        try {
+            // Envia a requisição para o servidor
+            const response = await fetch(window.location.href, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    cep: cep
+                }), // Envia o CEP no corpo da requisição
+            });
 
-        const data = await response.json();
+            const data = await response.json();
 
-        // Verifica se houve erro no backend
-        if (data.erro) {
-            resultadoDiv.innerHTML = `<p style="color:red;">${data.erro}</p>`;
-        } else {
-            // Exibe os dados do CEP
-            resultadoDiv.innerHTML = `
+            // Verifica se houve erro no backend
+            if (data.erro) {
+                resultadoDiv.innerHTML = `<p style="color:red;">${data.erro}</p>`;
+            } else {
+                // Exibe os dados do CEP
+                resultadoDiv.innerHTML = `
                 <h2>Informações do CEP</h2>
                 <p><strong>Logradouro:</strong> ${data.logradouro || 'Não disponível'}</p>
                 <p><strong>Bairro:</strong> ${data.bairro || 'Não disponível'}</p>
                 <p><strong>Cidade:</strong> ${data.localidade}</p>
                 <p><strong>Estado:</strong> ${data.uf}</p>
             `;
+            }
+        } catch (error) {
+            resultadoDiv.innerHTML = '<p style="color:red;">Erro ao buscar o CEP. Tente novamente mais tarde.</p>';
         }
-    } catch (error) {
-        resultadoDiv.innerHTML = '<p style="color:red;">Erro ao buscar o CEP. Tente novamente mais tarde.</p>';
-    }
-});
-
+    });
 </script>
 
 <?php
