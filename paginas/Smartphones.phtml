@@ -40,14 +40,14 @@ $produtosInfo = json_decode($api);
 
 foreach ($produtosInfo as $produto) {
     // Verifica se o produto tem categoria e se a categoria é "Especifica"
-    if (isset($produto->categoria) && $produto->categoria->nome == 'Sma0rtphones') {
+    if (isset($produto->categoria) && $produto->categoria->nome == 'Smartphones') {
         $parcela = $produto->preco / 10; 
 
         echo '<a href="detalheProduto/' . $produto->id_item . '" class="conteiner_produto" data-preco="' . $produto->preco . '">';
         echo '<div class="imagem">';
         // Verifica se a foto está disponível ou usa uma imagem padrão
         $foto = isset($produto->foto) && !empty($produto->foto) ? $produto->foto : 'imagens/default.png';
-        echo '<img src="' . $foto . '" alt="Imagem do produto">';
+        echo '<img src="paginas/validacoes/item/' . $foto . '" alt="Imagem do produto">';
         echo '</div>';
         echo '<div class="descricao">';
         // Exibe o nome do produto
