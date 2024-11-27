@@ -27,8 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
             'atributo_4' => $dadosProduto['atributo_4_put'],
             'atributo_5' => $dadosProduto['atributo_5_put'],
             'atributo_6' => $dadosProduto['atributo_6_put'],
-            'categoria_id' => (int)$dadosProduto['id_categoria_put'],
-            'foto' => $dadosProduto['foto_put']
+            'categoria_id' => (int)$dadosProduto['id_categoria_put']
         ]);
 
         // Configurações do cURL
@@ -68,3 +67,7 @@ curl_close($ch);
 } else {
     echo json_encode(['success' => false, 'message' => 'Método HTTP inválido.']);
 }
+
+
+
+

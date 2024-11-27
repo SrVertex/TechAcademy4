@@ -61,7 +61,7 @@ if ($produto_estoque > 0) {
     <div class="conteiner_produto_flex">
 
         <div class="conteiner_produto">
-            <img src="<?= $produto_foto ?>" alt="<?= $produto_nome ?>">
+            <img src="paginas/validacoes/item/<?= htmlspecialchars($produto->foto) ?>" alt="<?= $produto_nome ?>">
         </div>
 
         <div class="conteiner_descricao">

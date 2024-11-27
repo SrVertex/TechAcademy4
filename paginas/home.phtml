@@ -12,8 +12,12 @@ if ($dadosApi && is_array($dadosApi)) {
     // Pegar os 5 itens mais caros
     $top5ItensCaros = array_slice($dadosApi, 0, 5);
 
+    $promo = array_slice($dadosApi, 0, 10);
+
     // Exibir os 5 itens mais caros
     foreach ($top5ItensCaros as $produto) {
+    }
+    foreach ($promo as $produto) {
     }
 } else {
     echo "Erro ao carregar os dados da API.";
@@ -62,7 +66,7 @@ if ($dadosApi && is_array($dadosApi)) {
     <div class="conteiner_carrosel">
         <div class="categoria">
             <h2>MAIS VENDIDOS</h2>
-            <a href="paginasProdutos/maisvendidos">
+            <a href="maisvendidos">
                 <p>Ver Todos</p>
             </a>
         </div>
@@ -79,7 +83,7 @@ if ($dadosApi && is_array($dadosApi)) {
                 <div class="carousel-cell">
                     <a href="detalheProduto/<?= $produto->id_item ?>">
                         <div class="img">
-                            <img src="imagens/produtos/0_AEMYWY3BEAPTA_PRD_1500_1 2.png" alt="<?= htmlspecialchars($produto->nome) ?>">
+                            <img src="paginas/validacoes/item/<?= htmlspecialchars($produto->foto) ?>" alt="<?= htmlspecialchars($produto->nome) ?>">
                         </div>
 
                         <div class="descricao">
@@ -198,7 +202,7 @@ if ($dadosApi && is_array($dadosApi)) {
         <div class="categoria">
             <h2>LANÇAMENTOS</h2>
 
-            <a href="paginasProdutos/lancamento">
+            <a href="lancamento">
                 <p>Ver Todos</p>
             </a>
 
@@ -213,9 +217,9 @@ if ($dadosApi && is_array($dadosApi)) {
                     $parcela = $produto->preco / 10; 
                 ?>
                 <div class="carousel-cell">
-                    <a href="paginasProdutos/detalheProduto">
+                    <a href="detalheProduto/<?= $produto->id_item ?>">
                         <div class="img">
-                            <img src="imagens/produtos/0_AEMYWY3BEAPTA_PRD_1500_1 2.png" alt="<?= htmlspecialchars($produto->nome) ?>">
+                            <img src="paginas/validacoes/item/<?= htmlspecialchars($produto->foto) ?>" alt="<?= htmlspecialchars($produto->nome) ?>">
                         </div>
 
                         <div class="descricao">
@@ -245,7 +249,7 @@ if ($dadosApi && is_array($dadosApi)) {
         <div class="categoria">
             <h2>EM PROMOÇÃO</h2>
 
-            <a href="paginasProdutos/promocao">
+            <a href="promocao">
                 <p>Ver Todos</p>
             </a>
 
@@ -254,15 +258,15 @@ if ($dadosApi && is_array($dadosApi)) {
         <hr>
 
         <div class="carousel" data-flickity='{ "wrapAround": true }'>
-        <?php foreach ($dadosApi as $produto): ?>
+        <?php foreach ($promo as $produto): ?>
                 <?php 
                     // Calcular o valor da parcela em 10x
                     $parcela = $produto->preco / 10; 
                 ?>
                 <div class="carousel-cell">
-                    <a href="paginasProdutos/detalheProduto">
+                    <a href="detalheProduto/<?= $produto->id_item ?>">
                         <div class="img">
-                            <img src="imagens/produtos/0_AEMYWY3BEAPTA_PRD_1500_1 2.png" alt="<?= htmlspecialchars($produto->nome) ?>">
+                            <img src="paginas/validacoes/item/<?= htmlspecialchars($produto->foto) ?>" alt="<?= htmlspecialchars($produto->nome) ?>">
                         </div>
 
                         <div class="descricao">
@@ -288,7 +292,7 @@ if ($dadosApi && is_array($dadosApi)) {
         <div class="categoria">
             <h2>FRETE GRÁTIS</h2>
 
-            <a href="paginasProdutos/frete">
+            <a href="frete">
                 <p>Ver Todos</p>
             </a>
 
@@ -303,9 +307,9 @@ if ($dadosApi && is_array($dadosApi)) {
                     $parcela = $produto->preco / 10; 
                 ?>
                 <div class="carousel-cell">
-                    <a href="paginasProdutos/detalheProduto">
+                    <a href="detalheProduto/<?= $produto->id_item ?>">
                         <div class="img">
-                            <img src="imagens/produtos/0_AEMYWY3BEAPTA_PRD_1500_1 2.png" alt="<?= htmlspecialchars($produto->nome) ?>">
+                            <img src="paginas/validacoes/item/<?= htmlspecialchars($produto->foto) ?>" alt="<?= htmlspecialchars($produto->nome) ?>">
                         </div>
 
                         <div class="descricao">

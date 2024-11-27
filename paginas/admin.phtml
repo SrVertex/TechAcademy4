@@ -46,7 +46,7 @@ foreach ($dadosApi as $produto) {
                         <div class="conteiner_produto">
 
                             <div class="imagem">
-                                <img src="<?= htmlspecialchars($produto->foto) ?>" alt="<?= htmlspecialchars($produto->nome) ?>">
+                                <img src="paginas/validacoes/item/<?= htmlspecialchars($produto->foto) ?>" alt="<?= htmlspecialchars($produto->nome) ?>">
                             </div>
                             <div class="descricao">
                                 <p class="desc"><?= htmlspecialchars($produto->nome) ?></p>
@@ -60,7 +60,7 @@ foreach ($dadosApi as $produto) {
                                         <div class="dropdown-menu">
                                             <h3>Alterar produto</h3>
 
-                                            <form method="POST" id="formProdutoPut">
+                                            <form method="POST" id="formProdutoPut" enctype="multipart/form-data">
                                                 <input type="hidden" name="idProduto" value="ID_DO_PRODUTO" />
                                                 <span class="preco">Id</span>
                                                 <input type="number" name="id_item_put" value="<?= htmlspecialchars($produto->id_item) ?>" readonly required>
@@ -85,12 +85,9 @@ foreach ($dadosApi as $produto) {
                                                 <textarea rows="" cols="" name="atributo_5_put" placeholder="Novo atributo 5 do produto"><?= htmlspecialchars($produto->atributo_5) ?></textarea>
                                                 <span class="preco">Atributo 6</span>
                                                 <textarea rows="" cols="" name="atributo_6_put" placeholder="Novo atributo 6 do produto"><?= htmlspecialchars($produto->atributo_6) ?></textarea>
-                                                <span class="preco">Id Categoria</span>
+                                                <span class="preco">Id Categoria (Atual: <?= htmlspecialchars($produto->categoria->id_categoria) ?>)</span>
                                                 <input type="number" name="id_categoria_put" value="<?= htmlspecialchars($produto->categoria->id_categoria) ?>" placeholder="Insira o id da categoria" required>
-                                                <span class="preco"><?= htmlspecialchars($produto->categoria->nome) ?></span>
-                                                <textarea rows="" cols="" name="foto_put" placeholder="Novo atributo 6 do produto"><?= htmlspecialchars($produto->atributo_6) ?></textarea>
-                                                <span class="preco">Id Categoria</span>
-                                                
+
                                                 <div class="pbtn">
                                                     <button type="submit">Alterar</button>
                                                 </div>
@@ -165,24 +162,28 @@ foreach ($dadosApi as $produto) {
                         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
                     </div>
                     <div class="modal-body">
+                    <?php foreach ($dadosApi as $produto): ?>
+
+
                         <div class="conteiner_produto">
 
                             <div class="imagem">
-                                <img src="imagens/produtos/galaxyBuds.png" alt="">
+                                <img src="paginas/validacoes/item/<?= htmlspecialchars($produto->foto) ?>" alt="<?= htmlspecialchars($produto->nome) ?>">
                             </div>
-                            <div class="descricao">
-                                <p class="desc">Galaxy buds 3 pro, um fone muito top da famosa samsung um fone o galaxy AI
-                                </p>
 
-                                <p class="preco">R$ 1.600,00</p>
+                            <form id="formDelete" method="POST" action="" class="descricao">
+                                <input type="number" name="idProdutoDelete" placeholder="ID do Produto" value="<?= htmlspecialchars($produto->id_item) ?>" hidden required>
+                                
+                                <p class="desc"><?= htmlspecialchars($produto->nome) ?></p>
+                                <p class="preco">R$ <?= number_format($produto->preco, 2, ',', '.') ?></p>
 
                                 <div class="remover">
-                                    <button id="aviso">Remover Produto</button>
+                                    <button type="submit" id="aviso">Excluir Produto</button>
                                 </div>
-
-                            </div>
-
+                            </form>
                         </div>
+
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </div>
@@ -210,3 +211,4 @@ foreach ($dadosApi as $produto) {
 <!-- Vinculação do script externo -->
 <script src="paginas/validacoes/item/post_item.js"></script>
 <script src="paginas/validacoes/item/put_item.js"></script>
+<script src="paginas/validacoes/item/delete_item.js"></script>
