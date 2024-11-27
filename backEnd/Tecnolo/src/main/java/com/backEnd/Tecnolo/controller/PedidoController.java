@@ -61,7 +61,6 @@ public class PedidoController  {
 
                 // Validação de usuário
                 Optional<Usuario> usuarioOpt = usuarioRepository.findById(dto.getUsuario_id());
-                Optional<Item> itemOpt =  itemRepository.findById(dto.getItem_id());
 
                 if (usuarioOpt.isEmpty()) {
                     return ResponseEntity.badRequest().body("Usuário não encontrado com o ID fornecido.");
@@ -71,7 +70,6 @@ public class PedidoController  {
                 pedido.setValor(dto.getValor());
                 pedido.setStatus(dto.getStatus());
                 pedido.setUsuario(usuarioOpt.get());
-                pedido.setItem(itemOpt.get());
 
                 // Validação e definição da data do pedido
                 if (dto.getData_pedido() == null) {

@@ -3,6 +3,7 @@ package com.backEnd.Tecnolo.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import java.sql.Timestamp;
 import java.util.List;
@@ -28,19 +29,18 @@ public class Pedido {
     @JsonIgnoreProperties({"usuarios"})
     private Usuario usuario;
 
-    @ManyToOne
-    @JoinColumn(name = "item_id")
-    @JsonIgnoreProperties({"itens"})
-    private Item item;
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private List<ItemPedido> itemPedidos;
 
     // Getters e Setters
 
-    public Item getItem() {
-        return item;
+    public List<ItemPedido> getItemPedidos() {
+        return itemPedidos;
     }
 
-    public void setItem(Item item) {
-        this.item = item;
+    public void setItemPedidos(List<ItemPedido> itemPedidos) {
+        this.itemPedidos = itemPedidos;
     }
 
     public Integer getId_pedido() {

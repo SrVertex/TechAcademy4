@@ -28,6 +28,8 @@ public class PedidoForma {
     // Getters e Setterss
 
 
+
+
     public String getStatus() {
         return status;
     }
