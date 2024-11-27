@@ -1,12 +1,12 @@
-document.getElementById('formProduto').addEventListener('submit', async function (event) {
+document.getElementById('formDelete').addEventListener('submit', async function (event) {
     event.preventDefault(); // Evita o redirecionamento padrão do formulário
 
     const form = event.target;
     const formData = new FormData(form);
-
+    
     try {
-        const response = await fetch('http://localhost/TechAcademy4/paginas/validacoes/item/post_item.php', {
-            method: 'POST', // Garante que o método é POST
+        const response = await fetch('http://localhost/TechAcademy4/paginas/validacoes/item/delete_item.php', {
+            method: 'POST', // Usando POST, mas o conteúdo será tratado como DELETE no PHP
             body: formData, // Envia os dados do formulário
         });
 
