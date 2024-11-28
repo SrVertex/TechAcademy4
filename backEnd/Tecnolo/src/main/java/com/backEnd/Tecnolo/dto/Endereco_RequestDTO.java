@@ -15,7 +15,16 @@ public class Endereco_RequestDTO {
     private String rua;
     private Integer numero;
     private String contato;
-    private Usuario usuario;
+    private Integer usuario_id;
+
+
+    public Integer getUsuario_id() {
+        return usuario_id;
+    }
+
+    public void setUsuario_id(Integer usuario_id) {
+        this.usuario_id = usuario_id;
+    }
 
     public Integer getId_endereco() {
         return id_endereco;
@@ -87,13 +96,5 @@ public class Endereco_RequestDTO {
 
     public void setContato(String contato) {
         this.contato = contato;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
     }
 }

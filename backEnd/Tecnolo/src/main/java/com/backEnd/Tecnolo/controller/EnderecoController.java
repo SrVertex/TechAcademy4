@@ -41,37 +41,37 @@ public class EnderecoController {
     public ResponseEntity<?> save(@RequestBody Endereco_RequestDTO dto) {
 
         if (dto.getNome_destinatario() == null){
-            return ResponseEntity.badRequest().body("O NOME Campo é o Obrigatorio");
+            return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
         }
 
         if (dto.getCep() == null){
-            return ResponseEntity.badRequest().body("O CEP Campo é o Obrigatorio");
+            return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
         }
 
         if (dto.getCidade() == null){
-            return ResponseEntity.badRequest().body("O CIDADE Campo é o Obrigatorio");
+            return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
         }
 
         if (dto.getUF() == null){
-            return ResponseEntity.badRequest().body("O UF Campo é o Obrigatorio");
+            return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
         }
 
         if (dto.getBairro() == null){
-            return ResponseEntity.badRequest().body("O BAIRRO Campo é o Obrigatorio");
+            return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
         }
 
         if (dto.getRua() == null){
-            return ResponseEntity.badRequest().body("O Campo RUA é o Obrigatorio");
+            return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
         }
 
         if (dto.getNumero() == null){
-            return ResponseEntity.badRequest().body("O NUMEMRO Campo é o Obrigatorio");
+            return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
         }
 
         if (dto.getContato() == null){
-            return ResponseEntity.badRequest().body("OCONSCampo é o Obrigatorio");
+            return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
         }
-        
+
         Endereco endereco = new Endereco();
         endereco.setNome_destinatario(dto.getNome_destinatario());
         endereco.setCep(dto.getCep());
@@ -90,7 +90,7 @@ public class EnderecoController {
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@PathVariable Integer id, @RequestBody Endereco_RequestDTO dto) {
 
-            Optional<Endereco> enderecoOpt = repository.findById(id);
+        Optional<Endereco> enderecoOpt = repository.findById(id);
 
         if (dto.getNome_destinatario() == null){
             return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
@@ -145,8 +145,8 @@ public class EnderecoController {
         if (enderecoOpt.isEmpty()) {
             return ResponseEntity.badRequest().body("Endereço não encontrado com o id Fornecido");
         }
-            repository.deleteById(id);
-            return ResponseEntity.badRequest().body("Endereco deletado com Sucesso!");
+        repository.deleteById(id);
+        return ResponseEntity.badRequest().body("Endereco deletado com Sucesso!");
     }
 
 }

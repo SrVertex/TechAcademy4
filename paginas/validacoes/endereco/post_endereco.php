@@ -37,9 +37,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         if ($httpCode >= 200 && $httpCode < 300) {
-            echo json_encode(['success' => true, 'message' => 'Endereço criado com sucesso.']);
+            echo json_encode(['success' => true, 'message' => 'usuario criado com sucesso.']);
         } else {
-            echo json_encode(['success' => false, 'message' => 'Erro ao criar Endereço.', 'response' => $response]);
+            echo json_encode(['success' => false, 'message' => 'Erro ao criar usuario.', 'response' => $response]);
         }
     }
     curl_close($ch);

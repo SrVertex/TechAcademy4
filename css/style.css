@@ -18,7 +18,7 @@ body {
     background-color: var(--BG_principal) !important;
     color: var(--BG_segundario) !important;
     font-family: montserrat !important;
-    
+
 }
 
 header {
@@ -1736,8 +1736,9 @@ footer {
                 a {
                     color: white;
                     transition: 400ms all ease;
-                    &:hover  {
-                        transform: scale(1.05,1.05) !important; 
+
+                    &:hover {
+                        transform: scale(1.05, 1.05) !important;
                         text-shadow: 0 0 10px white;
                     }
 
@@ -2071,7 +2072,45 @@ footer {
                             padding: 5px 10px;
                             margin-bottom: 10px;
 
-                        }                        
+                        }
+
+                        /* Estilizar o input[type="file"] para manter o campo visível e esconder o botão */
+                        #fotoProduto {
+                            background-color: #f1f1f1;
+                            /* Cor de fundo do campo */
+                            padding: 0 8px;
+                            padding-top: 4px;
+                            /* Padding do campo */
+                            border: 2px solid #ccc;
+                            /* Borda do campo */
+                            border-radius: 5px;
+                            /* Bordas arredondadas */
+                            font-size: 16px;
+                            /* Tamanho da fonte */
+                            width: 100%;
+                            height: 46px;
+                            border-radius: 50px !important;
+                            /* Ocupa toda a largura do seu contêiner */
+                        }
+
+                        /* Esconder o botão nativo dentro do input[type="file"] */
+                        #fotoProduto::-webkit-file-upload-button {
+                            background-color: transparent !important;
+                            background-image: linear-gradient(43deg, #ffffff34 0%, #00000038 100%); 
+                            border-radius: 20px;
+                            border: solid 1px white;
+                            padding: 4px 8px;
+
+                            font-weight: bold;
+                            color: white;
+
+                            margin-right: 10px; 
+
+                        }
+
+                        #fotoProduto::-moz-file-upload-button {}
+
+
 
                         input::placeholder {
                             color: white !important;
@@ -2764,6 +2803,7 @@ footer {
                                     }
                                 }
                             }
+
                             button {
                                 background-color: rgb(217, 217, 217, 0.1) !important;
                                 border-radius: 30px;
@@ -2774,13 +2814,14 @@ footer {
                                 padding: 3px 8px;
                                 margin-top: 10px;
                                 transition: 400ms all ease;
-                                    &:hover{
-                                        transform: scale(1.02,1.02);
-                                        background-color: white !important;
-                                        color: black;
-                                        box-shadow: 0 0 10px white;
-                                        text-shadow: 0 2px 6px rgb(0, 0, 0, 0.6);
-                                    }
+
+                                &:hover {
+                                    transform: scale(1.02, 1.02);
+                                    background-color: white !important;
+                                    color: black;
+                                    box-shadow: 0 0 10px white;
+                                    text-shadow: 0 2px 6px rgb(0, 0, 0, 0.6);
+                                }
                             }
                         }
                     }

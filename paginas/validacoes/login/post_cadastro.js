@@ -1,4 +1,4 @@
-document.getElementById('form').addEventListener('submit', async function (event) {
+document.getElementById('formLogin').addEventListener('submit', async function (event) {
     event.preventDefault(); // Evita o redirecionamento padrão do formulário
 
     const form = event.target;

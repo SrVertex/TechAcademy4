@@ -29,7 +29,6 @@ public class UsuarioController {
     @Autowired
     private Usuario_Repository repository;
 
-
     // get de usuario sem id
     @GetMapping
     public ResponseEntity<List<Usuario>> findAll(){
@@ -78,20 +77,10 @@ public class UsuarioController {
 
     }
 
-    @PostMapping("/login") public ResponseEntity<?> login(@RequestBody LoginRequestDTO loginRequest) {
-        Usuario usuario = repository.findByEmail(loginRequest.getEmail());
-
-        if (usuario != null && usuario.getSenha().equals(loginRequest.getSenha())) {
-            return ResponseEntity.ok("Login bem-sucedido! Bem-vindo, " + usuario.getNome());
-        } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciais inválidas.");
-        }
-    }
-
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@PathVariable Integer id, @RequestBody Usuario_RequestDTO dto) {
 
-            Optional<Usuario> usuarioOpt = repository.findById(id);
+        Optional<Usuario> usuarioOpt = repository.findById(id);
 
         if (dto.getNome() == null) {
             return ResponseEntity.badRequest().body("O Nome do usuario é Obrigatorio");
@@ -100,7 +89,7 @@ public class UsuarioController {
         if (dto.getEmail() == null) {
             return ResponseEntity.badRequest().body("O email deve ser Obrigatorio");
         }
-            // para realizar a alteração da senha a senha deve ser preenchida
+        // para realizar a alteração da senha a senha deve ser preenchida
         if (dto.getSenha() == null) {
             return ResponseEntity.badRequest().body("A Senha deve Ser Obrigatorio");
         }
@@ -131,4 +120,45 @@ public class UsuarioController {
         repository.deleteById(id);
         return ResponseEntity.ok().body("Usuario deletado com sucesso.");
     }
+
+
+    // Variável estática para armazenar o ID do usuário logado
+    private static Integer loggedUserId = null;
+
+
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody LoginRequestDTO loginRequestDTO) {
+        if (loginRequestDTO.getEmail() == null || loginRequestDTO.getSenha() == null) {
+            return ResponseEntity.badRequest().body("Email e senha são obrigatórios.");
+        }
+
+        Optional<Usuario> usuarioOpt = repository.findAll().stream()
+                .filter(u -> u.getEmail().equals(loginRequestDTO.getEmail()) && u.getSenha().equals(loginRequestDTO.getSenha()))
+                .findFirst();
+
+        if (usuarioOpt.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciais inválidas.");
+        }
+
+        Usuario usuario = usuarioOpt.get();
+
+        // Atualiza o ID do usuário logado
+        loggedUserId = usuario.getId_usuario();
+
+        return ResponseEntity.ok().body("Login realizado com sucesso! ID do usuário logado: " + loggedUserId);
+    }
+
+
+    @GetMapping("/logged-user")
+    public ResponseEntity<?> getLoggedUser() {
+        System.out.println("Verificando ID do usuário logado: " + loggedUserId);
+        if (loggedUserId == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Nenhum usuário está logado no momento.");
+        }
+        return ResponseEntity.ok("ID do usuário logado: " + loggedUserId);
+    }
+
+
+
+
 }

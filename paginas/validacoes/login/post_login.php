@@ -1,15 +1,17 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $link = 'http://localhost:8080/api/usuario/login'; // URL da sua API no Spring Boot para login
+    $link = 'http://localhost:8080/api/usuario/login'; // URL da sua API no Spring Boot
 
     // Captura os dados do formulário enviados via POST
-    $dadosLogin = [
+    $dadosProduto = [
         'email' => $_POST['email'],
-        'senha' => $_POST['senha'],  // Alterei para string, pois é assim que estamos comparando no Spring Boot
+        'senha' => (integer)$_POST['senha'],
+        
+        
     ];
 
     // Converte os dados para JSON
-    $dadosJson = json_encode($dadosLogin);
+    $dadosJson = json_encode($dadosProduto);
 
     // Configura o cURL para enviar a requisição POST
     $ch = curl_init();
@@ -31,13 +33,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         if ($httpCode >= 200 && $httpCode < 300) {
-            echo json_encode(['success' => true, 'message' => 'Login bem-sucedido.', 'response' => $response]);
+            echo json_encode(['success' => true, 'message' => 'usuario criado com sucesso.']);
         } else {
-            echo json_encode(['success' => false, 'message' => 'Erro ao realizar login.', 'response' => $response]);
+            echo json_encode(['success' => false, 'message' => 'Erro ao criar usuario.', 'response' => $response]);
         }
     }
     curl_close($ch);
 } else {
     echo json_encode(['success' => false, 'message' => 'Método HTTP inválido.']);
 }
-
