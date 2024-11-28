@@ -1,7 +1,8 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Captura o ID do produto a ser excluído
-    $idProduto = isset($_POST['idProdutoDelete']) ? (int)$_POST['idProdutoDelete'] : null;
+    $idProduto = isset($_POST['idProdutoDelete']) ? (int)$_POST['idProdutoDelete'] : NULL;
+    
 
     if (!$idProduto) {
         echo json_encode(['success' => false, 'message' => 'ID do produto não fornecido.']);
@@ -9,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // URL da API para DELETE
-    $link = 'http://localhost:8080/api/item/' . $idProduto;
+    $link = 'http://localhost:8080/api/item' . $idProduto;
 
     // Configura o cURL para enviar a requisição DELETE
     $ch = curl_init();

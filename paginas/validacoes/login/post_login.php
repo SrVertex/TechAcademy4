@@ -6,8 +6,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $dadosProduto = [
         'email' => $_POST['email'],
         'senha' => (integer)$_POST['senha'],
-        
-        
     ];
 
     // Converte os dados para JSON
@@ -33,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         if ($httpCode >= 200 && $httpCode < 300) {
-            echo json_encode(['success' => true, 'message' => 'usuario criado com sucesso.']);
+            echo json_encode(['success' => true, 'message' => 'login efetuado com sucesso']);
         } else {
             echo json_encode(['success' => false, 'message' => 'Erro ao criar usuario.', 'response' => $response]);
         }

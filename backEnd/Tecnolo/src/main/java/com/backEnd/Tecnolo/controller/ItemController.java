@@ -84,7 +84,6 @@ public class ItemController {
         item.setNome(dto.getNome());
         item.setDescricao(dto.getDescricao());
         item.setPreco(dto.getPreco());
-        item.setFoto(dto.getFoto());
         item.setAtributo_1(dto.getAtributo_1());
         item.setAtributo_2(dto.getAtributo_2());
         item.setAtributo_3(dto.getAtributo_3());
@@ -101,13 +100,12 @@ public class ItemController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable Integer id) {
-        // Verificar se o item existe
+
         Optional<Item> itemOpt = repository.findById(id);
         if (itemOpt.isEmpty()) {
             return ResponseEntity.badRequest().body("Item não encontrado com o ID fornecido.");
         }
 
-        // Deletar o item
         repository.deleteById(id);
         return ResponseEntity.ok().body("Item deletado com sucesso.");
     }

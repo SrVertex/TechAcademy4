@@ -113,6 +113,7 @@ public class UsuarioController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable Integer id) {
+
         Optional<Usuario> usuarioOpt = repository.findById(id);
         if (usuarioOpt.isEmpty()) {
             return ResponseEntity.badRequest().body("Usuario não encontrado com o id fornecido");
