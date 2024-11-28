@@ -12,20 +12,23 @@
             </div>
             <hr>
             <div class="offcanvas-body">
-                <form action="">
-                    <h5>Valor</h5>
+                <form id="filterForm">
+                    <h5>Valor Maximo</h5>
                     <ul>
-                        <li><input type="checkbox" id="valor1"> <label for="valor1">R$ 500,00</label></li>
-                        <li><input type="checkbox" id="valor2"> <label for="valor2">R$ 1000,00</label></li>
-                        <li><input type="checkbox" id="valor3"> <label for="valor3">R$ 1200,00</label></li>
-                        <li><input type="checkbox" id="valor4"> <label for="valor4">R$ 1500,00</label></li>
-                        <li><input type="checkbox" id="valor5"> <label for="valor5">R$ 2000,00</label></li>
-                        <li><input type="checkbox" id="valor6"> <label for="valor6">R$ 2400,00</label></li>
+                    <li><input type="checkbox" class="valorFilter" data-valor="0" id="valorTodos"> <label for="valorTodos">Mostrar Todos</label></li>
+                        <li><input type="checkbox" class="valorFilter" data-valor="500" id="valor2"> <label for="valor2">R$ 500,00</label></li>
+                        <li><input type="checkbox" class="valorFilter" data-valor="1000" id="valor3"> <label for="valor3">R$ 1000,00</label></li>
+                        <li><input type="checkbox" class="valorFilter" data-valor="2500" id="valor4"> <label for="valor4">R$ 2500,00</label></li>
+                        <li><input type="checkbox" class="valorFilter" data-valor="5000" id="valor5"> <label for="valor5">R$ 5000,00</label></li>
+                        <li><input type="checkbox" class="valorFilter" data-valor="10000" id="valor6"> <label for="valor6">R$ 10000,00</label></li>
+                        <li><input type="checkbox" class="valorFilter" data-valor="20000" id="valor7"> <label for="valo7">R$ 20000,00</label></li>
+                        <li><input type="checkbox" class="valorFilter" data-valor="50000" id="valor8"> <label for="valor8">R$ 50000,00</label></li>
                     </ul>
-                    <button class="filtrar">Filtrar Agora</button>
+                    <!-- <button type="button" class="filtrar" onclick="filtrarProdutos()">Filtrar Agora</button> -->
                 </form>
             </div>
         </div>
+
 
     </div>
 
@@ -135,3 +138,6 @@
         </a>
     </div>
 </section
+
+
+

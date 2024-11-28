@@ -239,117 +239,6 @@ if ($produto_estoque > 0) {
                     </a>
                 </div>
             <?php endforeach; ?>
-
-            <!-- <div class="carousel-cell">
-
-                <a href="detalheProduto">
-                    <div class="img"><img src="imagens/produtos/0_AEMYWY3BEAPTA_PRD_1500_1 2.png" alt></div>
-
-                    <div class="descricao">
-                        <p class="desc">iPhone 16 Pro Max Apple 512GB, Câmera
-                            Tripla de 48MP, Tela 6,9 , Titânio Natural
-                        </p>
-
-                        <p class="preco">R$ 78.000,00</p>
-                        <p class="sub_preco">Aviste no Pix ou até <span>10x de
-                                R$7.800,00</span></p>
-
-                    </div>
-                </a>
-
-            </div>
-
-            <div class="carousel-cell">
-
-                <a href="">
-                    <div class="img"><img src="imagens/produtos/s24ultra.png" alt></div>
-
-                    <div class="descricao">
-                        <p class="desc">Smartphone Samsung Galaxy S24 Ultra, Galaxy AI, Selfie de 12MP, Tela de 6.8" 1-120Hz, 256GB, 12GB RAM - Titânio Cinza
-                        </p>
-
-                        <p class="preco">R$ 104.500,99</p>
-                        <p class="sub_preco">Aviste no Pix ou até <span>10x de
-                                R$10.450,99</span></p>
-
-                    </div>
-                </a>
-
-            </div>
-
-            <div class="carousel-cell">
-
-                <a href>
-                    <div class="img"><img src="imagens/produtos/galaxyBuds.png" alt></div>
-
-                    <div class="descricao">
-                        <p class="desc">Samsung Galaxy Buds3, Fone de Ouvido sem fio, som mais imersivo, Cancelamento Ativo de Ruído, Áudio Hi-Fi, Áudio 360, Tradução Simultanêa com Galaxy AI
-                        </p>
-
-                        <p class="preco">R$ 78.000,00</p>
-                        <p class="sub_preco">Aviste no Pix ou até <span>10x de
-                                R$7.800,00</span></p>
-
-                    </div>
-                </a>
-
-            </div>
-
-            <div class="carousel-cell">
-
-                <a href="">
-                    <div class="img"><img src="imagens/produtos/galaxyzfold6.png" alt></div>
-
-                    <div class="descricao">
-                        <p class="desc">Smartphone Samsung Galaxy S24 Ultra, Galaxy AI, Selfie de 12MP, Tela de 6.8" 1-120Hz, 256GB, 12GB RAM - Titânio Cinza
-                        </p>
-
-                        <p class="preco">R$ 104.500,99</p>
-                        <p class="sub_preco">Aviste no Pix ou até <span>10x de
-                                R$10.450,99</span></p>
-
-                    </div>
-                </a>
-
-            </div>
-
-            <div class="carousel-cell">
-
-                <a href>
-                    <div class="img"><img src="imagens/produtos/galaxyzfold6Cinza.png" alt></div>
-
-                    <div class="descricao">
-                        <p class="desc">Samsung Galaxy Buds3, Fone de Ouvido sem fio, som mais imersivo, Cancelamento Ativo de Ruído, Áudio Hi-Fi, Áudio 360, Tradução Simultanêa com Galaxy AI
-                        </p>
-
-                        <p class="preco">R$ 78.000,00</p>
-                        <p class="sub_preco">Aviste no Pix ou até <span>10x de
-                                R$7.800,00</span></p>
-
-                    </div>
-                </a>
-
-            </div>
-
-            <div class="carousel-cell">
-
-                <a href="">
-                    <div class="img"><img src="imagens/produtos/galaxym55.png" alt></div>
-
-                    <div class="descricao">
-                        <p class="desc">Smartphone Samsung Galaxy S24 Ultra, Galaxy AI, Selfie de 12MP, Tela de 6.8" 1-120Hz, 256GB, 12GB RAM - Titânio Cinza
-                        </p>
-
-                        <p class="preco">R$ 104.500,99</p>
-                        <p class="sub_preco">Aviste no Pix ou até <span>10x de
-                                R$10.450,99</span></p>
-
-                    </div>
-                </a>
-
-            </div> -->
-
-
         </div>
 
     </div>
@@ -367,14 +256,6 @@ if ($produto_estoque > 0) {
         paragraph.innerHTML = words.join(' ');
     });
 </script>
-
-
-
-
-
-
-
-
 
 <script>
     document.getElementById('formCEP').addEventListener('submit', async function(e) {
@@ -395,16 +276,13 @@ if ($produto_estoque > 0) {
 
         try {
             // Envia a requisição para o servidor
-            const response = await fetch(window.location.href, {
-                method: 'POST',
+            const response = await fetch('https://viacep.com.br/ws/' + cep + '/json', {
+                method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    cep: cep
-                }), // Envia o CEP no corpo da requisição
+                } // Envia o CEP no corpo da requisição
             });
-
+            console.log('respondeu o coiso ', response.body);
             const data = await response.json();
 
             // Verifica se houve erro no backend

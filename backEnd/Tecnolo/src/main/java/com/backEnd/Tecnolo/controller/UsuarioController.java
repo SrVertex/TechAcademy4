@@ -78,7 +78,6 @@ public class UsuarioController {
 
     }
 
-
     @PostMapping("/login") public ResponseEntity<?> login(@RequestBody LoginRequestDTO loginRequest) {
         Usuario usuario = repository.findByEmail(loginRequest.getEmail());
 
@@ -88,7 +87,6 @@ public class UsuarioController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciais inválidas.");
         }
     }
-
 
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@PathVariable Integer id, @RequestBody Usuario_RequestDTO dto) {
