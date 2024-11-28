@@ -122,6 +122,20 @@ public class UsuarioController {
     }
 
 
+
+    //  MUITO CUITDADO ISSO PODE QUEBRAR TODO O SITE
+
+    //  MUITO CUITDADO ISSO PODE QUEBRAR TODO O SITE
+
+    //  MUITO CUITDADO ISSO PODE QUEBRAR TODO O SITE
+
+    //  MUITO CUITDADO ISSO PODE QUEBRAR TODO O SITE
+
+    //  MUITO CUITDADO ISSO PODE QUEBRAR TODO O SITE
+
+    //  MUITO CUITDADO ISSO PODE QUEBRAR TODO O SITE
+    
+
     // Variável estática para armazenar o ID do usuário logado
     private static Integer loggedUserId = null;
 
