@@ -171,14 +171,13 @@ foreach ($dadosApi as $produto) {
                                 <img src="paginas/validacoes/item/<?= htmlspecialchars($produto->foto) ?>" alt="<?= htmlspecialchars($produto->nome) ?>">
                             </div>
 
-                            <form id="formDelete" method="POST" action="" class="descricao">
-                                <input type="number" name="idProdutoDelete" placeholder="ID do Produto" value="<?= htmlspecialchars($produto->id_item) ?>" hidden required>
-                                
+                            <form id="formDelete_<?= $produto->id_item ?>" method="POST" action="" class="descricao">
+                                <input type="hidden" id="idProdutoDelete" name="idProdutoDelete" value="<?= htmlspecialchars($produto->id_item) ?>">
                                 <p class="desc"><?= htmlspecialchars($produto->nome) ?></p>
                                 <p class="preco">R$ <?= number_format($produto->preco, 2, ',', '.') ?></p>
 
                                 <div class="remover">
-                                    <button type="submit" id="aviso">Excluir Produto</button>
+                                    <button type="submit" class="btn btn-danger">Excluir Produto</button>
                                 </div>
                             </form>
                         </div>
