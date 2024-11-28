@@ -1,3 +1,13 @@
+<?php
+
+$api = file_get_contents("http://localhost:8080/api/pedido");
+$dadosApi = json_decode($api);
+
+// Verificar se os dados foram carregados corretamente
+foreach ($dadosApi as $pedido) {
+}
+?>
+
 <section id="main_pedidos">
     <div class="conteiner_pedidos">
         <div class="top">
@@ -5,6 +15,9 @@
         </div>
 
         <div class="pedidos_flex">
+        <?php foreach ($dadosApi as $pedido): ?>
+
+
             <div class="pedidos">
 
                 <div class="name"><i class="bi bi-person-circle"></i>
@@ -32,91 +45,10 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="pedidos">
 
-                <div class="name"><i class="bi bi-person-circle"></i>
-                    <P>Lucas Carvalho Pedrozo</P>
-                </div>
-                <div class="info_pedidos">
-                    <ul>
-                        <li><strong>Quantidade: </strong>20 Produtos</li>
-                        <li><strong>Valor Total:</strong> R$ 78.00,00</li>
-                        <li><strong>Estagio da Compra:</strong> Concluido</li>
-                    </ul>
-                </div>
-                <div class="dropdown">
-                    <a class="btn  dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Estagio <i class="bi bi-pen-fill"></i></a>
+            <?php endforeach; ?>
 
-                    <div class="dropdown-menu">
-                        <form action="">
-                            <ul>
-                                <li><label for="estagio1">Em Analise</label><input type="checkbox" id="estagio1" name="estagio"></li>
-                                <li><label for="estagio2">Concluido</label><input type="checkbox" id="estagio2" name="estagio"></li>
-                                <li><label for="estagio3">em Espera</label><input type="checkbox" id="estagio3" name="estagio"></li>
-                            </ul>
-                            <button type="submit">Avançar</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="pedidos">
 
-                <div class="name"><i class="bi bi-person-circle"></i>
-                    <P>Lucas Carvalho Pedrozo</P>
-                </div>
-                <div class="info_pedidos">
-                    <ul>
-                        <li><strong>Quantidade: </strong>20 Produtos</li>
-                        <li><strong>Valor Total:</strong> R$ 78.00,00</li>
-                        <li><strong>Estagio da Compra:</strong> Concluido</li>
-                    </ul>
-                </div>
-                <div class="dropdown">
-                    <a class="btn  dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Estagio <i class="bi bi-pen-fill"></i></a>
-
-                    <div class="dropdown-menu">
-                        <form action="">
-                            <ul>
-                                <li><label for="estagio1">Em Analise</label><input type="checkbox" id="estagio1" name="estagio"></li>
-                                <li><label for="estagio2">Concluido</label><input type="checkbox" id="estagio2" name="estagio"></li>
-                                <li><label for="estagio3">em Espera</label><input type="checkbox" id="estagio3" name="estagio"></li>
-                            </ul>
-                            <button type="submit">Avançar</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="pedidos">
-
-                <div class="name"><i class="bi bi-person-circle"></i>
-                    <P>Lucas Carvalho Pedrozo</P>
-                </div>
-                <div class="info_pedidos">
-                    <ul>
-                        <li><strong>Quantidade: </strong>20 Produtos</li>
-                        <li><strong>Valor Total:</strong> R$ 78.00,00</li>
-                        <li><strong>Estagio da Compra:</strong> Concluido</li>
-                    </ul>
-                </div>
-                <div class="dropdown">
-                    <a class="btn  dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Estagio <i class="bi bi-pen-fill"></i></a>
-
-                    <div class="dropdown-menu">
-                        <form action="">
-                            <ul>
-                                <li><label for="estagio1">Em Analise</label><input type="checkbox" id="estagio1" name="estagio"></li>
-                                <li><label for="estagio2">Concluido</label><input type="checkbox" id="estagio2" name="estagio"></li>
-                                <li><label for="estagio3">em Espera</label><input type="checkbox" id="estagio3" name="estagio"></li>
-                            </ul>
-                            <button type="submit">Avançar</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            
         </div>
     </div>
 </section>
@@ -134,3 +66,7 @@ checkboxes.forEach((checkbox) => {
 });
 
 </script>
+
+
+
+
