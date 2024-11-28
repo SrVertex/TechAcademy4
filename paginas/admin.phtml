@@ -36,67 +36,67 @@ foreach ($dadosApi as $produto) {
 
 
 
-                    <?php foreach ($dadosApi as $produto): ?>
-                <?php 
-                    // Calcular o valor da parcela em 10x
-                    $parcela = $produto->preco / 10; 
-                    ?>
+                        <?php foreach ($dadosApi as $produto): ?>
+                            <?php
+                            // Calcular o valor da parcela em 10x
+                            $parcela = $produto->preco / 10;
+                            ?>
 
 
-                        <div class="conteiner_produto">
+                            <div class="conteiner_produto">
 
-                            <div class="imagem">
-                                <img src="paginas/validacoes/item/<?= htmlspecialchars($produto->foto) ?>" alt="<?= htmlspecialchars($produto->nome) ?>">
-                            </div>
-                            <div class="descricao">
-                                <p class="desc"><?= htmlspecialchars($produto->nome) ?></p>
+                                <div class="imagem">
+                                    <img src="paginas/validacoes/item/<?= htmlspecialchars($produto->foto) ?>" alt="<?= htmlspecialchars($produto->nome) ?>">
+                                </div>
+                                <div class="descricao">
+                                    <p class="desc"><?= htmlspecialchars($produto->nome) ?></p>
 
-                                <p class="preco">R$ <?= number_format($produto->preco, 2, ',', '.') ?></p>
+                                    <p class="preco">R$ <?= number_format($produto->preco, 2, ',', '.') ?></p>
 
-                                <div class="auter">
-                                    <a href="detalheProduto/<?= htmlspecialchars($produto->id_item) ?>">Ver anuncio</a>
-                                    <div class="dropdown">
-                                        <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-pen-fill"></i></a>
-                                        <div class="dropdown-menu">
-                                            <h3>Alterar produto</h3>
+                                    <div class="auter">
+                                        <a href="detalheProduto/<?= htmlspecialchars($produto->id_item) ?>">Ver anuncio</a>
+                                        <div class="dropdown">
+                                            <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-pen-fill"></i></a>
+                                            <div class="dropdown-menu">
+                                                <h3>Alterar produto</h3>
 
-                                            <form method="POST" id="formProdutoPut" enctype="multipart/form-data">
-                                                <input type="hidden" name="idProduto" value="ID_DO_PRODUTO" />
-                                                <span class="preco">Id</span>
-                                                <input type="number" name="id_item_put" value="<?= htmlspecialchars($produto->id_item) ?>" readonly required>
+                                                <form method="POST" id="formProdutoPut" enctype="multipart/form-data">
+                                                    <input type="hidden" name="idProduto" value="ID_DO_PRODUTO" />
+                                                    <span class="preco">Id</span>
+                                                    <input type="number" name="id_item_put" value="<?= htmlspecialchars($produto->id_item) ?>" readonly required>
 
-                                                <span class="preco">Titulo</span>
-                                                <textarea rows="" cols="" name="nome_put" placeholder="Novo titulo do produto"><?= htmlspecialchars($produto->nome) ?></textarea>
-                                                <span class="preco">Descricao</span>
-                                                <textarea rows="" cols="" name="descricao_put" placeholder="Nova descricao do produto"><?= htmlspecialchars($produto->descricao) ?></textarea>
-                                                <span class="preco">Preço</span>
-                                                <textarea rows="" cols="" name="preco_put" placeholder="Novo preco do produto"><?= htmlspecialchars($produto->preco) ?></textarea>
-                                                <span class="preco">Estoque</span>
-                                                <textarea rows="" cols="" name="estoque_put" placeholder="Novo estoque do produto"><?= htmlspecialchars($produto->estoque) ?></textarea>
-                                                <span class="preco">Atributo 1</span>
-                                                <textarea rows="" cols="" name="atributo_1_put" placeholder="Novo atributo 1 do produto"><?= htmlspecialchars($produto->atributo_1) ?></textarea>
-                                                <span class="preco">Atributo 2</span>
-                                                <textarea rows="" cols="" name="atributo_2_put" placeholder="Novo atributo 2 do produto"><?= htmlspecialchars($produto->atributo_2) ?></textarea>
-                                                <span class="preco">Atributo 3</span>
-                                                <textarea rows="" cols="" name="atributo_3_put" placeholder="Novo atributo 3 do produto"><?= htmlspecialchars($produto->atributo_3) ?></textarea>
-                                                <span class="preco">Atributo 4</span>
-                                                <textarea rows="" cols="" name="atributo_4_put" placeholder="Novo atributo 4 do produto"><?= htmlspecialchars($produto->atributo_4) ?></textarea>
-                                                <span class="preco">Atributo 5</span>
-                                                <textarea rows="" cols="" name="atributo_5_put" placeholder="Novo atributo 5 do produto"><?= htmlspecialchars($produto->atributo_5) ?></textarea>
-                                                <span class="preco">Atributo 6</span>
-                                                <textarea rows="" cols="" name="atributo_6_put" placeholder="Novo atributo 6 do produto"><?= htmlspecialchars($produto->atributo_6) ?></textarea>
-                                                <span class="preco">Id Categoria (Atual: <?= htmlspecialchars($produto->categoria->id_categoria) ?>)</span>
-                                                <input type="number" name="id_categoria_put" value="<?= htmlspecialchars($produto->categoria->id_categoria) ?>" placeholder="Insira o id da categoria" required>
+                                                    <span class="preco">Titulo</span>
+                                                    <textarea rows="" cols="" name="nome_put" placeholder="Novo titulo do produto"><?= htmlspecialchars($produto->nome) ?></textarea>
+                                                    <span class="preco">Descricao</span>
+                                                    <textarea rows="" cols="" name="descricao_put" placeholder="Nova descricao do produto"><?= htmlspecialchars($produto->descricao) ?></textarea>
+                                                    <span class="preco">Preço</span>
+                                                    <textarea rows="" cols="" name="preco_put" placeholder="Novo preco do produto"><?= htmlspecialchars($produto->preco) ?></textarea>
+                                                    <span class="preco">Estoque</span>
+                                                    <textarea rows="" cols="" name="estoque_put" placeholder="Novo estoque do produto"><?= htmlspecialchars($produto->estoque) ?></textarea>
+                                                    <span class="preco">Atributo 1</span>
+                                                    <textarea rows="" cols="" name="atributo_1_put" placeholder="Novo atributo 1 do produto"><?= htmlspecialchars($produto->atributo_1) ?></textarea>
+                                                    <span class="preco">Atributo 2</span>
+                                                    <textarea rows="" cols="" name="atributo_2_put" placeholder="Novo atributo 2 do produto"><?= htmlspecialchars($produto->atributo_2) ?></textarea>
+                                                    <span class="preco">Atributo 3</span>
+                                                    <textarea rows="" cols="" name="atributo_3_put" placeholder="Novo atributo 3 do produto"><?= htmlspecialchars($produto->atributo_3) ?></textarea>
+                                                    <span class="preco">Atributo 4</span>
+                                                    <textarea rows="" cols="" name="atributo_4_put" placeholder="Novo atributo 4 do produto"><?= htmlspecialchars($produto->atributo_4) ?></textarea>
+                                                    <span class="preco">Atributo 5</span>
+                                                    <textarea rows="" cols="" name="atributo_5_put" placeholder="Novo atributo 5 do produto"><?= htmlspecialchars($produto->atributo_5) ?></textarea>
+                                                    <span class="preco">Atributo 6</span>
+                                                    <textarea rows="" cols="" name="atributo_6_put" placeholder="Novo atributo 6 do produto"><?= htmlspecialchars($produto->atributo_6) ?></textarea>
+                                                    <span class="preco">Id Categoria (Atual: <?= htmlspecialchars($produto->categoria->id_categoria) ?>)</span>
+                                                    <input type="number" name="id_categoria_put" value="<?= htmlspecialchars($produto->categoria->id_categoria) ?>" placeholder="Insira o id da categoria" required>
 
-                                                <div class="pbtn">
-                                                    <button type="submit">Alterar</button>
-                                                </div>
-                                            </form>
+                                                    <div class="pbtn">
+                                                        <button type="submit">Alterar</button>
+                                                    </div>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
                         <?php endforeach; ?>
 
@@ -106,7 +106,7 @@ foreach ($dadosApi as $produto) {
             </div>
         </div>
 
-        <a class="conteiner_link"  type="button" data-bs-toggle="modal" data-bs-target="#exampleModalAdcionar">
+        <a class="conteiner_link" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalAdcionar">
             <p>Adicionar Produto</p>
             <div class="logo">
                 <i class="bi bi-people-fill"></i>
@@ -134,7 +134,7 @@ foreach ($dadosApi as $produto) {
                             <input type="text" name="atributo_5Post" placeholder="Atributo 5 Produto" required>
                             <input type="text" name="atributo_6Post" placeholder="Atributo 6 Produto" required>
                             <input type="number" name="id_categoriaPost" placeholder="Id Categoria" required>
-                            <input type="file"  id="fotoProduto" name="fotoPost" accept="image/*" />
+                            <input type="file" id="fotoProduto" name="fotoPost" accept="image/*" />
                             <!-- <label for="fotoProduto" class="custom-file-upload">Escolher Foto</label> -->
 
                             <div class="p_btn">
@@ -162,26 +162,29 @@ foreach ($dadosApi as $produto) {
                         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
                     </div>
                     <div class="modal-body">
-                    <?php foreach ($dadosApi as $produto): ?>
+                        <?php foreach ($dadosApi as $produto): ?>
 
 
-                        <div class="conteiner_produto">
+                            <div class="conteiner_produto" id="prod_<?= htmlspecialchars($produto->id_item) ?>">
 
-                            <div class="imagem">
-                                <img src="paginas/validacoes/item/<?= htmlspecialchars($produto->foto) ?>" alt="<?= htmlspecialchars($produto->nome) ?>">
+                                <div class="imagem">
+                                    <img src="paginas/validacoes/item/<?= htmlspecialchars($produto->foto) ?>" alt="<?= htmlspecialchars($produto->nome) ?>">
+                                </div>
+
+                                <form class="descricao> 
+
+                            
+                                <input type=" number" name="idProdutoDelete" placeholder="ID do Produto" value="<?= htmlspecialchars($produto->id_item) ?>" hidden required>
+
+                                    <p class="desc"><?= htmlspecialchars($produto->nome) ?></p>
+                                    <p class="preco">R$ <?= number_format($produto->preco, 2, ',', '.') ?></p>
+
+                                    <div class="remover">
+                                        <button value="<?= htmlspecialchars($produto->id_item) ?>" onclick="excluirProduto(this.value)">Excluir Produto</button>
+                                    </div>
+                                </form>
                             </div>
 
-                            <form id="formDelete" method="POST" action="" class="descricao">
-                                <input type="number" name="idProdutoDelete" placeholder="ID do Produto" value="<?= htmlspecialchars($produto->id_item) ?>" hidden required>
-                                
-                                <p class="desc"><?= htmlspecialchars($produto->nome) ?></p>
-                                <p class="preco">R$ <?= number_format($produto->preco, 2, ',', '.') ?></p>
-
-                                <div class="remover">
-                                    <button type="submit" id="aviso">Excluir Produto</button>
-                                </div>
-                            </form>
-                        </div>
 
                         <?php endforeach; ?>
                     </div>
@@ -206,6 +209,6 @@ foreach ($dadosApi as $produto) {
 
 
 <!-- Vinculação do script externo -->
+<script src="paginas/validacoes/item/delete_item.js"></script>
 <script src="paginas/validacoes/item/post_item.js"></script>
 <script src="paginas/validacoes/item/put_item.js"></script>
-<script src="paginas/validacoes/item/delete_item.js"></script>

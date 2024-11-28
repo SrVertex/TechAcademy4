@@ -1,25 +1,20 @@
-document.getElementById('formDelete').addEventListener('submit', async function (event) {
-    event.preventDefault(); // Evita o redirecionamento padrão do formulário
-
-    const form = event.target;
-    const formData = new FormData(form);
-    
+async function excluirProduto(produto) {
     try {
-        const response = await fetch('http://localhost/TechAcademy4/paginas/validacoes/item/delete_item.php', {
-            method: 'POST', // Usando POST, mas o conteúdo será tratado como DELETE no PHP
-            body: formData, // Envia os dados do formulário
+        const response = await fetch(`http://localhost:8080/api/item/${produto}`, {
+            method: 'DELETE'
         });
 
-        const result = await response.json();
-
-        if (result.success) {
-            alert(result.message);
-            location.reload(); // Exibe mensagem de sucesso
+        
+        if(response.status === 200) {
+            elementoHtml = document.getElementById(`prod_${produto}`)
+            elementoHtml.remove()
         } else {
-            alert(`Erro: ${result.message}`);
+            alert('Erro de conexão com o servidor.');
         }
+        
     } catch (error) {
         alert('Erro de conexão com o servidor.');
         console.error(error);
     }
-});
+    console.log(produto);
+}
