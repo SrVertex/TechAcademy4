@@ -18,6 +18,7 @@ body {
     background-color: var(--BG_principal) !important;
     color: var(--BG_segundario) !important;
     font-family: montserrat !important;
+    
 }
 
 header {
@@ -2070,7 +2071,7 @@ footer {
                             padding: 5px 10px;
                             margin-bottom: 10px;
 
-                        }
+                        }                        
 
                         input::placeholder {
                             color: white !important;
