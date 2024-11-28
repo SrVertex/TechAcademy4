@@ -5,7 +5,9 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
+import com.backEnd.Tecnolo.dto.LoginRequestDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,6 +28,7 @@ public class UsuarioController {
 
     @Autowired
     private Usuario_Repository repository;
+
 
     // get de usuario sem id
     @GetMapping
@@ -74,6 +77,18 @@ public class UsuarioController {
         return ResponseEntity.ok(saveUsuario);
 
     }
+
+
+    @PostMapping("/login") public ResponseEntity<?> login(@RequestBody LoginRequestDTO loginRequest) {
+        Usuario usuario = repository.findByEmail(loginRequest.getEmail());
+
+        if (usuario != null && usuario.getSenha().equals(loginRequest.getSenha())) {
+            return ResponseEntity.ok("Login bem-sucedido! Bem-vindo, " + usuario.getNome());
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciais inválidas.");
+        }
+    }
+
 
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@PathVariable Integer id, @RequestBody Usuario_RequestDTO dto) {

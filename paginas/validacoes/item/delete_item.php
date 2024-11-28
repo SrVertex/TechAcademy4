@@ -32,7 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             echo json_encode([
                 'success' => false,
-                'message' => 'Erro ao excluir produto.',
+                'message' => 'Erro ao 
+                excluir produto.',
                 'http_code' => $httpCode,
                 'response' => $response
             ]);
