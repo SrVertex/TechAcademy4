@@ -140,6 +140,9 @@ public class UsuarioController {
     // Variável estática para armazenar o ID do usuário logado
     private static Integer loggedUserId = null;
 
+    public static Integer getLoggedUserId() {
+        return loggedUserId;
+    }
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequestDTO loginRequestDTO) {

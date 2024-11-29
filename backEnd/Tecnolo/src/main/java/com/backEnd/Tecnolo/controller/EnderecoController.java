@@ -3,6 +3,8 @@ package com.backEnd.Tecnolo.controller;
 import java.util.List;
 import java.util.Optional;
 
+import com.backEnd.Tecnolo.model.Usuario;
+import com.backEnd.Tecnolo.repository.Usuario_Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -25,6 +27,9 @@ public class EnderecoController {
     @Autowired
     private Endereco_Repository repository;
 
+    @Autowired
+    private Usuario_Repository usuarioRepository;
+
     @GetMapping
     public ResponseEntity<List<Endereco>> findAll(){
         List<Endereco> enderecos = this.repository.findAll();
@@ -37,41 +42,112 @@ public class EnderecoController {
                 new IllegalArgumentException("Endereço não foi encontrado"));
     }
 
+//    @PostMapping
+//    public ResponseEntity<?> save(@RequestBody Endereco_RequestDTO dto) {
+//
+//        Optional<Usuario> usuarioOpt = usuarioRepository.findById(dto.getUsuario_id());
+//
+//        if (dto.getNome_destinatario() == null){
+//            return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
+//        }
+//
+//        if (dto.getCep() == null){
+//            return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
+//        }
+//
+//        if (dto.getCidade() == null){
+//            return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
+//        }
+//
+//        if (dto.getUF() == null){
+//            return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
+//        }
+//
+//        if (dto.getBairro() == null){
+//            return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
+//        }
+//
+//        if (dto.getRua() == null){
+//            return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
+//        }
+//
+//        if (dto.getNumero() == null){
+//            return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
+//        }
+//
+//        if (dto.getContato() == null){
+//            return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
+//        }
+//
+//        Endereco endereco = new Endereco();
+//        endereco.setNome_destinatario(dto.getNome_destinatario());
+//        endereco.setCep(dto.getCep());
+//        endereco.setCidade(dto.getCidade());
+//        endereco.setUF(dto.getUF());
+//        endereco.setBairro(dto.getBairro());
+//        endereco.setRua(dto.getRua());
+//        endereco.setNumero(dto.getNumero());
+//        endereco.setContato(dto.getContato());
+//        UsuarioController.getLoggedUserId();
+//
+//        Endereco saveEndereco = repository.save(endereco);
+//        return ResponseEntity.ok(saveEndereco);
+//
+//    }
+
     @PostMapping
     public ResponseEntity<?> save(@RequestBody Endereco_RequestDTO dto) {
 
-        if (dto.getNome_destinatario() == null){
-            return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
+        // Recupera o ID do usuário logado
+        Integer loggedUserId = UsuarioController.getLoggedUserId();
+
+        // Usa o ID do usuário logado se estiver presente, senão utiliza o ID fornecido no DTO
+        Integer usuarioId = (loggedUserId != null) ? loggedUserId : dto.getUsuario_id();
+
+        if (usuarioId == null) {
+            return ResponseEntity.badRequest().body("É necessário informar o ID do usuário ou estar logado.");
         }
 
-        if (dto.getCep() == null){
-            return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
+        Optional<Usuario> usuarioOpt = usuarioRepository.findById(usuarioId);
+
+        if (usuarioOpt.isEmpty()) {
+            return ResponseEntity.badRequest().body("Usuário não encontrado com o ID fornecido.");
         }
 
-        if (dto.getCidade() == null){
-            return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
+        // Validações dos campos obrigatórios
+        if (dto.getNome_destinatario() == null) {
+            return ResponseEntity.badRequest().body("O campo 'nome_destinatário' é obrigatório.");
         }
 
-        if (dto.getUF() == null){
-            return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
+        if (dto.getCep() == null) {
+            return ResponseEntity.badRequest().body("O campo 'cep' é obrigatório.");
         }
 
-        if (dto.getBairro() == null){
-            return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
+        if (dto.getCidade() == null) {
+            return ResponseEntity.badRequest().body("O campo 'cidade' é obrigatório.");
         }
 
-        if (dto.getRua() == null){
-            return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
+        if (dto.getUF() == null) {
+            return ResponseEntity.badRequest().body("O campo 'UF' é obrigatório.");
         }
 
-        if (dto.getNumero() == null){
-            return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
+        if (dto.getBairro() == null) {
+            return ResponseEntity.badRequest().body("O campo 'bairro' é obrigatório.");
         }
 
-        if (dto.getContato() == null){
-            return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
+        if (dto.getRua() == null) {
+            return ResponseEntity.badRequest().body("O campo 'rua' é obrigatório.");
         }
 
+        if (dto.getNumero() == null) {
+            return ResponseEntity.badRequest().body("O campo 'número' é obrigatório.");
+        }
+
+        if (dto.getContato() == null) {
+            return ResponseEntity.badRequest().body("O campo 'contato' é obrigatório.");
+        }
+
+        // Criação do objeto Endereco e definição dos campos
         Endereco endereco = new Endereco();
         endereco.setNome_destinatario(dto.getNome_destinatario());
         endereco.setCep(dto.getCep());
@@ -81,17 +157,21 @@ public class EnderecoController {
         endereco.setRua(dto.getRua());
         endereco.setNumero(dto.getNumero());
         endereco.setContato(dto.getContato());
+        endereco.setUsuario(usuarioOpt.get());
 
         Endereco saveEndereco = repository.save(endereco);
         return ResponseEntity.ok(saveEndereco);
-
     }
+
+
+
 
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@PathVariable Integer id, @RequestBody Endereco_RequestDTO dto) {
 
         Optional<Endereco> enderecoOpt = repository.findById(id);
 
+
         if (dto.getNome_destinatario() == null){
             return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
         }
@@ -124,6 +204,8 @@ public class EnderecoController {
             return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
         }
 
+
+
         Endereco endereco = new Endereco();
         endereco.setNome_destinatario(dto.getNome_destinatario());
         endereco.setCep(dto.getCep());
@@ -134,7 +216,7 @@ public class EnderecoController {
         endereco.setNumero(dto.getNumero());
         endereco.setContato(dto.getContato());
 
-        Endereco saveEndereco = repository.save(endereco);
+                Endereco saveEndereco = repository.save(endereco);
         return ResponseEntity.ok(saveEndereco);
 
     }
