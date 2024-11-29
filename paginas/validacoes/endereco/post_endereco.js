@@ -13,7 +13,7 @@ document.getElementById('formEndereco').addEventListener('submit', async functio
         const result = await response.json();
 
         if (result.success) {
-            alert(result.message); // Exibe mensagem de sucesso
+            alert(result.message, window.location.href = "http://localhost/techAcademy4/index.php"); // Exibe mensagem de sucesso
         } else {
             alert(`Erro: ${result.message}`);
         }

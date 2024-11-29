@@ -13,7 +13,8 @@ document.getElementById('formLogin').addEventListener('submit', async function (
         const result = await response.json();
 
         if (result.success) {
-            alert(result.message); 
+            alert(result.message, window.location.href = "http://localhost/techAcademy4/index.php"); 
+            
         } else {
             alert(`Erro: ${result.message}`);
         }

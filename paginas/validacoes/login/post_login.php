@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Captura os dados do formulário enviados via POST
     $dadosProduto = [
         'email' => $_POST['email'],
-        'senha' => (integer)$_POST['senha'],
+        'senha' => (integer)$_POST['senha']
     ];
 
     // Converte os dados para JSON
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($httpCode >= 200 && $httpCode < 300) {
             echo json_encode(['success' => true, 'message' => 'login efetuado com sucesso']);
         } else {
-            echo json_encode(['success' => false, 'message' => 'Erro ao criar usuario.', 'response' => $response]);
+            echo json_encode(['success' => false, 'message' => 'Verefique se a senha ou email correto', 'response' => $response]);
         }
     }
     curl_close($ch);
