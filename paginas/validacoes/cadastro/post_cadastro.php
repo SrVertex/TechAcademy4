@@ -1,6 +1,6 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $link = 'http://localhost:8080/api/usuario/cadastro'; // URL da sua API no Spring Boot
+    $link = 'http://localhost:8080/api/usuario'; // URL da sua API no Spring Boot
 
     // Captura os dados do formulário enviados via POST
     $dadosProduto = [

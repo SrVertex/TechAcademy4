@@ -12,8 +12,7 @@ $usuarioLogado = isset($_SESSION['usuario']); // Verifica se o usuário está lo
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <title>TECNOLO</title>
 
@@ -68,12 +67,9 @@ $usuarioLogado = isset($_SESSION['usuario']); // Verifica se o usuário está lo
 
                     <div class="barra_pesquisa">
                         <form role="search" action="paginasProdutos/pesquisa" method="post">
-                            <input class="2" type="search" placeholder="Digite o que você procura..."
-                                aria-label="Search">
-                            <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-arrow-right-short" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd"
-                                        d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8" />
+                            <input class="2" type="search" placeholder="Digite o que você procura..." aria-label="Search">
+                            <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8" />
                                 </svg></button>
                         </form>
                     </div>
@@ -94,10 +90,8 @@ $usuarioLogado = isset($_SESSION['usuario']); // Verifica se o usuário está lo
 
                 <form class="d-flex" role="search" action="paginasProdutos/pesquisa" method="post">
                     <input class="2" type="search" placeholder="Digite o que você procura..." aria-label="Search">
-                    <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-arrow-right-short" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8" />
+                    <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8" />
                         </svg></button>
                 </form>
 
@@ -112,12 +106,10 @@ $usuarioLogado = isset($_SESSION['usuario']); // Verifica se o usuário está lo
 
                             <ul class="dropdown-menu dropdown-menu-1 ">
                                 <li><a class="dropdown-item" href="#"><i class="bi bi-cart"></i>Carrinho</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="bi bi-bag-fill"></i>Meus Pedidos</a>
-                                </li>
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-bag-fill"></i>Meus Pedidos</a></li>
                                 <li><a class="dropdown-item" href="#"><i class="bi bi-whatsapp"></i>WhatzApp</a></li>
                                 <li><a class="dropdown-item" href="admin"><i class="bi bi-xbox"></i>Admistrador</a></li>
-                                <li><a class="dropdown-item" href="endereco"><i class="bi bi-house-door-fill"></i>Meu
-                                        Endereço</a></li>
+                                <li><a class="dropdown-item" href="endereco"><i class="bi bi-house-door-fill"></i>Meu Endereço</a></li>
                         </li>
                     </ul>
                     </li>
@@ -143,14 +135,14 @@ $usuarioLogado = isset($_SESSION['usuario']); // Verifica se o usuário está lo
                     </ul>
 
                     <ul>
-                        <?php if ($usuarioLogado): ?>
-                            <li>Bem-vindo, <?php echo htmlspecialchars($_SESSION['usuario']['nome']); ?>!</li>
-                            <li><a href="logout.php">Sair</a></li>
-                        <?php else: ?>
-                            <li><a href="login.php">Entrar</a></li>
-                            <li><a href="cadastro.php">Cadastrar</a></li>
-                        <?php endif; ?>
-                    </ul>
+                <?php if ($usuarioLogado): ?>
+                    <li>Bem-vindo, <?php echo htmlspecialchars($_SESSION['usuario']['nome']); ?>!</li>
+                    <li><a href="logout.php">Sair</a></li>
+                <?php else: ?>
+                    <li><a href="login.php">Entrar</a></li>
+                    <li><a href="cadastro.php">Cadastrar</a></li>
+                <?php endif; ?>
+            </ul>
 
 
                     <div class="login">
@@ -183,12 +175,9 @@ $usuarioLogado = isset($_SESSION['usuario']); // Verifica se o usuário está lo
 
                     <div class="barra_pesquisa">
                         <form class="d-flex" role="search" action="paginasProdutos/pesquisa" method="post">
-                            <input class="2" type="search" placeholder="Digite o que você procura..."
-                                aria-label="Search">
-                            <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-arrow-right-short" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd"
-                                        d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8" />
+                            <input class="2" type="search" placeholder="Digite o que você procura..." aria-label="Search">
+                            <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8" />
                                 </svg></button>
                         </form>
                     </div>
@@ -208,8 +197,7 @@ $usuarioLogado = isset($_SESSION['usuario']); // Verifica se o usuário está lo
 
                     <div class="menu_drop">
                         <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle btn-grad" type="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="btn btn-secondary dropdown-toggle btn-grad" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Menu
                             </button>
 
@@ -218,8 +206,7 @@ $usuarioLogado = isset($_SESSION['usuario']); // Verifica se o usuário está lo
                                 <li><a class="dropdown-item" href="#"><i class="bi bi-bag-fill"></i>Meus Pedidos</a>
                                 </li>
                                 <li><a class="dropdown-item" href="#"><i class="bi bi-whatsapp"></i>WhatzApp</a></li>
-                                <li><a class="dropdown-item" href="endereco"><i class="bi bi-house-door-fill"></i>Meu
-                                        Endereço</a></li>
+                                <li><a class="dropdown-item" href="endereco"><i class="bi bi-house-door-fill"></i>Meu Endereço</a></li>
                                 <li><a class="dropdown-item" href="admin"><i class="bi bi-xbox"></i>Admistrador</a></li>
                         </div>
                     </div>
@@ -268,7 +255,7 @@ $usuarioLogado = isset($_SESSION['usuario']); // Verifica se o usuário está lo
         } else {
             include "paginas/erro.phtml";
         }
-
+        
 
         ?>
 
@@ -287,8 +274,7 @@ $usuarioLogado = isset($_SESSION['usuario']); // Verifica se o usuário está lo
                     <li><span><i class="bi bi-envelope"></i> Tecnolo@hotmail.com.br</span></li>
                     <li><span><i class="bi bi-house-door-fill"></i> Campo Mourão PR</span></li>
                     <li><a href="http://lucasmotion.free.nf/?i=1"><i class="bi bi-code-slash"></i>LucasMotion</a></li>
-                    <li><a href="https://srvertex.github.io/Site_SrVertex_BETA/"><i
-                                class="bi bi-code-slash"></i>SrVertex</a></li>
+                    <li><a href="https://srvertex.github.io/Site_SrVertex_BETA/"><i class="bi bi-code-slash"></i>SrVertex</a></li>
                 </ul>
             </div>
 
