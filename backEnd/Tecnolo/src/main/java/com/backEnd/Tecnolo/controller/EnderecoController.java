@@ -51,12 +51,11 @@ public class EnderecoController {
         // Usa o ID do usuário logado se estiver presente, senão utiliza o ID fornecido no DTO
         Integer usuarioId = (loggedUserId != null) ? loggedUserId : dto.getUsuario_id();
 
-
         if (usuarioId == null) {
             return ResponseEntity.badRequest().body("É necessário informar o ID do usuário ou estar logado.");
         }
 
-        Optional<Usuario> usuarioOpt = usuarioRepository.findById(usuarioId);
+            Optional<Usuario> usuarioOpt = usuarioRepository.findById(usuarioId);
 
         if (dto.getNome_destinatario() == null){
             return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");

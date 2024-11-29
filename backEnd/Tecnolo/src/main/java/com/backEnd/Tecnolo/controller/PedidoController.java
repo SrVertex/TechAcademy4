@@ -49,22 +49,18 @@ public class PedidoController  {
 
     @PostMapping
     public ResponseEntity<?> save(@RequestBody Pedido_ResquestDTO dto) {
-                // Validação de valor
-                if (dto.getValor() == null) {
-                    return ResponseEntity.badRequest().body("O valor do pedido é obrigatório.");
-                }
 
-                // Validação de status
-                if (dto.getStatus() == null || dto.getStatus().isEmpty()) {
-                    return ResponseEntity.badRequest().body("Status do pedido é obrigatório.");
-                }
+        // Recupera o ID do usuário logado
+        Integer loggedUserId = UsuarioController.getLoggedUserId();
 
-                // Validação de usuário
-                Optional<Usuario> usuarioOpt = usuarioRepository.findById(dto.getUsuario_id());
+        // Usa o ID do usuário logado se estiver presente, senão utiliza o ID fornecido no DTO
+        Integer usuarioId = (loggedUserId != null) ? loggedUserId : dto.getUsuario_id();
 
-                if (usuarioOpt.isEmpty()) {
-                    return ResponseEntity.badRequest().body("Usuário não encontrado com o ID fornecido.");
-                }
+        if (usuarioId == null) {
+            return ResponseEntity.badRequest().body("É necessário informar o ID do usuário ou estar logado.");
+        }
+
+        Optional<Usuario> usuarioOpt = usuarioRepository.findById(usuarioId);
 
                 Pedido pedido = new Pedido();
                 pedido.setValor(dto.getValor());
