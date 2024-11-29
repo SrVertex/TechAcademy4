@@ -18,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'descricao' => $_POST['descricaoPost'],
                 'preco' => (float)$_POST['precoPost'],
                 'estoque' => (int)$_POST['estoquePost'],
+                'foto' => $filePath, // Caminho do arquivo
                 'atributo_1' => $_POST['atributo_1Post'],
                 'atributo_2' => $_POST['atributo_2Post'],
                 'atributo_3' => $_POST['atributo_3Post'],
