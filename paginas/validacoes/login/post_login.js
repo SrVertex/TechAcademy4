@@ -13,7 +13,7 @@ document.getElementById('formLogin').addEventListener('submit', async function (
         const result = await response.json();
 
         if (result.success) {
-            alert(result.message); // Exibe mensagem de sucesso
+            alert(result.message); 
         } else {
             alert(`Erro: ${result.message}`);
         }

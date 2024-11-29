@@ -106,6 +106,7 @@ foreach ($dadosApi as $produto) {
             </div>
         </div>
 
+
         <a class="conteiner_link" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalAdcionar">
             <p>Adicionar Produto</p>
             <div class="logo">
@@ -171,10 +172,10 @@ foreach ($dadosApi as $produto) {
                                     <img src="paginas/validacoes/item/<?= htmlspecialchars($produto->foto) ?>" alt="<?= htmlspecialchars($produto->nome) ?>">
                                 </div>
 
-                                <form class="descricao"> 
+                                <form class="descricao">
 
-                            
-                                <input type=" number" name="idProdutoDelete" placeholder="ID do Produto" value="<?= htmlspecialchars($produto->id_item) ?>" hidden required>
+
+                                    <input type=" number" name="idProdutoDelete" placeholder="ID do Produto" value="<?= htmlspecialchars($produto->id_item) ?>" hidden required>
 
                                     <p class="desc"><?= htmlspecialchars($produto->nome) ?></p>
                                     <p class="preco">R$ <?= number_format($produto->preco, 2, ',', '.') ?></p>
@@ -203,12 +204,6 @@ foreach ($dadosApi as $produto) {
 
 
 
-
-
-
-
-
-<!-- Vinculação do script externo -->
-<script src="paginas/validacoes/item/delete_item.js"></script>
 <script src="paginas/validacoes/item/post_item.js"></script>
 <script src="paginas/validacoes/item/put_item.js"></script>
+<script src="paginas/validacoes/item/delete_item.js"></script>

@@ -8,6 +8,8 @@ async function excluirProduto(produto) {
         if(response.status === 200) {
             elementoHtml = document.getElementById(`prod_${produto}`)
             elementoHtml.remove()
+            
+            
         } else {
             alert('Erro de conexão com o servidor.');
         }
