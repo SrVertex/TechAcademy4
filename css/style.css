@@ -2616,7 +2616,7 @@ footer {
         flex-direction: column;
         width: 100%;
 
-        .conteiner_produto {
+        #conteiner_produto {
             text-decoration: none !important;
             color: white !important;
 
@@ -2632,7 +2632,13 @@ footer {
             background-color: #ffffff1f;
             border: solid 1px white;
             border-radius: 20px;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.425);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.425);    
+            transition: 400ms all ease;
+
+            &:hover {
+                transform: scale(1.02,1.02) !important;
+                box-shadow: 0 0 10px white;
+            }
 
             .imagem {
                 width: 30%;
@@ -3058,7 +3064,7 @@ footer {
             justify-content: space-evenly;
             flex-wrap: wrap;
 
-            .conteiner_produto {
+            #conteiner_produto {
                 flex-direction: column;
                 width: 48%;
                 padding: 20px 5px;
@@ -3150,7 +3156,7 @@ footer {
         .produto_flex {
             gap: 10px;
 
-            .conteiner_produto {
+            #conteiner_produto {
                 width: 31%;
             }
         }
@@ -3347,7 +3353,7 @@ footer {
 
     #main_produtos {
         .produto_flex {
-            .conteiner_produto {
+            #conteiner_produto {
                 width: 224px;
             }
         }

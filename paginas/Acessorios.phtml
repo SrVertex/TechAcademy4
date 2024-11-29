@@ -43,7 +43,7 @@ foreach ($produtosInfo as $produto) {
     if (isset($produto->categoria) && $produto->categoria->nome == 'Acessorios') {
         $parcela = $produto->preco / 10; 
 
-        echo '<a href="detalheProduto/' . $produto->id_item . '" class="conteiner_produto" data-preco="' . $produto->preco . '">';
+        echo '<a href="detalheProduto/' . $produto->id_item . '"id="conteiner_produto" class="conteiner_produto" data-preco="' . $produto->preco . '">';
         echo '<div class="imagem">';
         // Verifica se a foto está disponível ou usa uma imagem padrão
         $foto = isset($produto->foto) && !empty($produto->foto) ? $produto->foto : 'imagens/default.png';
@@ -77,7 +77,7 @@ function filtrarProdutos() {
         // Exibe todos os produtos
         let produtos = document.querySelectorAll('.conteiner_produto');
         produtos.forEach(produto => {
-            produto.style.display = 'block';
+            produto.style.display = 'flex';
         });
         return;
     }
@@ -91,7 +91,7 @@ function filtrarProdutos() {
     if (selectedValues.length === 0) {
         let produtos = document.querySelectorAll('.conteiner_produto');
         produtos.forEach(produto => {
-            produto.style.display = 'block';
+            produto.style.display = 'flex';
         });
         return;
     }
@@ -102,7 +102,7 @@ function filtrarProdutos() {
         let precoProduto = parseFloat(produto.getAttribute('data-preco'));
         // Verifica se o preço do produto é menor ou igual ao valor selecionado
         if (selectedValues.some(val => precoProduto <= val)) {
-            produto.style.display = 'block'; // Exibe o produto
+            produto.style.display = 'flex'; // Exibe o produto
         } else {
             produto.style.display = 'none'; // Oculta o produto
         }

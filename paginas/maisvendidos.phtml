@@ -1,3 +1,5 @@
+
+
 <section id="main_produtos">
 
     <div class="top">
@@ -29,115 +31,122 @@
             </div>
         </div>
 
-
     </div>
 
 
-    <div class="produto_flex">
-        <a href="paginasProdutos/detalheProduto" class="conteiner_produto">
+    <div id="produtos-container" class="produto_flex">
+        <!-- Produtos serão carregados aqui via PHP -->
+        <?php
+$api = file_get_contents("http://localhost:8080/api/item");
+$dadosApi = json_decode($api);
 
-            <div class="imagem">
-                <img src="imagens/0_AEMYWY3BEAPTA_PRD_1500_1 2.png" alt="">
-            </div>
-            <div class="descricao">
-                <p class="desc">iPhone 16 Pro Max Apple 512GB, Câmera
-                    Tripla de 48MP, Tela 6,9 , Titânio Natural
-                </p>
+// Verificar se os dados foram carregados corretamente
+if ($dadosApi && is_array($dadosApi)) {
+    // Ordenar os itens pela propriedade 'preco' em ordem decrescente
+    usort($dadosApi, function ($a, $b) {
+        return $b->preco <=> $a->preco; // Comparar para ordem decrescente
+    });
 
-                <p class="preco">R$ 78.000,00</p>
-                <p class="sub_preco">Aviste no Pix ou até <span>10x de
-                        R$7.800,00</span></p>
+    // Pegar os 5 itens mais caros
+    $TodosItensCaros = array_slice($dadosApi, 0, 10);
 
-            </div>
+    $promo = array_slice($dadosApi, 0, 10);
 
-        </a>
-        <a href="detalheProduto" class="conteiner_produto">
+    // Exibir os 5 itens mais caros
+    foreach ($TodosItensCaros as $produto) {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+    }
+    foreach ($promo as $produto) {
+    }
+} else {
+    echo "Erro ao carregar os dados da API.";
+}
 
-            <div class="imagem">
-                <img src="imagens/produtos/s24ultra.png" alt="">
-            </div>
-            <div class="descricao">
-                <p class="desc">iPhone 16 Pro Max Apple 512GB, Câmera
-                    Tripla de 48MP, Tela 6,9 , Titânio Natural
-                </p>
+foreach ($TodosItensCaros as $produto) {
+    // Verifica se o produto tem categoria e se a categoria é "Especifica"
+        $parcela = $produto->preco / 10; 
 
-                <p class="preco">R$ 78.000,00</p>
-                <p class="sub_preco">Aviste no Pix ou até <span>10x de
-                        R$7.800,00</span></p>
+        echo '<a href="detalheProduto/' . $produto->id_item . '"id="conteiner_produto" class="conteiner_produto" data-preco="' . $produto->preco . '">';
+        echo '<div class="imagem">';
+        // Verifica se a foto está disponível ou usa uma imagem padrão
+        $foto = isset($produto->foto) && !empty($produto->foto) ? $produto->foto : 'imagens/default.png';
+        echo '<img src="paginas/validacoes/item/' . $foto . '" alt="Imagem do produto">';
+        echo '</div>';
+        echo '<div class="descricao">';
+        // Exibe o nome do produto
+        echo '<p class="desc">' . htmlspecialchars($produto->nome) . '</p>';
+        // Verifica se o preço está disponível
+        $preco = isset($produto->preco) && $produto->preco !== null ? number_format($produto->preco, 2, ',', '.') : 'Preço indisponível';
+        echo '<p class="preco">R$ ' . $preco . '</p>';
+        // Exibe uma mensagem de preço parcelado
+        echo '<p class="sub_preco">À vista no Pix ou até <span>10x de R$' . number_format($parcela, 2, ',', '.') . ' sem juros</span></p>';
+        echo '</div>';
+        echo '</a>';
+    }
 
-            </div>
+?>
 
-        </a>
-        <a href="detalheProduto" class="conteiner_produto">
-
-            <div class="imagem">
-                <img src="imagens/produtos/galaxym55.png" alt="">
-            </div>
-            <div class="descricao">
-                <p class="desc">iPhone 16 Pro Max Apple 512GB, Câmera
-                    Tripla de 48MP, Tela 6,9 , Titânio Natural
-                </p>
-
-                <p class="preco">R$ 78.000,00</p>
-                <p class="sub_preco">Aviste no Pix ou até <span>10x de
-                        R$7.800,00</span></p>
-
-            </div>
-
-        </a>
-        <a href="detalheProduto" class="conteiner_produto">
-
-            <div class="imagem">
-                <img src="imagens/produtos/galaxyzfold6.png" alt="">
-            </div>
-            <div class="descricao">
-                <p class="desc">iPhone 16 Pro Max Apple 512GB, Câmera
-                    Tripla de 48MP, Tela 6,9 , Titânio Natural
-                </p>
-
-                <p class="preco">R$ 78.000,00</p>
-                <p class="sub_preco">Aviste no Pix ou até <span>10x de
-                        R$7.800,00</span></p>
-
-            </div>
-
-        </a>
-        <a href="detalheProduto" class="conteiner_produto">
-
-            <div class="imagem">
-                <img src="imagens/produtos/galaxyBuds.png" alt="">
-            </div>
-            <div class="descricao">
-                <p class="desc">iPhone 16 Pro Max Apple 512GB, Câmera
-                    Tripla de 48MP, Tela 6,9 , Titânio Natural
-                </p>
-
-                <p class="preco">R$ 78.000,00</p>
-                <p class="sub_preco">Aviste no Pix ou até <span>10x de
-                        R$7.800,00</span></p>
-
-            </div>
-
-        </a>
-        <a href="detalheProduto" class="conteiner_produto">
-
-            <div class="imagem">
-                <img src="imagens/produtos/galaxyzfold6Cinza.png" alt="">
-            </div>
-            <div class="descricao">
-                <p class="desc">iPhone 16 Pro Max Apple 512GB, Câmera
-                    Tripla de 48MP, Tela 6,9 , Titânio Natural
-                </p>
-
-                <p class="preco">R$ 78.000,00</p>
-                <p class="sub_preco">Aviste no Pix ou até <span>10x de
-                        R$7.800,00</span></p>
-
-            </div>
-
-        </a>
     </div>
-</section
+</section>
+
+
+<script>
+function filtrarProdutos() {
+    let selectedValues = [];
+    let showAll = document.getElementById('valorTodos').checked;
+
+    // Se o "Mostrar Todos" estiver marcado, mostra todos os produtos sem filtro
+    if (showAll) {
+        // Exibe todos os produtos
+        let produtos = document.querySelectorAll('.conteiner_produto');
+        produtos.forEach(produto => {
+            produto.style.display = 'flex';
+        });
+        return;
+    }
+
+    // Captura todos os checkboxes selecionados, excluindo o "Mostrar Todos"
+    document.querySelectorAll('.valorFilter:checked').forEach(checkbox => {
+        selectedValues.push(parseFloat(checkbox.getAttribute('data-valor')));
+    });
+
+    // Se não houver seleções, exibe todos os produtos
+    if (selectedValues.length === 0) {
+        let produtos = document.querySelectorAll('.conteiner_produto');
+        produtos.forEach(produto => {
+            produto.style.display = 'flex';
+        });
+        return;
+    }
+
+    // Filtra os produtos com base nos valores selecionados (preço <= valor selecionado)
+    let produtos = document.querySelectorAll('.conteiner_produto');
+    produtos.forEach(produto => {
+        let precoProduto = parseFloat(produto.getAttribute('data-preco'));
+        // Verifica se o preço do produto é menor ou igual ao valor selecionado
+        if (selectedValues.some(val => precoProduto <= val)) {
+            produto.style.display = 'flex'; // Exibe o produto
+        } else {
+            produto.style.display = 'none'; // Oculta o produto
+        }
+    });
+}
+
+// Evento para garantir que apenas um checkbox possa ser selecionado de cada vez
+document.querySelectorAll('.valorFilter').forEach(checkbox => {
+    checkbox.addEventListener('change', function () {
+        if (this.checked) {
+            // Se um checkbox for marcado, desmarque todos os outros
+            document.querySelectorAll('.valorFilter').forEach(otherCheckbox => {
+                if (otherCheckbox !== this) {
+                    otherCheckbox.checked = false;
+                }
+            });
+        }
+        filtrarProdutos(); // Aplica o filtro após a alteração
+    });
+});
 
 
 
+
+</script>
