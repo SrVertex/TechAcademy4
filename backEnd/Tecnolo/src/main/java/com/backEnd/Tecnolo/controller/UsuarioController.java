@@ -42,7 +42,7 @@ public class UsuarioController {
                         new IllegalArgumentException("Usuario não foi encontrado"));
     }
 
-    @PostMapping
+    @PostMapping("/cadastro")
     public ResponseEntity<?> save(@RequestBody Usuario_RequestDTO dto) {
 
         if (dto.getNome() == null) {
