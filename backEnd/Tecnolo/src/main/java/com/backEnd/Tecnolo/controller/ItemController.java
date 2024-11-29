@@ -22,7 +22,6 @@ public class ItemController {
     @Autowired
     private Categoria_Repository categoriaRepository;
 
-
     @GetMapping
     public ResponseEntity<List<Item>> findAll(){
         List<Item> item = this.repository.findAll();
@@ -61,8 +60,6 @@ public class ItemController {
         Item savedItem = repository.save(item);
         return ResponseEntity.ok(savedItem);
     }
-
-
 
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@PathVariable Integer id, @RequestBody Item_RequestDTO dto) {

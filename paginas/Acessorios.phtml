@@ -2,12 +2,15 @@
 
     <div class="top">
         <h2>Acessórios</h2>
-        <button class="btn-of" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><i class="bi bi-list"></i>Filtro</button>
+        <button class="btn-of" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
+            aria-controls="offcanvasScrolling"><i class="bi bi-list"></i>Filtro</button>
 
-        <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+        <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+            id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
             <div class="header">
                 <h5 class="offcanvas-title" id="offcanvasScrollingLabel">FILTRO</h5>
-                <button type="button" class="close" data-bs-dismiss="offcanvas" aria-label="Close"><i class="bi bi-x"></i></button>
+                <button type="button" class="close" data-bs-dismiss="offcanvas" aria-label="Close"><i
+                        class="bi bi-x"></i></button>
 
             </div>
             <hr>
@@ -15,14 +18,22 @@
                 <form id="filterForm">
                     <h5>Valor Maximo</h5>
                     <ul>
-                    <li><input type="checkbox" class="valorFilter" data-valor="0" id="valorTodos"> <label for="valorTodos">Mostrar Todos</label></li>
-                        <li><input type="checkbox" class="valorFilter" data-valor="500" id="valor2"> <label for="valor2">R$ 500,00</label></li>
-                        <li><input type="checkbox" class="valorFilter" data-valor="1000" id="valor3"> <label for="valor3">R$ 1000,00</label></li>
-                        <li><input type="checkbox" class="valorFilter" data-valor="2500" id="valor4"> <label for="valor4">R$ 2500,00</label></li>
-                        <li><input type="checkbox" class="valorFilter" data-valor="5000" id="valor5"> <label for="valor5">R$ 5000,00</label></li>
-                        <li><input type="checkbox" class="valorFilter" data-valor="10000" id="valor6"> <label for="valor6">R$ 10000,00</label></li>
-                        <li><input type="checkbox" class="valorFilter" data-valor="20000" id="valor7"> <label for="valo7">R$ 20000,00</label></li>
-                        <li><input type="checkbox" class="valorFilter" data-valor="50000" id="valor8"> <label for="valor8">R$ 50000,00</label></li>
+                        <li><input type="checkbox" class="valorFilter" data-valor="0" id="valorTodos"> <label
+                                for="valorTodos">Mostrar Todos</label></li>
+                        <li><input type="checkbox" class="valorFilter" data-valor="500" id="valor2"> <label
+                                for="valor2">R$ 500,00</label></li>
+                        <li><input type="checkbox" class="valorFilter" data-valor="1000" id="valor3"> <label
+                                for="valor3">R$ 1000,00</label></li>
+                        <li><input type="checkbox" class="valorFilter" data-valor="2500" id="valor4"> <label
+                                for="valor4">R$ 2500,00</label></li>
+                        <li><input type="checkbox" class="valorFilter" data-valor="5000" id="valor5"> <label
+                                for="valor5">R$ 5000,00</label></li>
+                        <li><input type="checkbox" class="valorFilter" data-valor="10000" id="valor6"> <label
+                                for="valor6">R$ 10000,00</label></li>
+                        <li><input type="checkbox" class="valorFilter" data-valor="20000" id="valor7"> <label
+                                for="valo7">R$ 20000,00</label></li>
+                        <li><input type="checkbox" class="valorFilter" data-valor="50000" id="valor8"> <label
+                                for="valor8">R$ 50000,00</label></li>
                     </ul>
                     <!-- <button type="button" class="filtrar" onclick="filtrarProdutos()">Filtrar Agora</button> -->
                 </form>
@@ -111,7 +122,7 @@ function filtrarProdutos() {
 
 // Evento para garantir que apenas um checkbox possa ser selecionado de cada vez
 document.querySelectorAll('.valorFilter').forEach(checkbox => {
-    checkbox.addEventListener('change', function () {
+    checkbox.addEventListener('change', function() {
         if (this.checked) {
             // Se um checkbox for marcado, desmarque todos os outros
             document.querySelectorAll('.valorFilter').forEach(otherCheckbox => {
@@ -123,8 +134,4 @@ document.querySelectorAll('.valorFilter').forEach(checkbox => {
         filtrarProdutos(); // Aplica o filtro após a alteração
     });
 });
-
-
-
-
 </script>

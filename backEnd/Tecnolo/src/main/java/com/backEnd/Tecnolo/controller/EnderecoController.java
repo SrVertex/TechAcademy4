@@ -42,59 +42,6 @@ public class EnderecoController {
                 new IllegalArgumentException("Endereço não foi encontrado"));
     }
 
-//    @PostMapping
-//    public ResponseEntity<?> save(@RequestBody Endereco_RequestDTO dto) {
-//
-//        Optional<Usuario> usuarioOpt = usuarioRepository.findById(dto.getUsuario_id());
-//
-//        if (dto.getNome_destinatario() == null){
-//            return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
-//        }
-//
-//        if (dto.getCep() == null){
-//            return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
-//        }
-//
-//        if (dto.getCidade() == null){
-//            return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
-//        }
-//
-//        if (dto.getUF() == null){
-//            return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
-//        }
-//
-//        if (dto.getBairro() == null){
-//            return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
-//        }
-//
-//        if (dto.getRua() == null){
-//            return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
-//        }
-//
-//        if (dto.getNumero() == null){
-//            return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
-//        }
-//
-//        if (dto.getContato() == null){
-//            return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
-//        }
-//
-//        Endereco endereco = new Endereco();
-//        endereco.setNome_destinatario(dto.getNome_destinatario());
-//        endereco.setCep(dto.getCep());
-//        endereco.setCidade(dto.getCidade());
-//        endereco.setUF(dto.getUF());
-//        endereco.setBairro(dto.getBairro());
-//        endereco.setRua(dto.getRua());
-//        endereco.setNumero(dto.getNumero());
-//        endereco.setContato(dto.getContato());
-//        UsuarioController.getLoggedUserId();
-//
-//        Endereco saveEndereco = repository.save(endereco);
-//        return ResponseEntity.ok(saveEndereco);
-//
-//    }
-
     @PostMapping
     public ResponseEntity<?> save(@RequestBody Endereco_RequestDTO dto) {
 
@@ -162,9 +109,6 @@ public class EnderecoController {
         Endereco saveEndereco = repository.save(endereco);
         return ResponseEntity.ok(saveEndereco);
     }
-
-
-
 
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@PathVariable Integer id, @RequestBody Endereco_RequestDTO dto) {

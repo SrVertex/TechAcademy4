@@ -75,7 +75,8 @@ if ($produto_estoque > 0) {
             <div class="compra">
                 <div class="conteiner_preco">
                     <p class="preco">R$ <?= number_format($produto_preco, 2, ',', '.') ?></span></p>
-                    <p class="subPreco">Avista no Pix ou até <span>10x de <?= number_format($parcela, 2, ',', '.') ?></span> sem juros</p>
+                    <p class="subPreco">Avista no Pix ou até <span>10x de
+                            <?= number_format($parcela, 2, ',', '.') ?></span> sem juros</p>
                 </div>
 
                 <form action="pagamento" class="compra_botao">
@@ -101,12 +102,14 @@ if ($produto_estoque > 0) {
                 </a>
 
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h2 class="modal-title" id="exampleModalLabel">Busque seu CEP</h2>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
 
@@ -214,30 +217,31 @@ if ($produto_estoque > 0) {
         <div class="carousel" data-flickity='{ "wrapAround": true }'>
 
             <?php foreach ($top5ItensCaros as $produto): ?>
-                <?php
+            <?php
                 // Calcular o valor da parcela em 10x
                 $parcela = $produto->preco / 10;
                 ?>
-                <div class="carousel-cell">
-                    <a href="detalheProduto/<?= $produto->id_item ?>">
-                        <div class="img">
-                            <img src="paginas/validacoes/item/<?= htmlspecialchars($produto->foto) ?>" alt="<?= htmlspecialchars($produto->nome) ?>">
-                        </div>
+            <div class="carousel-cell">
+                <a href="detalheProduto/<?= $produto->id_item ?>">
+                    <div class="img">
+                        <img src="paginas/validacoes/item/<?= htmlspecialchars($produto->foto) ?>"
+                            alt="<?= htmlspecialchars($produto->nome) ?>">
+                    </div>
 
-                        <div class="descricao">
-                            <p class="desc"><?= htmlspecialchars($produto->nome) ?></p>
+                    <div class="descricao">
+                        <p class="desc"><?= htmlspecialchars($produto->nome) ?></p>
 
-                            <p class="preco">R$ <?= number_format($produto->preco, 2, ',', '.') ?></p>
+                        <p class="preco">R$ <?= number_format($produto->preco, 2, ',', '.') ?></p>
 
-                            <p class="sub_preco">
-                                À vista no Pix ou até
-                                <span>
-                                    10x de R$ <?= number_format($parcela, 2, ',', '.') ?> sem juros
-                                </span>
-                            </p>
-                        </div>
-                    </a>
-                </div>
+                        <p class="sub_preco">
+                            À vista no Pix ou até
+                            <span>
+                                10x de R$ <?= number_format($parcela, 2, ',', '.') ?> sem juros
+                            </span>
+                        </p>
+                    </div>
+                </a>
+            </div>
             <?php endforeach; ?>
         </div>
 
@@ -247,61 +251,62 @@ if ($produto_estoque > 0) {
 
 <!-- Negrito as primeiras palavras -->
 <script>
-    const paragraphs = document.querySelectorAll('#paragrafo');
+const paragraphs = document.querySelectorAll('#paragrafo');
 
-    paragraphs.forEach(paragraph => {
-        let text = paragraph.innerHTML;
-        let words = text.split(' ');
-        words[0] = '<strong>' + words[0] + '</strong>';
-        paragraph.innerHTML = words.join(' ');
-    });
+paragraphs.forEach(paragraph => {
+    let text = paragraph.innerHTML;
+    let words = text.split(' ');
+    words[0] = '<strong>' + words[0] + '</strong>';
+    paragraph.innerHTML = words.join(' ');
+});
 </script>
 
 <script>
-    document.getElementById('formCEP').addEventListener('submit', async function(e) {
-        e.preventDefault(); // Evita o envio tradicional do formulário
+document.getElementById('formCEP').addEventListener('submit', async function(e) {
+    e.preventDefault(); // Evita o envio tradicional do formulário
 
-        const cepInput = document.getElementById('cep');
-        const cep = cepInput.value.replace(/\D/g, ''); // Remove caracteres não numéricos
-        const resultadoDiv = document.getElementById('resultado');
+    const cepInput = document.getElementById('cep');
+    const cep = cepInput.value.replace(/\D/g, ''); // Remove caracteres não numéricos
+    const resultadoDiv = document.getElementById('resultado');
 
-        // Valida o CEP (deve conter exatamente 8 dígitos)
-        if (cep.length !== 8) {
-            resultadoDiv.innerHTML = '<p style="color:red;">CEP inválido. Insira um CEP com 8 dígitos.</p>';
-            return;
-        }
+    // Valida o CEP (deve conter exatamente 8 dígitos)
+    if (cep.length !== 8) {
+        resultadoDiv.innerHTML = '<p style="color:red;">CEP inválido. Insira um CEP com 8 dígitos.</p>';
+        return;
+    }
 
-        // Exibe mensagem de carregamento
-        resultadoDiv.innerHTML = '<p>Buscando informações...</p>';
+    // Exibe mensagem de carregamento
+    resultadoDiv.innerHTML = '<p>Buscando informações...</p>';
 
-        try {
-            // Envia a requisição para o servidor
-            const response = await fetch('https://viacep.com.br/ws/' + cep + '/json', {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                } // Envia o CEP no corpo da requisição
-            });
-            console.log('respondeu o coiso ', response.body);
-            const data = await response.json();
+    try {
+        // Envia a requisição para o servidor
+        const response = await fetch('https://viacep.com.br/ws/' + cep + '/json', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            } // Envia o CEP no corpo da requisição
+        });
+        console.log('respondeu o coiso ', response.body);
+        const data = await response.json();
 
-            // Verifica se houve erro no backend
-            if (data.erro) {
-                resultadoDiv.innerHTML = `<p style="color:red;">${data.erro}</p>`;
-            } else {
-                // Exibe os dados do CEP
-                resultadoDiv.innerHTML = `
+        // Verifica se houve erro no backend
+        if (data.erro) {
+            resultadoDiv.innerHTML = `<p style="color:red;">${data.erro}</p>`;
+        } else {
+            // Exibe os dados do CEP
+            resultadoDiv.innerHTML = `
                 <h2>Informações do CEP</h2>
                 <p><strong>Logradouro:</strong> ${data.logradouro || 'Não disponível'}</p>
                 <p><strong>Bairro:</strong> ${data.bairro || 'Não disponível'}</p>
                 <p><strong>Cidade:</strong> ${data.localidade}</p>
                 <p><strong>Estado:</strong> ${data.uf}</p>
             `;
-            }
-        } catch (error) {
-            resultadoDiv.innerHTML = '<p style="color:red;">Erro ao buscar o CEP. Tente novamente mais tarde.</p>';
         }
-    });
+    } catch (error) {
+        resultadoDiv.innerHTML =
+            '<p style="color:red;">Erro ao buscar o CEP. Tente novamente mais tarde.</p>';
+    }
+});
 </script>
 
 <?php
