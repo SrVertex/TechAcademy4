@@ -29,14 +29,12 @@ public class UsuarioController {
     @Autowired
     private Usuario_Repository repository;
 
-    // get de usuario sem id
     @GetMapping
     public ResponseEntity<List<Usuario>> findAll(){
         List<Usuario> usuarios = this.repository.findAll();
         return ResponseEntity.ok(usuarios);
     }
 
-    // get de usuario com id
     @GetMapping("/{id}")
     public Usuario findById(@PathVariable Integer id) {
         return this.repository.findById(id)
@@ -82,29 +80,14 @@ public class UsuarioController {
 
         Optional<Usuario> usuarioOpt = repository.findById(id);
 
-        if (dto.getNome() == null) {
-            return ResponseEntity.badRequest().body("O Nome do usuario é Obrigatorio");
-        }
 
-        if (dto.getEmail() == null) {
-            return ResponseEntity.badRequest().body("O email deve ser Obrigatorio");
-        }
-        // para realizar a alteração da senha a senha deve ser preenchida
         if (dto.getSenha() == null) {
             return ResponseEntity.badRequest().body("A Senha deve Ser Obrigatorio");
         }
 
         Usuario usuario = usuarioOpt.get();
-        usuario.setNome(dto.getNome());
-        usuario.setEmail(dto.getEmail());
         usuario.setSenha(dto.getSenha());
 
-        // validação data de criação do usuario
-        if (dto.getData() == null){
-            usuario.setData(Timestamp.valueOf(LocalDateTime.now()));
-        } else {
-            usuario.setData(dto.getData());
-        }
 
         Usuario saveUsuario = repository.save(usuario);
         return ResponseEntity.ok(saveUsuario);
@@ -122,8 +105,6 @@ public class UsuarioController {
         return ResponseEntity.ok().body("Usuario deletado com sucesso.");
     }
 
-
-
     //  MUITO CUITDADO ISSO PODE QUEBRAR TODO O SITE
 
     //  MUITO CUITDADO ISSO PODE QUEBRAR TODO O SITE
@@ -135,7 +116,6 @@ public class UsuarioController {
     //  MUITO CUITDADO ISSO PODE QUEBRAR TODO O SITE
 
     //  MUITO CUITDADO ISSO PODE QUEBRAR TODO O SITE
-
 
     // Variável estática para armazenar o ID do usuário logado
     private static Integer loggedUserId = null;

@@ -49,7 +49,16 @@ public class PedidoController  {
 
     @PostMapping
     public ResponseEntity<?> save(@RequestBody Pedido_ResquestDTO dto) {
-                // Validação de valor
+
+        // Pegando o valor do usuário logado
+        Integer loggedUserId = UsuarioController.getLoggedUserId();
+
+        // Se loggedUserId for nulo, retorna erro
+        if (loggedUserId == null) {
+            return ResponseEntity.badRequest().body("Nenhum usuário está logado no momento.");
+        }
+
+        // Validação de valor
                 if (dto.getValor() == null) {
                     return ResponseEntity.badRequest().body("O valor do pedido é obrigatório.");
                 }
