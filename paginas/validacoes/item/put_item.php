@@ -1,3 +1,4 @@
+
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
     // Lê os dados JSON enviados pelo cliente
@@ -66,3 +67,7 @@ curl_close($ch);
 } else {
     echo json_encode(['success' => false, 'message' => 'Método HTTP inválido.']);
 }
+
+
+
+

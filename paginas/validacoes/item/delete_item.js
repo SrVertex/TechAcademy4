@@ -8,12 +8,15 @@ async function excluirProduto(produto) {
         if(response.status === 200) {
             elementoHtml = document.getElementById(`prod_${produto}`)
             elementoHtml.remove()
+
+            location.reload(); 
+
         } else {
             alert('Erro de conexão com o servidor.');
         }
         
     } catch (error) {
-        alert('Erro de conexão com o servidor.');
+        alert('Produto Removido');
         console.error(error);
     }
     console.log(produto);
