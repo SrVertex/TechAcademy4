@@ -11,7 +11,7 @@ async function excluirProduto(produto) {
             
             
         } else {
-            alert('Erro de conexão com o servidor.');
+            alert('Erro de conexão com o servidor adas.', location.reload());
         }
         
     } catch (error) {

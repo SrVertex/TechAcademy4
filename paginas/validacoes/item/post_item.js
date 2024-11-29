@@ -14,7 +14,7 @@ document.getElementById('formProduto').addEventListener('submit', async function
 
         if (result.success) {
             alert(result.message);
-            location.reload(); // Exibe mensagem de sucesso
+            location.reload();
         } else {
             alert(`Erro: ${result.message}`);
         }

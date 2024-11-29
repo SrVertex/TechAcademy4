@@ -84,7 +84,6 @@ public class ItemController {
         item.setNome(dto.getNome());
         item.setDescricao(dto.getDescricao());
         item.setPreco(dto.getPreco());
-        item.setFoto(dto.getFoto());
         item.setAtributo_1(dto.getAtributo_1());
         item.setAtributo_2(dto.getAtributo_2());
         item.setAtributo_3(dto.getAtributo_3());
