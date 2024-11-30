@@ -31,12 +31,24 @@ public class ItemPedidoController {
     @PostMapping
     public ResponseEntity<?> save(@RequestBody ItemPedido_RequestDTO dto) {
 
+
+        // Recupera o ID do usuário logado
+        Integer pedido = PedidoController.getMaxId();
+
+        // Usa o ID do usuário logado se estiver presente, senão utiliza o ID fornecido no DTO
+        Integer pedidoid = (pedido != null) ? pedido : dto.getPedido_id();
+
+        if (pedidoid == null) {
+            return ResponseEntity.badRequest().body("É necessário informar o ID do pedido ou estar logado.");
+        }
+
+
         ItemPedidoPK itemPedidoPK = new ItemPedidoPK();
         itemPedidoPK.setItemId(dto.getItem_id());
         itemPedidoPK.setPedidoId(dto.getPedido_id());
 
         Optional<Item> itemOtp = itemRepository.findById(dto.getItem_id());
-        Optional<Pedido> pedidoOtp = pedidoRepository.findById(dto.getPedido_id());
+        Optional<Pedido> pedidoOtp = pedidoRepository.findById(pedidoid);
 
         if (itemOtp.isEmpty() || pedidoOtp.isEmpty()) {
             return ResponseEntity.badRequest().body("Item não encontrado com o ID fornecido.");

@@ -4,11 +4,20 @@ import java.sql.Timestamp;
 import java.util.List;
 
 public class Pedido_ResquestDTO {
+    private Integer id_pedido;
     private Integer usuario_id;
     private Integer item_id;
     private Timestamp data_pedido;
     private String status;
     private Double valor;
+
+    public Integer getId_pedido() {
+        return id_pedido;
+    }
+
+    public void setId_pedido(Integer id_pedido) {
+        this.id_pedido = id_pedido;
+    }
 
     public Integer getItem_id() {
         return item_id;

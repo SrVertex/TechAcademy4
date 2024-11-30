@@ -36,6 +36,14 @@ public class PedidoController  {
     private Item_Repository itemRepository;
 
 
+    private static Integer maxId;
+
+    public static Integer getMaxId() {
+        return maxId;
+    }
+
+    @GetMapping("/maior-id") public ResponseEntity<Integer> findMaxId() { List<Pedido> pedidos = this.repository.findAll(); maxId = pedidos.stream().mapToInt(Pedido::getId_pedido).max().orElse(0); return ResponseEntity.ok(maxId); }
+
     @GetMapping
     public ResponseEntity<List<Pedido>> findAll(){
         List<Pedido> pedido = this.repository.findAll();
@@ -73,6 +81,8 @@ public class PedidoController  {
                 } else {
                     pedido.setData_pedido(dto.getData_pedido());
                 }
+
+                    findMaxId();
 
                 // Salvar o pedido
                 Pedido savedPedido = repository.save(pedido);

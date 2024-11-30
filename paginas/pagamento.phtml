@@ -2,7 +2,7 @@
     <div class="conteiner_pagamento">
         <p class="text-center">Escolha sua forma de pagamento</p>
 
-        <form action="catao" id="formPagamento">
+        <form action="catao" id="formPagamento" onsubmit="realizarPagamento(event)">
             <div class="modelo">
                 <div class="parcela" for="creditocard">
                     <label for="creditocard"><i class="bi bi-credit-card-2-back-fill"></i>Cartão de Crédito</label>
@@ -62,40 +62,85 @@
     </div>
 </section>
 
+
+<!-- Página de Pagamento -->
+<div>
+    <h1>Resumo do Pedido</h1>
+    <p>Preço: <span id="produtoPreco">R$ 0,00</span></p>
+
+    <!-- Formulário de pagamento -->
+    <form id="formPagamento" onsubmit="realizarPagamento(event)">
+        <label for="metodoPagamento">Forma de pagamento:</label>
+        <select id="metodoPagamento" name="metodoPagamento" required>
+            <option value="credito">Cartão de Crédito</option>
+            <option value="pix">PIX</option>
+            <option value="boleto">Boleto</option>
+        </select>
+
+        <button type="submit">Finalizar Compra</button>
+    </form>
+</div>
+
 <script>
-    document.getElementById('formPagamento').addEventListener('submit', function(event) {
-        const pagamentos = document.querySelectorAll('input[name="pagamento"]');
-        const parcelas = document.querySelectorAll('input[name="parcelas"]');
-        let pagamentoSelecionado = false;
-        let parcelaSelecionada = false;
-        pagamentos.forEach(pagamento => {
-            if (pagamento.checked) {
-                pagamentoSelecionado = true;
-                if (pagamento.value === 'creditocard') {
-                    parcelas.forEach(parcela => {
-                        if (parcela.checked) {
-                            parcelaSelecionada = true;
-                        }
-                    });
-                    if (!parcelaSelecionada) {
-                        alert('Por favor, selecione uma parcela para o pagamento com cartão de crédito.');
-                        event.preventDefault();
-                    }
-                }
-            }
-        });
-        if (!pagamentoSelecionado) {
-            alert('Por favor, selecione uma forma de pagamento.');
-            event.preventDefault();
-        }
+// Função para carregar os dados do produto armazenados no localStorage
+function carregarDadosProduto() {
+    // Recupera os dados armazenados no localStorage
+    const precoProduto = localStorage.getItem('precoProduto');
+    const produtoId = localStorage.getItem('produtoId');
+
+    // Verifica se os dados estão disponíveis no localStorage
+    if (!precoProduto || !produtoId) {
+        console.error("Dados do produto não encontrados no localStorage!");
+        return;
+    }
+
+    // Exibe o preço do produto na página
+    document.getElementById('produtoPreco').innerText = `R$ ${precoProduto}`;
+
+    // Armazenar o preço do produto e o ID do produto em variáveis globais
+    window.precoProduto = precoProduto;
+    window.produtoId = produtoId;
+}
+
+// Função para realizar o pagamento e registrar o pedido
+function realizarPagamento(event) {
+    event.preventDefault();
+
+    const metodoPagamento = document.getElementById('metodoPagamento').value;
+
+    // Verifique se os dados do produto foram carregados
+    if (!window.precoProduto || !window.produtoId) {
+        console.error("Erro: Dados do produto não carregados.");
+        return;
+    }
+
+    // Criar o pedido com os dados do produto e método de pagamento
+    const pedidoData = {
+        valor: window.precoProduto,
+        status: 'Pendente',
+        data_pedido: new Date().toISOString(),
+        produto_id: window.produtoId // ID do produto
+    };
+
+    // Enviar os dados para o backend (POST para criar o pedido)
+    fetch('http://localhost:8080/api/pedido', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(pedidoData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("Pedido criado com sucesso:", data);
+        // Redireciona para a página do pagamento com cartão
+        window.location.href = "catao";  // Página de pagamento com cartão
+    })
+    .catch(error => {
+        console.error("Erro ao criar pedido:", error);
     });
-    document.querySelectorAll('input[name="pagamento"]').forEach(pagamento => {
-        pagamento.addEventListener('change', function() {
-            document.querySelectorAll('input[name="pagamento"]').forEach(otherPagamento => {
-                if (otherPagamento !== pagamento) {
-                    otherPagamento.checked = false;
-                }
-            });
-        });
-    });
+}
+
+// Chama a função para carregar os dados do produto ao carregar a página
+window.onload = carregarDadosProduto;
 </script>

@@ -108,7 +108,7 @@ function filtrarProdutos() {
     document.querySelectorAll('.valorFilter:checked').forEach(checkbox => {
         selectedValues.push(parseFloat(checkbox.getAttribute('data-valor')));
     });
-gi
+
     // Se não houver seleções, exibe todos os produtos
     if (selectedValues.length === 0) {
         let produtos = document.querySelectorAll('.conteiner_produto');
