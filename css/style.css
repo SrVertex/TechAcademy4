@@ -2096,7 +2096,7 @@ footer {
                         /* Esconder o botão nativo dentro do input[type="file"] */
                         #fotoProduto::-webkit-file-upload-button {
                             background-color: transparent !important;
-                            background-image: linear-gradient(43deg, #ffffff34 0%, #00000038 100%); 
+                            background-image: linear-gradient(43deg, #ffffff34 0%, #00000038 100%);
                             border-radius: 20px;
                             border: solid 1px white;
                             padding: 4px 8px;
@@ -2104,7 +2104,7 @@ footer {
                             font-weight: bold;
                             color: white;
 
-                            margin-right: 10px; 
+                            margin-right: 10px;
 
                         }
 
@@ -2632,11 +2632,11 @@ footer {
             background-color: #ffffff1f;
             border: solid 1px white;
             border-radius: 20px;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.425);    
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.425);
             transition: 400ms all ease;
 
             &:hover {
-                transform: scale(1.02,1.02) !important;
+                transform: scale(1.02, 1.02) !important;
                 box-shadow: 0 0 10px white;
             }
 
@@ -2833,6 +2833,100 @@ footer {
                     }
                 }
 
+            }
+        }
+    }
+}
+
+#main_carrinho {
+
+    width: 100%;
+    padding: 10px;
+    margin: 30px 0;
+
+    h3 {
+        font-weight: bold;
+
+    }
+
+    .carrinho_flex {
+        .conteiner_produtos {
+            .produto {
+                display: flex;
+                align-items: center;
+                gap:10px;
+                background-color: rgb(217, 217, 217, 0.2);
+                border: solid 1px white;
+                border-radius: 20px;
+
+                padding: 10px;
+
+                .imagem {
+                    width: 30%;
+
+                    img {
+                        width: 100%;
+                    }
+                }
+
+                .descricao_flex {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 0;
+                    .descricao {
+                        margin-bottom: 10px;
+                        .titulo {
+                            font-size: 12px;
+                            display: -webkit-box;
+                            -webkit-box-orient: vertical;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            -webkit-line-clamp: 1;
+                            font-weight: bold;
+                            margin-bottom: 2px;
+                        }
+
+                        .sub_preco {
+                            font-size: 10px;
+                            margin-bottom: 0;
+                            span {
+                                font-weight: bold;
+                            }
+                        }
+                    }
+                    .controller {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-around;
+                        p {
+                            font-size: 16px;
+                            font-weight: bold;
+                            margin-bottom: 0;
+                        }   
+
+                        .btn {
+                            display: flex;
+                            justify-content: center;
+                            gap: 10px;
+                            align-items: center;
+                            color: white;
+                            font-size: 18px;
+                            background-color: black;
+                            border: solid 1px white;
+                            border-radius: 20px;
+                            width: 70px;
+                            height: 30px;
+                            padding: 0 5px;
+                            span {
+                                font-size:24px;
+                            }
+                        }
+
+                        a {
+                            font-size: 20px;
+                        }
+                    }
+                }
             }
         }
     }

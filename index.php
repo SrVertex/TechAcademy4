@@ -77,7 +77,7 @@ $usuarioLogado = isset($_SESSION['usuario']); // Verifica se o usuário está lo
                     <div class="area_botao">
                         <a href=""><i class="bi bi-moon-stars-fill"></i></a>
                         <a href=""><i class="bi bi-universal-access-circle"></i></a>
-                        <a href="carrinho.php"><i class="bi bi-cart"></i></a>
+                        <a href="carrinho"><i class="bi bi-cart"></i></a>
 
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -105,7 +105,7 @@ $usuarioLogado = isset($_SESSION['usuario']); // Verifica se o usuário está lo
                             </a>
 
                             <ul class="dropdown-menu dropdown-menu-1 ">
-                                <li><a class="dropdown-item" href="#"><i class="bi bi-cart"></i>Carrinho</a></li>
+                                <li><a class="dropdown-item" href="carrinho"><i class="bi bi-cart"></i>Carrinho</a></li>
                                 <li><a class="dropdown-item" href="#"><i class="bi bi-bag-fill"></i>Meus Pedidos</a></li>
                                 <li><a class="dropdown-item" href="#"><i class="bi bi-whatsapp"></i>WhatzApp</a></li>
                                 <li><a class="dropdown-item" href="admin"><i class="bi bi-xbox"></i>Admistrador</a></li>
@@ -191,7 +191,7 @@ $usuarioLogado = isset($_SESSION['usuario']); // Verifica se o usuário está lo
                             </button>
 
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#"><i class="bi bi-cart"></i>Carrinho</a></li>
+                                <li><a class="dropdown-item" href="carrinho"><i class="bi bi-cart"></i>Carrinho</a></li>
                                 <li><a class="dropdown-item" href="#"><i class="bi bi-bag-fill"></i>Meus Pedidos</a>
                                 </li>
                                 <li><a class="dropdown-item" href="#"><i class="bi bi-whatsapp"></i>WhatzApp</a></li>
@@ -203,7 +203,7 @@ $usuarioLogado = isset($_SESSION['usuario']); // Verifica se o usuário está lo
                     <div class="icons_link">
                         <a href=""><i class="bi bi-moon-stars-fill"></i></a>
                         <a href=""><i class="bi bi-universal-access-circle"></i></a>
-                        <a href="carrinho.php"><i class="bi bi-cart"></i></a>
+                        <a href="carrinho"><i class="bi bi-cart"></i></a>
                     </div>
 
                 </div>

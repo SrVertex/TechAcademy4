@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         if ($httpCode >= 200 && $httpCode < 300) {
-            echo json_encode(['success' => true, 'message' => 'login efetuado com sucesso']);
+            echo json_encode(['success' => true, 'message' => 'Login efetuado com Sucesso!']);
         } else {
             echo json_encode(['success' => false, 'message' => 'Verefique se a senha ou email correto', 'response' => $response]);
         }

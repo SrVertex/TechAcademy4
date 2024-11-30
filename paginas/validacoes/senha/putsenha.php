@@ -36,7 +36,7 @@ if(curl_errno($ch)) {
     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     if ($httpCode >= 200 && $httpCode < 300) {
         // Se o código de status for 2xx, é sucesso
-        echo json_encode(['success' => true, 'message' => 'Produto atualizado com sucesso!']);
+        echo json_encode(['success' => true, 'message' => 'Senha altereda com Sucesso']);
     } else {
         // Se o código de status não for 2xx, é erro
         echo json_encode(['success' => false, 'message' => "Erro: Código HTTP $httpCode"]);
