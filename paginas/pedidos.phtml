@@ -1,136 +1,122 @@
+<?php
+
+    $api = file_get_contents("http://localhost:8080/api/pedido");
+    $dadosApi = json_decode($api);
+
+    foreach ($dadosApi as $pedido) {
+    }
+?>
+
 <section id="main_pedidos">
     <div class="conteiner_pedidos">
         <div class="top">
             <h3>Pedidos</h3>
         </div>
-
         <div class="pedidos_flex">
+        <?php foreach ($dadosApi as $pedido): ?>
             <div class="pedidos">
-
                 <div class="name"><i class="bi bi-person-circle"></i>
-                    <P>Lucas Carvalho Pedrozo</P>
+                    <P><?= htmlspecialchars($pedido->usuario->nome) ?></P>
                 </div>
                 <div class="info_pedidos">
                     <ul>
-                        <li><strong>Quantidade: </strong>20 Produtos</li>
-                        <li><strong>Valor Total:</strong> R$ 78.00,00</li>
-                        <li><strong>Estagio da Compra:</strong> Concluido</li>
+                        <li><strong>Quantidade: </strong>01 Produtos</li>
+                        <li><strong>Valor Total:</strong> R$ <?= number_format($pedido->valor, 2, ',', '.') ?></li>
+                        <li><strong>Estagio da Compra:</strong> <?= htmlspecialchars($pedido->status) ?></li>
                     </ul>
                 </div>
                 <div class="dropdown">
                     <a class="btn  dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Estagio <i class="bi bi-pen-fill"></i></a>
-
                     <div class="dropdown-menu">
-                        <form action="">
+                        <form id="formStatus_<?= htmlspecialchars($pedido->id_pedido) ?>" method="POST" action="">
+                            <input type="hidden" name="idPedido" value="<?= htmlspecialchars($pedido->id_pedido) ?>">
                             <ul>
-                                <li><label for="estagio1">Em Analise</label><input type="checkbox" id="estagio1" name="estagio"></li>
-                                <li><label for="estagio2">Concluido</label><input type="checkbox" id="estagio2" name="estagio"></li>
-                                <li><label for="estagio3">em Espera</label><input type="checkbox" id="estagio3" name="estagio"></li>
+                                <li>
+                                    <label for="estagio1_<?= htmlspecialchars($pedido->id_pedido) ?>">Em Análise</label>
+                                    <input type="checkbox" id="estagio1_<?= htmlspecialchars($pedido->id_pedido) ?>" name="status" value="Em Análise">
+                                </li>
+                                <li>
+                                    <label for="estagio2_<?= htmlspecialchars($pedido->id_pedido) ?>">Concluído</label>
+                                    <input type="checkbox" id="estagio2_<?= htmlspecialchars($pedido->id_pedido) ?>" name="status" value="Concluído">
+                                </li>
+                                <li>
+                                    <label for="estagio3_<?= htmlspecialchars($pedido->id_pedido) ?>">Em Espera</label>
+                                    <input type="checkbox" id="estagio3_<?= htmlspecialchars($pedido->id_pedido) ?>" name="status" value="Em Espera">
+                                </li>
                             </ul>
-                            <button type="submit">Avançar</button>
+                            <button type="submit" data-id="<?= htmlspecialchars($pedido->id_pedido) ?>">Avançar</button>
                         </form>
                     </div>
                 </div>
             </div>
-            
-            <div class="pedidos">
-
-                <div class="name"><i class="bi bi-person-circle"></i>
-                    <P>Lucas Carvalho Pedrozo</P>
-                </div>
-                <div class="info_pedidos">
-                    <ul>
-                        <li><strong>Quantidade: </strong>20 Produtos</li>
-                        <li><strong>Valor Total:</strong> R$ 78.00,00</li>
-                        <li><strong>Estagio da Compra:</strong> Concluido</li>
-                    </ul>
-                </div>
-                <div class="dropdown">
-                    <a class="btn  dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Estagio <i class="bi bi-pen-fill"></i></a>
-
-                    <div class="dropdown-menu">
-                        <form action="">
-                            <ul>
-                                <li><label for="estagio1">Em Analise</label><input type="checkbox" id="estagio1" name="estagio"></li>
-                                <li><label for="estagio2">Concluido</label><input type="checkbox" id="estagio2" name="estagio"></li>
-                                <li><label for="estagio3">em Espera</label><input type="checkbox" id="estagio3" name="estagio"></li>
-                            </ul>
-                            <button type="submit">Avançar</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="pedidos">
-
-                <div class="name"><i class="bi bi-person-circle"></i>
-                    <P>Lucas Carvalho Pedrozo</P>
-                </div>
-                <div class="info_pedidos">
-                    <ul>
-                        <li><strong>Quantidade: </strong>20 Produtos</li>
-                        <li><strong>Valor Total:</strong> R$ 78.00,00</li>
-                        <li><strong>Estagio da Compra:</strong> Concluido</li>
-                    </ul>
-                </div>
-                <div class="dropdown">
-                    <a class="btn  dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Estagio <i class="bi bi-pen-fill"></i></a>
-
-                    <div class="dropdown-menu">
-                        <form action="">
-                            <ul>
-                                <li><label for="estagio1">Em Analise</label><input type="checkbox" id="estagio1" name="estagio"></li>
-                                <li><label for="estagio2">Concluido</label><input type="checkbox" id="estagio2" name="estagio"></li>
-                                <li><label for="estagio3">em Espera</label><input type="checkbox" id="estagio3" name="estagio"></li>
-                            </ul>
-                            <button type="submit">Avançar</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="pedidos">
-
-                <div class="name"><i class="bi bi-person-circle"></i>
-                    <P>Lucas Carvalho Pedrozo</P>
-                </div>
-                <div class="info_pedidos">
-                    <ul>
-                        <li><strong>Quantidade: </strong>20 Produtos</li>
-                        <li><strong>Valor Total:</strong> R$ 78.00,00</li>
-                        <li><strong>Estagio da Compra:</strong> Concluido</li>
-                    </ul>
-                </div>
-                <div class="dropdown">
-                    <a class="btn  dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Estagio <i class="bi bi-pen-fill"></i></a>
-
-                    <div class="dropdown-menu">
-                        <form action="">
-                            <ul>
-                                <li><label for="estagio1">Em Analise</label><input type="checkbox" id="estagio1" name="estagio"></li>
-                                <li><label for="estagio2">Concluido</label><input type="checkbox" id="estagio2" name="estagio"></li>
-                                <li><label for="estagio3">em Espera</label><input type="checkbox" id="estagio3" name="estagio"></li>
-                            </ul>
-                            <button type="submit">Avançar</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            
+            <?php endforeach; ?>
         </div>
     </div>
 </section>
 
-<!-- validação do checkbox -->
+
 
 <script>
-    const checkboxes = document.querySelectorAll('input[name="estagio"]');
-checkboxes.forEach((checkbox) => {
-    checkbox.addEventListener("change", () => {
-    checkboxes.forEach((box) => {
-        if (box !== checkbox) box.checked = false;
+    // Função para gerenciar a seleção de checkboxes e envio de formulário
+    document.querySelectorAll('form[id^="formStatus_"]').forEach((form) => {
+        // Impedir múltiplas seleções de checkboxes no mesmo formulário
+        const checkboxes = form.querySelectorAll('input[name="status"]');
+        checkboxes.forEach((checkbox) => {
+            checkbox.addEventListener("change", () => {
+                checkboxes.forEach((box) => {
+                    if (box !== checkbox) box.checked = false; // Desmarca outras checkboxes
+                });
+            });
+        });
+
+        // Adicionar envio assíncrono ao formulário
+        form.addEventListener("submit", async function (event) {
+            event.preventDefault(); // Evita o comportamento padrão do formulário
+
+            const formData = new FormData(form);
+            const idPedido = formData.get("idPedido");
+            const statusSelecionado = formData.get("status");
+
+            // Validação dos campos
+            if (!idPedido) {
+                alert("ID do pedido não encontrado. Verifique o formulário.");
+                return;
+            }
+
+            if (!statusSelecionado) {
+                alert("Por favor, selecione um status.");
+                return;
+            }
+
+            // Desabilitar o botão de envio para evitar múltiplos envios
+            const submitButton = form.querySelector('button[type="submit"]');
+            if (submitButton) submitButton.disabled = true;
+
+            try {
+                const response = await fetch(`http://localhost:8080/api/pedido/${idPedido}`, {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        status: statusSelecionado,
+                    }),
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    alert(result.message || "Status do pedido atualizado com sucesso.");
+                    // Opcional: Atualizar a interface do usuário, se necessário
+                } else {
+                    alert(`Erro ${response.status}: ${result.message || "Não foi possível atualizar o status."}`);
+                }
+            } catch (error) {
+                console.error(error);
+                alert("Erro ao conectar ao servidor. Verifique sua conexão.");
+            } finally {
+                // Reabilitar o botão de envio
+                if (submitButton) submitButton.disabled = false;
+            }
         });
     });
-});
-
 </script>

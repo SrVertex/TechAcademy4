@@ -1,24 +1,19 @@
 <section id="area_login">
     <div class="conteiner_login">
-
-        <h2>NOVA SENHA</h2>
-
+            <h2>NOVA SENHA</h2>
         <form id="form" action="login" method="post" class="form">
-
-        <input type="Email" name="email" class="required" oninput="" required id="email" placeholder="Confimer Seu Email" style="margin-bottom: 20px;">
-
-        <input type="password" name="Number" class="required" oninput="mainPasswordValidateRedefinir()" required id="senha" placeholder="Nova Senha" >
-                <span class="span-required" style=" margin:5px 0 0 10px; display: none; color: red;">Deve ter pelo menos 8 digetos </span>
-
-                    <input type="password" placeholder="Confirme a Nova Senha" name="Number" class="required" oninput="comparePassword()" required id="senha" style="margin-top:20px;">
-                <span class="span-required" style="margin:5px 0 0 10px; display: none; color: red;">Senha senha incorreta</span>
+                <input type="Email" name="email" class="required" oninput="" required id="email" placeholder="Confimer Seu Email" style="margin-bottom: 20px;">
+                <input type="password" name="senha" class="required"  required id="senha" placeholder="Nova Senha" >
+                <input type="password" placeholder="Confirme a Nova Senha" name="Number" class="required" required id="senha" style="margin-top:20px;">
 
             <div class="btn_login">
+
                 <a id="link" href="esqueciMinhaSenha">Voltar</a>
                 <button id="link" type="submit">Confirmar</button>
+
             </div>
         </form>
-
     </div>
-
 </section>                                                                                              
+
+<script src="paginas/validacoes/senha/put_senha.js"></script> 

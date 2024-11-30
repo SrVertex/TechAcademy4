@@ -117,8 +117,6 @@ public class UsuarioController {
         return ResponseEntity.ok().body("Usuario deletado com sucesso.");
     }
 
-
-
     //  MUITO CUITDADO ISSO PODE QUEBRAR TODO O SITE
 
     //  MUITO CUITDADO ISSO PODE QUEBRAR TODO O SITE
@@ -130,7 +128,6 @@ public class UsuarioController {
     //  MUITO CUITDADO ISSO PODE QUEBRAR TODO O SITE
 
     //  MUITO CUITDADO ISSO PODE QUEBRAR TODO O SITE
-
 
     // Variável estática para armazenar o ID do usuário logado
     private static Integer loggedUserId = null;
@@ -172,9 +169,6 @@ public class UsuarioController {
     }
 
 
-
-
-
     private final HashMap<String, String> passwordResetTokens = new HashMap<>();
 
     @PostMapping("/verificar-usuario")
@@ -199,7 +193,6 @@ public class UsuarioController {
 
         return ResponseEntity.ok("Usuário verificado. Token gerado para redefinição de senha.");
     }
-
 
     @PutMapping("/alterar-senha")
     public ResponseEntity<?> alterarSenha(@RequestBody Usuario_RequestDTO dto) {
@@ -238,7 +231,6 @@ public class UsuarioController {
 
         return ResponseEntity.ok("Senha alterada com sucesso.");
     }
-
 
 
 }

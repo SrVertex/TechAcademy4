@@ -7,6 +7,7 @@ import java.util.Objects;
 
 @Embeddable
 public class PedidoFormaPK {
+
     @Column(name = "pedido_id")
     private Integer pedidoId;
 
