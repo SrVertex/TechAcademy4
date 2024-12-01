@@ -105,7 +105,7 @@
 
                 const result = await response.json();
                 if (response.ok) {
-                    alert(result.message || "Status do pedido atualizado com sucesso.");
+                    alert(result.message || "Status do pedido atualizado com sucesso."), location.reload();
                     // Opcional: Atualizar a interface do usuário, se necessário
                 } else {
                     alert(`Erro ${response.status}: ${result.message || "Não foi possível atualizar o status."}`);

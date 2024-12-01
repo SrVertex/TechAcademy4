@@ -20,91 +20,69 @@ foreach ($dadosApi as $produto) {
             </div>
         </a>
 
-        <!-- Modal -->
-        <div class="modal fade  " id="exampleModalProduto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="statiBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="header">
-                        <h2 class="modal-title" id="exampleModalLabel">Produtos</h2>
-                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
+        <div class="modal fade" id="exampleModalProduto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="statiBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="header">
+                <h2 class="modal-title" id="exampleModalLabel">Produtos</h2>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
+            </div>
+            <div class="modal-body">
+                <?php foreach ($dadosApi as $index => $produto): ?>
+                <?php $parcela = $produto->preco / 10; ?>
+                <div class="conteiner_produto">
+                    <div class="imagem">
+                        <img src="paginas/validacoes/item/<?= htmlspecialchars($produto->foto) ?>" alt="<?= htmlspecialchars($produto->nome) ?>">
                     </div>
-                    <div class="modal-body">
-
-
-
-
-
-
-
-                    <?php foreach ($dadosApi as $produto): ?>
-                <?php 
-                    // Calcular o valor da parcela em 10x
-                    $parcela = $produto->preco / 10; 
-                    ?>
-
-
-                        <div class="conteiner_produto">
-
-                            <div class="imagem">
-                                <img src="paginas/validacoes/item/<?= htmlspecialchars($produto->foto) ?>" alt="<?= htmlspecialchars($produto->nome) ?>">
-                            </div>
-                            <div class="descricao">
-                                <p class="desc"><?= htmlspecialchars($produto->nome) ?></p>
-
-                                <p class="preco">R$ <?= number_format($produto->preco, 2, ',', '.') ?></p>
-
-                                <div class="auter">
-                                    <a href="detalheProduto/<?= htmlspecialchars($produto->id_item) ?>">Ver anuncio</a>
-                                    <div class="dropdown">
-                                        <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-pen-fill"></i></a>
-                                        <div class="dropdown-menu">
-                                            <h3>Alterar produto</h3>
-
-                                            <form method="POST" id="formProdutoPut" enctype="multipart/form-data">
-                                                <input type="hidden" name="idProduto" value="ID_DO_PRODUTO" />
-                                                <span class="preco">Id</span>
-                                                <input type="number" name="id_item_put" value="<?= htmlspecialchars($produto->id_item) ?>" readonly required>
-
-                                                <span class="preco">Titulo</span>
-                                                <textarea rows="" cols="" name="nome_put" placeholder="Novo titulo do produto"><?= htmlspecialchars($produto->nome) ?></textarea>
-                                                <span class="preco">Descricao</span>
-                                                <textarea rows="" cols="" name="descricao_put" placeholder="Nova descricao do produto"><?= htmlspecialchars($produto->descricao) ?></textarea>
-                                                <span class="preco">Preço</span>
-                                                <textarea rows="" cols="" name="preco_put" placeholder="Novo preco do produto"><?= htmlspecialchars($produto->preco) ?></textarea>
-                                                <span class="preco">Estoque</span>
-                                                <textarea rows="" cols="" name="estoque_put" placeholder="Novo estoque do produto"><?= htmlspecialchars($produto->estoque) ?></textarea>
-                                                <span class="preco">Atributo 1</span>
-                                                <textarea rows="" cols="" name="atributo_1_put" placeholder="Novo atributo 1 do produto"><?= htmlspecialchars($produto->atributo_1) ?></textarea>
-                                                <span class="preco">Atributo 2</span>
-                                                <textarea rows="" cols="" name="atributo_2_put" placeholder="Novo atributo 2 do produto"><?= htmlspecialchars($produto->atributo_2) ?></textarea>
-                                                <span class="preco">Atributo 3</span>
-                                                <textarea rows="" cols="" name="atributo_3_put" placeholder="Novo atributo 3 do produto"><?= htmlspecialchars($produto->atributo_3) ?></textarea>
-                                                <span class="preco">Atributo 4</span>
-                                                <textarea rows="" cols="" name="atributo_4_put" placeholder="Novo atributo 4 do produto"><?= htmlspecialchars($produto->atributo_4) ?></textarea>
-                                                <span class="preco">Atributo 5</span>
-                                                <textarea rows="" cols="" name="atributo_5_put" placeholder="Novo atributo 5 do produto"><?= htmlspecialchars($produto->atributo_5) ?></textarea>
-                                                <span class="preco">Atributo 6</span>
-                                                <textarea rows="" cols="" name="atributo_6_put" placeholder="Novo atributo 6 do produto"><?= htmlspecialchars($produto->atributo_6) ?></textarea>
-                                                <span class="preco">Id Categoria (Atual: <?= htmlspecialchars($produto->categoria->id_categoria) ?>)</span>
-                                                <input type="number" name="id_categoria_put" value="<?= htmlspecialchars($produto->categoria->id_categoria) ?>" placeholder="Insira o id da categoria" required>
-
-                                                <div class="pbtn">
-                                                    <button type="submit">Alterar</button>
-                                                </div>
-                                            </form>
+                    <div class="descricao">
+                        <p class="desc"><?= htmlspecialchars($produto->nome) ?></p>
+                        <p class="preco">R$ <?= number_format($produto->preco, 2, ',', '.') ?></p>
+                        <div class="auter">
+                            <a href="detalheProduto/<?= htmlspecialchars($produto->id_item) ?>">Ver anuncio</a>
+                            <div class="dropdown">
+                                <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-pen-fill"></i></a>
+                                <div class="dropdown-menu">
+                                    <h3>Alterar produto</h3>
+                                    <form method="POST" class="formProdutoPut" id="formProdutoPut-<?= $index ?>" enctype="multipart/form-data">
+                                        <input type="hidden" name="idProduto" value="<?= htmlspecialchars($produto->id_item) ?>" />
+                                        <span class="preco">Id</span>
+                                        <input type="number" name="id_item_put" value="<?= htmlspecialchars($produto->id_item) ?>" readonly required>
+                                        <span class="preco">Titulo</span>
+                                        <textarea rows="" cols="" name="nome_put" placeholder="Novo titulo do produto"><?= htmlspecialchars($produto->nome) ?></textarea>
+                                        <span class="preco">Descricao</span>
+                                        <textarea rows="" cols="" name="descricao_put" placeholder="Nova descricao do produto"><?= htmlspecialchars($produto->descricao) ?></textarea>
+                                        <span class="preco">Preço</span>
+                                        <textarea rows="" cols="" name="preco_put" placeholder="Novo preco do produto"><?= htmlspecialchars($produto->preco) ?></textarea>
+                                        <span class="preco">Estoque</span>
+                                        <textarea rows="" cols="" name="estoque_put" placeholder="Novo estoque do produto"><?= htmlspecialchars($produto->estoque) ?></textarea>
+                                        <span class="preco">Atributo 1</span>
+                                        <textarea rows="" cols="" name="atributo_1_put" placeholder="Novo atributo 1 do produto"><?= htmlspecialchars($produto->atributo_1) ?></textarea>
+                                        <span class="preco">Atributo 2</span>
+                                        <textarea rows="" cols="" name="atributo_2_put" placeholder="Novo atributo 2 do produto"><?= htmlspecialchars($produto->atributo_2) ?></textarea>
+                                        <span class="preco">Atributo 3</span>
+                                        <textarea rows="" cols="" name="atributo_3_put" placeholder="Novo atributo 3 do produto"><?= htmlspecialchars($produto->atributo_3) ?></textarea>
+                                        <span class="preco">Atributo 4</span>
+                                        <textarea rows="" cols="" name="atributo_4_put" placeholder="Novo atributo 4 do produto"><?= htmlspecialchars($produto->atributo_4) ?></textarea>
+                                        <span class="preco">Atributo 5</span>
+                                        <textarea rows="" cols="" name="atributo_5_put" placeholder="Novo atributo 5 do produto"><?= htmlspecialchars($produto->atributo_5) ?></textarea>
+                                        <span class="preco">Atributo 6</span>
+                                        <textarea rows="" cols="" name="atributo_6_put" placeholder="Novo atributo 6 do produto"><?= htmlspecialchars($produto->atributo_6) ?></textarea>
+                                        <span class="preco">Id Categoria (Atual: <?= htmlspecialchars($produto->categoria->id_categoria) ?>)</span>
+                                        <input type="number" name="id_categoria_put" value="<?= htmlspecialchars($produto->categoria->id_categoria) ?>" placeholder="Insira o id da categoria" required>
+                                        <div class="pbtn">
+                                            <button type="submit">Alterar</button>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
-
-                        <?php endforeach; ?>
-
-
                     </div>
                 </div>
+                <?php endforeach; ?>
             </div>
         </div>
+    </div>
+</div>
 
 
         <a class="conteiner_link" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalAdcionar">

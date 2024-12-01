@@ -99,9 +99,9 @@ public class PedidoController  {
         }
 
         // Validação de valor
-        if (dto.getValor() == null) {
-            return ResponseEntity.badRequest().body("O valor do pedido é obrigatório.");
-        }
+//        if (dto.getValor() == null) {
+//            return ResponseEntity.badRequest().body("O valor do pedido é obrigatório.");
+//        }
 
         // Validação de status
         if (dto.getStatus() == null || dto.getStatus().isEmpty()) {
@@ -110,7 +110,7 @@ public class PedidoController  {
 
         // Atualizar o pedido
         Pedido pedido = pedidoOpt.get();
-        pedido.setValor(dto.getValor());
+//        pedido.setValor(dto.getValor());
         pedido.setStatus(dto.getStatus());
 
         // Atualização e definição da data do pedido
