@@ -75,6 +75,4 @@ public class categoriaController {
         return ResponseEntity.ok().body("Item deletado com sucesso.");
     }
 
-
-
 }

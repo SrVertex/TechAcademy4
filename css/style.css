@@ -1330,15 +1330,15 @@ footer {
     margin: 20px 0;
 
     #info_cep {
-        width: 240px;
+        /* width: 240px;
         background-color: rgb(217, 217, 217, 0.2);
         border-radius: 20px;
         border: solid 1px white;
-        padding: 8px;
+        padding: 8px; */
     p {
         margin-bottom: 5px !important;
     }
-    }
+    }   
 
     .titulo {
 

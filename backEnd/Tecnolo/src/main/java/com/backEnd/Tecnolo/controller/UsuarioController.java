@@ -21,17 +21,18 @@ import com.backEnd.Tecnolo.repository.Usuario_Repository;
 @RequestMapping("/api/usuario")
 public class UsuarioController {
 
+        // Puxa o repository que esta n pasta repository
     @Autowired
     private Usuario_Repository repository;
 
-    // get de usuario sem id
+    // nesse get busca todos os usuarios sem definir um em espesifico
     @GetMapping
     public ResponseEntity<List<Usuario>> findAll(){
         List<Usuario> usuarios = this.repository.findAll();
         return ResponseEntity.ok(usuarios);
     }
 
-    // get de usuario com id
+    // nesse get vai busca voce vai defenir o id do usuario e vairetornar o id
     @GetMapping("/{id}")
     public Usuario findById(@PathVariable Integer id) {
         return this.repository.findById(id)
@@ -39,6 +40,7 @@ public class UsuarioController {
                         new IllegalArgumentException("Usuario não foi encontrado"));
     }
 
+    // aqui vai ter um post do usuario
     @PostMapping
     public ResponseEntity<?> save(@RequestBody Usuario_RequestDTO dto) {
 
@@ -72,6 +74,7 @@ public class UsuarioController {
 
     }
 
+    // aqui vai ocorrer o alter do usuario
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@PathVariable Integer id, @RequestBody Usuario_RequestDTO dto) {
 
@@ -106,6 +109,7 @@ public class UsuarioController {
 
     }
 
+    // aqui vai ocorre o delete do usuario
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable Integer id) {
 
@@ -129,7 +133,8 @@ public class UsuarioController {
 
     //  MUITO CUITDADO ISSO PODE QUEBRAR TODO O SITE
 
-    // Variável estática para armazenar o ID do usuário logado
+
+    // vai armarenar o id do usuario logado par que possa ser usado em outros lugares como pedido em endereço
     private static Integer loggedUserId = null;
 
     public static Integer getLoggedUserId() {
@@ -169,6 +174,7 @@ public class UsuarioController {
     }
 
 
+    // aqui vai ser criado um chave de acesso para que o alter possar ser feito
     private final HashMap<String, String> passwordResetTokens = new HashMap<>();
 
     @PostMapping("/verificar-usuario")
@@ -194,6 +200,7 @@ public class UsuarioController {
         return ResponseEntity.ok("Usuário verificado. Token gerado para redefinição de senha.");
     }
 
+    // alter: vai reseber o email para ver se esse email tem alguna ordem de alteração de senha se tiver permitir o alter da senha
     @PutMapping("/alterar-senha")
     public ResponseEntity<?> alterarSenha(@RequestBody Usuario_RequestDTO dto) {
         if (dto.getEmail() == null) {

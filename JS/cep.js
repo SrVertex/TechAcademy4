@@ -32,7 +32,7 @@ document.getElementById('formCEP').addEventListener('submit', async function(e) 
             // Exibe os dados do CEP
             resultadoDiv.innerHTML = `
             <div id="info_cep">
-                    <h6>Busca DO CEP</h6>
+                    <h6>Resultado da busca:</h6>
                 <p><strong>Cidade:</strong> ${data.localidade}</p>
                 <p><strong>Estado:</strong> ${data.uf}</p>
                 <p style="margin-bottom: 0 !important;"><strong>Frete Grátis</strong></p>

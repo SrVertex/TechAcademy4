@@ -1,5 +1,3 @@
-
-
 <section id="main_produtos">
     <div class="top">
         <h2>Mais Vendidos</h2>
@@ -14,7 +12,7 @@
                 <form id="filterForm">
                     <h5>Valor Maximo</h5>
                     <ul>
-                    <li><input type="checkbox" class="valorFilter" data-valor="0" id="valorTodos"> <label for="valorTodos">Mostrar Todos</label></li>
+                        <li><input type="checkbox" class="valorFilter" data-valor="0" id="valorTodos"> <label for="valorTodos">Mostrar Todos</label></li>
                         <li><input type="checkbox" class="valorFilter" data-valor="500" id="valor2"> <label for="valor2">R$ 500,00</label></li>
                         <li><input type="checkbox" class="valorFilter" data-valor="1000" id="valor3"> <label for="valor3">R$ 1000,00</label></li>
                         <li><input type="checkbox" class="valorFilter" data-valor="2500" id="valor4"> <label for="valor4">R$ 2500,00</label></li>
@@ -28,35 +26,35 @@
         </div>
     </div>
 
-<div id="produtos-container" class="produto_flex">
-            <!-- Produtos serão carregados aqui via PHP -->
-            <?php
-    $api = file_get_contents("http://localhost:8080/api/item");
-    $dadosApi = json_decode($api);
+    <div id="produtos-container" class="produto_flex">
+        <!-- Produtos serão carregados aqui via PHP -->
+        <?php
+        $api = file_get_contents("http://localhost:8080/api/item");
+        $dadosApi = json_decode($api);
 
-    // Verificar se os dados foram carregados corretamente
-    if ($dadosApi && is_array($dadosApi)) {
-        // Ordenar os itens pela propriedade 'preco' em ordem decrescente
-        usort($dadosApi, function ($a, $b) {
-            return $b->preco <=> $a->preco; // Comparar para ordem decrescente
-        });
+        // Verificar se os dados foram carregados corretamente
+        if ($dadosApi && is_array($dadosApi)) {
+            // Ordenar os itens pela propriedade 'preco' em ordem decrescente
+            usort($dadosApi, function ($a, $b) {
+                return $b->preco <=> $a->preco; // Comparar para ordem decrescente
+            });
 
-        // Pegar os 5 itens mais caros
-        $TodosItensCaros = array_slice($dadosApi, 0, 10);
+            // Pegar os 5 itens mais caros
+            $TodosItensCaros = array_slice($dadosApi, 0, 10);
 
-        $promo = array_slice($dadosApi, 0, 10);
+            $promo = array_slice($dadosApi, 0, 10);
 
-        // Exibir os 5 itens mais caros
-        foreach ($TodosItensCaros as $produto) {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+            // Exibir os 5 itens mais caros
+            foreach ($TodosItensCaros as $produto) {
+            }
+            foreach ($promo as $produto) {
+            }
+        } else {
+            echo "Erro ao carregar os dados da API.";
         }
-        foreach ($promo as $produto) {
-        }
-    } else {
-        echo "Erro ao carregar os dados da API.";
-    }
 
-    foreach ($TodosItensCaros as $produto) {
-            $parcela = $produto->preco / 10; 
+        foreach ($TodosItensCaros as $produto) {
+            $parcela = $produto->preco / 10;
 
             echo '<a href="detalheProduto/' . $produto->id_item . '"id="conteiner_produto" class="conteiner_produto" data-preco="' . $produto->preco . '">';
             echo '<div class="imagem">';
@@ -71,65 +69,8 @@
             echo '</div>';
             echo '</a>';
         }
-    ?>
-</div>
+        ?>
+    </div>
 </section>
 
-
-<script>
-    function filtrarProdutos() {
-        let selectedValues = [];
-        let showAll = document.getElementById('valorTodos').checked;
-
-        // Se o "Mostrar Todos" estiver marcado, mostra todos os produtos sem filtro
-        if (showAll) {
-            // Exibe todos os produtos
-            let produtos = document.querySelectorAll('.conteiner_produto');
-            produtos.forEach(produto => {
-                produto.style.display = 'flex';
-            });
-            return;
-        }
-
-        // Captura todos os checkboxes selecionados, excluindo o "Mostrar Todos"
-        document.querySelectorAll('.valorFilter:checked').forEach(checkbox => {
-            selectedValues.push(parseFloat(checkbox.getAttribute('data-valor')));
-        });
-
-        // Se não houver seleções, exibe todos os produtos
-        if (selectedValues.length === 0) {
-            let produtos = document.querySelectorAll('.conteiner_produto');
-            produtos.forEach(produto => {
-                produto.style.display = 'flex';
-            });
-            return;
-        }
-
-        // Filtra os produtos com base nos valores selecionados (preço <= valor selecionado)
-        let produtos = document.querySelectorAll('.conteiner_produto');
-        produtos.forEach(produto => {
-            let precoProduto = parseFloat(produto.getAttribute('data-preco'));
-            // Verifica se o preço do produto é menor ou igual ao valor selecionado
-            if (selectedValues.some(val => precoProduto <= val)) {
-                produto.style.display = 'flex'; // Exibe o produto
-            } else {
-                produto.style.display = 'none'; // Oculta o produto
-            }
-        });
-    }
-
-    // Evento para garantir que apenas um checkbox possa ser selecionado de cada vez
-    document.querySelectorAll('.valorFilter').forEach(checkbox => {
-        checkbox.addEventListener('change', function () {
-            if (this.checked) {
-                // Se um checkbox for marcado, desmarque todos os outros
-                document.querySelectorAll('.valorFilter').forEach(otherCheckbox => {
-                    if (otherCheckbox !== this) {
-                        otherCheckbox.checked = false;
-                    }
-                });
-            }
-            filtrarProdutos(); 
-        });
-    });
-</script>
+<script src="JS/filtro.js"></script>

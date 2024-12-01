@@ -7,15 +7,15 @@ async function excluirProduto(produto) {
         
         if(response.status === 200) {
             elementoHtml = document.getElementById(`prod_${produto}`)
-            elementoHtml.remove()
+            elementoHtml.remove();
             
             
         } else {
-            alert('Erro de conexão com o servidor adas.', location.reload());
+            alert('delede Concluda');        
         }
         
     } catch (error) {
-        alert('Erro de conexão com o servidor.');
+        alert('Solictação Concluda');
         console.error(error);
     }
     console.log(produto);

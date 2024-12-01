@@ -5,8 +5,8 @@
 
         <form method="POST" class="form" id="form">
 
-    <input type="email" name="email" placeholder="E-mail" required>
-
+    <input type="email" id="email" class="required" oninput="emailValidate()" name="email" placeholder="E-mail" required>
+    <span class="span-required" style="margin:5px 0 0 10px; color:red; display: none;">E-mail inválido</span>
     <input type="text" name="nome" placeholder="Nome Completo" style="margin: 20px 0 0 0;" required>
 
     <div class="btn_login">

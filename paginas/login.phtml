@@ -5,20 +5,20 @@
 
         <form method="POST" action="home" class="form" id="formLogin">
 
-            <input type="email" class="required" id="email" name="email" placeholder="E-mail" required >
-            <span class="span-required" style="margin: 10px 0 0 10px; color:red; display: none;">E-mail inválido</span>
+            <input type="email" class="required" id="email" name="email" oninput="emailValidate()" placeholder="E-mail" required>
+            <span class="span-required" style="margin:5px 0 0 10px; color:red; display: none;">E-mail inválido</span>
 
-            <input type="password" class="required" id="senha" name="senha" placeholder="Senha" style="margin: 20px 0 10px 0;" required>
-            <span class="span-required" style="margin: 0 0 10px 10px; color:red; display: none;">Senha deve ter no mínimo 8 caracteres</span>
+            <input type="password" class="required" id="senha" name="senha" oninput="mainPasswordValidate()" placeholder="Senha" style="margin: 20px 0 0 0;" required>
+            <span class="span-required" style=" margin:5px 0 0 10px; display: none; color: red;">Senha muito CurtaMinimo 8 digitos </span>
 
-            <a href="esqueciMinhaSenha" class="senha">Esqueceu minha senha</a>
+            <a href="esqueciMinhaSenha" style="margin: 10px 0 0 15px;" class="senha">Esqueceu minha senha</a>
 
             <div class="btn_login">
                 <a id="link" href="index.php">Voltar</a>
                 <button id="link" type="submit">Confirmar</button>
             </div>
         </form>
-        
+
         <a href="cadastro">Cadastrar-se</a>
     </div>
 
@@ -30,5 +30,3 @@
 
 
 <script src="paginas/validacoes/login/post_login.js"></script>
-
-
