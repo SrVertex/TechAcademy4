@@ -1,11 +1,8 @@
 function carregarDadosProduto() {
     const precoProduto = localStorage.getItem('precoProduto');
     const produtoId = localStorage.getItem('produtoId');
+    const linkVoltar = document.getElementById('linkVoltar');
 
-    if (!precoProduto || !produtoId) {
-        console.error("Dados do produto não encontrados no localStorage!");
-        return;
-    }
 
     document.getElementById('produtoPreco').innerText = `Preço: R$ ${precoProduto}`;
     window.precoProduto = precoProduto;

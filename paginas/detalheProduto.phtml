@@ -165,31 +165,31 @@ if ($produto_estoque > 0) {
     </div>
 
 
-<?php
-    $api = file_get_contents("http://localhost:8080/api/item");
-    $dadosApi = json_decode($api);
+        <?php
+            $api = file_get_contents("http://localhost:8080/api/item");
+            $dadosApi = json_decode($api);
 
-    // Verificar se os dados foram carregados corretamente
-    if ($dadosApi && is_array($dadosApi)) {
-        // Ordenar os itens pela propriedade 'preco' em ordem decrescente
-        usort($dadosApi, function ($a, $b) {
-            return $b->preco <=> $a->preco; // Comparar para ordem decrescente
-        });
+            // Verificar se os dados foram carregados corretamente
+            if ($dadosApi && is_array($dadosApi)) {
+                // Ordenar os itens pela propriedade 'preco' em ordem decrescente
+                usort($dadosApi, function ($a, $b) {
+                    return $b->preco <=> $a->preco; // Comparar para ordem decrescente
+                });
 
-        // Pegar os 5 itens mais caros
-        $top5ItensCaros = array_slice($dadosApi, 0, 6);
+                // Pegar os 5 itens mais caros
+                $top5ItensCaros = array_slice($dadosApi, 0, 6);
 
-        $promo = array_slice($dadosApi, 0, 10);
+                $promo = array_slice($dadosApi, 0, 10);
 
-        // Exibir os 5 itens mais caros
-        foreach ($top5ItensCaros as $produto) {
-        }
-        foreach ($promo as $produto) {
-        }
-    } else {
-        echo "Erro ao carregar os dados da API.";
-    }
-?>
+                // Exibir os 5 itens mais caros
+                foreach ($top5ItensCaros as $produto) {
+                }
+                foreach ($promo as $produto) {
+                }
+            } else {
+                echo "Erro ao carregar os dados da API.";
+            }
+        ?>
 
     <div id="conteiner_carrosel">
         <div class="categoria">
@@ -229,7 +229,44 @@ if ($produto_estoque > 0) {
             <?php endforeach; ?>
         </div>
     </div>
+
 </section>
+
+
+
+<?php
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        header('Content-Type: application/json');
+        $input = json_decode(file_get_contents('php://input'), true);
+        $cep = preg_replace('/[^0-9]/', '', $input['cep']);
+
+        if (strlen($cep) !== 8) {
+            echo json_encode(['erro' => 'CEP inválido. Insira um CEP com 8 dígitos.']);
+            exit;
+        }
+
+        $url = "https://viacep.com.br/ws/$cep/json/";
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $response = curl_exec($ch);
+        curl_close($ch);
+
+        if ($response) {
+            $data = json_decode($response, true);
+
+            if (isset($data['erro'])) {
+                echo json_encode(['erro' => 'CEP não encontrado. Verifique e tente novamente.']);
+            } else {
+                echo json_encode($data);
+            }
+        } else {
+            echo json_encode(['erro' => 'Erro ao acessar a API ViaCEP. Tente novamente mais tarde.']);
+        }
+        exit;
+    }
+?>
 
 
 <script src="JS/cep.js"></script>
@@ -246,50 +283,16 @@ if ($produto_estoque > 0) {
 </script>
 
 
-<?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    header('Content-Type: application/json');
-    $input = json_decode(file_get_contents('php://input'), true);
-    $cep = preg_replace('/[^0-9]/', '', $input['cep']);
-
-    if (strlen($cep) !== 8) {
-        echo json_encode(['erro' => 'CEP inválido. Insira um CEP com 8 dígitos.']);
-        exit;
-    }
-
-    $url = "https://viacep.com.br/ws/$cep/json/";
-
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    $response = curl_exec($ch);
-    curl_close($ch);
-
-    if ($response) {
-        $data = json_decode($response, true);
-
-        if (isset($data['erro'])) {
-            echo json_encode(['erro' => 'CEP não encontrado. Verifique e tente novamente.']);
-        } else {
-            echo json_encode($data);
-        }
-    } else {
-        echo json_encode(['erro' => 'Erro ao acessar a API ViaCEP. Tente novamente mais tarde.']);
-    }
-    exit;
-}
-?>
-
-
 <script>
     function armazenarDadosProduto() {
 
         const precoProduto = parseFloat(document.querySelector('.preco').innerText.replace('R$ ', '').replace('.', '').replace(',', '.'));
         const produtoId = <?= $produtoInfo->id_item ?>;
+
         localStorage.setItem('produtoId', produtoId);
         localStorage.setItem('precoProduto', precoProduto);
 
         window.location.href = "pagamento.phtml";
         window.location.href = "catao.phtml";
     }
-</script>
+</script>       
