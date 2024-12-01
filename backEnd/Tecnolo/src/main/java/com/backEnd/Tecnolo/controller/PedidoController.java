@@ -9,6 +9,7 @@ import com.backEnd.Tecnolo.model.*;
 import com.backEnd.Tecnolo.repository.Item_Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -75,6 +76,7 @@ public class PedidoController  {
                 pedido.setStatus(dto.getStatus());
                 pedido.setUsuario(usuarioOpt.get());
 
+
                 // Validação e definição da data do pedido
                 if (dto.getData_pedido() == null) {
                     pedido.setData_pedido(Timestamp.valueOf(LocalDateTime.now()));
@@ -82,7 +84,6 @@ public class PedidoController  {
                     pedido.setData_pedido(dto.getData_pedido());
                 }
 
-                    findMaxId();
 
                 // Salvar o pedido
                 Pedido savedPedido = repository.save(pedido);

@@ -1329,6 +1329,17 @@ footer {
     width: 100%;
     margin: 20px 0;
 
+    #info_cep {
+        width: 240px;
+        background-color: rgb(217, 217, 217, 0.2);
+        border-radius: 20px;
+        border: solid 1px white;
+        padding: 8px;
+    p {
+        margin-bottom: 5px !important;
+    }
+    }
+
     .titulo {
 
         width: 95%;
@@ -1519,7 +1530,6 @@ footer {
             }
 
             .cep {
-                margin-bottom: 40px;
 
                 .busca {
                     display: flex;
@@ -1674,6 +1684,7 @@ footer {
             }
 
             .descricao_completa {
+                margin-top: 40px;
                 p {
                     font-size: 14px;
                     font-weight: bold;
@@ -2846,8 +2857,9 @@ footer {
 
     h3 {
         font-weight: bold;
-
     }
+
+
 
     .carrinho_flex {
         .conteiner_produtos {

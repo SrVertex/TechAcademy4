@@ -2,57 +2,50 @@
     <div class="conteiner_pagamento">
         <p class="text-center">Escolha sua forma de pagamento</p>
 
-        <form action="catao" id="formPagamento" onsubmit="realizarPagamento(event)">
+        <form action="cartao" id="formPagamento" onsubmit="realizarPagamento(event)">
             <div class="modelo">
-                <div class="parcela" for="creditocard">
-                    <label for="creditocard"><i class="bi bi-credit-card-2-back-fill"></i>Cartão de Crédito</label>
+                <div class="parcela">
+                    <label for="creditocard"><i class="bi bi-credit-card-2-back-fill"></i> Cartão de Crédito</label>
                     <p>Pagamento Imediato</p>
 
                     <div class="dropdown">
                         <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Pacelas<i class="bi bi-arrow-down-short"></i>
+                            Parcelas <i class="bi bi-arrow-down-short"></i>
                         </a>
 
                         <ul class="dropdown-menu">
-                            <li><label for="pacela1">1X R$ 78.000,00</label><input type="checkbox" id="pacela1" name="parcelas"></li>
-                            <li><label for="pacela2">2X R$ 78.000,00</label><input type="checkbox" id="pacela2" name="parcelas"></li>
-                            <li><label for="pacela3">3X R$ 78.000,00</label><input type="checkbox" id="pacela3" name="parcelas"></li>
-                            <li><label for="pacela4">4X R$ 78.000,00</label><input type="checkbox" id="pacela4" name="parcelas"></li>
-                            <li><label for="pacela5">5X R$ 78.000,00</label><input type="checkbox" id="pacela5" name="parcelas"></li>
-                            <li><label for="pacela6">6X R$ 78.000,00</label><input type="checkbox" id="pacela6" name="parcelas"></li>
-                            <li><label for="pacela7">7X R$ 78.000,00</label><input type="checkbox" id="pacela7" name="parcelas"></li>
-                            <li><label for="pacela8">8X R$ 78.000,00</label><input type="checkbox" id="pacela8" name="parcelas"></li>
-                            <li><label for="pacela9">9X R$ 78.000,00</label><input type="checkbox" id="pacela9" name="parcelas"></li>
-                            <li><label for="pacela10">10X R$ 78.000,00</label><input type="checkbox" id="pacela10" name="parcelas"></li>
-                            <li><label for="pacela11">11X R$ 78.000,00</label><input type="checkbox" id="pacela11" name="parcelas"></li>
-                            <li><label for="pacela12">12X R$ 78.000,00</label><input type="checkbox" id="pacela12" name="parcelas"></li>
+                            <li><input type="radio" id="parcela1" name="parcelas" value="1"><label for="parcela1">1X R$ 78.000,00</label></li>
+                            <li><input type="radio" id="parcela2" name="parcelas" value="2"><label for="parcela2">2X R$ 39.000,00</label></li>
+                            <li><input type="radio" id="parcela3" name="parcelas" value="3"><label for="parcela3">3X R$ 26.000,00</label></li>
                         </ul>
                     </div>
                 </div>
                 <div class="ipt">
-                    <input type="checkbox" id="creditocard" name="pagamento" value="creditocard">
+                    <input type="radio" id="creditocard" name="pagamento" value="creditocard">
                 </div>
             </div>
 
             <div class="modelo">
-                <div class="parcela" for="pix">
-                    <label for="pix"><i class="bi bi-credit-card-2-back-fill"></i>PIX</label>
+                <div class="parcela">
+                    <label for="pix"><i class="bi bi-credit-card-2-back-fill"></i> PIX</label>
                     <p>Pagamento Imediato</p>
                 </div>
                 <div class="ipt">
-                    <input type="checkbox" id="pix" name="pagamento" value="pix">
+                    <input type="radio" id="pix" name="pagamento" value="pix">
                 </div>
             </div>
 
             <div class="modelo">
-                <div class="parcela" for="boleto">
-                    <label for="boleto"><i class="bi bi-credit-card-2-back-fill"></i>Boleto</label>
+                <div class="parcela">
+                    <label for="boleto"><i class="bi bi-credit-card-2-back-fill"></i> Boleto</label>
                     <p>O Pagamento Pode levar de 1 a 2 dias</p>
                 </div>
                 <div class="ipt">
-                    <input type="checkbox" id="boleto" name="pagamento" value="boleto">
+                    <input type="radio" id="boleto" name="pagamento" value="boleto">
                 </div>
             </div>
+
+            <div id="produtoPreco" style="font-weight: bold !important;"></div>
 
             <div class="btn">
                 <a href="detalheProduto">Voltar</a>
@@ -63,84 +56,5 @@
 </section>
 
 
-<!-- Página de Pagamento -->
-<div>
-    <h1>Resumo do Pedido</h1>
-    <p>Preço: <span id="produtoPreco">R$ 0,00</span></p>
-
-    <!-- Formulário de pagamento -->
-    <form id="formPagamento" onsubmit="realizarPagamento(event)">
-        <label for="metodoPagamento">Forma de pagamento:</label>
-        <select id="metodoPagamento" name="metodoPagamento" required>
-            <option value="credito">Cartão de Crédito</option>
-            <option value="pix">PIX</option>
-            <option value="boleto">Boleto</option>
-        </select>
-
-        <button type="submit">Finalizar Compra</button>
-    </form>
-</div>
-
-<script>
-// Função para carregar os dados do produto armazenados no localStorage
-function carregarDadosProduto() {
-    // Recupera os dados armazenados no localStorage
-    const precoProduto = localStorage.getItem('precoProduto');
-    const produtoId = localStorage.getItem('produtoId');
-
-    // Verifica se os dados estão disponíveis no localStorage
-    if (!precoProduto || !produtoId) {
-        console.error("Dados do produto não encontrados no localStorage!");
-        return;
-    }
-
-    // Exibe o preço do produto na página
-    document.getElementById('produtoPreco').innerText = `R$ ${precoProduto}`;
-
-    // Armazenar o preço do produto e o ID do produto em variáveis globais
-    window.precoProduto = precoProduto;
-    window.produtoId = produtoId;
-}
-
-// Função para realizar o pagamento e registrar o pedido
-function realizarPagamento(event) {
-    event.preventDefault();
-
-    const metodoPagamento = document.getElementById('metodoPagamento').value;
-
-    // Verifique se os dados do produto foram carregados
-    if (!window.precoProduto || !window.produtoId) {
-        console.error("Erro: Dados do produto não carregados.");
-        return;
-    }
-
-    // Criar o pedido com os dados do produto e método de pagamento
-    const pedidoData = {
-        valor: window.precoProduto,
-        status: 'Pendente',
-        data_pedido: new Date().toISOString(),
-        produto_id: window.produtoId // ID do produto
-    };
-
-    // Enviar os dados para o backend (POST para criar o pedido)
-    fetch('http://localhost:8080/api/pedido', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(pedidoData)
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log("Pedido criado com sucesso:", data);
-        // Redireciona para a página do pagamento com cartão
-        window.location.href = "catao";  // Página de pagamento com cartão
-    })
-    .catch(error => {
-        console.error("Erro ao criar pedido:", error);
-    });
-}
-
-// Chama a função para carregar os dados do produto ao carregar a página
-window.onload = carregarDadosProduto;
+<script src="JS/pagamento.js">
 </script>
