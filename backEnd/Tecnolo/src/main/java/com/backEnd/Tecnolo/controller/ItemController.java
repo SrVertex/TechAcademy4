@@ -1,16 +1,24 @@
 package com.backEnd.Tecnolo.controller;
 
-import com.backEnd.Tecnolo.dto.Item_RequestDTO;
-import com.backEnd.Tecnolo.model.*;
-import com.backEnd.Tecnolo.repository.Categoria_Repository;
-import com.backEnd.Tecnolo.repository.Item_Repository;
-import com.backEnd.Tecnolo.repository.Pedido_Repository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.backEnd.Tecnolo.dto.Item_RequestDTO;
+import com.backEnd.Tecnolo.model.Categoria;
+import com.backEnd.Tecnolo.model.Item;
+import com.backEnd.Tecnolo.repository.Categoria_Repository;
+import com.backEnd.Tecnolo.repository.Item_Repository;
 
 @RestController
 @RequestMapping("/api/item")

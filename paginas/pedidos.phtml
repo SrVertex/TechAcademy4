@@ -15,7 +15,7 @@
         <div class="pedidos_flex">
         <?php foreach ($dadosApi as $pedido): ?>
             <div class="pedidos">
-                <div class="name"><i class="bi bi-person-circle"></i>
+                <div class="name"><img src="imagens/icone.png" alt="">
                     <P><?= htmlspecialchars($pedido->usuario->nome) ?></P>
                 </div>
                 <div class="info_pedidos">
@@ -26,7 +26,7 @@
                     </ul>
                 </div>
                 <div class="dropdown">
-                    <a class="btn  dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Estagio <i class="bi bi-pen-fill"></i></a>
+                    <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Estagio <i class="bi bi-pen-fill"></i></a>
                     <div class="dropdown-menu">
                         <form id="formStatus_<?= htmlspecialchars($pedido->id_pedido) ?>" method="POST" action="">
                             <input type="hidden" name="idPedido" value="<?= htmlspecialchars($pedido->id_pedido) ?>">
