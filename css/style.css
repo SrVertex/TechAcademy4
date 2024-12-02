@@ -1330,15 +1330,16 @@ footer {
     margin: 20px 0;
 
     #info_cep {
+
         /* width: 240px;
         background-color: rgb(217, 217, 217, 0.2);
         border-radius: 20px;
         border: solid 1px white;
         padding: 8px; */
-    p {
-        margin-bottom: 5px !important;
+        p {
+            margin-bottom: 5px !important;
+        }
     }
-    }   
 
     .titulo {
 
@@ -1685,6 +1686,7 @@ footer {
 
             .descricao_completa {
                 margin-top: 40px;
+
                 p {
                     font-size: 14px;
                     font-weight: bold;
@@ -2868,7 +2870,7 @@ footer {
             .produto {
                 display: flex;
                 align-items: center;
-                gap:10px;
+                gap: 10px;
                 background-color: rgb(217, 217, 217, 0.2);
                 border: solid 1px white;
                 border-radius: 20px;
@@ -2887,8 +2889,10 @@ footer {
                     display: flex;
                     flex-direction: column;
                     padding: 0;
+
                     .descricao {
                         margin-bottom: 10px;
+
                         .titulo {
                             font-size: 12px;
                             display: -webkit-box;
@@ -2903,20 +2907,23 @@ footer {
                         .sub_preco {
                             font-size: 10px;
                             margin-bottom: 0;
+
                             span {
                                 font-weight: bold;
                             }
                         }
                     }
+
                     .controller {
                         display: flex;
                         align-items: center;
                         justify-content: space-around;
+
                         p {
                             font-size: 16px;
                             font-weight: bold;
                             margin-bottom: 0;
-                        }   
+                        }
 
                         .btn {
                             display: flex;
@@ -2931,8 +2938,9 @@ footer {
                             width: 70px;
                             height: 30px;
                             padding: 0 5px;
+
                             span {
-                                font-size:24px;
+                                font-size: 24px;
                             }
                         }
 
