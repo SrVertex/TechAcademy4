@@ -1,8 +1,11 @@
+
+document.addEventListener('DOMContentLoaded', function() {
+    carregarDadosProduto();
+});
+
 function carregarDadosProduto() {
     const precoProduto = localStorage.getItem('precoProduto');
     const produtoId = localStorage.getItem('produtoId');
-    const linkVoltar = document.getElementById('linkVoltar');
-
 
     document.getElementById('produtoPreco').innerText = `Preço: R$ ${precoProduto}`;
     window.precoProduto = precoProduto;
@@ -56,19 +59,18 @@ function realizarPagamento(event) {
         },
         body: JSON.stringify(pedidoData)
     })
-        .then(response => response.json())
-        .then(data => {
-            console.log("Pedido criado com sucesso:", data);
-            if (metodoPagamento.value === 'creditocard') {
-                window.location.href = "cartao";
-            } else {
-                alert("Pagamento realizado com sucesso!");
-                window.location.href = "catao";
-            }
-        })
-        .catch(error => {
-            console.error("Erro ao criar pedido:", error);
-        });
+    .then(response => response.json())
+    .then(data => {
+        console.log("Pedido criado com sucesso:", data);
+        if (metodoPagamento.value === 'creditocard') {
+            window.location.href = "catao";
+        } else {
+            alert("Pagamento realizado com sucesso!");
+            window.location.href = "catao";
+        }
+    })
+    .catch(error => {
+        console.error("Erro ao criar pedido:", error);
+    });
 }
 
-window.onload = carregarDadosProduto;
