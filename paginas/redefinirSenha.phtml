@@ -1,0 +1,21 @@
+<section id="area_login">
+    <div class="conteiner_login">
+            <h2>NOVA SENHA</h2>
+        <form id="form" action="login" method="post" class="form">
+                <input type="Email" name="email" class="required"  required  oninput="emailValidate()" id="email" placeholder="Confimer Seu Email" >
+                <span class="span-required" style="margin:5px 0 0 10px; color:red; display: none;">E-mail inválido</span>
+                <input type="password" name="senha" class="required"  required id="senha" oninput="mainPasswordValidate()" placeholder="Nova Senha" style="margin-top:20px;" >
+                <span class="span-required" style=" margin:5px 0 0 10px; display: none; color: red;">Senha deve ter pelo menos 8 digitos </span>
+                <input type="password" placeholder="Confirme a Nova Senha" name="Number" class="required" required id="senha" style="margin-top:20px;">
+
+            <div class="btn_login">
+
+                <a id="link" href="esqueciMinhaSenha">Voltar</a>
+                <button id="link" type="submit">Confirmar</button>
+
+            </div>
+        </form>
+    </div>
+</section>                                                                                              
+
+<script src="paginas/validacoes/senha/put_senha.js"></script> 

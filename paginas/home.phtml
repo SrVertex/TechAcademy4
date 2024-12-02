@@ -1,0 +1,229 @@
+<?php
+$api = file_get_contents("http://localhost:8080/api/item");
+$dadosApi = json_decode($api);
+
+// Verificar se os dados foram carregados corretamente
+if ($dadosApi && is_array($dadosApi)) {
+    // Ordenar os itens pela propriedade 'preco' em ordem decrescente
+    usort($dadosApi, function ($a, $b) {
+        return $b->preco <=> $a->preco; // Comparar para ordem decrescente
+    });
+
+    // Pegar os 5 itens mais caros
+    $top5ItensCaros = array_slice($dadosApi, 0, 6);
+
+    $promo = array_slice($dadosApi, 0, 10);
+
+    // Exibir os 5 itens mais caros
+    foreach ($top5ItensCaros as $produto) {
+    }
+    foreach ($promo as $produto) {
+    }
+} else {
+    echo "Erro ao carregar os dados da API.";
+}
+?>
+
+
+<!-- Carrousel Inicio -->
+
+<div id="carouselExampleIndicators" class="carousel slide " data-aos="fade" data-aos-duration="500">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="4000">
+            <a href="detalheProduto/6"><img src="imagens/banner/bannerBuds.jpg" class="d-block w-100" alt="..."></a>
+        </div>
+        <div class="carousel-item" data-bs-interval="4000">
+            <a href="detalheProduto/2"> <img src="imagens/banner/banners24.jpg" class="d-block w-100" alt="..."></a>
+        </div>
+        <div class="carousel-item" data-bs-interval="4000">
+            <a href="detalheProduto/1"><img src="imagens/banner/banner3.png" class="d-block w-100" alt="..."></a>
+        </div>
+    </div>
+    <button id="botao_carrosel" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button id="botao_carrosel" class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<!-- Main Produtos -->
+
+<section id="main_home">
+    <div class="conteiner_carrosel">
+        <div class="categoria">
+            <h2>MAIS VENDIDOS</h2>
+            <a href="maisvendidos">
+                <p>Ver Todos</p>
+            </a>
+        </div>
+
+        <hr>
+
+        <div class="carousel" data-flickity='{ "wrapAround": true }'>
+
+            <?php foreach ($top5ItensCaros as $produto): ?>
+                <?php
+                // Calcular o valor da parcela em 10x
+                $parcela = $produto->preco / 10;
+                ?>
+                <div class="carousel-cell">
+                    <a href="detalheProduto/<?= $produto->id_item ?>">
+                        <div class="img">
+                            <img src="paginas/validacoes/item/<?= htmlspecialchars($produto->foto) ?>" alt="<?= htmlspecialchars($produto->nome) ?>">
+                        </div>
+
+                        <div class="descricao">
+                            <p class="desc"><?= htmlspecialchars($produto->nome) ?></p>
+
+                            <p class="preco">R$ <?= number_format($produto->preco, 2, ',', '.') ?></p>
+
+                            <p class="sub_preco">
+                                À vista no Pix ou até
+                                <span>
+                                    10x de R$ <?= number_format($parcela, 2, ',', '.') ?> sem juros
+                                </span>
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+
+    <div class="conteiner_carrosel">
+        <div class="categoria">
+            <h2>LANÇAMENTOS</h2>
+
+            <a href="lancamento">
+                <p>Ver Todos</p>
+            </a>
+
+        </div>
+
+        <hr>
+
+        <div class="carousel" data-flickity='{ "wrapAround": true }'>
+            <?php foreach ($dadosApi as $produto): ?>
+                <?php
+                // Calcular o valor da parcela em 10x
+                $parcela = $produto->preco / 10;
+                ?>
+                <div class="carousel-cell">
+                    <a href="detalheProduto/<?= $produto->id_item ?>">
+                        <div class="img">
+                            <img src="paginas/validacoes/item/<?= htmlspecialchars($produto->foto) ?>" alt="<?= htmlspecialchars($produto->nome) ?>">
+                        </div>
+
+                        <div class="descricao">
+                            <p class="desc"><?= htmlspecialchars($produto->nome) ?></p>
+
+                            <p class="preco">R$ <?= number_format($produto->preco, 2, ',', '.') ?></p>
+
+                            <p class="sub_preco">
+                                À vista no Pix ou até
+                                <span>
+                                    10x de R$ <?= number_format($parcela, 2, ',', '.') ?> sem juros
+                                </span>
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            <?php endforeach; ?>
+        </div>
+
+    </div>
+
+    <div class="banner" data-aos="fade" data-aos-duration="400">
+        <a href="detalheProduto/2"><img src="imagens/banner/banner6.jpg" alt="" width="100%" style="margin: 30px 0;"></a>
+    </div>
+
+    <div class="conteiner_carrosel">
+        <div class="categoria">
+            <h2>EM PROMOÇÃO</h2>
+        </div>
+
+        <hr>
+
+        <div class="carousel" data-flickity='{ "wrapAround": true }'>
+            <?php foreach ($promo as $produto): ?>
+                <?php
+                // Calcular o valor da parcela em 10x
+                $parcela = $produto->preco / 10;
+                ?>
+                <div class="carousel-cell">
+                    <a href="detalheProduto/<?= $produto->id_item ?>">
+                        <div class="img">
+                            <img src="paginas/validacoes/item/<?= htmlspecialchars($produto->foto) ?>" alt="<?= htmlspecialchars($produto->nome) ?>">
+                        </div>
+
+                        <div class="descricao">
+                            <p class="desc"><?= htmlspecialchars($produto->nome) ?></p>
+
+                            <p class="preco">R$ <?= number_format($produto->preco, 2, ',', '.') ?></p>
+
+                            <p class="sub_preco">
+                                À vista no Pix ou até
+                                <span>
+                                    10x de R$ <?= number_format($parcela, 2, ',', '.') ?> sem juros
+                                </span>
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            <?php endforeach; ?>
+        </div>
+
+    </div>
+
+    <div class="conteiner_carrosel">
+        <div class="categoria">
+            <h2>FRETE GRÁTIS</h2>
+
+        </div>
+
+        <hr>
+
+        <div class="carousel" data-flickity='{ "wrapAround": true }'>
+            <?php foreach ($dadosApi as $produto): ?>
+                <?php
+                // Calcular o valor da parcela em 10x
+                $parcela = $produto->preco / 10;
+                ?>
+                <div class="carousel-cell">
+                    <a href="detalheProduto/<?= $produto->id_item ?>">
+                        <div class="img">
+                            <img src="paginas/validacoes/item/<?= htmlspecialchars($produto->foto) ?>" alt="<?= htmlspecialchars($produto->nome) ?>">
+                        </div>
+
+                        <div class="descricao">
+                            <p class="desc"><?= htmlspecialchars($produto->nome) ?></p>
+
+                            <p class="preco">R$ <?= number_format($produto->preco, 2, ',', '.') ?></p>
+
+                            <p class="sub_preco">
+                                À vista no Pix ou até
+                                <span>
+                                    10x de R$ <?= number_format($parcela, 2, ',', '.') ?> sem juros
+                                </span>
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+
+</section>

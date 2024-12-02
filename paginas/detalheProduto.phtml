@@ -1,0 +1,298 @@
+<?php
+// Obter o ID do produto da URL ou outro parâmetro
+$id = $p[1] ?? null;
+
+// Verificar se o ID está definido
+if (!$id) {
+    echo "Produto não encontrado.";
+    exit;
+}
+
+// Obter os dados da API
+$api = file_get_contents("http://localhost:8080/api/item");
+$dadosApi = json_decode($api);
+
+// Procurar o produto correspondente ao ID
+$produtoInfo = null;
+foreach ($dadosApi as $produto) {
+    if ($produto->id_item == $id) { // Substitua "id_item" pelo campo correto retornado pela API
+        $produtoInfo = $produto;
+        break;
+    }
+}
+
+// Verificar se o produto foi encontrado
+if (!$produtoInfo) {
+    echo "Produto não encontrado.";
+    exit;
+}
+
+$produto_nome = htmlspecialchars($produtoInfo->nome);
+$produto_descricao = htmlspecialchars($produtoInfo->descricao);
+$produto_preco = htmlspecialchars($produtoInfo->preco);
+$produto_foto = htmlspecialchars($produtoInfo->foto);
+$produto_atributo1 = htmlspecialchars($produtoInfo->atributo_1);
+$produto_atributo2 = htmlspecialchars($produtoInfo->atributo_2);
+$produto_atributo3 = htmlspecialchars($produtoInfo->atributo_3);
+$produto_atributo4 = htmlspecialchars($produtoInfo->atributo_4);
+$produto_atributo5 = htmlspecialchars($produtoInfo->atributo_5);
+$produto_atributo6 = htmlspecialchars($produtoInfo->atributo_6);
+$produto_estoque = htmlspecialchars($produtoInfo->estoque);
+$produto_disponibilidade = "Disponibilidade";
+$produto_categoria = htmlspecialchars($produtoInfo->categoria->nome);
+$parcela = $produtoInfo->preco / 10;
+
+if ($produto_estoque > 0) {
+    $produto_disponibilidade = "Produto Disponivel";
+} else {
+    $produto_disponibilidade = "Produto Indisponivel";
+}
+
+
+?>
+
+<section id="main_detalhe">
+
+    <div class="titulo">
+        <h4><?= $produto_nome ?></h4>
+        <p><?= $produto_disponibilidade ?></p>
+        <hr>
+    </div>
+
+    <div class="conteiner_produto_flex">
+        <div class="conteiner_produto">
+            <img src="paginas/validacoes/item/<?= htmlspecialchars($produto->foto) ?>" alt="<?= $produto_nome ?>">
+        </div>
+        <div class="conteiner_descricao">
+            <div class="titulo2">
+                <h4><?= $produto_nome ?></h4>
+                <p><?= $produto_disponibilidade ?></p>
+                <hr>
+            </div>
+            <div class="compra">
+                <div class="conteiner_preco">
+                    <p class="preco">R$ <?= number_format($produto_preco, 2, ',', '.') ?></span></p>
+                    <p class="subPreco">Avista no Pix ou até <span>10x de
+                            <?= number_format($parcela, 2, ',', '.') ?></span> sem juros</p>
+                </div>
+                <form action="pagamento" class="compra_botao">
+                    <button class="comprar_cart" onclick="armazenarDadosProduto()"><i class="bi bi-cart-plus"></i> COMPRAR</button>
+                    <button class="carrinho"><i class="bi bi-cart-plus"></i></button>
+                </form>
+
+            </div>
+            <hr>
+            <div class="cep">
+                <div class="busca">
+                    <form id="formCEP">
+                        <input type="text" id="cep" name="cep" placeholder="Insira o CEP" required inputmode="numeric">
+                        <button type="submit">OK</button>
+                    </form>
+                </div>  
+
+                <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Não lembro meu CEP
+                </a>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 class="modal-title" id="exampleModalLabel">Busque seu CEP</h2>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+
+                                <form action="">
+                                    <input type="text" placeholder="Estado">
+                                    <input type="text" placeholder="Cidade">
+
+                                    <span>
+                                        <n>Seu CEP:</n> 87355-000
+                                    </span>
+
+                                    <div class="btn">
+                                        <button>Buscar</button>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div id="resultado"></div>
+            <div class="descricao_completa">
+                <p><?= $produto_descricao ?></p>
+            </div>
+        </div>
+    </div>
+    <div class="descricao_completa2">
+        <H2>Descricão </H2>
+        <p><?= $produto_descricao ?></p>
+    </div>
+    <div class="conteiner_ficha">
+        <h2>Ficha Técnica</h2>
+        <ul>
+            <li>
+                <p id="paragrafo"><?= $produto_atributo1 ?></p>
+            </li>
+            <li>
+                <p id="paragrafo"><?= $produto_atributo2 ?></p>
+            </li>
+            <li>
+                <p id="paragrafo"><?= $produto_atributo3 ?></p>
+            </li>
+            <li>
+                <p id="paragrafo"><?= $produto_atributo4 ?></p>
+            </li>
+            <li>
+                <p id="paragrafo"><?= $produto_atributo5 ?></p>
+            </li>
+            <li>
+                <p id="paragrafo"><?= $produto_atributo6 ?></p>
+            </li>
+            <li>
+                <a href="<?= $produto_categoria ?>">
+                    <p id="paragrafo">Categoria: <?= $produto_categoria ?></p>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+
+        <?php
+            $api = file_get_contents("http://localhost:8080/api/item");
+            $dadosApi = json_decode($api);
+
+            // Verificar se os dados foram carregados corretamente
+            if ($dadosApi && is_array($dadosApi)) {
+                // Ordenar os itens pela propriedade 'preco' em ordem decrescente
+                usort($dadosApi, function ($a, $b) {
+                    return $b->preco <=> $a->preco; // Comparar para ordem decrescente
+                });
+
+                // Pegar os 5 itens mais caros
+                $top5ItensCaros = array_slice($dadosApi, 0, 6);
+
+                $promo = array_slice($dadosApi, 0, 10);
+
+                // Exibir os 5 itens mais caros
+                foreach ($top5ItensCaros as $produto) {
+                }
+                foreach ($promo as $produto) {
+                }
+            } else {
+                echo "Erro ao carregar os dados da API.";
+            }
+        ?>
+
+    <div id="conteiner_carrosel">
+        <div class="categoria">
+            <h2>MAIS VENDIDOS</h2>
+
+            <a href="maisvendidos">
+                <p>Ver Todos</p>
+            </a>
+
+        </div>
+
+        <div class="carousel" data-flickity='{ "wrapAround": true }'>
+
+            <?php foreach ($top5ItensCaros as $produto): ?>
+                <?php
+                // Calcular o valor da parcela em 10x
+                $parcela = $produto->preco / 10;
+                ?>
+                <div class="carousel-cell">
+                    <a href="detalheProduto/<?= $produto->id_item ?>">
+                        <div class="img">
+                            <img src="paginas/validacoes/item/<?= htmlspecialchars($produto->foto) ?>"
+                                alt="<?= htmlspecialchars($produto->nome) ?>">
+                        </div>
+                        <div class="descricao">
+                            <p class="desc"><?= htmlspecialchars($produto->nome) ?></p>
+                            <p class="preco">R$ <?= number_format($produto->preco, 2, ',', '.') ?></p>
+                            <p class="sub_preco">
+                                À vista no Pix ou até
+                                <span>
+                                    10x de R$ <?= number_format($parcela, 2, ',', '.') ?> sem juros
+                                </span>
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+
+</section>
+
+
+
+<?php
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        header('Content-Type: application/json');
+        $input = json_decode(file_get_contents('php://input'), true);
+        $cep = preg_replace('/[^0-9]/', '', $input['cep']);
+
+        if (strlen($cep) !== 8) {
+            echo json_encode(['erro' => 'CEP inválido. Insira um CEP com 8 dígitos.']);
+            exit;
+        }
+
+        $url = "https://viacep.com.br/ws/$cep/json/";
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $response = curl_exec($ch);
+        curl_close($ch);
+
+        if ($response) {
+            $data = json_decode($response, true);
+
+            if (isset($data['erro'])) {
+                echo json_encode(['erro' => 'CEP não encontrado. Verifique e tente novamente.']);
+            } else {
+                echo json_encode($data);
+            }
+        } else {
+            echo json_encode(['erro' => 'Erro ao acessar a API ViaCEP. Tente novamente mais tarde.']);
+        }
+        exit;
+    }
+?>
+
+
+<script src="JS/cep.js"></script>
+
+<script>
+    const paragraphs = document.querySelectorAll('#paragrafo');
+
+    paragraphs.forEach(paragraph => {
+        let text = paragraph.innerHTML;
+        let words = text.split(' ');
+        words[0] = '<strong>' + words[0] + '</strong>';
+        paragraph.innerHTML = words.join(' ');
+    });
+</script>
+
+
+<script>
+    function armazenarDadosProduto() {
+
+        const precoProduto = parseFloat(document.querySelector('.preco').innerText.replace('R$ ', '').replace('.', '').replace(',', '.'));
+        const produtoId = <?= $produtoInfo->id_item ?>;
+
+        localStorage.setItem('produtoId', produtoId);
+        localStorage.setItem('precoProduto', precoProduto);
+
+        window.location.href = "pagamento.phtml";
+        window.location.href = "catao.phtml";
+    }
+</script>       

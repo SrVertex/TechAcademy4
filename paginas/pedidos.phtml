@@ -1,0 +1,57 @@
+<?php
+
+    $api = file_get_contents("http://localhost:8080/api/pedido");
+    $dadosApi = json_decode($api);
+
+    foreach ($dadosApi as $pedido) {
+    }
+?>
+
+<section id="main_pedidos">
+    <div class="conteiner_pedidos">
+        <div class="top">
+            <h3>Pedidos</h3>
+        </div>
+        <div class="pedidos_flex">
+        <?php foreach ($dadosApi as $pedido): ?>
+            <div class="pedidos">
+                <div class="name"><img src="imagens/gata.png" alt="">
+                    <P><?= htmlspecialchars($pedido->usuario->nome) ?></P>
+                </div>
+                <div class="info_pedidos">
+                    <ul>
+                        <li><strong>Quantidade: </strong>01 Produtos</li>
+                        <li><strong>Valor Total:</strong> R$ <?= number_format($pedido->valor, 2, ',', '.') ?></li>
+                        <li><strong>Estagio da Compra:</strong> <?= htmlspecialchars($pedido->status) ?></li>
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Estagio <i class="bi bi-pen-fill"></i></a>
+                    <div class="dropdown-menu">
+                        <form id="formStatus_<?= htmlspecialchars($pedido->id_pedido) ?>" method="POST" action="">
+                            <input type="hidden" name="idPedido" value="<?= htmlspecialchars($pedido->id_pedido) ?>">
+                            <ul>
+                                <li>
+                                    <label for="estagio1_<?= htmlspecialchars($pedido->id_pedido) ?>">Em Análise</label>
+                                    <input type="checkbox" id="estagio1_<?= htmlspecialchars($pedido->id_pedido) ?>" name="status" value="Em Análise">
+                                </li>
+                                <li>
+                                    <label for="estagio2_<?= htmlspecialchars($pedido->id_pedido) ?>">Concluído</label>
+                                    <input type="checkbox" id="estagio2_<?= htmlspecialchars($pedido->id_pedido) ?>" name="status" value="Concluído">
+                                </li>
+                                <li>
+                                    <label for="estagio3_<?= htmlspecialchars($pedido->id_pedido) ?>">Em Espera</label>
+                                    <input type="checkbox" id="estagio3_<?= htmlspecialchars($pedido->id_pedido) ?>" name="status" value="Em Espera">
+                                </li>
+                            </ul>
+                            <button type="submit" data-id="<?= htmlspecialchars($pedido->id_pedido) ?>">Avançar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+
+<script src="JS/pedido.js"></script>

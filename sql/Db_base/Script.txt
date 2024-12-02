@@ -1,0 +1,86 @@
+create table usuario(
+	id_usuario int not null primary key auto_increment,
+	nome varchar(100),
+	email varchar(100),
+	senha varchar(100),
+	data date,
+	admin boolean
+);
+
+create table endereco(
+	id_endereco int not null primary key auto_increment,
+	cep int,
+	cidade varchar(200),
+	UF varchar(50),
+	bairro varchar(100),
+	rua varchar(200),
+	numero int,
+	contato int,
+	usuario_id int,
+	foreign key (usuario_id) references usuario (id_usuario)
+);
+
+create table pedido(
+	id_pedido int not null primary key auto_increment,
+	valor double,
+	data_pedido date,
+	status varchar(100),
+	usuario_id int,
+	foreign key (usuario_id) references usuario(id_usuario)
+);
+
+create table formaPGTO(
+	id_forma int not null primary key,
+	tipo varchar(200),
+	parcela int,
+	juros double
+);
+
+create table pedido_forma(
+	id_pedidoForma int not null primary key,
+	status varchar(100),
+	pedido_id int,
+	forma_id int,
+	foreign key (pedido_id) references pedido (id_pedido),
+	foreign key (forma_id) references formaPGTO (id_forma)
+);
+
+create table item(
+	id_item int not null primary key auto_increment,
+	nome varchar(500) not null,
+	descricao varchar(3000),
+	preco decimal(10,2) not null,
+	foto varchar(1000),
+	atributo_1 varchar(500),
+	atributo_2 varchar(500),
+	atributo_3 varchar(500),
+	atributo_4 varchar(500),
+	atributo_5 varchar(500),
+	atributo_6 varchar(500),
+	estoque int
+);
+
+create table auditoria_item(
+	id_auditoria int not null primary key auto_increment,
+	data date,
+	preco_antigo decimal(10,2),
+	preco_novo decimal(10,2),
+	motivo varchar(1000),
+	item_id int,
+	foreign key (item_id) references item(id_item)
+);
+
+create table item_pedido(
+	id_item_pedido int not null primary key,
+	item_id int,
+	pedido_id int,
+	foreign key (item_id) references item(id_item),
+	foreign key (pedido_id) references pedido(id_pedido)
+)
+
+
+
+
+
+
+

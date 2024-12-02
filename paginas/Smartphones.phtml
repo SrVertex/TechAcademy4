@@ -1,0 +1,61 @@
+<section id="main_produtos">
+    <div class="top">
+            <h2>SmartPhones</h2>
+            <button class="btn-of" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><i class="bi bi-list"></i>Filtro</button>
+        <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+            
+            <div class="header">
+            
+                <h5 class="offcanvas-title" id="offcanvasScrollingLabel">FILTRO</h5>
+                <button type="button" class="close" data-bs-dismiss="offcanvas" aria-label="Close"><i class="bi bi-x"></i></button>
+            
+            </div>
+            
+            <hr>
+            
+            <div class="offcanvas-body">
+                <form id="filterForm">
+                        <h5>Valor Maximo</h5>
+                    <ul>
+                        <li><input type="checkbox" class="valorFilter" data-valor="0" id="valorTodos"> <label for="valorTodos">Mostrar Todos</label></li>
+                        <li><input type="checkbox" class="valorFilter" data-valor="500" id="valor2"> <label for="valor2">R$ 500,00</label></li>
+                        <li><input type="checkbox" class="valorFilter" data-valor="1000" id="valor3"> <label for="valor3">R$ 1000,00</label></li>
+                        <li><input type="checkbox" class="valorFilter" data-valor="2500" id="valor4"> <label for="valor4">R$ 2500,00</label></li>
+                        <li><input type="checkbox" class="valorFilter" data-valor="5000" id="valor5"> <label for="valor5">R$ 5000,00</label></li>
+                        <li><input type="checkbox" class="valorFilter" data-valor="10000" id="valor6"> <label for="valor6">R$ 10000,00</label></li>
+                        <li><input type="checkbox" class="valorFilter" data-valor="20000" id="valor7"> <label for="valo7">R$ 20000,00</label></li>
+                        <li><input type="checkbox" class="valorFilter" data-valor="50000" id="valor8"> <label for="valor8">R$ 50000,00</label></li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="produtos-container" class="produto_flex">
+        <?php
+            $api = file_get_contents("http://localhost:8080/api/item");
+            $produtosInfo = json_decode($api);
+
+            foreach ($produtosInfo as $produto) {
+                if (isset($produto->categoria) && $produto->categoria->nome == 'Smartphones') {
+                    $parcela = $produto->preco / 10;
+
+                    echo '<a href="detalheProduto/' . $produto->id_item . '"id="conteiner_produto" class="conteiner_produto" data-preco="' . $produto->preco . '">';
+                    echo '<div class="imagem">';
+                    $foto = isset($produto->foto) && !empty($produto->foto) ? $produto->foto : 'imagens/default.png';
+                    echo '<img src="paginas/validacoes/item/' . $foto . '" alt="Imagem do produto">';
+                    echo '</div>';
+                    echo '<div class="descricao">';
+                    echo '<p class="desc">' . htmlspecialchars($produto->nome) . '</p>';
+                    $preco = isset($produto->preco) && $produto->preco !== null ? number_format($produto->preco, 2, ',', '.') : 'Preço indisponível';
+                    echo '<p class="preco">R$ ' . $preco . '</p>';
+                    echo '<p class="sub_preco">À vista no Pix ou até <span>10x de R$' . number_format($parcela, 2, ',', '.') . ' sem juros</span></p>';
+                    echo '</div>';
+                    echo '</a>';
+                }
+            }
+        ?>
+    </div>
+</section>
+
+<script src="JS/filtro.js"></script>

@@ -1,0 +1,69 @@
+
+/*atividade 2*/
+
+SELECT NM_FUNCIONARIO, (SELECT NM_DEPARTAMENTO FROM departamento d WHERE ID_DEPARTAMENTO = f.ID_DEPARTAMENTO) AS NM_DEPARTAMENTO FROM funcionario f
+WHERE f.ID_DEPARTAMENTO IN ( SELECT ID_DEPARTAMENTO FROM departamento  WHERE NM_DEPARTAMENTO = 'TI' OR NM_DEPARTAMENTO = 'RH');
+
+
+/*ativadade 1*/
+
+select d.NM_DEPARTAMENTO, COUNT(f.ID_FUNCIONARIO) as TOTAL_FUNCIONARIOS from departamento d
+join funcionario f on d.ID_DEPARTAMENTO = f.ID_DEPARTAMENTO
+group by d.NM_DEPARTAMENTO;
+
+select d.NM_DEPARTAMENTO, COUNT(f.ID_FUNCIONARIO) as TOTAL_FUNCIONARIOS from departamento d join funcionario f on d.ID_DEPARTAMENTO = f.ID_DEPARTAMENTO
+group by d.NM_DEPARTAMENTO;
+
+select d.NM_DEPARTAMENTO, MAX(f.SALARIO_BASE) as MAIOR_SALARIO from departamento d
+join funcionario f on d.ID_DEPARTAMENTO = f.ID_DEPARTAMENTO
+group by d.NM_DEPARTAMENTO;
+
+select d.NM_DEPARTAMENTO, SUM(f.SALARIO_BASE) as TOTAL_SALARIAL from departamento d
+join funcionario f on d.ID_DEPARTAMENTO = f.ID_DEPARTAMENTO
+group by d.NM_DEPARTAMENTO;
+
+select d.NM_DEPARTAMENTO, AVG(f.SALARIO_BASE) as MEDIA_SALARIAL from departamento d
+join funcionario f on d.ID_DEPARTAMENTO = f.ID_DEPARTAMENTO
+group by d.NM_DEPARTAMENTO
+having AVG(f.SALARIO_BASE) > 5000;
+
+select d.NM_DEPARTAMENTO, COUNT(f.ID_FUNCIONARIO) as TOTAL_FUNCIONARIOS from departamento d
+join funcionario f o d.ID_DEPARTAMENTO = f.ID_DEPARTAMENTO
+group by d.NM_DEPARTAMENTO
+having COUNT(f.ID_FUNCIONARIO) > 3;
+
+select f.NM_FUNCIONARIO, f.SALARIO_BASE, d.NM_DEPARTAMENTO from funcionario f
+join departamento d on f.ID_DEPARTAMENTO = d.ID_DEPARTAMENTO where f.SALARIO_BASE < 
+( select AVG(f2.SALARIO_BASE) from funcionario f2 where f2.ID_DEPARTAMENTO = f.ID_DEPARTAMENTO );
+
+select coalesce(id_departamento, 'sem departamento'), avg(salario_base) as media_salarial from funcionario f 
+group by f.ID_DEPARTAMENTO 
+having media_salarial > (select avg(SALARIO_BASE) from funcionario f2 );
+
+
+
+  <footer>  
+        <h2 class="text-center">TECNOLO</h2>
+        <hr>
+        <div class="conteiner_footer">
+            <div class="contato">
+                <h4>Contato</h4>
+                <ul>
+                    <li><i class="bi bi-whatsapp"></i> (44)999927372</li>
+                    <li><i class="bi bi-envelope"></i> Tecnolo@hotmail.com.br</li>
+                    <li><i class="bi bi-house-door-fill"></i> Campo Mourão PR</li>
+                    <li><a href="http://lucasmotion.free.nf/?i=1"><i class="bi bi-code-slash"></i>LucasMotion</a></li>
+                    <li><a href="https://srvertex.github.io/Site_SrVertex_BETA/"><i class="bi bi-code-slash"></i>SrVertex</a></li>
+                </ul>
+            </div>
+
+            <div class="login">
+                <h4>Usuario</h4>
+                <ul>
+                    <li><a href="">Adminstrador</a></li>
+                    <li><a href="">Login</a></li>
+                    <li><a href="">Cadastro</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
