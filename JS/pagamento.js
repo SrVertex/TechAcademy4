@@ -10,22 +10,9 @@ function carregarDadosProduto() {
     document.getElementById('produtoPreco').innerText = `Preço: R$ ${precoProduto}`;
     window.precoProduto = precoProduto;
     window.produtoId = produtoId;
-
-    // Chame obterMaxId para buscar o maior ID de pedido
-    obterMaxId();
+    
 }
 
-function obterMaxId() {
-    fetch('http://localhost:8080/api/pedido/maior-id')
-        .then(response => response.json())
-        .then(data => {
-            console.log("Maior ID de pedido:", data);
-            // Aqui você pode usar o maior ID conforme necessário
-        })
-        .catch(error => {
-            console.error("Erro ao obter o maior ID de pedido:", error);
-        });
-}
 
 function realizarPagamento(event) {
     event.preventDefault();
@@ -43,6 +30,7 @@ function realizarPagamento(event) {
         return;
     }
 
+
     const pedidoData = {
         valor: window.precoProduto,
         status: 'Pendente',
@@ -58,6 +46,8 @@ function realizarPagamento(event) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(pedidoData)
+
+
     })
     .then(response => response.json())
     .then(data => {
@@ -65,12 +55,25 @@ function realizarPagamento(event) {
         if (metodoPagamento.value === 'creditocard') {
             window.location.href = "catao";
         } else {
-            alert("Pagamento realizado com sucesso!");
+            alert("Pagamento realizado com sucesso!"    ) ;
             window.location.href = "catao";
+            obterMaxId();
         }
     })
     .catch(error => {
         console.error("Erro ao criar pedido:", error);
     });
+
+    function obterMaxId() {
+        fetch('http://localhost:8080/api/pedido/maior-id')
+            .then(response => response.json())
+            .then(data => {
+                console.log("Maior ID de pedido:", data);
+                // Aqui você pode usar o maior ID conforme necessário
+            })
+            .catch(error => {
+                console.error("Erro ao obter o maior ID de pedido:", error);
+            });
+    }
 }
 
