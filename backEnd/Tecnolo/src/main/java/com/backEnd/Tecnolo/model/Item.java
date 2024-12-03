@@ -6,7 +6,7 @@ import java.util.List;
 
 @Entity
 @Table
-public class Item  extends  BaseEntityValidator{
+public class Item extends BaseEntityValidator{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
