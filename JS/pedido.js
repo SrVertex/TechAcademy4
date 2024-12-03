@@ -1,5 +1,5 @@
  // Função para gerenciar a seleção de checkboxes e envio de formulário
- document.querySelectorAll('form[id^="formStatus_"]').forEach((form) => {
+document.querySelectorAll('form[id^="formStatus_"]').forEach((form) => {
     // Impedir múltiplas seleções de checkboxes no mesmo formulário
     const checkboxes = form.querySelectorAll('input[name="status"]');
     checkboxes.forEach((checkbox) => {

@@ -13,7 +13,7 @@ function carregarDadosProduto() {
     
 }
 
-
+    // função para criar o pedido
 function realizarPagamento(event) {
     event.preventDefault();
 
@@ -40,6 +40,7 @@ function realizarPagamento(event) {
         parcelas: parcelaSelecionada ? parcelaSelecionada.value : null
     };
 
+    // caminho para o banco de dados
     fetch('http://localhost:8080/api/pedido', {
         method: 'POST',
         headers: {
@@ -55,7 +56,7 @@ function realizarPagamento(event) {
         if (metodoPagamento.value === 'creditocard') {
             window.location.href = "catao";
         } else {
-            alert("Pagamento realizado com sucesso!"    ) ;
+            alert("Formar de Pagamento Aprovado!"    ) ;
             window.location.href = "catao";
             obterMaxId();
         }
@@ -64,12 +65,12 @@ function realizarPagamento(event) {
         console.error("Erro ao criar pedido:", error);
     });
 
+    // busda do maior id do pedido
     function obterMaxId() {
         fetch('http://localhost:8080/api/pedido/maior-id')
             .then(response => response.json())
             .then(data => {
                 console.log("Maior ID de pedido:", data);
-                // Aqui você pode usar o maior ID conforme necessário
             })
             .catch(error => {
                 console.error("Erro ao obter o maior ID de pedido:", error);

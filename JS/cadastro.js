@@ -47,6 +47,7 @@ function mainPasswordValidate2() {
     }
 }
 
+// valicação para conparar senhas 
 function comparePassword() {
     if (campos[1].value == campos[2].value && campos[1].value.length >= 8) {
         removeError(1);

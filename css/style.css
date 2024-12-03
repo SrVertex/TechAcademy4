@@ -8,20 +8,23 @@
     --text_black: #000000;
 }
 
+/* remoção da margins do site */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* configuração do site */
 body {
     background-color: var(--BG_principal) !important;
     color: var(--BG_segundario) !important;
     font-family: montserrat !important;
-
 }
 
+/* header */
 header {
+    /* header mobile */
     .nav_mobile {
         padding-bottom: 130px;
 
@@ -238,20 +241,25 @@ header {
         }
     }
 
+    /* header do modo descktop */
     .nav_desk {
         width: 100%;
+        /* display none pois esta no pois o resposivo esta no mobile primerio  */
         display: none;
         padding-bottom: 120px;
         border-bottom: solid 1px white;
 
+        /* navbar  inicon */
         .navbar {
             width: 100%;
             background-color: transparent !important;
+
             display: flex;
             flex-direction: column;
 
             padding: 10px 120px 5px 120px;
 
+            /* topo do navbar / onde esta as funções de navegação */
             .navbar_top {
                 width: 100%;
                 display: flex;
@@ -259,6 +267,7 @@ header {
                 align-items: center !important;
                 margin-bottom: 10px;
 
+                /*  logo e nome do site */
                 .logo {
                     display: flex;
                     align-items: center;
@@ -279,6 +288,7 @@ header {
 
                 }
 
+                /* barra de tesquisa do site */
                 .barra_pesquisa {
                     width: 38%;
 
@@ -321,6 +331,7 @@ header {
                     }
                 }
 
+                /* botão de login e cadastro  / icon de usario vai para o login */
                 .login {
                     margin: 0 10px;
                     display: flex;
@@ -367,6 +378,7 @@ header {
                     }
                 }
 
+                /* meunu do site aonde tem funções para para o ADM */
                 .menu_drop {
                     .dropdown {
 
@@ -437,6 +449,7 @@ header {
                     }
                 }
 
+                /* area de acessobilidade do site  */
                 .icons_link {
                     display: flex;
                     align-items: center;
@@ -452,9 +465,9 @@ header {
 
                     }
                 }
-
             }
 
+            /*  parte de baixo do navbar sonde esta as categorias */
             .navbar_baixo {
                 display: flex;
                 gap: 20px;
@@ -3000,9 +3013,6 @@ footer {
 
 @media (min-width: 600px) {
 
-    #main_carrinho {
-        width: 500px;
-    }
 
     #conteiner_carrosel {
         .carousel {

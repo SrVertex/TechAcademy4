@@ -2,15 +2,15 @@
 function finalizarCompra(event) {
     event.preventDefault();
 
-    // Recuperando o ID do produto armazenado no localStorage
+    // Recuperando id do produto e realiza um post para o o item_pedido
     const produtoId = localStorage.getItem('produtoId');
 
-    // Criar o objeto com o ID do pedido e o ID do produto
+    // recebe o id do produto para o item_pedido
     const itemPedidoData = {
         item_id: produtoId,
     };
 
-    // Enviar os dados para o backend (POST para adicionar o item ao pedido)
+    // caminho pra o post de ItemPedido
     fetch('http://localhost:8080/api/ItemPedido', {
         method: 'POST',
         headers: {
@@ -21,14 +21,11 @@ function finalizarCompra(event) {
     .then(response => response.json())
     .then(data => {
         console.log("Item adicionado ao pedido com sucesso:", data);
-        // Mostrar alerta de sucesso
         alert("Compra finalizada com sucesso!");
-        // Redireciona para a página de confirmação ou sucesso
         window.location.href = "home";  // Página de sucesso
     })
     .catch(error => {
         console.error("Erro ao adicionar item ao pedido:", error);
-        // Mostrar alerta de erro
         alert("Ocorreu um erro ao finalizar a compra. Tente novamente.");
     });
 }
