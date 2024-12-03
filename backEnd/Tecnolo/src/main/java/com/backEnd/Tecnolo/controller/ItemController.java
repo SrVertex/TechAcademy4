@@ -24,13 +24,15 @@ import com.backEnd.Tecnolo.repository.Item_Repository;
 @RequestMapping("/api/item")
 public class ItemController {
 
+    // Busca da interface de item
     @Autowired
     private Item_Repository repository;
 
+    // busca de interface de categoria
     @Autowired
     private Categoria_Repository categoriaRepository;
 
-
+    // metodo de get sem usar o id ele busca todos os itens que estão no banco de dados
     @GetMapping
     public ResponseEntity<List<Item>> findAll(){
         List<Item> item = this.repository.findAll();
@@ -52,6 +54,8 @@ public class ItemController {
             return ResponseEntity.badRequest().body("Usuário não encontrado com o ID fornecido.");
         }  //        Categoria categoria = categoriaRepository.findById(dto.getCategoria_id()).get();
 
+
+        // atributos que seram inserido do banco de dados
         Item item = new Item();
         item.setNome(dto.getNome());
         item.setDescricao(dto.getDescricao());
@@ -66,12 +70,12 @@ public class ItemController {
         item.setEstoque(dto.getEstoque());
         item.setCategoria(categoriaOpt.get());
 
+        // save do dados de criação do novo item
         Item savedItem = repository.save(item);
         return ResponseEntity.ok(savedItem);
     }
 
-
-
+    // alter de item /aonde seram realzado a alteração do dados do item usando o id informado no front_end / sua estrutuda é parecudade com o post
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@PathVariable Integer id, @RequestBody Item_RequestDTO dto) {
 
@@ -106,15 +110,17 @@ public class ItemController {
         return ResponseEntity.ok(savedItem);
     }
 
+        //  deteleto do item
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable Integer id) {
-        // Verificar se o item existe
+
+        // verefica se o item esta armezenedao no banco de dados usado o id informado
         Optional<Item> itemOpt = repository.findById(id);
         if (itemOpt.isEmpty()) {
             return ResponseEntity.badRequest().body("Item não encontrado com o ID fornecido.");
         }
 
-        // Deletar o item
+        // Deletar o item usando o id informado
         repository.deleteById(id);
         return ResponseEntity.ok().body("Item deletado com sucesso.");
     }

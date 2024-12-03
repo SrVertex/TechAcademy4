@@ -55,8 +55,10 @@ public class EnderecoController {
             return ResponseEntity.badRequest().body("É necessário informar o ID do usuário ou estar logado.");
         }
 
+            // pega o id qeu foi tratado e utiliza para ser enviadado para o endereço para saber que é o dono
             Optional<Usuario> usuarioOpt = usuarioRepository.findById(usuarioId);
 
+        // todos os if que estão a baixo vão de vereficar o campo esta vazio
         if (dto.getNome_destinatario() == null){
             return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
         }
@@ -89,6 +91,7 @@ public class EnderecoController {
             return ResponseEntity.badRequest().body("O Campo é o Obrigatorio");
         }
 
+        // cria um novo usuario
         Endereco endereco = new Endereco();
         endereco.setNome_destinatario(dto.getNome_destinatario());
         endereco.setCep(dto.getCep());
@@ -98,12 +101,14 @@ public class EnderecoController {
         endereco.setRua(dto.getRua());
         endereco.setNumero(dto.getNumero());
         endereco.setContato(dto.getContato());
-        endereco.setUsuario(usuarioOpt.get());
+        endereco.setUsuario(usuarioOpt.get()); // resebe o id do usario esta logado para ser envidado
 
         Endereco saveEndereco = repository.save(endereco);
         return ResponseEntity.ok(saveEndereco);
 
     }
+
+    // os metodos de put e delet é igual para todos
 
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@PathVariable Integer id, @RequestBody Endereco_RequestDTO dto) {
