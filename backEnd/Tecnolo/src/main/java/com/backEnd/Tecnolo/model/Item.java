@@ -1,21 +1,18 @@
 package com.backEnd.Tecnolo.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import jakarta.persistence.criteria.CriteriaBuilder;
-
 import java.util.List;
-import java.util.Objects;
 
 @Entity
 @Table
-public class Item {
+public class Item  extends  BaseEntityValidator{
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_item;
 
-    @Column
+    @Column(nullable = false)
     private String nome;
 
     @Column
@@ -57,17 +54,7 @@ public class Item {
     @JsonIgnoreProperties("item")
     private List<ItemPedido> itemPedidos;
 
-
-    //Getters e Setters
-
-
-    public List<ItemPedido> getItemPedidos() {
-        return itemPedidos;
-    }
-
-    public void setItemPedidos(List<ItemPedido> itemPedidos) {
-        this.itemPedidos = itemPedidos;
-    }
+    // Getters e Setters
 
     public Integer getId_item() {
         return id_item;
@@ -173,4 +160,15 @@ public class Item {
         this.categoria = categoria;
     }
 
+    public List<ItemPedido> getItemPedidos() {
+        return itemPedidos;
+    }
+
+    public void setItemPedidos(List<ItemPedido> itemPedidos) {
+        this.itemPedidos = itemPedidos;
+    }
+
+    public void validar() {
+        BaseEntityValidator.validarItem(this);
+    }
 }
