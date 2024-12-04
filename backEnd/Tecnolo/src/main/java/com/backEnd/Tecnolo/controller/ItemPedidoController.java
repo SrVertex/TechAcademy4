@@ -28,6 +28,13 @@ public class ItemPedidoController {
     private ItemPedido_Repository itemPedidoRepository;
 
 
+    @GetMapping
+    public ResponseEntity<List<ItemPedido>> findAll(){
+        List<ItemPedido> itemPedidos = this.itemPedidoRepository.findAll();
+        return ResponseEntity.ok(itemPedidos);
+    }
+
+
     @PostMapping
     public ResponseEntity<?> save(@RequestBody ItemPedido_RequestDTO dto) {
 
