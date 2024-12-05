@@ -16,7 +16,7 @@ document.getElementById('form').addEventListener('submit', async function(event)
     });
 
     if (response.ok) {
-        alert('Senha alterada com sucesso!');
+        alert('Senha alterada com sucesso!', window.location.href = "http://localhost/techAcademy4/login");
     } else {
         alert('Erro ao alterar a senha. Tente novamente.');
     }

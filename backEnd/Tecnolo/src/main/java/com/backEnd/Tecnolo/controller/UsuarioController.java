@@ -186,6 +186,7 @@ public class UsuarioController {
         if (dto.getEmail() == null) {
             return ResponseEntity.badRequest().body("O e-mail do usuário é obrigatório.");
         }
+
         if (dto.getSenha() == null) {
             return ResponseEntity.badRequest().body("A nova senha deve ser informada.");
         }

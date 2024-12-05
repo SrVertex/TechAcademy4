@@ -19,7 +19,7 @@
                     <P><?= htmlspecialchars($pedido->usuario->nome) ?></P>
                 </div>
                 <div class="info_pedidos">
-                    <ul>
+                    <ul style="margin-top: 5px;">
                         <li><strong>Id do Item: </strong> <?= htmlspecialchars($pedido->itemPedidos[0]->item->id_item) ?></li>
                         <li id="paragrafo"><?= htmlspecialchars($pedido->itemPedidos[0]->item->atributo_2) ?></li>
                         <li><strong>Valor Total:</strong> R$ <?= number_format($pedido->valor, 2, ',', '.') ?></li>

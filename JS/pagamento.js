@@ -56,7 +56,7 @@ function realizarPagamento(event) {
         if (metodoPagamento.value === 'creditocard') {
             window.location.href = "catao";
         } else {
-            alert("Formar de Pagamento Aprovado!"    ) ;
+            alert("Formar de Pagamento Aprovado!") ;
             window.location.href = "catao";
             obterMaxId();
         }
