@@ -52,10 +52,14 @@ public class ItemController {
         Optional<Categoria> categoriaOpt = categoriaRepository.findById(dto.getCategoria_id());
         if (categoriaOpt.isEmpty()) {
             return ResponseEntity.badRequest().body("Usuário não encontrado com o ID fornecido.");
-        }  //        Categoria categoria = categoriaRepository.findById(dto.getCategoria_id()).get();
+        }
 
+        // validação de estoque
+        if (dto.getEstoque() < 0) {
+            return  ResponseEntity.badRequest().body("O valor do Estoque não pode ser Negativo");
+        }
 
-        // atributos que seram inserido do banco de dados
+        // atributos a resem inseridos ao banco de dados
         Item item = new Item();
         item.setNome(dto.getNome());
         item.setDescricao(dto.getDescricao());

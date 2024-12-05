@@ -21,7 +21,7 @@
                 <div class="info_pedidos">
                     <ul>
                         <li><strong>Id do Item: </strong> <?= htmlspecialchars($pedido->itemPedidos[0]->item->id_item) ?></li>
-                        <!-- </li><li><strong>Nome</strong> <?= htmlspecialchars($pedido->itemPedidos[0]->item->atributo_2) ?></li> -->
+                        </li><li><strong>Nome</strong> <?= htmlspecialchars($pedido->itemPedidos[0]->item->atributo_2) ?></li>
                         <li><strong>Valor Total:</strong> R$ <?= number_format($pedido->valor, 2, ',', '.') ?></li>
                         <li><strong>Estagio da Compra:</strong> <?= htmlspecialchars($pedido->status) ?>
                         
