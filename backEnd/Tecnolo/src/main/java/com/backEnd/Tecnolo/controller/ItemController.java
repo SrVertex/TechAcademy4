@@ -95,6 +95,11 @@ public class ItemController {
             return ResponseEntity.badRequest().body("Categoria não encontrada com o ID fornecido.");
         }
 
+        // validação de preco
+        if (dto.getPreco() < 0) {
+            return  ResponseEntity.badRequest().body("O valor do Preco não pode ser Negativo");
+        }
+
         // Atualizar o item
         Item item = itemOpt.get();
         item.setNome(dto.getNome());

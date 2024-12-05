@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
             'descricao' => $dadosProduto['descricao_put'],
             'preco' => (float)$dadosProduto['preco_put'],
             'estoque' => (int)$dadosProduto['estoque_put'],
-            'atributo_1' => $dadosProduto['atributo_1Post'],
+            'atributo_1' => $dadosProduto['atributo_1_put'],
             'atributo_2' => $dadosProduto['atributo_2_put'],
             'atributo_3' => $dadosProduto['atributo_3_put'],
             'atributo_4' => $dadosProduto['atributo_4_put'],
