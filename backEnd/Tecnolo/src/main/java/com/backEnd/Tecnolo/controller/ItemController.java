@@ -114,7 +114,7 @@ public class ItemController {
         return ResponseEntity.ok(savedItem);
     }
 
-        //  deteleto do item
+    //  deteleto do item
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable Integer id) {
 

@@ -36,7 +36,6 @@ public class PedidoController  {
     @Autowired
     private Item_Repository itemRepository;
 
-
     private static Integer maxId;
 
     public static Integer getMaxId() {

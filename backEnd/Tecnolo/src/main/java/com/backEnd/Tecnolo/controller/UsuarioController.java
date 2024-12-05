@@ -77,7 +77,6 @@ public class UsuarioController {
     // aqui vai ocorrer o alter do usuario
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@PathVariable Integer id, @RequestBody Usuario_RequestDTO dto) {
-
         Optional<Usuario> usuarioOpt = repository.findById(id);
 
         if (dto.getNome() == null) {
@@ -87,7 +86,7 @@ public class UsuarioController {
         if (dto.getEmail() == null) {
             return ResponseEntity.badRequest().body("O email deve ser Obrigatorio");
         }
-        // para realizar a alteração da senha a senha deve ser preenchida
+
         if (dto.getSenha() == null) {
             return ResponseEntity.badRequest().body("A Senha deve Ser Obrigatorio");
         }
@@ -106,7 +105,6 @@ public class UsuarioController {
 
         Usuario saveUsuario = repository.save(usuario);
         return ResponseEntity.ok(saveUsuario);
-
     }
 
     // aqui vai ocorre o delete do usuario
@@ -121,20 +119,6 @@ public class UsuarioController {
         return ResponseEntity.ok().body("Usuario deletado com sucesso.");
     }
 
-    //  MUITO CUITDADO ISSO PODE QUEBRAR TODO O SITE
-
-    //  MUITO CUITDADO ISSO PODE QUEBRAR TODO O SITE
-
-    //  MUITO CUITDADO ISSO PODE QUEBRAR TODO O SITE
-
-    //  MUITO CUITDADO ISSO PODE QUEBRAR TODO O SITE
-
-    //  MUITO CUITDADO ISSO PODE QUEBRAR TODO O SITE
-
-    //  MUITO CUITDADO ISSO PODE QUEBRAR TODO O SITE
-
-
-    // vai armarenar o id do usuario logado par que possa ser usado em outros lugares como pedido em endereço
     private static Integer loggedUserId = null;
 
     public static Integer getLoggedUserId() {
@@ -163,7 +147,6 @@ public class UsuarioController {
         return ResponseEntity.ok().body("Login realizado com sucesso! ID do usuário logado: " + loggedUserId);
     }
 
-
     @GetMapping("/logged-user")
     public ResponseEntity<?> getLoggedUser() {
         System.out.println("Verificando ID do usuário logado: " + loggedUserId);
@@ -173,20 +156,18 @@ public class UsuarioController {
         return ResponseEntity.ok("ID do usuário logado: " + loggedUserId);
     }
 
-
-    // aqui vai ser criado um chave de acesso para que o alter possar ser feito
     private final HashMap<String, String> passwordResetTokens = new HashMap<>();
 
     @PostMapping("/verificar-usuario")
     public ResponseEntity<?> verificarUsuario(@RequestBody Usuario_RequestDTO dto) {
+
         if (dto.getEmail() == null || dto.getNome() == null) {
             return ResponseEntity.badRequest().body("O nome e o e-mail do usuário são obrigatórios.");
         }
 
-        // Buscar o usuário com o nome e email fornecidos
         Optional<Usuario> usuarioOpt = repository.findAll().stream()
-                .filter(u -> u.getEmail().equals(dto.getEmail()) && u.getNome().equals(dto.getNome()))
-                .findFirst();
+        .filter(u -> u.getEmail().equals(dto.getEmail()) && u.getNome().equals(dto.getNome()))
+        .findFirst();
 
         if (usuarioOpt.isEmpty()) {
             return ResponseEntity.badRequest().body("Usuário não encontrado com o nome e e-mail fornecidos.");
@@ -200,7 +181,6 @@ public class UsuarioController {
         return ResponseEntity.ok("Usuário verificado. Token gerado para redefinição de senha.");
     }
 
-    // alter: vai reseber o email para ver se esse email tem alguna ordem de alteração de senha se tiver permitir o alter da senha
     @PutMapping("/alterar-senha")
     public ResponseEntity<?> alterarSenha(@RequestBody Usuario_RequestDTO dto) {
         if (dto.getEmail() == null) {
@@ -210,16 +190,14 @@ public class UsuarioController {
             return ResponseEntity.badRequest().body("A nova senha deve ser informada.");
         }
 
-        System.out.println("E-mail recebido para alteração de senha: " + dto.getEmail()); // LOG DE DEBUG
+        System.out.println("E-mail recebido para alteração de senha: " + dto.getEmail());
 
-        // Verificar se existe uma solicitação de redefinição para o e-mail
         String token = passwordResetTokens.get(dto.getEmail());
         if (token == null) {
-            System.out.println("Nenhum token encontrado para o e-mail: " + dto.getEmail()); // LOG DE DEBUG
+            System.out.println("Nenhum token encontrado para o e-mail: " + dto.getEmail());
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Nenhuma solicitação de redefinição encontrada para este e-mail.");
         }
 
-        // Buscar usuário pelo e-mail
         Optional<Usuario> usuarioOpt = repository.findAll().stream()
                 .filter(u -> u.getEmail().equals(dto.getEmail()))
                 .findFirst();
@@ -232,12 +210,10 @@ public class UsuarioController {
         usuario.setSenha(dto.getSenha());
         repository.save(usuario);
 
-        // Remover o token após a redefinição bem-sucedida
         passwordResetTokens.remove(dto.getEmail());
-        System.out.println("Senha alterada e token removido para o e-mail: " + dto.getEmail()); // LOG DE DEBUG
+        System.out.println("Senha alterada e token removido para o e-mail: " + dto.getEmail());
 
         return ResponseEntity.ok("Senha alterada com sucesso.");
     }
-
 
 }
