@@ -59,6 +59,10 @@ public class ItemController {
             return  ResponseEntity.badRequest().body("O valor do Estoque não pode ser Negativo");
         }
 
+        if (dto.getPreco() < 0) {
+            return  ResponseEntity.badRequest().body("O valor do Preco não pode ser Negativo");
+        }
+
         // atributos a resem inseridos ao banco de dados
         Item item = new Item();
         item.setNome(dto.getNome());
