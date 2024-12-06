@@ -7,7 +7,8 @@ function carregarDadosProduto() {
     const precoProduto = localStorage.getItem('precoProduto');
     const produtoId = localStorage.getItem('produtoId');
 
-    document.getElementById('produtoPreco').innerText = `Preço: R$ ${precoProduto}`;
+    document.getElementById('produtoPreco').innerText = ` R$ ${precoProduto},00`;
+    document.getElementById('idproduto').innerText = `${produtoId}`;
     window.precoProduto = precoProduto;
     window.produtoId = produtoId;
     

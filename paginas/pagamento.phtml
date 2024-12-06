@@ -1,67 +1,69 @@
 <section id="main_pagamento">
-    <div class="conteiner_pagamento">
-        <p class="text-center">Escolha sua forma de pagamento</p>
+    
+        <div class="conteiner_pagamento">
+            <p class="text-center">Escolha sua forma de pagamento</p>
 
-        <form id="formPagamento" onsubmit="realizarPagamento(event)">
-            <div class="modelo">
-                <div class="parcela">
-                    <label for="creditocard"><i class="bi bi-credit-card-2-back-fill"></i> Cartão de Crédito</label>
-                    <p>Pagamento Imediato</p>
+            <form id="formPagamento" onsubmit="realizarPagamento(event)">
+                <div class="modelo">
+                    <div class="parcela">
+                        <label for="creditocard"><i class="bi bi-credit-card-2-back-fill"></i> Cartão de Crédito</label>
+                        <p>Pagamento Imediato</p>
 
-                    <div class="dropdown">
-                        <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Parcelas <i class="bi bi-arrow-down-short"></i>
-                        </a>
+                        <div class="dropdown">
+                            <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Parcelas <i class="bi bi-arrow-down-short"></i>
+                            </a>
 
-                        <ul class="dropdown-menu">
-                            <li>
-                                <input type="radio" id="parcela1" name="parcelas" value="1">
-                                <label for="parcela1">1X R$ 78.000,00</label>
-                            </li>
-                            <li>
-                                <input type="radio" id="parcela2" name="parcelas" value="2">
-                                <label for="parcela2">2X R$ 39.000,00</label>
-                            </li>
-                            <li>
-                                <input type="radio" id="parcela3" name="parcelas" value="3">
-                                <label for="parcela3">3X R$ 26.000,00</label>
-                            </li>
-                        </ul>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <input type="radio" id="parcela1" name="parcelas" value="1">
+                                    <label for="parcela1">1X R$ 78.000,00</label>
+                                </li>
+                                <li>
+                                    <input type="radio" id="parcela2" name="parcelas" value="2">
+                                    <label for="parcela2">2X R$ 39.000,00</label>
+                                </li>
+                                <li>
+                                    <input type="radio" id="parcela3" name="parcelas" value="3">
+                                    <label for="parcela3">3X R$ 26.000,00</label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ipt">
+                        <input type="radio" id="creditocard" name="pagamento" value="creditocard">
                     </div>
                 </div>
-                <div class="ipt">
-                    <input type="radio" id="creditocard" name="pagamento" value="creditocard">
-                </div>
-            </div>
 
-            <div class="modelo">
-                <div class="parcela">
-                    <label for="pix"><i class="bi bi-credit-card-2-back-fill"></i> PIX</label>
-                    <p>Pagamento Imediato</p>
+                <div class="modelo">
+                    <div class="parcela">
+                        <label for="pix"><i class="bi bi-credit-card-2-back-fill"></i> PIX</label>
+                        <p>Pagamento Imediato</p>
+                    </div>
+                    <div class="ipt">
+                        <input type="radio" id="pix" name="pagamento" value="pix">
+                    </div>
                 </div>
-                <div class="ipt">
-                    <input type="radio" id="pix" name="pagamento" value="pix">
-                </div>
-            </div>
 
-            <div class="modelo">
-                <div class="parcela">
-                    <label for="boleto"><i class="bi bi-credit-card-2-back-fill"></i> Boleto</label>
-                    <p>O Pagamento Pode levar de 1 a 2 dias</p>
+                <div class="modelo">
+                    <div class="parcela">
+                        <label for="boleto"><i class="bi bi-credit-card-2-back-fill"></i> Boleto</label>
+                        <p>O Pagamento Pode levar de 1 a 2 dias</p>
+                    </div>
+                    <div class="ipt">
+                        <input type="radio" id="boleto" name="pagamento" value="boleto">
+                    </div>
                 </div>
-                <div class="ipt">
-                    <input type="radio" id="boleto" name="pagamento" value="boleto">
+
+                <div id="produtoPreco" style="font-weight: bold !important;"></div>
+
+                <div class="btn">
+                    <a href="home">Voltar</a>
+                    <button type="submit">Concluir</button>
                 </div>
-            </div>
+            </form>
+        </div>
 
-            <div id="produtoPreco" style="font-weight: bold !important;"></div>
-
-            <div class="btn">
-                <a href="home">Voltar</a>
-                <button type="submit">Concluir</button>
-            </div>
-        </form>
-    </div>
 </section>
 
 
