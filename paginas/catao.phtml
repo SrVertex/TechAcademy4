@@ -5,13 +5,13 @@
 
         <form action="home" method="post" class="form"  id="formCartao" onsubmit="finalizarCompra(event)">
 
-            <input type="text" name="numero" placeholder="Número do Cartão" required maxlength="16" inputmode="numeric">
-            <input type="text" name="nome" placeholder="Nome Completo" required>
+            <input type="text" name="numero" placeholder="Número do Cartão"  maxlength="16" inputmode="numeric">
+            <input type="text" name="nome" placeholder="Nome Completo" >
             <div class="validacao">
-                <input type="month" name="validade" id="termos" required placeholder="Data de Validade">
+                <input type="month" name="validade" id="termos"  placeholder="Data de Validade">
                 <input type="text" name="segurança" placeholder="Código de Segurança" maxlength="3" inputmode="numeric">
             </div>
-            <input type="text" name="cpf" placeholder="CPF" required maxlength="11" inputmode="numeric">
+            <input type="text" name="cpf" placeholder="CPF"  maxlength="11" inputmode="numeric">
             <div class="btn_login">
                 <a id="link" href="index.php">Voltar</a>
                 <button id="link" type="submit">Confirmar</button>
